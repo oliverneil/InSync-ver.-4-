@@ -346,7 +346,12 @@
   scroll-snap-type:x mandatory; scrollbar-width:none; }
 .ins-page .pcx__viewport::-webkit-scrollbar{ display:none; }
 .ins-page .pcx__track{ display:flex; align-items:stretch; gap:22px;
-  padding:20px var(--gutter,32px); will-change:transform; }
+  /* The viewport must clip horizontally, and CSS forces overflow-y to compute
+     to 'hidden' when overflow-x is 'auto' — so a card's shadow gets sliced flat
+     at the top and bottom edges and reads as a grey rectangle. The only fix is
+     to leave the shadow room INSIDE the clip: this padding is sized to the
+     tracked-card shadow below (up 16px, down 40px) with margin to spare. */
+  padding:24px var(--gutter,32px) 44px; will-change:transform; }
 .ins-page .pcx__card{ flex:0 0 var(--card-w); width:var(--card-w);
   scroll-snap-align:center;
   opacity:.55; transform:scale(.96);
@@ -438,10 +443,12 @@
 .ins-page .chal-pin .pcx__head .shead .lead{ max-width:760px; }
 /* inside the track the active state owns the transform; hover keeps its
    shadow/icon language but must not fight the scale */
-.ins-page .pcx__card.chal{ overflow:hidden; box-shadow:var(--shadow-sm); }
+.ins-page .pcx__card.chal,
+.ins-page .pcx__card.chal:hover{ overflow:hidden; box-shadow:0 2px 10px rgba(22,34,63,.08); }
 .ins-page .pcx__card.chal:hover{ transform:scale(.96); }
 .ins-page .pcx__card.chal.is-active:hover{ transform:scale(1); }
-.ins-page .pcx__card.chal.is-active{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page .pcx__card.chal.is-active,
+.ins-page .pcx__card.chal.is-active:hover{ box-shadow:0 12px 28px rgba(22,34,63,.16); border-color:transparent; }
 .ins-page .pcx__card.chal.is-active .card__ic{ background:var(--orange); color:#fff; }
 .ins-page .pcx__card.chal .card__top{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }
 .ins-page .pcx__card.chal .card__ic{ margin-bottom:0; }
@@ -678,9 +685,9 @@
 .ins-page #solutions .card.is-follow,
 .ins-page .solviz.is-follow,
 .ins-page .test__feat.is-follow{ transition:box-shadow .45s ease !important; transition-delay:0s !important; }
-.ins-page #chxTrack .pcx__card.chal.is-glow,
 .ins-page #solutions .card.is-glow,
 .ins-page .solviz.is-glow{ box-shadow:var(--shadow); }
+.ins-page #chxTrack .pcx__card.chal.is-glow{ box-shadow:0 12px 28px rgba(22,34,63,.16); }
 .ins-page .test__feat.is-glow{ box-shadow:var(--shadow-orange); }
 .ins-page #chxTrack .pcx__card.chal.is-follow{ z-index:3; opacity:1; }
 @media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
@@ -707,22 +714,6 @@
   .ins-page .test__feat::before, .ins-page .test__avatar::after{ animation:none !important; opacity:0 !important; }
   .ins-page #contact.live .contact__line svg{ animation:none !important; }
   .ins-page .creds__track{ animation:none !important; }
-}
-
-/* PREVIEW FIX — mobile horizontal overflow.
-   A collapsed `1fr` grid column still sizes to the item's intrinsic minimum, and
-   the contact phone line uses non-breaking spaces between the two numbers, so its
-   min-content was 518px and pushed the document to 551px wide at 390px viewport.
-   minmax(0,1fr) caps the column at the container; the flex line is allowed to wrap. */
-@media (max-width:760px){
-  .ins-page .contact .split{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .contact__intro, .ins-page .contact__lines{ min-width:0; }
-  .ins-page .contact__line{ flex-wrap:wrap; min-width:0; }
-  /* the form's two-column grid never collapsed, and an <input> carries a default
-     intrinsic width (~20 characters), so the grid sized to the inputs, not the card */
-  .ins-page .cform__grid{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .field{ min-width:0; }
-  .ins-page .field input, .ins-page .field textarea{ min-width:0; width:100%; box-sizing:border-box; }
 }
 </style>
 

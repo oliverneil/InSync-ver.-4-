@@ -13,6 +13,12 @@
 .insf{
   --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
   --navy-2:#2c4474;--line:#e7eaef;--ease:cubic-bezier(.22,1,.36,1);
+  /* the pages' fixed scroll-video layer (.ins-scrub) is position:fixed with
+     z-index:0, so it paints above any STATIC content. The footer was static and
+     ended up buried under it (navy + an 80% shade) on pages where the scrub
+     stays on to the bottom — invisible text, though hit-testing still found the
+     links because the scrub is pointer-events:none. Own stacking context fixes it. */
+  position:relative;z-index:1;
   background:#0f1830;color:rgba(255,255,255,.66);padding:72px 0 0;font-size:.92rem;
   font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7;
 }
@@ -42,6 +48,18 @@
 .insf-contact a{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.6)}
 .insf-contact a:hover{color:var(--orange-light)}
 .insf-contact svg{width:16px;height:16px;color:rgba(255,255,255,.4);flex-shrink:0}
+/* HQ pill. This styling previously lived ONLY in the homepage's body CSS,
+   unscoped — so the shared footer rendered correctly on the homepage and
+   nowhere else: with no rule, the pin SVG has no intrinsic size and stretches
+   to the column width (~330px tall). The global footer block must be
+   self-contained, so it lives here now. */
+.insf-hq{display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;
+  font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:rgba(255,255,255,.8);background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px 12px;
+  transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease)}
+.insf-hq:hover{background:rgba(239,90,40,.16);border-color:rgba(239,90,40,.5);color:#fff}
+.insf-hq svg{width:14px;height:14px;flex-shrink:0}
 .insf-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;color:rgba(255,255,255,.45)}
 .insf-bottom a{color:rgba(255,255,255,.55)}
 .insf-bottom a:hover{color:var(--orange-light)}

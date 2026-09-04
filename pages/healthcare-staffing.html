@@ -364,6 +364,36 @@ html{scroll-behavior:smooth}
 
 @media (min-width:1025px){ .ins-page .pcx__dots, .ins-page .pcx__swipe{ display:none; } }
 
+@media(max-width:1024px){
+  .ins-page .split{grid-template-columns:1fr;gap:40px}
+  .ins-page .stack .split,.ins-page .stack .split--flip{grid-template-columns:1fr}
+  .ins-page .split--flip .split__media{order:0}
+  .ins-page .stack .split--flip .split__media{order:0}
+  .ins-page .cc{max-width:420px}
+  .ins-page .cardgrid--3{grid-template-columns:1fr 1fr}
+  .ins-page .contact .split{align-items:stretch}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:68px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .creds__track{animation-duration:22s}
+  .ins-page .hero{padding:92px 0}
+  .ins-page .hero__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .hero__ctas .btn{width:100%;justify-content:center}
+  .ins-page .cardgrid,.ins-page .cardgrid--3{grid-template-columns:1fr}
+  .ins-page .cform__grid{grid-template-columns:1fr}
+  .ins-page .cc{max-width:340px}
+  .ins-page .test__feat{padding:30px 26px}
+  .ins-page .cform{padding:26px}
+}
+@media(max-width:400px){
+  .ins-page h1{font-size:2.3rem}
+  .ins-page h2{font-size:1.65rem}
+  .ins-page .wrap{padding:0 16px}
+  .ins-page .card{padding:22px}
+  .ins-page .cc{max-width:300px}
+}
+
 /* ================================================================
    HEALTHCARE PAGE COMPONENTS — the dark motion page's section
    machinery (challenge→response pairs, ECG motif, pinned placement
@@ -377,6 +407,15 @@ html{scroll-behavior:smooth}
    homepage's left column. Apex hero rules already center the text,
    CTAs and tags inside it. */
 .ins-page .hero--wonder .hero__copy{ max-width:900px; margin-left:auto; margin-right:auto; }
+/* The hero's photo slot is the scrub layer in EVERY mode, not just on
+   desktop: on phones the light hero's ::before still painted its stock still
+   over the clip, so the video never showed and the veil went with it. Hidden
+   throughout; the layer's flat black shade is the hero's dark overlay, the
+   same one section two wears. */
+.ins-page .hero--wonder::before{ display:none; }
+@media (max-width:1024px), (pointer:coarse){
+  .ins-page .hero--wonder{ background:transparent; }
+}
 
 /* ---------- kinetic clip-wipe on section headings (donor motion).
    Rides ON TOP of the reveal: the .head reveals as a block, the h2
@@ -536,16 +575,24 @@ html{scroll-behavior:smooth}
 .ins-page .place-pin .pcx__stage, .ins-page .place-pin .pcx__spacer{ background:var(--bg-alt); }
 @media (min-width:1025px){ .ins-page .place-pin .pcx__stage{ overflow:hidden; } }
 @media (max-width:1024px){ .ins-page .place-pin{ --card-w:min(84vw,340px); } }
-.ins-page .pcx__card.pcard{ display:flex; flex-direction:column; background:#fff;
-  border:1.5px solid var(--line); border-radius:16px; padding:28px;
-  box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+/* In native (touch) mode the track scrolls inside an overflow-x box, which
+   CLIPS the card's drop shadow — it got sliced off square about 26px below
+   the card while the shadow reaches ~66px. Pad the scroll box out so the
+   shadow has room to fade instead of ending on a hard edge. */
+.ins-page .place-pin.pcx--native .pcx__viewport{ padding:12px 0 46px; }
+/* card metrics + states are the reference spec card's, verbatim: 1px line,
+   16px radius, 30px pad, 52px icon tile, and an ACTIVE state that drops the
+   border for a shadow + the orange rail (no heavy orange outline). */
+.ins-page .pcx__card.pcard{ display:flex; flex-direction:column; min-height:0; background:#fff;
+  border:1px solid var(--line); border-radius:16px; padding:30px;
+  position:relative; overflow:hidden; }
 .ins-page .pcard__n{ font-size:.74rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--orange); }
-.ins-page .pcard__ic{ width:46px; height:46px; border-radius:12px; background:var(--orange-soft); color:var(--orange);
+.ins-page .pcard__ic{ width:52px; height:52px; border-radius:13px; background:var(--orange-soft); color:var(--orange);
   display:flex; align-items:center; justify-content:center; margin:16px 0 18px;
-  transition:background .3s var(--ease), color .3s var(--ease); will-change:transform; }
-.ins-page .pcard__ic svg{ width:22px; height:22px; }
-.ins-page .pcard h3{ font-size:1.12rem; line-height:1.3; }
-.ins-page .pcard p{ font-size:.88rem; color:var(--muted); line-height:1.62; margin-top:10px; }
+  transition:all .3s var(--ease); will-change:transform; }
+.ins-page .pcard__ic svg{ width:25px; height:25px; }
+.ins-page .pcard h3{ margin-bottom:10px; }
+.ins-page .pcard p{ font-size:.9rem; color:var(--muted); line-height:1.62; }
 /* hover language 1+2: orange accent bar + shadow lift (transform belongs to the pin) */
 .ins-page .pcx__card.pcard::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
   background:var(--orange); transform:scaleY(0); transform-origin:top;
@@ -556,7 +603,7 @@ html{scroll-behavior:smooth}
 /* the pin owns card scale — mirror the services rule so hover can't fight it */
 .ins-page .pcx__card.pcard:hover{ transform:scale(.96); }
 .ins-page .pcx__card.pcard.is-active:hover{ transform:scale(1); }
-.ins-page .pcx__card.pcard.is-active{ border-color:var(--orange); box-shadow:var(--shadow); }
+.ins-page .pcx__card.pcard.is-active{ box-shadow:var(--shadow); border-color:transparent; }
 .ins-page .pcx__card.pcard.is-active::before{ transform:scaleY(1); }
 .ins-page .pcx__card.pcard.is-active .pcard__ic{ background:var(--orange); color:#fff; }
 
@@ -685,6 +732,9 @@ html{scroll-behavior:smooth}
   .ins-page .hc-ghost{ right:0; top:-8px; }
   .ins-page .hc-conn{ height:52px; }
   .ins-page .hc-conn::before{ top:0; bottom:0; }
+  /* the pair stacks here — problem above, response below — so the arrow
+     follows the connector's vertical line instead of pointing off-card */
+  .ins-page .hc-conn__node svg{ transform:rotate(90deg); }
   .ins-page .hc-resp{ padding:22px 0 34px; border-top:1px solid var(--line); }
   .ins-page .hc-idx{ column-gap:13px; }
   .ins-page .hc-idx__ic{ width:34px; height:34px; }
@@ -729,22 +779,6 @@ html{scroll-behavior:smooth}
   .ins-page.js .hc-ecg--run{ animation-duration:16s; }
 }
 
-
-/* PREVIEW FIX — mobile horizontal overflow.
-   A collapsed `1fr` grid column still sizes to the item's intrinsic minimum, and
-   the contact phone line uses non-breaking spaces between the two numbers, so its
-   min-content was 518px and pushed the document to 551px wide at 390px viewport.
-   minmax(0,1fr) caps the column at the container; the flex line is allowed to wrap. */
-@media (max-width:760px){
-  .ins-page .contact .split{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .contact__intro, .ins-page .contact__lines{ min-width:0; }
-  .ins-page .contact__line{ flex-wrap:wrap; min-width:0; }
-  /* the form's two-column grid never collapsed, and an <input> carries a default
-     intrinsic width (~20 characters), so the grid sized to the inputs, not the card */
-  .ins-page .cform__grid{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .field{ min-width:0; }
-  .ins-page .field input, .ins-page .field textarea{ min-width:0; width:100%; box-sizing:border-box; }
-}
 </style>
 
 <div class="ins-page">

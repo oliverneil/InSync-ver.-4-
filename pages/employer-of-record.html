@@ -311,6 +311,15 @@
   .ins-page .hero--wonder{ position:relative; inset:auto; height:auto; z-index:auto;
     display:block; padding:118px 0 122px; }
   .ins-page .ins-fadespacer{ display:none; }
+  /* the scrub gradient IS the veil here too — without this the apex hero's own
+     .84/.74 wash stacks on top of it and the footage composites to ~.97 */
+  .ins-page .hero--wonder::after{ display:none; }
+  /* and a lighter wash than desktop: the phone hero is in normal flow, so the
+     copy sits over a shorter span of footage and needs less dimming to read */
+  .ins-page .ins-scrub__grad{
+    background:
+      radial-gradient(ellipse 70% 70% at 50% 44%, rgba(0,0,0,.26), rgba(0,0,0,0) 74%),
+      linear-gradient(180deg, rgba(0,0,0,.70) 0%, rgba(0,0,0,.62) 45%, rgba(0,0,0,.54) 100%); }
 }
 @media (max-width:760px){
   .ins-page .hero--wonder{ padding:92px 0; }
@@ -388,6 +397,7 @@
 /* native mode (mobile / fallback): restore the standard section rhythm */
 .ins-page .pcx--native .pcx__stage{ position:relative; padding:96px 0 0; }
 .ins-page .pcx--native .pcx__viewport{ padding-bottom:6px; }
+
 .ins-page .pcx--native .pcx__head{ padding-top:0; }
 @media (max-width:760px){ .ins-page .pcx--native .pcx__stage{ padding:68px 0 0; } }
 
@@ -441,6 +451,19 @@
    pure-CSS snap fallback still applies. */
 .ins-page .pcx--native .pcx__viewport{ scroll-snap-type:none; touch-action:pan-x pan-y; overscroll-behavior-x:contain; }
 
+
+/* A scrolling viewport can't have visible overflow on the cross axis — the
+   browser forces overflow-y:hidden — so a card's shadow gets sliced off at the
+   viewport edge and reads as a hard square band. Give the track enough vertical
+   padding to hold the whole falloff, and use a tighter shadow in native mode so
+   that padding doesn't balloon the section: 0 10px 26px needs 36px below the
+   card and 16px above, which the padding below covers with room to spare. */
+.ins-page .pcx--native .pcx__track{ padding-top:20px; padding-bottom:40px; }
+.ins-page .pcx--native .pcx__card.is-active,
+.ins-page .pcx--native .pcx__card.card--gray.is-active,
+.ins-page .pcx--native .pcx__card.spec.is-active{ box-shadow:0 10px 26px rgba(22,34,63,.13); }
+.ins-page .pcx--native .pcx__card:not(.is-active){ box-shadow:0 6px 16px rgba(22,34,63,.07); }
+
 @media (min-width:1025px){ .ins-page .pcx__dots, .ins-page .pcx__swipe{ display:none; } }
 
 /* ---------- CHALLENGES pinned track: the five navy challenge cards ride the
@@ -461,9 +484,13 @@
    as the reference page's service cards riding the scrub layer */
 .ins-page .chal-pin .pcx__card.card--gray{ background:#fff; }
 @media (min-width:1025px){ .ins-page .chal-pin .pcx__stage{ overflow:hidden; } }
-.ins-page .chal-pin .pcx__cta{ padding:0 0 96px; }
-.ins-page .chal-pin .pcx__cta .sec-cta{ margin-top:12px; text-align:left; }
-.ins-page .chal-pin .pcx--native ~ .pcx__cta .sec-cta{ margin-top:34px; }
+/* The CTA block carries its own top padding — the button must NOT use
+   margin-top: with no padding on the parent the margin collapses THROUGH the
+   block, dropping it away from the stage and leaving an unpainted strip that
+   the fixed video shows through. Padding paints; margin doesn't. */
+.ins-page .chal-pin .pcx__cta{ padding:12px 0 96px; }
+.ins-page .chal-pin.pcx--native .pcx__cta{ padding-top:26px; }
+.ins-page .chal-pin .pcx__cta .sec-cta{ margin-top:0; text-align:left; }
 @media (max-width:760px){ .ins-page .chal-pin .pcx__cta{ padding-bottom:68px; } }
 /* inside the track the active state owns the transform; hover keeps its
    shadow/icon language but must not fight the scale */
@@ -482,10 +509,9 @@
 .ins-page .sol-pin{ --card-w:520px; padding:0; position:relative; z-index:10; }
 .ins-page .sol-pin .pcx__stage, .ins-page .sol-pin .pcx__spacer, .ins-page .sol-pin .pcx__cta{ background:var(--bg-alt); }
 @media (min-width:1025px){ .ins-page .sol-pin .pcx__stage{ overflow:hidden; } }
-.ins-page .sol-pin .pcx__cta{ padding:0 0 96px; }
-.ins-page .sol-pin .pcx__cta .sec-cta{ margin-top:12px; text-align:left; }
-.ins-page .pcx--native + .pcx__cta .sec-cta,
-.ins-page .sol-pin .pcx--native ~ .pcx__cta .sec-cta{ margin-top:34px; }
+.ins-page .sol-pin .pcx__cta{ padding:12px 0 96px; }
+.ins-page .sol-pin.pcx--native .pcx__cta{ padding-top:26px; }
+.ins-page .sol-pin .pcx__cta .sec-cta{ margin-top:0; text-align:left; }
 @media (max-width:760px){ .ins-page .sol-pin .pcx__cta{ padding-bottom:68px; } }
 /* the card: the apex gray card recipe (white on the alt band) with the icon
    BESIDE the heading on desktop, reclaiming height so the head clears the nav */
@@ -819,22 +845,6 @@
   .ins-page .wgv .wgv-a-gross{ transform:scaleX(.62) !important; }
   .ins-page .wgv .wgv-a-ded{ fill:var(--navy) !important; }
   .ins-page .wgv .wgv-a-net{ transform:scaleX(1) !important; }
-}
-
-/* PREVIEW FIX — mobile horizontal overflow.
-   A collapsed `1fr` grid column still sizes to the item's intrinsic minimum, and
-   the contact phone line uses non-breaking spaces between the two numbers, so its
-   min-content was 518px and pushed the document to 551px wide at 390px viewport.
-   minmax(0,1fr) caps the column at the container; the flex line is allowed to wrap. */
-@media (max-width:760px){
-  .ins-page .contact .split{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .contact__intro, .ins-page .contact__lines{ min-width:0; }
-  .ins-page .contact__line{ flex-wrap:wrap; min-width:0; }
-  /* the form's two-column grid never collapsed, and an <input> carries a default
-     intrinsic width (~20 characters), so the grid sized to the inputs, not the card */
-  .ins-page .cform__grid{ grid-template-columns:minmax(0,1fr); }
-  .ins-page .field{ min-width:0; }
-  .ins-page .field input, .ins-page .field textarea{ min-width:0; width:100%; box-sizing:border-box; }
 }
 </style>
 

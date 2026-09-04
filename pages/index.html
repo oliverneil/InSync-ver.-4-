@@ -349,6 +349,13 @@ html{scroll-behavior:smooth}
    radial glow, which reads fine over footage) */
 @media (max-width:1024px){
   .ins-page .hero--wonder{ background:transparent; }
+  /* MOBILE: the horizontal left-fade exists to keep the copy side dark while the
+     footage stays open on the right — that only makes sense in a two-column
+     desktop hero. On a narrow screen the copy sits over the whole frame, so the
+     gradient reads as a lopsided smear. Replace it with one flat dark overlay
+     across the entire section. The scroll handoff still cross-fades this into
+     .ins-scrub__shade, and the composite stays monotonic (.62 -> .71 -> .80). */
+  .ins-page .ins-scrub__grad{ background:rgba(0,0,0,.62); }
 }
 
 /* ---------- Wonder hero: the light hero as a fixed full-viewport scene.
@@ -547,6 +554,15 @@ html{scroll-behavior:smooth}
 .ins-page .pcx__card.spec.is-active .spec__ic{ background:var(--orange); color:#fff; }
 .ins-page .pcx__card.spec.is-active .spec__link{ color:var(--orange); }
 @media (max-width:1024px){ .ins-page .spec-pin{ --card-w:min(84vw,340px); } }
+/* MOBILE: .pcx__viewport is overflow-x:auto + overflow-y:hidden (one axis hidden
+   forces the other to clip too), so it cuts the card's box-shadow off at its
+   padding box. The shadow is 0 18px 48px — it needs ~30px above and ~66px below
+   the card, but only had 20px / 26px, which read as a hard square edge. Pad the
+   viewport so the whole shadow fits inside the clip. */
+@media (max-width:1024px){
+  .ins-page .pcx--native .pcx__viewport{ padding-top:14px; padding-bottom:46px; }
+  .ins-page .pcx--native .pcx__track{ padding-top:20px; padding-bottom:26px; }
+}
 @media (min-width:1025px){ .ins-page .spec-pin .pcx__stage{ overflow:hidden; } }
 /* Desktop: the icon sits BESIDE the heading + description instead of stacked
    above them — reclaims ~70px of card height, which buys the head more top
