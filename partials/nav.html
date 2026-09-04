@@ -1,0 +1,221 @@
+<!-- ================================================================
+     INSYNC — GLOBAL NAVIGATION (GoHighLevel custom code block)
+     HOW TO USE:
+     1. Add a full-width section at the VERY TOP of the page,
+        set section/row/column padding to 0.
+     2. Drop in a Custom Code / HTML element and paste this entire file.
+     3. Repeat on every page (or use a GHL global section).
+     The bar is position:fixed so it always stays on top while
+     scrolling; the built-in spacer pushes page content down so
+     nothing hides behind it. Fonts, styles and scripts included.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* anchor offset so #sections land below the fixed bar */
+[id]{scroll-margin-top:140px}
+
+.ins-header{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;--orange-soft:rgba(239,90,40,.10);
+  --navy:#20335a;--navy-deep:#16223f;--ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+  --line:#e7eaef;--bg-alt:#f5f7fa;--shadow:0 18px 48px rgba(22,34,63,.12);
+  --ease:cubic-bezier(.22,1,.36,1);
+  position:fixed;top:0;left:0;right:0;z-index:99999;
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;
+}
+.ins-header *,.ins-header *::before,.ins-header *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-header a{text-decoration:none;color:inherit}
+.ins-header ul{list-style:none}
+.ins-wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+/* top bar — visible at the top of the page (over the hero); collapses away as
+   soon as the visitor scrolls down, and returns when they come back to the top.
+   Height is animated rather than transform so the nav slides up with it and the
+   fixed-header spacer can follow. */
+.ins-topbar{background:var(--navy-deep);color:rgba(255,255,255,.75);font-size:.82rem;
+  height:40px;overflow:hidden;transition:height .34s cubic-bezier(.4,0,.2,1),opacity .22s ease}
+.ins-header.ins-scrolled .ins-topbar{height:0;opacity:0}
+@media(prefers-reduced-motion:reduce){.ins-topbar{transition:none}}
+.ins-topbar .ins-wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:18px}
+.ins-topbar a{color:#fff;font-weight:600}
+.ins-nurse::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange-light);margin-right:8px;vertical-align:middle}
+
+/* nav bar */
+.ins-nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.ins-nav .ins-wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:24px}
+.ins-logo img{height:44px;display:block}
+.ins-links{display:flex;align-items:center;gap:28px}
+.ins-links>li{position:relative}
+.ins-links>li>a{font-weight:600;font-size:.95rem;color:var(--ink);position:relative;padding:6px 0;display:inline-flex;align-items:center;gap:5px}
+.ins-links>li>a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange);transition:width .25s var(--ease)}
+.ins-links>li>a:hover{color:var(--orange)}
+.ins-links>li>a:hover::after{width:100%}
+.ins-links>li>a svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.ins-links>li:hover>a svg{transform:rotate(180deg)}
+
+/* dropdowns */
+.ins-sub{position:absolute;top:calc(100% + 12px);left:0;min-width:250px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s var(--ease);z-index:60}
+.ins-sub::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.ins-links>li:hover .ins-sub,.ins-links>li:focus-within .ins-sub{opacity:1;visibility:visible;transform:translateY(0)}
+.ins-sub a{display:block;padding:9px 12px;border-radius:8px;font-size:.9rem;font-weight:600;color:var(--text);white-space:nowrap}
+.ins-sub a:hover{background:var(--orange-soft);color:var(--orange)}
+
+/* buttons */
+.ins-ctas{display:flex;align-items:center;gap:12px}
+.ins-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-btn--primary{background:var(--orange);color:#fff !important;border-color:var(--orange)}
+.ins-header a.ins-btn--primary,.ins-header a.ins-btn--primary:visited,.ins-header a.ins-btn--primary:hover{color:#fff !important}
+.ins-btn--primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);color:#fff !important;transform:translateY(-3px);box-shadow:0 16px 40px rgba(239,90,40,.28)}
+.ins-btn--outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.ins-btn--outline:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+.ins-burger{display:none;background:none;border:none;cursor:pointer;color:var(--ink)}
+.ins-burger svg{width:28px;height:28px;display:block}
+
+/* spacer keeps page content below the fixed bar (height synced by JS) */
+.ins-spacer{height:120px}
+
+/* mobile */
+@media(max-width:980px){
+  .ins-topbar .ins-right{display:none}
+}
+@media(max-width:860px){
+  .ins-links{display:none;position:absolute;top:80px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 18px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);max-height:calc(100vh - 130px);overflow:auto}
+  .ins-links.open{display:flex}
+  .ins-links>li>a{padding:13px 0;border-bottom:1px solid var(--bg-alt);width:100%;display:flex;justify-content:space-between;align-items:center}
+  .ins-sub{position:static;min-width:0;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;border-radius:0;padding:0 0 0 16px;max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+  .ins-sub::before{display:none}
+  .ins-links>li.open .ins-sub{max-height:540px;padding-bottom:4px}
+  .ins-links>li.open>a svg{transform:rotate(180deg)}
+  .ins-sub a{white-space:normal;border-radius:0;font-size:.86rem;padding:10px 0}
+  /* Apply Now stays visible on mobile, beside the burger */
+  .ins-btn--outline{display:inline-flex;padding:9px 14px;font-size:.86rem}
+  .ins-burger{display:block}
+}
+@media(max-width:430px){
+  /* tightest phones: compact the action buttons so Apply Now + Contact Us + burger fit one row */
+  .ins-ctas{gap:7px}
+  .ins-btn{padding:8px 11px;font-size:.8rem}
+  .ins-logo img{max-height:34px}
+}
+</style>
+
+<div class="ins-header" id="insHeader">
+  <div class="ins-topbar">
+    <div class="ins-wrap">
+      <a href="/apply-now/" class="ins-nurse">Looking for your next opportunity?</a>
+      <span class="ins-right"><a href="tel:8886413444">(888) 641-3444</a> &nbsp;&middot;&nbsp; <a href="mailto:info@insynconline.net">info@insynconline.net</a></span>
+    </div>
+  </div>
+  <nav class="ins-nav">
+    <div class="ins-wrap">
+      <a class="ins-logo" href="/"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/691ce4ae0eb06d4bb0525b2a.png" alt="InSync Consulting Services"></a>
+      <ul class="ins-links" id="insLinks">
+        <li>
+          <a href="https://leap.laboredge.com/agencyjobboard/insync">Find a Job <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="ins-sub">
+            <li><a href="https://leap.laboredge.com/agencyjobboard/insync">Browse Jobs</a></li>
+            <li><a href="/apply-now/">Quick Apply</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/#talent">For Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="ins-sub">
+            <li><a href="/meet-your-insync-team/#executives">Meet the Executives</a></li>
+            <li><a href="/strike-work-updates/">Strike Work &amp; Updates</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/#employers">For Employers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="ins-sub">
+            <li><a href="/education-staffing/">Educational Staffing</a></li>
+            <li><a href="/healthcare-staffing/">Healthcare Staffing</a></li>
+            <li><a href="/employer-of-record/">Employer of Record &amp; Payroll</a></li>
+            <li><a href="/commercial-staffing/">Commercial Staffing</a></li>
+            <li><a href="/contact-us/">Request Staffing</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/employee-hub-login/">Employee Hub</a>
+        </li>
+        <li>
+          <a href="/about/">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="ins-sub">
+            <li><a href="/about/">About InSync</a></li>
+            <li><a href="/meet-your-insync-team/">Meet the InSync Team</a></li>
+            <li><a href="/joint-commission/">Joint Commission</a></li>
+            <li><a href="/blog/">Our Blog</a></li>
+            <li><a href="/contact-us/">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="ins-ctas">
+        <a href="/apply-now/" class="ins-btn ins-btn--outline">Apply Now</a>
+        <a href="/contact-us/" class="ins-btn ins-btn--primary">Contact Us</a>
+        <button class="ins-burger" id="insBurger" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="ins-spacer" id="insSpacer"></div>
+
+<script>
+(function(){
+  'use strict';
+  var burger=document.getElementById('insBurger'),links=document.getElementById('insLinks');
+  if(burger&&links){burger.addEventListener('click',function(){var open=links.classList.toggle('open');burger.setAttribute('aria-expanded',open?'true':'false');});}
+  /* mobile accordion: tap a main item to expand its submenu */
+  var mq=window.matchMedia('(max-width:860px)');
+  if(links){[].forEach.call(links.children,function(li){
+    var a=li.firstElementChild,sub=li.querySelector('.ins-sub');
+    if(!a||!sub)return;
+    a.addEventListener('click',function(e){
+      if(!mq.matches)return;
+      e.preventDefault();
+      var was=li.classList.contains('open');
+      [].forEach.call(links.children,function(s){s.classList.remove('open');});
+      if(!was)li.classList.add('open');
+    });
+  });}
+  /* keep the spacer exactly as tall as the fixed bar, at every size */
+  var header=document.getElementById('insHeader'),spacer=document.getElementById('insSpacer');
+  function sync(){if(header&&spacer){spacer.style.height=header.offsetHeight+'px';}}
+  sync();window.addEventListener('resize',sync);window.addEventListener('load',sync);
+
+  /* Top bar shows only at the top of the page (i.e. over the hero) and hides
+     once the visitor scrolls down. Hysteresis (hide past 48, show back under 12)
+     stops it flickering when a scroll settles right on the boundary. The header
+     is fixed with a spacer sized to it, so while the bar animates we re-sync the
+     spacer every frame until it settles — otherwise the page would jump by 40px
+     at the end of the transition. */
+  var SHOW_AT=12, HIDE_AT=48, barHidden=false, syncRaf=0, syncUntil=0;
+  function keepSync(){
+    sync();
+    if(Date.now()<syncUntil){ syncRaf=requestAnimationFrame(keepSync); }
+    else { syncRaf=0; sync(); }
+  }
+  function startSync(){
+    syncUntil=Date.now()+420;
+    if(!syncRaf) syncRaf=requestAnimationFrame(keepSync);
+  }
+  function onScrollBar(){
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(!barHidden && y>HIDE_AT){ barHidden=true; header.classList.add('ins-scrolled'); startSync(); }
+    else if(barHidden && y<SHOW_AT){ barHidden=false; header.classList.remove('ins-scrolled'); startSync(); }
+  }
+  if(header){
+    window.addEventListener('scroll',onScrollBar,{passive:true});
+    onScrollBar();   /* correct state on a reload that restores scroll position */
+  }
+  /* tap outside the menu closes it */
+  document.addEventListener('click',function(e){
+    if(!links||!links.classList.contains('open'))return;
+    if(header&&header.contains(e.target))return;
+    links.classList.remove('open');
+    if(burger)burger.setAttribute('aria-expanded','false');
+    [].forEach.call(links.children,function(s){s.classList.remove('open');});
+  });
+})();
+</script>
+<!-- ============== END INSYNC NAVIGATION ============== -->

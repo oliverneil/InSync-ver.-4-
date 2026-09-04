@@ -1,0 +1,2085 @@
+<!-- ================================================================
+     INSYNC — COMMERCIAL STAFFING & SUPPORT (Motion Standards v1.0)
+     Body-only GHL block. Paste between GHL-PASTE-START/END into ONE
+     full-width Custom Code element (padding 0), between the global
+     nav and footer blocks. Light InSync skin (website standards v1.0)
+     + the homepage motion layer: scroll-scrubbed hero video, morph hero,
+     pinned Challenges track, cursor-follow, icon draw, live loops.
+     ================================================================ -->
+<!-- ═══════════════ GHL-PASTE-START ═══════════════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+  --white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.12rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page [id]{scroll-margin-top:140px}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:96px 0}
+.ins-page .alt{background:var(--bg-alt)}
+
+/* ── Section headers ── */
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.02rem;color:var(--muted);line-height:1.7}
+.ins-page .shead{margin-bottom:30px}
+.ins-page .shead h2{margin:14px 0 14px}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.ins-page .sec-cta{text-align:center;margin-top:48px}
+
+/* ── HERO — centered over the dark footage (apex light skin) ── */
+.ins-page .hero{position:relative;overflow:hidden;padding:118px 0 122px;text-align:center;background:var(--navy-deep)}
+.ins-page .hero::before{content:"";position:absolute;inset:0;
+  background:url(https://images.leadconnectorhq.com/image/f_webp/q_80/r_1600/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a50ae940e67afc01344c2cc.jpg) center/cover no-repeat}
+.ins-page .hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.74))}
+.ins-page .hero .wrap{position:relative;z-index:2}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero h1{color:#fff;margin:16px 0 18px}
+.ins-page .hero h1 .accent{color:var(--orange-light)}
+.ins-page .hero__sub{font-size:1.08rem;color:rgba(255,255,255,.82);line-height:1.7;max-width:680px;margin:0 auto}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+.ins-page .hero__tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.ins-page .hero__tag{display:inline-block;background:rgba(239,90,40,.18);border:1px solid rgba(239,90,40,.34);border-radius:50px;padding:4px 14px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light)}
+
+/* ── Credentials ticker ── */
+.ins-page .creds{position:relative;border-bottom:1px solid var(--line);background:#fff;padding:22px 0;overflow:hidden}
+.ins-page .creds::before,.ins-page .creds::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.ins-page .creds::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds__track{display:flex;width:max-content;animation:insCredScroll 32s linear infinite}
+.ins-page .creds:hover .creds__track{animation-play-state:paused}
+.ins-page .creds__set{display:flex;align-items:center}
+.ins-page .cred{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.92rem;color:var(--ink);white-space:nowrap;padding:0 34px;position:relative}
+.ins-page .cred::after{content:"";position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:25%;background:var(--orange);opacity:.5}
+.ins-page .cred svg{width:22px;height:22px;color:var(--orange);flex-shrink:0}
+@keyframes insCredScroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+@media(prefers-reduced-motion:reduce){
+  .ins-page .creds__track{animation:none;width:100%;justify-content:center}
+  .ins-page .creds__set{flex-wrap:wrap;justify-content:center;row-gap:10px}
+  .ins-page .creds__set[aria-hidden="true"]{display:none}
+}
+
+/* ── Split layout: collage beside content (apex stack layout) ── */
+.ins-page .split{display:grid;grid-template-columns:0.82fr 1.18fr;gap:56px;align-items:center}
+.ins-page .split--top{align-items:start}
+.ins-page .split--flip .split__media{order:2}
+.ins-page .split__content{min-width:0}
+
+/* ── Photo collage (square slots v1.2 + accent squares) — brand graphics stay STATIC (rule 4) ── */
+.ins-page .cc{position:relative;width:100%;max-width:440px;margin:0 auto;aspect-ratio:1/1.02}
+.ins-page .cc img{position:absolute;border-radius:16px;object-fit:cover;box-shadow:0 16px 36px rgba(22,34,63,.18)}
+.ins-page .cc-a{left:0;top:8%;width:54%;aspect-ratio:1}
+.ins-page .cc-b{right:0;top:0;width:38%;aspect-ratio:1}
+.ins-page .cc-c{left:20%;bottom:0;width:46%;aspect-ratio:1}
+.ins-page .cc-sq{position:absolute;border-radius:22%}
+.ins-page .cc-s1{left:60%;top:26%;width:8%;aspect-ratio:1;background:var(--orange)}
+.ins-page .cc-s2{left:6%;bottom:20%;width:6%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .cc-s3{right:8%;bottom:8%;width:6.5%;aspect-ratio:1;background:var(--orange)}
+.ins-page .cc-s4{left:2%;top:2%;width:4.5%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .cc-s5{right:24%;top:4%;width:4%;aspect-ratio:1;background:var(--orange)}
+.ins-page .stack .split{grid-template-columns:0.62fr 1.38fr}
+.ins-page .stack .split--flip{grid-template-columns:1.38fr 0.62fr}
+.ins-page .stack .cc{aspect-ratio:1/1.38}
+.ins-page .stack .cc-b{left:45%;right:auto;top:0;bottom:auto;width:42%}
+.ins-page .stack .cc-a{left:0;right:auto;top:34%;bottom:auto;width:54%}
+.ins-page .stack .cc-c{left:24%;right:auto;top:auto;bottom:0;width:50%}
+.ins-page .stack .cc-s1{display:none}
+.ins-page .stack .cc-s2{left:6%;right:auto;bottom:13%;top:auto;width:6%}
+.ins-page .stack .cc-s3{left:11%;right:auto;bottom:3%;top:auto;width:6.5%}
+.ins-page .stack .cc-s5{left:auto;right:14%;top:2%;bottom:auto;width:3.5%}
+.ins-page .stack .cc-s4{display:none}
+.ins-page .stack .cc-cluster{position:absolute;left:3%;top:6%;width:30%;height:auto;z-index:0;transform:scaleX(-1)}
+.ins-page .stack .cc-m1{left:64%;top:51%;width:9%;aspect-ratio:1;background:var(--orange);z-index:2}
+.ins-page .stack .cc-m2{left:69%;top:49%;width:6.5%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .stack .cc-m3{left:auto;right:14%;top:40%;width:5%;aspect-ratio:1;background:var(--navy-2)}
+
+/* ── Cards (navy = challenges, gray = solutions) ── */
+.ins-page .cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ins-page .card{border-radius:16px;padding:26px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .card:hover{transform:translateY(-4px)}
+.ins-page .card__ic{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:all .3s var(--ease)}
+.ins-page .card__ic svg{width:23px;height:23px}
+.ins-page .card h3{margin-bottom:9px}
+.ins-page .card p{font-size:.88rem;line-height:1.65}
+.ins-page .card--navy{background:var(--navy);color:#fff}
+.ins-page .card--navy:hover{box-shadow:0 18px 40px rgba(22,34,63,.4)}
+.ins-page .card--navy h3{color:#fff}
+.ins-page .card--navy p{color:rgba(255,255,255,.72)}
+.ins-page .card--navy .card__ic{background:var(--orange-soft2);color:var(--orange-light)}
+.ins-page .card--navy:hover .card__ic{background:var(--orange);color:#fff}
+.ins-page .card--gray{background:var(--bg-alt);color:var(--text);border:1px solid var(--line)}
+.ins-page .card--gray:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .card--gray .card__ic{background:var(--orange-soft);color:var(--orange)}
+.ins-page .card--gray:hover .card__ic{background:var(--orange);color:#fff}
+.ins-page .alt .card--gray{background:#fff}
+/* white variant — the Challenges cards ride the pinned track over the shaded
+   footage, so they use the light system's standard white card (same surface as
+   the homepage service cards) rather than a navy panel. */
+.ins-page .card--white{background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.ins-page .card--white:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .card--white h3{color:var(--ink)}
+.ins-page .card--white p{color:var(--muted)}
+.ins-page .card--white .card__ic{background:var(--orange-soft);color:var(--orange)}
+.ins-page .card--white:hover .card__ic{background:var(--orange);color:#fff}
+
+/* ── Testimonial (orange card) ── */
+.ins-page .test{background:var(--bg-alt)}
+.ins-page .test__inner{max-width:940px;margin:0 auto}
+.ins-page .test__label{color:var(--orange);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.ins-page .test__feat{position:relative;background:var(--orange);border-radius:20px;padding:42px 40px;color:#fff;box-shadow:var(--shadow-orange);margin-top:18px;overflow:hidden}
+.ins-page .test__mark{font-size:3.4rem;line-height:.6;font-weight:800;color:rgba(255,255,255,.55);display:block;height:28px}
+.ins-page .test__quote{font-size:1.02rem;color:rgba(255,255,255,.95);line-height:1.72;margin-top:8px}
+.ins-page .test__div{height:1px;background:rgba(255,255,255,.28);margin:24px 0}
+.ins-page .test__attr{display:flex;align-items:center;gap:14px}
+.ins-page .test__avatar{position:relative;width:50px;height:50px;border-radius:50%;background:#fff;color:var(--orange);font-weight:800;font-size:1.15rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}   /* avatar — allowed round */
+.ins-page .test__name strong{display:block;color:#fff;font-weight:700}
+.ins-page .test__name span{font-size:.86rem;color:rgba(255,255,255,.8)}
+.ins-page .test__mark,.ins-page .test__quote,.ins-page .test__div,.ins-page .test__attr{position:relative;z-index:3}
+
+/* ── Contact form ── */
+.ins-page .contact{background:var(--navy-deep);color:#fff}
+.ins-page .contact .split{align-items:start}
+.ins-page .contact .eyebrow{color:var(--orange-light)}
+.ins-page .contact h2{color:#fff}
+.ins-page .contact h2 em{color:var(--orange-light)}
+.ins-page .contact__intro p{color:rgba(255,255,255,.72);margin-top:16px;font-size:1rem}
+.ins-page .contact__lines{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.ins-page .contact__line{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.85);font-size:.95rem}
+.ins-page .contact__line svg{width:20px;height:20px;color:var(--orange-light);flex-shrink:0}
+.ins-page .cform{background:#fff;border-radius:20px;padding:34px;box-shadow:var(--shadow)}
+.ins-page .cform__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ins-page .field{display:flex;flex-direction:column;gap:7px}
+.ins-page .field.full{grid-column:1/-1}
+.ins-page .field label{font-size:.78rem;font-weight:700;color:var(--ink)}
+.ins-page .field input,.ins-page .field textarea{font-family:var(--f);font-size:.95rem;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.ins-page .field textarea{resize:vertical;min-height:120px}
+.ins-page .field input:focus,.ins-page .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.ins-page .consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px}
+.ins-page .consent input{margin-top:3px;accent-color:var(--orange);width:16px;height:16px;flex-shrink:0}
+.ins-page .consent label{font-size:.76rem;color:var(--muted);line-height:1.55}
+.ins-page .consent a{color:var(--orange);font-weight:600}
+.ins-page .cform .btn{width:100%;margin-top:18px}
+
+/* ── Scroll reveal (v2 contract: .js pre-paint flag, JS sibling stagger) ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.40s}
+
+/* ── Responsive (base) ── */
+@media(max-width:1024px){
+  .ins-page .split{grid-template-columns:1fr;gap:40px}
+  .ins-page .split--flip .split__media{order:0}
+  .ins-page .cc{max-width:420px}
+  .ins-page .contact .split{align-items:stretch}
+  .ins-page .stack .split,
+  .ins-page .stack .split--flip{grid-template-columns:1fr;gap:40px}
+  .ins-page .stack .split--flip .split__media{order:0}
+  .ins-page .stack .cc{margin-left:auto;margin-right:auto}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:68px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .creds__track{animation-duration:22s}
+  .ins-page .hero{padding:92px 0}
+  .ins-page .hero__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .hero__ctas .btn{width:100%;justify-content:center}
+  .ins-page .cardgrid{grid-template-columns:1fr}
+  .ins-page .cform__grid{grid-template-columns:1fr}
+  .ins-page .cc{max-width:340px}
+  .ins-page .test__feat{padding:30px 26px}
+  .ins-page .cform{padding:26px}
+}
+.ins-page .split__media{min-width:0}
+.ins-page .card{overflow-wrap:break-word;word-break:break-word}
+.ins-page .cred{overflow-wrap:normal}
+
+/* ================================================================
+   MOTION LAYER (insync-motion-standards v1.0, engines verbatim from
+   the homepage build; re-dressed for this page's centered hero and
+   the Commercial stack sections). Scroll-scrubbed hero video, fixed
+   morph hero + page-load entrance, spring parallax, drifting brand
+   squares, GHL-safe pinned Challenges track, cursor-follow tilt +
+   spotlight, icon stroke-draw, section-live loops, v2 reveal contract.
+   ================================================================ */
+
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene; it must come back the moment the hero returns to normal flow. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{ height:0 !important; }
+}
+
+/* ---------- scroll-scrubbed backdrop (Layer 1): ONE continuous clip behind
+   the hero, the credentials ticker and the Challenges track. Frame 1 at the
+   top of the hero, final frame as the pinned runway ends. The hero wears this
+   page's own centered veil (the apex hero's 84%→74% vertical gradient) instead
+   of the homepage's left-fade; the flat .80 shade cross-fades in across the
+   hero's last 72vh and holds through the span. Mobile loops the clip hero-only;
+   reduced motion freezes frame 1. */
+.ins-page .ins-scrub{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:var(--navy-deep); opacity:0; transition:opacity .5s ease; }
+.ins-page .ins-scrub.is-on{ opacity:1; }
+.ins-page .ins-scrub__par{ position:absolute; inset:0; will-change:transform; }
+.ins-page .ins-scrub__vid{ position:absolute; left:50%; top:50%; width:114%; height:114%;
+  transform:translate(-50%,-50%); object-fit:cover; will-change:transform;
+  filter:contrast(1.06) saturate(1.08) brightness(.93); }   /* extra size = parallax room; grade richens high-key footage */
+.ins-page .ins-scrub.is-dead .ins-scrub__vid{ display:none; }
+/* centered copy: the veil is even left-to-right (the apex hero's own gradient),
+   plus a top fade that knocks down bright upper footage under the nav */
+.ins-page .ins-scrub__grad{ position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(180deg, rgba(0,0,0,.84), rgba(0,0,0,.74)); }
+.ins-page .ins-scrub__shade{ position:absolute; inset:0; opacity:0; background:rgba(0,0,0,.80); }
+
+/* ---------- Wonder hero: the centered light hero as a fixed full-viewport
+   scene. Base = fixed; the same media that turns the morph script off returns
+   it to normal flow (phones / coarse pointers / reduced motion). The scrub
+   layer IS the photo slot in every mode, so the hero's own photo + veil are off
+   on desktop; on mobile the in-flow hero rides the looping clip under that same
+   veil (the layer's own navy backdrop is the no-video fallback). */
+.ins-page .hero--wonder{ position:fixed; inset:0; height:100svh; z-index:40;
+  will-change:opacity,transform; display:flex; align-items:center;
+  padding:0; background:transparent; }
+.ins-page .hero--wonder::before{ display:none; }          /* photo slot is the scrub layer */
+.ins-page .hero--wonder::after{ display:none; }           /* veil lives in the scrub layer */
+.ins-page .hero--wonder .wrap{ padding-top:132px; }       /* clear the fixed 120px nav */
+.ins-page .hero__scene{ width:100%; }
+.ins-page .hero__copy{ position:relative; z-index:2; will-change:transform; }
+.ins-page .ins-fadespacer{ height:100svh; }               /* runway the fixed hero fades across */
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{ position:relative; inset:auto; height:auto; z-index:1;
+    display:block; padding:118px 0 122px; }
+  .ins-page .hero--wonder .wrap{ padding-top:0; }
+  .ins-page .ins-fadespacer{ display:none; }
+  .ins-page .hero__copy{ transform:none !important; }
+}
+@media (max-width:760px){ .ins-page .hero--wonder{ padding:92px 0; } }
+
+/* everything after the span paints above the fixed scrub layer */
+.ins-page .ins-below{ position:relative; z-index:10; background:#fff; }
+
+/* ---------- page-load entrance (donor mechanics: snap into a zoomed state
+   pre-paint, transition out on load; hero copy holds, then releases) */
+.ins-page .hero--wonder.ap-enter #apHeroS1{
+  transform:scale(1.12) !important; opacity:.5 !important; transition:none !important; }
+.ins-page .hero--wonder.ap-entering #apHeroS1{
+  transition:transform 1.7s cubic-bezier(.16,.84,.28,1), opacity 1.2s ease !important; }
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{
+  opacity:0 !important; transform:translateY(24px) !important; }
+.ins-page .hero--wonder.ap-reveal-hero .reveal{
+  opacity:1 !important; transform:none !important; }
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{ transform:none !important; opacity:1 !important; }
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ---------- drifting brand squares (donor ember drift, re-branded: no
+   decorative circles; orange + navy-2 squares inside the hero only) */
+.ins-page .hero__sqembers{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
+.ins-page .ins-sq-ember{
+  position:absolute; bottom:-3%;
+  width:var(--sz,7px); height:var(--sz,7px); border-radius:22%;
+  left:var(--x,50%); background:var(--sq-c,var(--orange));
+  opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite; }
+@keyframes insSqDrift{
+  0%{ transform:translate3d(0,2vh,0) rotate(0deg); opacity:0; }
+  10%{ opacity:var(--op,.2); }
+  85%{ opacity:var(--op,.2); }
+  100%{ transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg)); opacity:0; }
+}
+.ins-page .hero--wonder .wrap{ position:relative; z-index:2; }
+
+/* ---------- credentials ticker inside the scrub span: while the desktop scrub
+   is really driving (.ins-scrubbing, set by the engine — not a media query,
+   which can disagree with the engine on touch laptops) the ticker goes
+   transparent over the shaded footage. Every other mode keeps its light band. */
+.ins-page .creds{ position:relative; z-index:10; }
+.ins-page.ins-scrubbing .creds{ background:transparent; border-bottom-color:rgba(255,255,255,.12); }
+.ins-page.ins-scrubbing .creds::before{ background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0)); }
+.ins-page.ins-scrubbing .creds::after{ background:linear-gradient(270deg,rgba(0,0,0,.55),rgba(0,0,0,0)); }
+.ins-page.ins-scrubbing .cred{ color:#fff; }
+.ins-page.ins-scrubbing .cred svg{ color:var(--orange-light); }
+
+/* ================================================================
+   PINNED HORIZONTAL TRACK (donor pin engine; .pcx machinery names,
+   light surfaces). JS adds .pcx--pinned / .pcx--native and drives
+   the stage inline; dots, swipe cue and arrows are injected on mobile.
+   ================================================================ */
+.ins-page .pcx{ position:relative; }
+.ins-page .pcx__stage{ position:relative; left:0; width:100%;
+  display:flex; flex-direction:column; }
+.ins-page .pcx__head{ flex:0 0 auto; padding-top:24px; }
+.ins-page .pcx__head .shead{ margin-bottom:26px; }
+.ins-page .pcx__viewport{ flex:1 1 auto; display:flex; align-items:center;
+  overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory; scrollbar-width:none; }
+.ins-page .pcx__viewport::-webkit-scrollbar{ display:none; }
+.ins-page .pcx__track{ display:flex; align-items:stretch; gap:22px;
+  padding:20px var(--gutter,32px); will-change:transform; }
+.ins-page .pcx__card{ flex:0 0 var(--card-w); width:var(--card-w);
+  scroll-snap-align:center;
+  opacity:.55; transform:scale(.96);
+  transition:opacity .45s var(--ease), transform .45s var(--ease),
+             box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.ins-page .pcx__card.is-active{ opacity:1; transform:scale(1); }
+
+/* desktop pin mode */
+.ins-page .pcx--pinned .pcx__viewport{ overflow:hidden; scroll-snap-type:none; }
+.ins-page .pcx--pinned .pcx__head{ padding-top:196px; }   /* clear the fixed 120px nav + breathing room above the eyebrow */
+.ins-page .pcx--pinned .pcx__head .wrap{ max-width:min(1680px, 96vw); }
+.ins-page .pcx--pinned .pcx__head .shead{ max-width:none; }
+.ins-page .pcx--pinned .pcx__head .lead{ max-width:none; }
+/* native mode (mobile / fallback): restore the standard section rhythm */
+.ins-page .pcx--native .pcx__stage{ position:relative; padding:96px 0; }
+.ins-page .pcx--native .pcx__viewport{ padding-bottom:6px; }
+.ins-page .pcx--native .pcx__head{ padding-top:0; }
+@media (max-width:760px){ .ins-page .pcx--native .pcx__stage{ padding:68px 0; } }
+
+/* hint (desktop pin): tiny scroll cue, fades once moving */
+.ins-page .pcx__hint{ position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
+  display:none; align-items:center; gap:9px; color:var(--muted);
+  transition:opacity .4s ease; pointer-events:none; z-index:3; }
+.ins-page .pcx--pinned .pcx__hint{ display:flex; position:relative; left:auto; bottom:auto;
+  transform:none; margin:6px auto 16px; justify-content:center; }   /* in flow: reserves space, never overlaps the cards */
+.ins-page .pcx__hint svg{ width:16px; height:16px; }
+.ins-page .pcx__hint-track{ width:46px; height:2px; background:var(--line); border-radius:2px; overflow:hidden; position:relative; }
+.ins-page .pcx__hint-track::after{ content:''; position:absolute; inset:0; width:40%;
+  background:var(--orange); border-radius:2px;
+  transform:translateX(var(--pcx-hint,0%)); transition:transform .1s linear; }
+
+/* injected dots + swipe cue (mobile) */
+.ins-page .pcx__dots{ display:flex; justify-content:center; gap:8px; padding:16px 0 6px; }
+.ins-page .pcx__dot{ width:22px; height:4px; border-radius:3px; border:0; padding:0;
+  background:var(--line); cursor:pointer; transition:background .25s var(--ease); }
+.ins-page .pcx__dot[aria-selected="true"]{ background:var(--orange); }
+.ins-page .pcx__swipe{ display:flex; align-items:center; justify-content:center; gap:8px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); padding:10px 0 0; transition:opacity .4s ease; }
+.ins-page .pcx__swipe svg{ width:15px; height:15px; }
+/* prev / next arrows (native mode only). Sit just inside the stage edges,
+   vertically centred on the track; disabled at either end. */
+.ins-page .pcx__arrows{ display:none; }
+.ins-page .pcx__rail{ position:relative; }
+.ins-page .pcx--native .pcx__arrows{ display:block; position:absolute; left:0; right:0; top:50%;
+  transform:translateY(-50%); pointer-events:none; z-index:4; }
+.ins-page .pcx__arrow{ position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:12px; border:1px solid var(--line);
+  background:#fff; color:var(--navy); box-shadow:var(--shadow-sm); padding:0;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  pointer-events:auto; -webkit-tap-highlight-color:transparent;
+  transition:opacity .25s var(--ease), background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease); }
+.ins-page .pcx__arrow svg{ width:20px; height:20px; }
+.ins-page .pcx__arrow--prev{ left:10px; }
+.ins-page .pcx__arrow--next{ right:10px; }
+.ins-page .pcx__arrow--next svg{ transform:scaleX(-1); }
+.ins-page .pcx__arrow:active{ transform:translateY(-50%) scale(.94); }
+.ins-page .pcx__arrow:disabled{ opacity:.35; cursor:default; }
+@media (hover:hover){ .ins-page .pcx__arrow:not(:disabled):hover{ background:var(--orange); color:#fff; border-color:transparent; } }
+
+/* iOS: the swipe engine drives scrollLeft directly during the drag. On a
+   container with scroll-snap-type:x mandatory, Safari re-snaps every
+   programmatic position back to the nearest snap point, so the track appears
+   dead under the finger. In native mode the JS already owns snapping (settle),
+   so hand it the whole job. If JS never ran, .pcx--native is absent and the
+   pure-CSS snap fallback still applies. */
+.ins-page .pcx--native .pcx__viewport{ scroll-snap-type:none; touch-action:pan-x pan-y; overscroll-behavior-x:contain; }
+
+@media (min-width:1025px){ .ins-page .pcx__dots, .ins-page .pcx__swipe{ display:none; } }
+
+/* ---------- CHALLENGES pinned track — the section the scrub span covers.
+   Desktop scrub (.ins-scrubbing): TRANSPARENT over the fixed footage under the
+   flat black shade; the head goes white and the navy cards read on the dimmed
+   footage. Mobile / reduced motion / dead clip: its own light-alt band, exactly
+   as the apex stack section. */
+.ins-page .chal-pin{ --card-w:440px; padding:0; position:relative; z-index:10; }
+.ins-page .chal-pin .pcx__stage, .ins-page .chal-pin .pcx__spacer{ background:var(--bg-alt); }
+.ins-page.ins-scrubbing .chal-pin .pcx__stage, .ins-page.ins-scrubbing .chal-pin .pcx__spacer{ background:transparent; }
+.ins-page.ins-scrubbing .chal-pin .shead h2{ color:#fff; }
+.ins-page.ins-scrubbing .chal-pin .shead h2 em{ color:var(--orange-light); }
+.ins-page.ins-scrubbing .chal-pin .shead .lead{ color:rgba(255,255,255,.6); }
+.ins-page.ins-scrubbing .chal-pin .eyebrow{ color:var(--orange-light); }
+.ins-page.ins-scrubbing .chal-pin .pcx__hint{ color:rgba(255,255,255,.55); }
+.ins-page.ins-scrubbing .chal-pin .pcx__hint-track{ background:var(--line); }
+@media (min-width:1025px){ .ins-page .chal-pin .pcx__stage{ overflow:hidden; } }
+@media (max-width:1024px){ .ins-page .chal-pin{ --card-w:min(84vw,340px); } }
+/* the head is copy only (no CTA) — the lead keeps a readable measure while the
+   pinned stage stays inside one viewport */
+.ins-page .chal-pin .pcx__head .shead .lead{ max-width:760px; }
+/* inside the track the active state owns the transform; hover keeps its
+   shadow/icon language but must not fight the scale */
+.ins-page .pcx__card.chal{ overflow:hidden; box-shadow:var(--shadow-sm); }
+.ins-page .pcx__card.chal:hover{ transform:scale(.96); }
+.ins-page .pcx__card.chal.is-active:hover{ transform:scale(1); }
+.ins-page .pcx__card.chal.is-active{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page .pcx__card.chal.is-active .card__ic{ background:var(--orange); color:#fff; }
+.ins-page .pcx__card.chal .card__top{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }
+.ins-page .pcx__card.chal .card__ic{ margin-bottom:0; }
+/* Short viewports only need a tighter nav clearance + head rhythm */
+@media (min-width:1025px) and (max-height:820px){
+  .ins-page .pcx--pinned .pcx__head{ padding-top:176px; }   /* nav bottom is 121px */
+  .ins-page .pcx--pinned .pcx__head .shead{ margin-bottom:18px; }
+  .ins-page .chal-pin .pcx__head .shead h2{ font-size:clamp(1.6rem,2.6vw,2.2rem); margin:10px 0 10px; }
+  .ins-page .chal-pin .pcx__head .shead .lead{ font-size:.94rem; }
+  .ins-page .pcx--pinned .pcx__hint{ margin:2px auto 10px; }
+}
+
+/* ---------- hover language shared by every card family (orange accent bar
+   wipes down; shadow lifts; border clears). Gray solution cards + the navy
+   challenge cards both carry it. The bar sits under the spotlight (z2). */
+.ins-page .card{ position:relative; }
+.ins-page .card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--orange); border-radius:16px 0 0 16px; transform:scaleY(0); transform-origin:top;
+  transition:transform .3s var(--ease); z-index:3; }
+.ins-page .card:hover::before, .ins-page .card.on::before, .ins-page .pcx__card.chal.is-active::before{ transform:scaleY(1); }
+.ins-page .card--gray{ overflow:hidden; }
+
+/* ---------- animated card icons: each glyph draws itself on (stroke-dashoffset)
+   the first time its card reaches the viewport, the tile breathes gently at
+   idle, and the card the pin / cycler makes active gets a short pop. Path
+   lengths are measured at runtime (see the icon engine). */
+.ins-page .card__ic{ will-change:transform; position:relative; }
+.ins-page .card__ic svg [stroke-dasharray]{ stroke-dashoffset:var(--dash,0); }
+.ins-page .card.draw .card__ic svg [stroke-dasharray]{
+  animation:insIcoDraw .68s cubic-bezier(.65,0,.35,1) forwards; }
+.ins-page .card.draw .card__ic svg [stroke-dasharray]:nth-child(2){ animation-delay:.1s; }
+.ins-page .card.draw .card__ic svg [stroke-dasharray]:nth-child(3){ animation-delay:.2s; }
+@keyframes insIcoDraw{ from{ stroke-dashoffset:var(--dash,0); } to{ stroke-dashoffset:0; } }
+.ins-page .card.draw .card__ic{ animation:insIcoFloat 4.5s ease-in-out 1s infinite; }
+@keyframes insIcoFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); } }
+.ins-page .pcx__card.chal.is-active .card__ic,
+.ins-page #solutions .card.on .card__ic{ animation:insIcoPop .5s var(--ease); }
+@keyframes insIcoPop{ 0%{ transform:scale(1); } 45%{ transform:scale(1.14) rotate(-4deg); } 100%{ transform:scale(1); } }
+/* icon tile throws a ring the moment a card becomes the featured one (the
+   donor's halo, squared to the 13px tile radius) */
+.ins-page .card__ic::after{ content:""; position:absolute; inset:-4px; border-radius:16px;
+  border:2px solid var(--orange); opacity:0; pointer-events:none; }
+.ins-page .pcx__card.chal.is-active .card__ic::after,
+.ins-page #solutions .card.on .card__ic::after{ animation:insIcoRing .9s var(--ease) 1; }
+@keyframes insIcoRing{ 0%{ transform:scale(.86); opacity:.85; } 100%{ transform:scale(1.35); opacity:0; } }
+
+/* the console tops out level with the first row of solution cards (the split is
+   already align-items:start; this pins the panel to the top of its column
+   rather than letting it stretch or centre) */
+@media (min-width:1025px){
+  .ins-page #solutions .split{ align-items:start; }
+  .ins-page #solutions .split__media{ align-self:start; }
+  .ins-page #solutions .solviz{ margin-top:0; }
+}
+
+/* ---------- OUR RESPONSE: the workforce console ----------
+   Replaces the photo collage with a visual OF the solutions themselves. The
+   chart shows staffing scaling up to meet a rising demand curve (scalable
+   staffing); the six rows below are the six solution cards, and the active row
+   lights in step with the card cycler, so the panel is always showing whichever
+   solution the visitor is reading. Text-free by design — every label is a
+   placeholder bar, so the panel adds no copy and needs no translation. */
+.ins-page .solviz{ position:relative; width:100%; max-width:440px; margin:0 auto;
+  background:#fff; border:1px solid var(--line); border-radius:20px;
+  box-shadow:var(--shadow); overflow:hidden; }
+.ins-page .solviz__bar{ display:flex; align-items:center; gap:10px;
+  padding:14px 18px; border-bottom:1px solid var(--line); background:var(--bg-alt); }
+.ins-page .solviz__dots{ display:flex; gap:5px; }
+.ins-page .solviz__dots i{ width:8px; height:8px; border-radius:50%; background:var(--line); }   /* status dots — allowed round */
+.ins-page .solviz__dots i:first-child{ background:var(--orange); }
+.ins-page .solviz__ttl{ display:block; width:96px; height:7px; border-radius:4px; background:var(--line); }
+.ins-page .solviz__live{ margin-left:auto; display:flex; align-items:center; }
+.ins-page .solviz__live i{ width:7px; height:7px; border-radius:50%; background:var(--orange); }  /* live dot — allowed round */
+
+/* --- demand curve + staffing columns --- */
+.ins-page .solviz__chart{ position:relative; height:172px; padding:16px 18px 0; overflow:hidden; }
+.ins-page .solviz__curve{ position:absolute; left:18px; right:18px; top:16px; bottom:14px;
+  width:auto; height:auto; overflow:visible; }
+.ins-page .solviz__curve path{ stroke-dasharray:430; stroke-dashoffset:430; }
+.ins-page .solviz__cols{ position:relative; z-index:2; display:flex; align-items:flex-end;
+  gap:5px; height:100%; padding-bottom:14px; }
+.ins-page .solviz__col{ flex:1; display:flex; align-items:flex-end; height:100%; }
+.ins-page .solviz__col i{ display:block; width:100%; height:var(--h,50%); border-radius:3px 3px 0 0;
+  background:var(--orange-soft2); transform-origin:bottom; transform:scaleY(.28); }
+.ins-page .solviz__scan{ position:absolute; top:0; bottom:0; left:-70px; width:70px; z-index:3;
+  pointer-events:none; background:linear-gradient(90deg,transparent,var(--orange-soft),transparent); }
+/* the columns climb to meet the curve, left to right, then reset */
+.ins-page #solutions.live .solviz__col i{ animation:insSolRise 4.6s var(--ease) infinite; }
+@keyframes insSolRise{ 0%{ transform:scaleY(.28); background:var(--orange-soft2); }
+  38%,74%{ transform:scaleY(1); background:var(--orange); }
+  92%,100%{ transform:scaleY(.28); background:var(--orange-soft2); } }
+.ins-page .solviz__col:nth-child(2) i{ animation-delay:.09s; }
+.ins-page .solviz__col:nth-child(3) i{ animation-delay:.18s; }
+.ins-page .solviz__col:nth-child(4) i{ animation-delay:.27s; }
+.ins-page .solviz__col:nth-child(5) i{ animation-delay:.36s; }
+.ins-page .solviz__col:nth-child(6) i{ animation-delay:.45s; }
+.ins-page .solviz__col:nth-child(7) i{ animation-delay:.54s; }
+.ins-page .solviz__col:nth-child(8) i{ animation-delay:.63s; }
+.ins-page .solviz__col:nth-child(9) i{ animation-delay:.72s; }
+.ins-page .solviz__col:nth-child(10) i{ animation-delay:.81s; }
+.ins-page .solviz__col:nth-child(11) i{ animation-delay:.90s; }
+.ins-page .solviz__col:nth-child(12) i{ animation-delay:.99s; }
+.ins-page #solutions.live .solviz__curve path{ animation:insSolCurve 4.6s var(--ease) infinite; }
+@keyframes insSolCurve{ 0%,4%{ stroke-dashoffset:430; } 44%,86%{ stroke-dashoffset:0; } 98%,100%{ stroke-dashoffset:430; } }
+.ins-page #solutions.live .solviz__scan{ animation:insSolScan 4.6s linear infinite; }
+@keyframes insSolScan{ 0%{ left:-70px; } 60%,100%{ left:100%; } }
+
+/* --- one row per solution card; the active row mirrors the card cycler --- */
+.ins-page .solviz__rows{ padding:14px; border-top:1px solid var(--line); }
+.ins-page .solviz__row{ display:flex; align-items:center; gap:12px; padding:12px 12px;
+  border-radius:12px; transition:background .35s var(--ease), transform .35s var(--ease); }
+.ins-page .solviz__row + .solviz__row{ margin-top:4px; }
+.ins-page .solviz__ic{ width:30px; height:30px; border-radius:9px; flex-shrink:0;
+  background:var(--orange-soft); transition:background .35s var(--ease); }
+.ins-page .solviz__lines{ flex:1; min-width:0; display:flex; flex-direction:column; gap:5px; }
+.ins-page .solviz__lines i{ display:block; height:6px; border-radius:4px; background:var(--line); }
+.ins-page .solviz__lines i:first-child{ width:62%; background:var(--bg-alt); box-shadow:inset 0 0 0 1px var(--line); }
+.ins-page .solviz__lines i:last-child{ width:40%; }
+.ins-page .solviz__meter{ display:block; width:52px; height:5px; border-radius:50px;
+  background:var(--line); overflow:hidden; flex-shrink:0; }
+.ins-page .solviz__meter i{ display:block; height:100%; width:var(--w,80%); border-radius:50px;
+  background:var(--orange); transform:scaleX(0); transform-origin:left;
+  transition:transform .7s var(--ease); }
+.ins-page .solviz__row.on{ background:var(--orange-soft); transform:translateX(3px); }
+.ins-page .solviz__row.on .solviz__ic{ background:var(--orange); }
+.ins-page .solviz__row.on .solviz__meter i{ transform:scaleX(1); }
+
+@media (prefers-reduced-motion:reduce){
+  .ins-page .solviz__col i{ transform:scaleY(1) !important; background:var(--orange) !important; animation:none !important; }
+  .ins-page .solviz__curve path{ stroke-dashoffset:0 !important; animation:none !important; }
+  .ins-page .solviz__scan{ display:none; }
+  .ins-page .solviz__meter i{ transform:scaleX(1) !important; transition:none !important; }
+  .ins-page .solviz__row{ transform:none !important; }
+}
+
+/* ---------- SOLUTIONS: the cycler lights one card at a time while the section
+   is on screen (donor tile cycle): solid-orange icon recipe + accent bar. */
+.ins-page #solutions .card.on{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page #solutions .card.on .card__ic{ background:var(--orange); color:#fff; }
+
+/* ---------- CHALLENGE micro-visuals: one per card, about that challenge,
+   drawn in the brand's square language (rects only — no decorative circles).
+   Each runs only while its card is the active one AND the section is live;
+   parked otherwise; frozen at its resting state under reduced motion. */
+.ins-page .chal__mv{ flex:0 0 auto; width:84px; height:48px; }
+.ins-page .chal__mv svg{ display:block; width:100%; height:100%; overflow:visible; }
+.ins-page .chal__mv .mv-mut{ fill:var(--line); }
+.ins-page .chal__mv .mv-or{ fill:var(--orange); }
+.ins-page .chal__mv .mv-orl{ fill:var(--orange-light); }
+/* 01 High Turnover — seats empty and refill one after another (churn) */
+.ins-page .chal__mv .mv-a-seat{ animation:insMvSeat 3.6s ease-in-out infinite; }
+@keyframes insMvSeat{ 0%,10%{ opacity:1; transform:translateY(0); } 22%,40%{ opacity:0; transform:translateY(6px); } 52%,100%{ opacity:1; transform:translateY(0); } }
+.ins-page .chal__mv .mv-a-seat:nth-of-type(2){ animation-delay:.9s; }
+.ins-page .chal__mv .mv-a-seat:nth-of-type(3){ animation-delay:1.8s; }
+.ins-page .chal__mv .mv-a-seat:nth-of-type(4){ animation-delay:2.7s; }
+/* 02 Quality — a quality meter fills while a marker sweeps the scale */
+.ins-page .chal__mv .mv-a-fill{ transform-origin:left; animation:insMvFill 3.2s var(--ease) infinite; }
+@keyframes insMvFill{ 0%,100%{ transform:scaleX(.18); } 50%{ transform:scaleX(1); } }
+.ins-page .chal__mv .mv-a-mark{ animation:insMvMark 3.2s var(--ease) infinite; }
+@keyframes insMvMark{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(58px); } }
+/* 03 Seasonal Demand — volume bars, two of them spiking */
+.ins-page .chal__mv .mv-a-spike{ transform-origin:bottom; animation:insMvSpike 1.8s var(--ease) infinite; }
+.ins-page .chal__mv .mv-a-spike:nth-of-type(5){ animation-delay:.3s; }
+@keyframes insMvSpike{ 0%,100%{ transform:scaleY(.6); opacity:.55; } 50%{ transform:scaleY(1); opacity:1; } }
+/* 04 Scheduling — a shift week fills left to right */
+.ins-page .chal__mv .mv-a-day{ animation:insMvDay 3.4s var(--ease) infinite; }
+@keyframes insMvDay{ 0%,72%,100%{ fill:var(--line); } 16%,44%{ fill:var(--orange); } }
+.ins-page .chal__mv .mv-a-day:nth-of-type(2){ animation-delay:.11s; }
+.ins-page .chal__mv .mv-a-day:nth-of-type(3){ animation-delay:.22s; }
+.ins-page .chal__mv .mv-a-day:nth-of-type(4){ animation-delay:.33s; }
+.ins-page .chal__mv .mv-a-day:nth-of-type(5){ animation-delay:.44s; }
+.ins-page .chal__mv .mv-a-day:nth-of-type(6){ animation-delay:.55s; }
+.ins-page .chal__mv .mv-a-day:nth-of-type(7){ animation-delay:.66s; }
+/* 05 Skills — a scan crosses the skill grid and one cell locks orange */
+.ins-page .chal__mv .mv-a-cell{ animation:insMvCell 2.8s ease infinite; }
+@keyframes insMvCell{ 0%,10%{ fill:var(--line); } 18%,26%{ fill:var(--orange-light); } 34%,100%{ fill:var(--line); } }
+.ins-page .chal__mv .mv-a-cell:nth-of-type(2){ animation-delay:.14s; }
+.ins-page .chal__mv .mv-a-cell:nth-of-type(3){ animation-delay:.28s; }
+.ins-page .chal__mv .mv-a-cell:nth-of-type(4){ animation-delay:.42s; }
+.ins-page .chal__mv .mv-a-cell:nth-of-type(6){ animation-delay:.56s; }
+.ins-page .chal__mv .mv-a-lock{ animation:insMvLock 2.8s ease .7s infinite; }
+@keyframes insMvLock{ 0%,16%{ fill:var(--line); } 26%,78%{ fill:var(--orange); } 90%,100%{ fill:var(--line); } }
+/* 06 Training — a ramp climbs step by step */
+.ins-page .chal__mv .mv-a-step{ transform-origin:bottom; animation:insMvStep 2.8s var(--ease) infinite; }
+@keyframes insMvStep{ 0%,100%{ transform:scaleY(.6); fill:var(--line); } 45%,60%{ transform:scaleY(1); fill:var(--orange); } }
+.ins-page .chal__mv .mv-a-step:nth-of-type(2){ animation-delay:.26s; }
+.ins-page .chal__mv .mv-a-step:nth-of-type(3){ animation-delay:.52s; }
+/* Gate LAST on purpose: the `animation:` shorthands above each reset
+   animation-play-state to running, so an earlier paused rule of equal
+   specificity would be overwritten. Parked until the card is featured. */
+.ins-page .chal__mv [class*="mv-a"]{ animation-play-state:paused; }
+.ins-page #challenges.live .pcx__card.chal.is-active .chal__mv [class*="mv-a"]{ animation-play-state:running; }
+
+/* ---------- TESTIMONIAL: a soft band of light sweeps the orange card while it
+   is on screen; the avatar throws a ring (avatar — allowed round). */
+.ins-page .test__feat::before{ content:""; position:absolute; top:0; bottom:0; left:-90px; width:90px; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent); }
+.ins-page #testimonial.live .test__feat::before{ animation:insTestSweep 5.5s linear infinite; }
+@keyframes insTestSweep{ 0%{ left:-90px; } 100%{ left:100%; } }
+.ins-page .test__avatar::after{ content:""; position:absolute; inset:-2px; border-radius:50%; border:1.5px solid #fff; opacity:0; pointer-events:none; }   /* avatar ring — allowed round */
+.ins-page #testimonial.live .test__avatar::after{ animation:insAvRing 2.9s var(--ease) infinite; }
+@keyframes insAvRing{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.75); opacity:0; } }
+
+/* ---------- CONTACT: detail icons lift in sequence while the section is live */
+.ins-page #contact.live .contact__line svg{ animation:insIconLift 3.2s ease-in-out infinite; }
+.ins-page #contact.live .contact__line:nth-child(2) svg{ animation-delay:.4s; }
+@keyframes insIconLift{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-3px); } }
+
+/* ---------- cursor-follow on the card families ----------
+   The challenge cards, solution cards and the testimonial card tilt toward the
+   pointer (spring-damped, written per frame by the follow engine) and carry a
+   soft spotlight that tracks the cursor inside them. Fine pointers only;
+   reduced motion off. Every family bound in the JS SEL appears in EVERY list. */
+.ins-page #chxTrack .pcx__card.chal,
+.ins-page #solutions .card,
+.ins-page .solviz,
+.ins-page .test__feat{ position:relative; transform-style:preserve-3d; }
+.ins-page #chxTrack .pcx__card.chal::after,
+.ins-page #solutions .card::after,
+.ins-page .solviz::after,
+.ins-page .test__feat::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2;
+  opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%); }
+/* orange surfaces: the spotlight is white, or it would vanish into the card */
+.ins-page .test__feat::after{ background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.18), rgba(255,255,255,0) 62%); }
+.ins-page #chxTrack .pcx__card.chal.is-glow::after,
+.ins-page #solutions .card.is-glow::after,
+.ins-page .solviz.is-glow::after,
+.ins-page .test__feat.is-glow::after{ opacity:1; }
+/* while the spring drives transform, only box-shadow may transition — the
+   reveal's / track's own transform transitions would otherwise lag the follow */
+.ins-page #chxTrack .pcx__card.chal.is-follow,
+.ins-page #solutions .card.is-follow,
+.ins-page .solviz.is-follow,
+.ins-page .test__feat.is-follow{ transition:box-shadow .45s ease !important; transition-delay:0s !important; }
+.ins-page #chxTrack .pcx__card.chal.is-glow,
+.ins-page #solutions .card.is-glow,
+.ins-page .solviz.is-glow{ box-shadow:var(--shadow); }
+.ins-page .test__feat.is-glow{ box-shadow:var(--shadow-orange); }
+.ins-page #chxTrack .pcx__card.chal.is-follow{ z-index:3; opacity:1; }
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page #chxTrack .pcx__card.chal::after,
+  .ins-page #solutions .card::after,
+  .ins-page .solviz::after,
+  .ins-page .test__feat::after{ display:none; }
+}
+/* the card's own hover lift is absent on tracked cards (the pin owns scale) and
+   the follow engine owns the transform while the pointer is inside */
+.ins-page .card.is-follow:hover{ transform:none; }
+
+/* ---------- MOTION OFF: resolved static end-states (never the empty state) */
+@media (prefers-reduced-motion:reduce){
+  .ins-page .ins-sq-ember{ animation:none; display:none; }
+  .ins-page .card__ic, .ins-page .card.draw .card__ic,
+  .ins-page .pcx__card.chal.is-active .card__ic, .ins-page #solutions .card.on .card__ic{ animation:none !important; transform:none !important; }
+  .ins-page .card__ic svg [stroke-dasharray]{ stroke-dashoffset:0 !important; }
+  .ins-page .card.draw .card__ic svg [stroke-dasharray]{ animation:none !important; }
+  .ins-page .card__ic::after{ animation:none !important; opacity:0 !important; }
+  .ins-page .chal__mv [class*="mv-a"]{ animation:none !important; transform:none !important; opacity:1 !important; }
+  .ins-page .chal__mv .mv-a-fill{ transform:scaleX(1) !important; }
+  .ins-page .chal__mv .mv-a-day, .ins-page .chal__mv .mv-a-lock, .ins-page .chal__mv .mv-a-step{ fill:var(--orange) !important; }
+  .ins-page .test__feat::before, .ins-page .test__avatar::after{ animation:none !important; opacity:0 !important; }
+  .ins-page #contact.live .contact__line svg{ animation:none !important; }
+  .ins-page .creds__track{ animation:none !important; }
+}
+
+/* PREVIEW FIX — mobile horizontal overflow.
+   A collapsed `1fr` grid column still sizes to the item's intrinsic minimum, and
+   the contact phone line uses non-breaking spaces between the two numbers, so its
+   min-content was 518px and pushed the document to 551px wide at 390px viewport.
+   minmax(0,1fr) caps the column at the container; the flex line is allowed to wrap. */
+@media (max-width:760px){
+  .ins-page .contact .split{ grid-template-columns:minmax(0,1fr); }
+  .ins-page .contact__intro, .ins-page .contact__lines{ min-width:0; }
+  .ins-page .contact__line{ flex-wrap:wrap; min-width:0; }
+  /* the form's two-column grid never collapsed, and an <input> carries a default
+     intrinsic width (~20 characters), so the grid sized to the inputs, not the card */
+  .ins-page .cform__grid{ grid-template-columns:minmax(0,1fr); }
+  .ins-page .field{ min-width:0; }
+  .ins-page .field input, .ins-page .field textarea{ min-width:0; width:100%; box-sizing:border-box; }
+}
+</style>
+
+<div class="ins-page">
+<script>(function(){var p=document.querySelector('.ins-page');if(p)p.classList.add('js');})();</script>
+
+<!-- SCROLL-SCRUBBED BACKDROP — one continuous clip behind the hero, the
+     credentials ticker and the Challenges track: frame 1 at the top of the
+     hero, final frame as the pinned runway ends, playhead driven by scroll.
+     Source is a JS runtime constant (GHL corrupts media attributes). -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- ═══════════ 01 — HERO (centered over the footage; fixed morph scene) ═══════════ -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+    <div class="hero__copy">
+      <span class="eyebrow reveal">Commercial Staffing &amp; Support</span>
+      <h1 class="reveal">Commercial <span class="accent">Staffing</span> &amp; Support</h1>
+      <p class="hero__sub reveal d1">InSync's Commercial Staffing &amp; Support services provide comprehensive solutions for organizations seeking highly skilled and customer-focused commercial professionals. We specialize in delivering tailored staffing solutions, targeted recruitment, and performance management strategies to optimize commercial operations and enhance customer satisfaction.</p>
+      <div class="hero__ctas reveal d2">
+        <a href="/contact-us/" class="btn btn-primary">Schedule a Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://leap.laboredge.com/agencyjobboard/insync" target="_blank" rel="noopener" class="btn btn-ghost-w">Browse Jobs</a>
+      </div>
+      <div class="hero__tags reveal d3">
+        <span class="hero__tag">Tailored Staffing</span>
+        <span class="hero__tag">Targeted Recruitment</span>
+        <span class="hero__tag">Performance Management</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- ═══════════ 02 — CREDENTIALS TICKER (first in-flow block of the scrub span) ═══════════ -->
+<div class="creds" id="apSpanStart" aria-label="InSync credentials">
+  <div class="creds__track">
+    <div class="creds__set">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Staffing Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Staffing Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Staffing Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Staffing Network</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 03 — CHALLENGES (pinned horizontal track · navy cards) ═══════════ -->
+<!-- GHL-safe pin: manual fixed/absolute driven by JS (a sticky pin is
+     silently broken by GHL's overflow wrappers). Touch / reduced-motion /
+     transformed-ancestor fall back to native swipe + dots + arrows. -->
+<section class="section chal-pin pcx" id="challenges" data-inslive>
+  <div class="pcx__spacer" id="chxSpacer">
+    <div class="pcx__stage" id="chxStage">
+      <div class="pcx__head">
+        <div class="wrap">
+          <div class="shead reveal">
+            <span class="eyebrow">The Challenge</span>
+            <h2><em>Challenges</em> in Commercial Staffing &amp; Support</h2>
+            <p class="lead">Commercial and call center operations carry unique pressures — from high turnover to fluctuating seasonal demand. Naming these challenges clearly is the first step to solving them.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pcx__viewport" id="chxViewport">
+        <div class="pcx__track" id="chxTrack">
+          <div class="pcx__card chal card card--white" data-i="0">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-a-seat mv-orl" x="4" y="15" width="14" height="18" rx="3"/>
+<rect class="mv-a-seat mv-orl" x="24" y="15" width="14" height="18" rx="3"/>
+<rect class="mv-a-seat mv-orl" x="44" y="15" width="14" height="18" rx="3"/>
+<rect class="mv-a-seat mv-orl" x="64" y="15" width="14" height="18" rx="3"/>
+<rect class="mv-mut" x="4" y="38" width="74" height="4" rx="2"/>
+</g></svg></span>
+            </div>
+            <h3>High Turnover Rates</h3>
+            <p>Call centers often face high turnover rates due to the demanding nature of the job and employee burnout. This challenge can impact productivity and customer service quality.</p>
+          </div>
+          <div class="pcx__card chal card card--white" data-i="1">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-mut" x="4" y="20" width="76" height="8" rx="3"/>
+<rect class="mv-a-fill mv-or" x="4" y="20" width="76" height="8" rx="3"/>
+<rect class="mv-a-mark mv-orl" x="8" y="14" width="6" height="20" rx="2"/>
+</g></svg></span>
+            </div>
+            <h3>Performance and Quality Monitoring</h3>
+            <p>Call centers need to monitor agent performance and ensure quality standards are met. Tracking metrics, conducting performance evaluations, and implementing improvement plans require time and resources.</p>
+          </div>
+          <div class="pcx__card chal card card--white" data-i="2">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-mut" x="4" y="18" width="10" height="26" rx="2"/>
+<rect class="mv-mut" x="20" y="6" width="10" height="38" rx="2"/>
+<rect class="mv-a-spike mv-or" x="36" y="28" width="10" height="16" rx="2"/>
+<rect class="mv-mut" x="52" y="0" width="10" height="44" rx="2"/>
+<rect class="mv-a-spike mv-or" x="68" y="24" width="10" height="20" rx="2"/>
+</g></svg></span>
+            </div>
+            <h3>Seasonal Demand</h3>
+            <p>Many call centers experience fluctuating call volumes based on seasonal demands or specific business cycles. Managing staffing levels to meet peak periods while avoiding overstaffing during slower periods can be a challenge.</p>
+          </div>
+          <div class="pcx__card chal card card--white" data-i="3">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-a-day mv-mut" x="4" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="15.5" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="27" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="38.5" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="50" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="61.5" y="17" width="9" height="14" rx="2"/>
+<rect class="mv-a-day mv-mut" x="73" y="17" width="9" height="14" rx="2"/>
+</g></svg></span>
+            </div>
+            <h3>Scheduling and Shift Management</h3>
+            <p>Call centers typically operate 24/7 or have varying shifts to cover different time zones. Managing employee schedules, shift rotations, and ensuring proper staffing levels at all times can be complex.</p>
+          </div>
+          <div class="pcx__card chal card card--white" data-i="4">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-a-cell mv-mut" x="19" y="2" width="13" height="13" rx="3"/>
+<rect class="mv-a-cell mv-mut" x="35" y="2" width="13" height="13" rx="3"/>
+<rect class="mv-a-cell mv-mut" x="51" y="2" width="13" height="13" rx="3"/>
+<rect class="mv-a-cell mv-mut" x="19" y="18" width="13" height="13" rx="3"/>
+<rect class="mv-a-lock mv-mut" x="35" y="18" width="13" height="13" rx="3"/>
+<rect class="mv-a-cell mv-mut" x="51" y="18" width="13" height="13" rx="3"/>
+<rect class="mv-mut" x="19" y="34" width="13" height="13" rx="3"/>
+<rect class="mv-mut" x="35" y="34" width="13" height="13" rx="3"/>
+<rect class="mv-mut" x="51" y="34" width="13" height="13" rx="3"/>
+</g></svg></span>
+            </div>
+            <h3>Specific Skill Requirements</h3>
+            <p>Call center agents require specific skills such as excellent communication, problem-solving, and customer service abilities. Finding candidates with the right skill set and experience can be challenging, especially for specialized operations.</p>
+          </div>
+          <div class="pcx__card chal card card--white" data-i="5">
+            <div class="card__top">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+              <span class="chal__mv" aria-hidden="true"><svg viewBox="0 0 84 48"><g>
+<rect class="mv-a-step mv-mut" x="8" y="27" width="20" height="17" rx="2"/>
+<rect class="mv-a-step mv-mut" x="32" y="15" width="20" height="29" rx="2"/>
+<rect class="mv-a-step mv-mut" x="56" y="2" width="20" height="42" rx="2"/>
+</g></svg></span>
+            </div>
+            <h3>Training and Onboarding</h3>
+            <p>Call center staff need to be trained on company products, systems, and customer service protocols. Effective training and onboarding processes are crucial to ensure agents are well-prepared to handle customer inquiries.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pcx__hint" id="chxHint" aria-hidden="true">
+        <span class="pcx__hint-track"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ins-below">
+
+  <!-- ═══════════ 04 — SOLUTIONS (stack · collage RIGHT · gray cards) ═══════════ -->
+  <section class="section stack" id="solutions" data-inslive>
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">Our Response</span>
+        <h2><em>InSync Solutions</em> to Commercial Staffing &amp; Support Challenges</h2>
+        <p class="lead">We don't just name the problem — we've built dedicated strategies to solve each one, backed by years of experience and a commitment to client satisfaction.</p>
+      </div>
+      <div class="split split--flip split--top">
+        <div class="split__media reveal">
+          <!-- Workforce console: a text-free mockup of what the solutions DO —
+               staffing scales up to meet the demand curve (scalable staffing),
+               and the six service rows below mirror the six solution cards, the
+               active row lighting in step with the card cycler. -->
+          <div class="solviz" aria-hidden="true">
+            <div class="solviz__bar"><span class="solviz__dots"><i></i><i></i><i></i></span><span class="solviz__ttl"></span><span class="solviz__live"><i></i></span></div>
+            <div class="solviz__chart">
+              <span class="solviz__scan"></span>
+              <svg class="solviz__curve" viewBox="0 0 300 120" preserveAspectRatio="none"><path d="M6 88 L32 74 L58 80 L84 58 L110 64 L136 42 L162 48 L188 28 L214 34 L240 14 L266 20 L294 6" fill="none" stroke="var(--navy-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="solviz__cols">
+            <span class="solviz__col"><i style="--h:34%"></i></span>
+            <span class="solviz__col"><i style="--h:46%"></i></span>
+            <span class="solviz__col"><i style="--h:40%"></i></span>
+            <span class="solviz__col"><i style="--h:58%"></i></span>
+            <span class="solviz__col"><i style="--h:52%"></i></span>
+            <span class="solviz__col"><i style="--h:68%"></i></span>
+            <span class="solviz__col"><i style="--h:62%"></i></span>
+            <span class="solviz__col"><i style="--h:78%"></i></span>
+            <span class="solviz__col"><i style="--h:72%"></i></span>
+            <span class="solviz__col"><i style="--h:88%"></i></span>
+            <span class="solviz__col"><i style="--h:82%"></i></span>
+            <span class="solviz__col"><i style="--h:96%"></i></span>
+              </div>
+            </div>
+            <div class="solviz__rows" id="solVizRows">
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:88%"></i></span></div>
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:74%"></i></span></div>
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:96%"></i></span></div>
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:81%"></i></span></div>
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:92%"></i></span></div>
+            <div class="solviz__row"><span class="solviz__ic"></span><span class="solviz__lines"><i></i><i></i></span><span class="solviz__meter"><i style="--w:69%"></i></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="split__content">
+          <div class="cardgrid" id="solGrid">
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <h3>Employee Engagement and Retention Programs</h3>
+              <p>InSync focuses on creating a positive work environment, providing ongoing training and development opportunities, and implementing employee engagement initiatives to improve retention rates. We prioritize the well-being and job satisfaction of call center staff to reduce turnover.</p>
+            </div>
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <h3>Customized Training and Onboarding</h3>
+              <p>InSync provides customized training and onboarding programs to ensure that call center agents are well-equipped to handle their roles effectively. We collaborate with clients to develop training modules tailored to their specific industry, products, and customer service requirements.</p>
+            </div>
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+              <h3>Scalable Staffing Solutions</h3>
+              <p>InSync offers flexible staffing solutions that can adapt to fluctuating call volumes. Our experience in call center staffing allows us to quickly scale up or down the workforce based on demand, ensuring optimal staffing levels without compromising customer service.</p>
+            </div>
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <h3>Performance Management and Quality Assurance</h3>
+              <p>InSync implements performance management systems and quality assurance processes to monitor agent performance and ensure adherence to service level agreements. We regularly assess performance metrics, provide feedback and coaching, and implement improvement plans to enhance overall call center performance.</p>
+            </div>
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+              <h3>Extensive Talent Pool and Targeted Recruitment</h3>
+              <p>InSync maintains an extensive talent pool of qualified call center professionals. Our targeted recruitment strategies, including comprehensive screening and assessment processes, enable us to identify candidates with the right skills and experience for specific call center operations.</p>
+            </div>
+            <div class="card card--gray reveal">
+              <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <h3>Efficient Scheduling and Shift Management</h3>
+              <p>InSync utilizes advanced workforce management systems to optimize scheduling and shift management in call centers. We ensure appropriate staffing levels based on call volume forecasts, employee availability, and customer service needs, minimizing scheduling conflicts and maximizing operational efficiency.</p>
+            </div>
+          </div>
+          <div class="sec-cta reveal" style="text-align:left"><a href="/contact-us/" class="btn btn-primary">Schedule a Consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 05 — TESTIMONIAL (orange card) ═══════════ -->
+  <section class="section test" id="testimonial" data-inslive>
+    <div class="wrap">
+      <div class="test__inner">
+        <div class="reveal">
+          <span class="test__label">Testimonial</span>
+          <div class="test__feat">
+            <span class="test__mark" aria-hidden="true">&ldquo;</span>
+            <p class="test__quote">InSync is a key partner to us at TalentWave and we are grateful for the ongoing alliance that we've had with them for over two years. We've seen over and over again, InSync's ability to be flexible and creative when supporting our mutual clients. They are highly responsive, fully transparent and keep clear and dependable lines of communication open with us at all times. The trust that we've established between our two businesses reinforces the value we see in our relationship, each day, with InSync.</p>
+            <div class="test__div" aria-hidden="true"></div>
+            <div class="test__attr">
+              <div class="test__avatar" aria-hidden="true">N</div>
+              <div class="test__name"><strong>Neal B.</strong><span>TalentWave</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 06 — CONTACT FORM (styled placeholder) ═══════════ -->
+  <section class="section contact" id="contact" data-inslive>
+    <div class="wrap">
+      <div class="split">
+        <div class="contact__intro reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Contact <em>InSync</em> Support</h2>
+          <p>Not all problems are the same, and not all agencies are created equal. Tell us about your commercial staffing needs and our team will get back to you.</p>
+          <div class="contact__lines">
+            <div class="contact__line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(888) 641-3444</span></div>
+            <div class="contact__line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>Response within one business day</span></div>
+          </div>
+        </div>
+        <!-- NOTE: styled placeholder — wire fields to a real GHL form/CRM workflow before publishing -->
+        <form class="cform reveal d1" onsubmit="return false">
+          <div class="cform__grid">
+            <div class="field"><label for="fn">First Name *</label><input id="fn" type="text" name="first_name" required></div>
+            <div class="field"><label for="ln">Last Name *</label><input id="ln" type="text" name="last_name" required></div>
+            <div class="field full"><label for="em">Email *</label><input id="em" type="email" name="email" required></div>
+            <div class="field full"><label for="ph">Phone *</label><input id="ph" type="tel" name="phone" required></div>
+            <div class="field full"><label for="msg">Message *</label><textarea id="msg" name="message" required></textarea></div>
+          </div>
+          <div class="consent">
+            <input id="consent" type="checkbox" required>
+            <label for="consent">I agree to receive communications by text message from InSync Consulting Services regarding updates, hiring, and support. Reply STOP to opt out or HELP for help. Message frequency varies; message and data rates may apply. See our <a href="/privacy-policy/">Privacy Policy</a>.</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.ins-below -->
+</div><!-- /.ins-page -->
+
+<script>
+/* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && p.classList.contains('tl')) return;   /* timeline cards: spine-driven, no sibling delay */
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line. Catch anything at the observer's
+  // own trigger point (-12% viewport) and nothing below it.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  /* Section-live gating (donor mechanics): continuous loops run only while
+     their section is on screen — the IntersectionObserver adds .live on
+     scroll-in and REMOVES it on scroll-out, so nothing animates off-screen.
+     The Solutions cycler lights one card at a time (icon goes solid orange,
+     accent bar wipes, ring pulses) while that section is live. Reduced
+     motion: no cycler; the CSS gates freeze every loop at its resting state. */
+  var page = document.querySelector('.ins-page');
+  if (!page) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function cycler(getItems, ms){
+    var t = null, i = -1;
+    return {
+      start:function(){
+        if (t || reduce) return;
+        var items = getItems(); if (!items.length) return;
+        /* the workforce console mirrors the cycler: row N lights with card N,
+           so the panel is always showing the solution being read */
+        var rows = document.getElementById('solVizRows');
+        var mirror = rows ? rows.querySelectorAll('.solviz__row') : null;
+        t = setInterval(function(){
+          if (i > -1){
+            if (items[i]) items[i].classList.remove('on');
+            if (mirror && mirror[i]) mirror[i].classList.remove('on');
+          }
+          i = (i + 1) % items.length;
+          items[i].classList.add('on');
+          if (mirror && mirror[i]) mirror[i].classList.add('on');
+        }, ms);
+      },
+      stop:function(){
+        if (t){ clearInterval(t); t = null; }
+        var items = getItems();
+        for (var k = 0; k < items.length; k++) items[k].classList.remove('on');
+        var rows = document.getElementById('solVizRows');
+        if (rows){ [].forEach.call(rows.querySelectorAll('.solviz__row'), function(r){ r.classList.remove('on'); }); }
+        i = -1;
+      }
+    };
+  }
+  var cycles = {};
+  var solEl = document.getElementById('solGrid');
+  if (solEl) cycles['solutions'] = cycler(function(){ return solEl.querySelectorAll('.card'); }, 1800);
+
+  var liveSecs = page.querySelectorAll('[data-inslive]');
+  function setLive(el, on){
+    el.classList.toggle('live', on);
+    var c = cycles[el.id];
+    if (c){ on ? c.start() : c.stop(); }
+  }
+  if ('IntersectionObserver' in window){
+    var lio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ setLive(e.target, e.isIntersecting); });
+    }, { threshold:0.15 });
+    liveSecs.forEach(function(el){ lio.observe(el); });
+  } else {
+    liveSecs.forEach(function(el){ setLive(el, true); });
+  }
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var s1 = document.getElementById('apHeroS1');
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* Hero backdrop is the shared SCROLL-SCRUBBED video (#apScrubVid), fixed
+     behind the hero in the standards §6.11 photo slot. Source URL lives in
+     the scrub script as a runtime constant. */
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pVisual = hero.querySelector('.hero__visual');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor (negative parallax); near layers travel
+           more than far ones. Depth order, most-to-least travel:
+           squares > copy > collage > BACKGROUND VIDEO (deepest, subtle). */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pVisual) pVisual.style.transform = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0)';
+        /* the background video moves OPPOSITE the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+})();
+</script>
+<script>
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+<script>
+function apInitPinnedScroll(ids){
+  'use strict';
+  var root     = document.getElementById(ids.root);
+  var spacer   = document.getElementById(ids.spacer);
+  var stage    = document.getElementById(ids.stage);
+  var viewport = document.getElementById(ids.viewport);
+  var track    = document.getElementById(ids.track);
+  var hint     = ids.hint ? document.getElementById(ids.hint) : null;
+  if (!root || !spacer || !stage || !viewport || !track) return;
+  var cards = [].slice.call(track.querySelectorAll('.pcx__card'));
+  var N = cards.length;
+  if (!N) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  // Detect an ancestor that would break position:fixed (its transform/filter/etc.
+  // makes IT the containing block for fixed descendants -> pin would be wrong).
+  function ancestorBreaksFixed(){
+    var el = root.parentElement;
+    while (el && el !== document.documentElement && el !== document.body){
+      var cs = window.getComputedStyle(el);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.backdropFilter && cs.backdropFilter !== 'none') ||
+          (cs.willChange && /transform|perspective|filter/i.test(cs.willChange)) ||
+          (cs.contain && /(^|\s)(paint|layout|strict|content)(\s|$)/i.test(cs.contain))){
+        return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  var canPin = fine && !touch && !reduced && !ancestorBreaksFixed();
+
+  // ---------- NATIVE fallback: real horizontal swipe, no inflated spacer ----------
+  function nativeActive(){
+    var mid = viewport.scrollLeft + viewport.clientWidth / 2;
+    var best = 0, bd = Infinity;
+    for (var i = 0; i < N; i++){
+      var c = cards[i];
+      var cc = c.offsetLeft + c.offsetWidth / 2;
+      var d = Math.abs(cc - mid);
+      if (d < bd){ bd = d; best = i; }
+    }
+    for (var j = 0; j < N; j++){ cards[j].classList.toggle('is-active', j === best); }
+  }
+
+  if (!canPin){
+    root.classList.add('pcx--native');
+
+    // --- SWIPE ------------------------------------------------------------
+    // iOS locks a touch gesture to ONE axis on the first few pixels of travel.
+    // These cards are ~500px tall, so almost every swipe starts with a little
+    // vertical drift, Safari locks to vertical page scrolling, and the track
+    // never moves — the slider feels dead. (The credentials carousel escapes
+    // this because it declares touch-action:pan-x, but we can't do that here:
+    // it would stop the visitor scrolling the PAGE from over a card that fills
+    // their screen.) So we decide the axis ourselves, with a bias toward
+    // horizontal, and drive scrollLeft directly once we've claimed the gesture.
+    var tX = 0, tY = 0, tScroll = 0, axis = null, dragged = false;
+    var vel = 0, lastX = 0, lastT = 0, animRaf = 0;
+
+    function stopAnim(){ if (animRaf){ cancelAnimationFrame(animRaf); animRaf = 0; } }
+
+    // Eased programmatic scroll. scrollTo({behavior:'smooth'}) uses the browser's
+    // own curve and duration, which lands hard and feels mechanical next to a
+    // finger flick; this is a soft ease-out we control.
+    function animateTo(target, dur){
+      stopAnim();
+      var start = viewport.scrollLeft, delta = target - start;
+      if (Math.abs(delta) < 1){ viewport.scrollLeft = target; return; }
+      if (reduced){ viewport.scrollLeft = target; return; }
+      var t0 = (window.performance && performance.now) ? performance.now() : Date.now();
+      dur = dur || 460;
+      function step(now){
+        var p = Math.min(1, (now - t0) / dur);
+        var e = 1 - Math.pow(1 - p, 3);            // ease-out cubic
+        viewport.scrollLeft = start + delta * e;
+        animRaf = p < 1 ? requestAnimationFrame(step) : 0;
+      }
+      animRaf = requestAnimationFrame(step);
+    }
+
+    function cardLeft(i){
+      var c = cards[Math.max(0, Math.min(N - 1, i))];
+      return c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2;
+    }
+
+    viewport.addEventListener('touchstart', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      stopAnim();                                   // let a new grab interrupt the glide
+      tX = e.touches[0].clientX; tY = e.touches[0].clientY;
+      tScroll = viewport.scrollLeft; axis = null; dragged = false;
+      lastX = tX; vel = 0;
+      lastT = (window.performance && performance.now) ? performance.now() : Date.now();
+    }, { passive:true });
+
+    viewport.addEventListener('touchmove', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      var cx = e.touches[0].clientX;
+      var dx = cx - tX;
+      var dy = e.touches[0].clientY - tY;
+      if (axis === null){
+        // engage sooner (3px) and with a friendlier bias, so the slider claims
+        // the gesture before it starts to feel like it is resisting
+        if (Math.abs(dx) < 3 && Math.abs(dy) < 3) return;
+        axis = (Math.abs(dx) > Math.abs(dy) * 0.6) ? 'x' : 'y';
+      }
+      if (axis !== 'x') return;                              // let the page scroll
+      e.preventDefault();                                    // claim the gesture
+      dragged = true;
+      var now = (window.performance && performance.now) ? performance.now() : Date.now();
+      var dt = now - lastT;
+      if (dt > 0){
+        // smoothed px/ms, so one jittery frame can't throw the flick off
+        vel = vel * 0.7 + ((cx - lastX) / dt) * 0.3;
+        lastX = cx; lastT = now;
+      }
+      viewport.scrollLeft = tScroll - dx;
+    }, { passive:false });                                   // MUST be non-passive
+
+    function indexAt(pos){
+      var mid = pos + viewport.clientWidth / 2, best = 0, bestD = Infinity;
+      for (var i = 0; i < N; i++){
+        var c = cards[i], d = Math.abs((c.offsetLeft + c.offsetWidth / 2) - mid);
+        if (d < bestD){ bestD = d; best = i; }
+      }
+      return best;
+    }
+    function nearestIndex(){ return indexAt(viewport.scrollLeft); }
+
+    // On release, resolve against the card the gesture STARTED on, so one swipe
+    // always means one card. (Measuring from the nearest card instead double
+    // counts: a long drag has already moved the nearest card forward, so adding
+    // a flick on top of it skips one.) Either a quick flick OR a deliberate drag
+    // past ~18% of a card commits the move — the distance rule is what makes a
+    // slow, short swipe feel like it took, instead of springing back.
+    function settle(){
+      var startIdx = indexAt(tScroll);
+      var moved = viewport.scrollLeft - tScroll;
+      var speed = Math.abs(vel);
+      var committed = speed > 0.25 || Math.abs(moved) > cards[0].offsetWidth * 0.18;
+      var idx = startIdx;
+      if (committed && moved !== 0){
+        idx = startIdx + (moved > 0 ? 1 : -1) * (speed > 1.1 ? 2 : 1);
+      }
+      idx = Math.max(0, Math.min(N - 1, idx));
+      animateTo(cardLeft(idx), speed > 0.8 ? 380 : 480);
+    }
+    viewport.addEventListener('touchend', function(){
+      if (axis === 'x') settle();
+      axis = null;
+    }, { passive:true });
+
+    // --- DRAG vs TAP ---------------------------------------------------
+    // Every card in this track is an <a>. Without this guard the browser
+    // resolves a swipe as a tap on the link and navigates away mid-gesture,
+    // which reads exactly like "the slider won't slide". We watch how far the
+    // pointer travelled (and whether the track actually scrolled) and cancel
+    // the click in the CAPTURE phase if it was a drag.
+    var downX = 0, downY = 0, downScroll = 0;
+    function markDown(x, y){ downX = x; downY = y; downScroll = viewport.scrollLeft; dragged = false; }
+    function markMove(x, y){
+      if (Math.abs(x - downX) > 8 || Math.abs(y - downY) > 8) dragged = true;
+    }
+    viewport.addEventListener('pointerdown', function(e){ markDown(e.clientX, e.clientY); }, { passive:true });
+    viewport.addEventListener('pointermove', function(e){ markMove(e.clientX, e.clientY); }, { passive:true });
+    // once native scrolling takes over the browser cancels the pointer stream,
+    // so a cancel is itself proof the gesture became a scroll
+    viewport.addEventListener('pointercancel', function(){ dragged = true; }, { passive:true });
+    viewport.addEventListener('touchstart', function(e){
+      if (e.touches && e.touches[0]) markDown(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('touchmove', function(e){
+      if (e.touches && e.touches[0]) markMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('click', function(e){
+      if (dragged || Math.abs(viewport.scrollLeft - downScroll) > 4){
+        e.preventDefault(); e.stopPropagation();
+      }
+      dragged = false;
+    }, true);
+    // stop the browser's native link-drag (mouse) from pre-empting the scroll
+    track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    cards.forEach(function(c){ c.setAttribute('draggable', 'false'); });
+
+    // mouse drag-to-scroll, for the desktop native fallback where there are no
+    // touch gestures and a link drag would otherwise be the only outcome
+    var mDown = false, mStartX = 0, mStartScroll = 0;
+    viewport.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      mDown = true; mStartX = e.clientX; mStartScroll = viewport.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if (!mDown) return;
+      viewport.scrollLeft = mStartScroll - (e.clientX - mStartX);
+    });
+    window.addEventListener('pointerup', function(){ mDown = false; });
+
+    // --- centre-snap padding: without it the first and last card can never sit
+    // --- in the middle of the viewport, so scroll-snap-align:center misbehaves
+    function padNative(){
+      var vw = viewport.clientWidth;
+      // offsetWidth = layout width. getBoundingClientRect() folds the inactive
+      // card's scale(.96) into the number and skews the centre pad.
+      var cardW = cards[0].offsetWidth;
+      var pad = Math.max(12, (vw - cardW) / 2);
+      track.style.paddingLeft = pad + 'px';
+      track.style.paddingRight = pad + 'px';
+    }
+
+    // --- dot pagination + swipe cue (mobile affordance; the pinned scroll hint
+    // --- is desktop-only, so on a phone nothing said "this slides") ---
+    var dots = null, dotBtns = [], cue = null, cueHidden = false, prevBtn = null, nextBtn = null;
+    if (N > 1){
+      dots = document.createElement('div');
+      dots.className = 'pcx__dots';
+      dots.setAttribute('role', 'tablist');
+      dots.setAttribute('aria-label', 'Slide navigation');
+      for (var d = 0; d < N; d++){
+        (function(idx){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'pcx__dot';
+          b.setAttribute('role', 'tab');
+          b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+          var nm = cards[idx].querySelector('.cert-info__name, h3');
+          b.setAttribute('aria-label', nm ? nm.textContent.trim() : ('Slide ' + (idx + 1)));
+          b.addEventListener('click', function(){
+            animateTo(cardLeft(idx), 520);   // same eased glide as a flick
+          });
+          dots.appendChild(b);
+          dotBtns.push(b);
+        })(d);
+      }
+      // --- prev / next arrows: an explicit way to move the track that does not
+      // --- depend on the swipe gesture being honoured by the device ---
+      var arrows = document.createElement('div');
+      arrows.className = 'pcx__arrows';
+      var ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+      prevBtn = document.createElement('button');
+      prevBtn.type = 'button'; prevBtn.className = 'pcx__arrow pcx__arrow--prev';
+      prevBtn.setAttribute('aria-label', 'Previous'); prevBtn.innerHTML = ARROW_SVG;
+      nextBtn = document.createElement('button');
+      nextBtn.type = 'button'; nextBtn.className = 'pcx__arrow pcx__arrow--next';
+      nextBtn.setAttribute('aria-label', 'Next'); nextBtn.innerHTML = ARROW_SVG;
+      prevBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() - 1), 520); });
+      nextBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() + 1), 520); });
+      arrows.appendChild(prevBtn); arrows.appendChild(nextBtn);
+      // wrap the viewport in a rail so the arrows centre on the TRACK, not on
+      // the whole stage (which also holds the heading)
+      var rail = document.createElement('div');
+      rail.className = 'pcx__rail';
+      viewport.parentNode.insertBefore(rail, viewport);
+      rail.appendChild(viewport);
+      rail.appendChild(arrows);
+
+      cue = document.createElement('div');
+      cue.className = 'pcx__swipe';
+      cue.setAttribute('aria-hidden', 'true');
+      cue.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Swipe for more</span>';
+      stage.appendChild(cue);
+      stage.appendChild(dots);
+    }
+
+    function syncDots(){
+      if (dotBtns.length){
+        for (var i = 0; i < N; i++){
+          dotBtns[i].setAttribute('aria-selected', cards[i].classList.contains('is-active') ? 'true' : 'false');
+        }
+      }
+      if (prevBtn && nextBtn){
+        var cur = nearestIndex();
+        prevBtn.disabled = cur <= 0;
+        nextBtn.disabled = cur >= N - 1;
+      }
+    }
+
+    // set an initial active card and track native scroll
+    var nraf = 0;
+    viewport.addEventListener('scroll', function(){
+      if (!cueHidden && cue && viewport.scrollLeft > 24){ cueHidden = true; cue.style.opacity = '0'; }
+      if (!nraf) nraf = requestAnimationFrame(function(){ nraf = 0; nativeActive(); syncDots(); });
+    }, { passive:true });
+
+    window.addEventListener('resize', function(){ padNative(); nativeActive(); syncDots(); });
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ padNative(); nativeActive(); syncDots(); });
+    }
+
+    padNative();
+    // first active = card nearest center on load
+    nativeActive();
+    // if nothing is active yet (scrollLeft 0), force first
+    if (!track.querySelector('.is-active')) cards[0].classList.add('is-active');
+    syncDots();
+    return;
+  }
+
+  // ---------- PIN mode: manual fixed/absolute pin ----------
+  root.classList.add('pcx--pinned');
+
+  var spacerTop = 0, travel = 0, vh = 0, raf = 0;
+
+  function measure(){
+    var vw = viewport.clientWidth;
+    // centre the first & last card: pad both ends by (viewport - card)/2.
+    // offsetWidth = layout width (rect width folds in the inactive scale).
+    var cardW = cards[0].offsetWidth;
+    var pad = Math.max(0, (vw - cardW) / 2);
+    track.style.paddingLeft  = pad + 'px';
+    track.style.paddingRight = pad + 'px';
+
+    travel = Math.max(0, track.scrollWidth - vw);   // total horizontal distance
+    vh = window.innerHeight;
+
+    stage.style.height = vh + 'px';                 // stage fills viewport (matches spacer math)
+    spacer.style.height = (vh + travel) + 'px';     // spacer = one screen + travel  -> zero gap
+    spacerTop = spacer.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function paint(){
+    raf = 0;
+    var y = window.scrollY;
+    // recompute the spacer's absolute top LIVE each frame (never stale after layout shifts)
+    var rectTop = spacer.getBoundingClientRect().top + y;
+    var start = rectTop, end = rectTop + travel;
+    var progress, pos;
+
+    if (y < start){ progress = 0; pos = 'before'; }
+    else if (y >= end){ progress = 1; pos = 'after'; }
+    else { progress = travel > 0 ? (y - start) / travel : 0; pos = 'pinned'; }
+
+    // pin position: absolute(before) -> fixed(pinned) -> absolute(after)
+    if (pos === 'pinned'){
+      stage.style.position = 'fixed';   stage.style.top = '0'; stage.style.bottom = '';
+    } else if (pos === 'before'){
+      stage.style.position = 'absolute'; stage.style.top = '0'; stage.style.bottom = '';
+    } else { // after
+      stage.style.position = 'absolute'; stage.style.top = '';  stage.style.bottom = '0';
+    }
+    stage.style.left = '0'; stage.style.width = '100%';
+
+    // cards slide sideways 0 -> -travel
+    track.style.transform = 'translate3d(' + (-(progress * travel)).toFixed(2) + 'px,0,0)';
+
+    // active = centred card
+    var ai = Math.round(progress * (N - 1));
+    for (var i = 0; i < N; i++){ cards[i].classList.toggle('is-active', i === ai); }
+
+    // scroll hint: fill + fade out as we move
+    if (hint){
+      hint.style.setProperty('--pcx-hint', (progress * 150).toFixed(0) + '%');
+      hint.style.opacity = String(Math.max(0, 1 - progress * 3));
+    }
+  }
+
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', function(){ measure(); paint(); });
+  window.addEventListener('load', function(){ measure(); paint(); });
+  // re-measure once fonts/images settle (card width is fixed, but be safe)
+  if (document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ measure(); paint(); }); }
+
+  measure();
+  paint();
+}
+// initialise the Challenges pinned horizontal-scroll section
+apInitPinnedScroll({ root:'challenges', spacer:'chxSpacer', stage:'chxStage', viewport:'chxViewport', track:'chxTrack', hint:'chxHint' });
+</script>
+<script>
+(function(){
+  'use strict';
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  if (!wrap || !vid) return;
+
+  // Media source as a runtime constant (immune to GHL attribute corruption).
+  // Warehouse crew clip, H.264 -g 12 encode (dense keyframes = smooth seeking).
+  // Runtime constant, never an attribute — GHL corrupts media src attributes.
+  var AP_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a9a09947e31763f5ddb2a16.mp4';
+  vid.src = AP_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+  // Hero shows the video with the left-fade gradient only; as you leave the hero
+  // the two CROSS-FADE — the directional gradient goes out while a single flat,
+  // even shade comes in, so the Services section sits under a uniform overlay
+  // (no left-to-right falloff) with the cards/text still legible.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    // v2 spec: the hero shows the video CLEAN apart from the constant left-fade
+    // grad; the plain black shade ramps 0->1 across the hero's LAST 45vh so it
+    // is at full strength the moment the SECOND section (Our Services)
+    // starts, and holds there through the band.
+    var sp = document.getElementById('apSpanStart');
+    var svcTop = sp ? (sp.getBoundingClientRect().top + y) : vh;   // absolute top of the credentials ticker (first in-flow block of the span)
+    // Longer runway + smoothstep easing: the handoff reads as one continuous
+    // darkening rather than a linear ramp with hard endpoints.
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    // The two layers do NOT sum linearly. Fading the gradient out at the same
+    // rate the shade comes in makes the copy side get LIGHTER mid-transition
+    // (0.84 -> ~0.65 -> 0.80) before darkening again. So instead of a fixed
+    // curve, solve for the gradient opacity that holds the COMPOSITE on the
+    // copy side steady as it eases from the gradient's 0.84 to the shade's
+    // 0.80: 1-(1-GA*g)(1-SA*e) = T. The right-hand side of the frame simply
+    // darkens 0 -> 0.80. Result: no dip, no bump, and g reaches 0 continuously
+    // exactly as the shade lands at full.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers
+      var T = GA + (SA - GA) * e;               // target composite on the copy side
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  // shade runs independently of video readiness, in every mode
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // The scrub spans scrollY 0 (top of hero) -> the bottom of the SECOND
+  // section (Our Services): frame 1 at the top of the hero, the final frame
+  // as the pinned track's runway ends — the donor page's own hero+Services
+  // span, restored.
+  function scrubEnd(){
+    var sp = document.getElementById('chxSpacer');
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of Challenges (incl. pin runway)
+  }
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      // static: hold on the first frame
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      // mobile/touch: simple muted autoplay loop as a moving background
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+
+      // Gate the layer to its span. Visibility and PLAYBACK are decoupled on
+      // purpose: iOS (and older Android) will only decode one video stream at a
+      // time, so if this clip is still playing when the band layer tries to
+      // start, the band's play() is refused and the band stays black. We
+      // therefore release the decoder BEFORE the band probe turns on, while
+      // leaving the layer visible on its frozen last frame — by that point the
+      // shade has ramped to full black over it, so nothing looks different.
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        // v2: on mobile the clip backs the HERO only — the layer's visual
+        // span and its playback both end at the hero, so the loop costs
+        // nothing further down the page.
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+  // Flag the page so the span sections (ticker + Challenges) go transparent
+  // over the footage ONLY when the scrub is really driving. A CSS media query
+  // alone can disagree with this branch (touch laptops report a fine pointer
+  // AND touch), which would leave white headings over a white page.
+  var page = document.querySelector('.ins-page');
+  if (page) page.classList.add('ins-scrubbing');
+  // Dead / refused clip: keep the layer up on its solid navy backdrop so the
+  // fixed hero stays readable, and hand the span sections their own surfaces.
+  vid.addEventListener('error', function(){
+    ready = false; wrap.classList.add('is-on'); wrap.classList.add('is-dead');
+    if (page) page.classList.remove('ins-scrubbing');
+  });
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  // Resume the loop the moment each seek lands, and measure how long the seek
+  // took: past ~80ms the clip is sparse-keyframed or still buffering, and the
+  // eased approach (many small seeks) would multiply that cost — so slow clips
+  // switch to direct-to-target writes (one seek per update) while spec -g 12
+  // encodes keep the buttery ease.
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    // toggle the whole layer off once we're well past the certs (band video takes over)
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  // rAF loop: ease currentTime toward the scroll-derived target for smoothness.
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      // snap when very close, otherwise ease (kills micro-stutter while staying responsive)
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight. On sparse-keyframe
+        // or still-buffering clips every write aborts and restarts the
+        // pending seek, so no frame ever finishes presenting and the video
+        // looks FROZEN — worst deep into the span (section two), where seeks
+        // are furthest from a keyframe. On spec `-g 12` encodes each seek
+        // completes within a frame, so this gate never engages.
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      // keep animating while not settled
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  // prime
+  schedule();
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  /* Challenge / solution card icons draw themselves on when the card first reaches the
+     viewport. Path lengths are MEASURED (getTotalLength) rather than hardcoded,
+     so swapping an SVG can't silently break the effect. */
+  var cards = [].slice.call(document.querySelectorAll('#chxTrack .pcx__card.chal, #solutions .card'));
+  if (!cards.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach(function(card){
+    var shapes = card.querySelectorAll('.card__ic svg path, .card__ic svg circle, .card__ic svg rect, .card__ic svg line, .card__ic svg polyline');
+    [].forEach.call(shapes, function(s){
+      var len = 0;
+      try { len = s.getTotalLength ? s.getTotalLength() : 0; } catch(e){ len = 0; }
+      if (!len) return;                       /* unmeasurable shape: leave it alone */
+      len = Math.ceil(len) + 1;
+      s.setAttribute('stroke-dasharray', len);
+      s.style.setProperty('--dash', len);
+      if (reduced) s.style.strokeDashoffset = '0';
+    });
+  });
+  if (reduced){ cards.forEach(function(c){ c.classList.add('draw'); }); return; }
+
+  function draw(card){ card.classList.add('draw'); }
+  if (!('IntersectionObserver' in window)){ cards.forEach(draw); return; }
+  /* threshold:0 — the pinned track is several viewports tall, so a ratio
+     threshold would never resolve for cards parked off to the side. */
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ draw(x.target); io.unobserve(x.target); } });
+  }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+
+  /* the pin engine moves cards horizontally inside a fixed stage, so a card can
+     become visible without the observer refiring — sweep on scroll as a net */
+  var raf = 0;
+  function sweep(){
+    raf = 0;
+    var left = document.querySelectorAll('#chxTrack .pcx__card.chal:not(.draw), #solutions .card:not(.draw)');
+    for (var i = 0; i < left.length; i++){
+      var r = left[i].getBoundingClientRect();
+      if (r.right > 0 && r.left < window.innerWidth && r.top < window.innerHeight) draw(left[i]);
+    }
+    if (!document.querySelectorAll('#chxTrack .pcx__card.chal:not(.draw), #solutions .card:not(.draw)').length){
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the dashboard, phone, service, credential, value and
+     process-step cards: the card
+     tilts toward the pointer and a spotlight tracks it. Spring-damped so the
+     motion feels weighted (same STIFF/DAMP family as the hero parallax); on
+     leave it eases back to rest and returns control to the page's own
+     transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '#chxTrack .pcx__card.chal, #solutions .card, .solviz, .test__feat';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; with per-element binding that card's listeners would be
+     attached to a detached node and it would silently stop responding while
+     every other card kept working. Delegation resolves the card from whatever
+     is under the pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      /* service cards carry a base scale from the pin (.96 inactive / 1 active)
+         that must ride along, or the follow would flatten the track's depth */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ═══════════════ GHL-PASTE-END ═══════════════ -->

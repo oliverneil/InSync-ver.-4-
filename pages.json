@@ -1,0 +1,37 @@
+{
+  "index": {
+    "file": "index.html",
+    "nav_label": "Homepage",
+    "status": "ready",
+    "title": "InSync Consulting Services \u2014 Staffing That Actually Works",
+    "description": "InSync Consulting Services \u2014 staffing that actually works. Healthcare, commercial, educational staffing and EOR/payroll."
+  },
+  "education-staffing": {
+    "file": "education-staffing.html",
+    "nav_label": "Educational Staffing",
+    "status": "ready",
+    "title": "Nationwide Educational Staffing \u2014 InSync Consulting Services",
+    "description": "School nurses, therapists, SPED teachers and behavioral specialists placed nationwide by InSync Consulting Services."
+  },
+  "healthcare-staffing": {
+    "file": "healthcare-staffing.html",
+    "nav_label": "Healthcare Staffing",
+    "status": "ready",
+    "title": "Healthcare Staffing \u2014 InSync Consulting Services",
+    "description": "Travel nurses, RNs, allied health and clinical specialists \u2014 Joint Commission Certified placements delivered fast."
+  },
+  "employer-of-record": {
+    "file": "employer-of-record.html",
+    "nav_label": "EOR / Payroll",
+    "status": "ready",
+    "title": "Employer of Record & Payroll \u2014 InSync Consulting Services",
+    "description": "Full-service Employer of Record and payrolling \u2014 compliance, 401k and benefits handled for you."
+  },
+  "commercial-staffing": {
+    "file": "commercial-staffing.html",
+    "nav_label": "Commercial Staffing",
+    "status": "ready",
+    "title": "Commercial Staffing & Support \u2014 InSync Consulting Services",
+    "description": "Administrative, light industrial, customer service and skilled trades staffing from InSync Consulting Services."
+  }
+}

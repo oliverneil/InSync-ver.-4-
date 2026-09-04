@@ -1,0 +1,2627 @@
+<!-- ================================================================
+     INSYNC — HOMEPAGE BODY ONLY (GoHighLevel custom code block)
+     HOW TO USE:
+     1. Place this BETWEEN the InSync navigation block (top) and
+        the InSync footer block (bottom).
+     2. Use a full-width section with section/row/column padding 0.
+     3. Paste this entire file into a Custom Code / HTML element.
+     All styles are scoped under .ins-page so they cannot clash with
+     GHL theme styles. Fonts and scripts are included.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+  --white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+.ins-page{font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px}
+.ins-page .hl{color:var(--orange-light)}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head h2{margin:16px 0 16px}
+.ins-page .center-cta{text-align:center;margin-top:48px}
+
+.ins-page .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.ins-page .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+
+/* hero */
+.ins-page .hero{position:relative;background:var(--navy-deep);color:#fff;overflow:hidden;padding:92px 0 104px}
+.ins-page .hero::before{content:"";position:absolute;top:0;bottom:0;left:0;width:57%;background:url(https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a2a333cd119f1993ac40279.jpg) center/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%);mask-image:linear-gradient(90deg,#000 55%,transparent 100%)}
+.ins-page .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 78% 8%,rgba(44,68,116,.55),transparent 60%),linear-gradient(90deg,rgba(0,0,0,.85) 0%,rgba(22,34,63,.94) 40%,var(--navy-deep) 58%)}
+.ins-page .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:center}
+.ins-page .hero h1{color:#fff;margin:18px 0 20px}
+.ins-page .hero h1 .accent{color:var(--orange)}
+.ins-page .hero__sub{color:rgba(255,255,255,.78);font-size:1.12rem;max-width:540px;line-height:1.7;margin-bottom:34px}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.ins-page .hero__tags{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:.82rem;color:rgba(255,255,255,.55)}
+.ins-page .hero__tags span{display:inline-flex;align-items:center}
+.ins-page .hero__tags span+span::before{content:"·";margin:0 9px;opacity:.5}
+.ins-page .hero__visual{position:relative}
+.ins-page .hc{position:relative;width:100%;max-width:clamp(460px,48vw,680px);margin:0 auto;aspect-ratio:800/650}
+.ins-page .hc-photo{position:absolute;border-radius:18px;object-fit:cover;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.ins-page .hc-sm{left:9%;top:15%;width:31%;aspect-ratio:1;object-position:50% 100%}
+.ins-page .hc-lg{left:44%;top:22%;width:44%;aspect-ratio:1}
+.ins-page .hc-third{left:16%;top:61%;width:22%;aspect-ratio:1;overflow:hidden}
+.ins-page .hc-third img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(3);transform-origin:50% 50%}
+.ins-page .hc-sq{position:absolute;border-radius:18%}
+.ins-page .hc-sq1{left:46%;top:6%;width:5%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .hc-sq2{left:76%;top:82%;width:5%;aspect-ratio:1;background:var(--orange)}
+.ins-page .hc-sq3{left:2%;top:3%;width:3.4%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .hc-sq4{left:94%;top:46%;width:3.4%;aspect-ratio:1;background:var(--orange)}
+.ins-page .hc-sq5{left:52%;top:88%;width:2.8%;aspect-ratio:1;background:var(--navy-2)}
+.ins-page .hc-boxes{position:absolute;width:22%;height:auto}
+.ins-page .hc-boxes--tr{top:10%;right:0}
+.ins-page .hc-boxes--bl{bottom:1%;left:1%;transform:rotate(180deg)}
+
+/* credentials */
+.ins-page .creds{position:relative;border-bottom:1px solid var(--line);background:#fff;padding:22px 0;overflow:hidden}
+.ins-page .creds::before,.ins-page .creds::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.ins-page .creds::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds__track{display:flex;width:max-content;animation:insCredScroll 30s linear infinite}
+.ins-page .creds:hover .creds__track{animation-play-state:paused}
+.ins-page .creds__set{display:flex;align-items:center}
+.ins-page .cred{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.92rem;color:var(--ink);white-space:nowrap;padding:0 34px;position:relative}
+.ins-page .cred::after{content:"";position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:25%;background:var(--orange);opacity:.5}
+.ins-page .cred svg{width:22px;height:22px;color:var(--orange);flex-shrink:0}
+@keyframes insCredScroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+@media(prefers-reduced-motion:reduce){.ins-page .creds__track{animation:none;width:100%;justify-content:center}.ins-page .creds__set{flex-wrap:wrap;justify-content:center;row-gap:10px}.ins-page .creds__set[aria-hidden="true"]{display:none}}
+
+/* stats */
+.ins-page .stats{background:var(--navy);color:#fff}
+.ins-page .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.ins-page .stat{text-align:center;padding:14px;position:relative}
+.ins-page .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:18%;height:64%;width:1px;background:rgba(255,255,255,.14)}
+.ins-page .stat__n{font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.ins-page .stat__n .accent{color:var(--orange-light)}
+.ins-page .stat__l{margin-top:8px;font-size:.9rem;color:rgba(255,255,255,.72)}
+
+/* dual path */
+.ins-page .dual{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.ins-page .path{border-radius:20px;padding:46px;position:relative;overflow:hidden;transition:transform .35s var(--ease)}
+.ins-page .path:hover{transform:translateY(-6px)}
+.ins-page .path--emp{background:var(--navy);color:#fff}
+.ins-page .path--emp h3,.ins-page .path--seek h3{font-size:1.7rem;margin-bottom:8px}
+.ins-page .path--emp h3{color:#fff}
+.ins-page .path--seek{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.ins-page .path__tag{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-light);margin-bottom:14px;display:block}
+.ins-page .path--seek .path__tag{color:var(--orange)}
+.ins-page .path p{margin-bottom:22px}.ins-page .path--emp p{color:rgba(255,255,255,.74)}
+.ins-page .path ul{list-style:none;margin-bottom:28px;display:grid;gap:12px}
+.ins-page .path li{display:flex;gap:11px;align-items:flex-start;font-size:.95rem}
+.ins-page .path li svg{width:19px;height:19px;color:var(--orange);flex-shrink:0;margin-top:3px}
+.ins-page .path--emp li{color:rgba(255,255,255,.86)}.ins-page .path--emp li svg{color:var(--orange-light)}
+
+/* specialties */
+.ins-page .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ins-page .spec{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;transition:all .3s var(--ease);position:relative;overflow:hidden}
+.ins-page .spec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+.ins-page .spec:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent}.ins-page .spec:hover::before{transform:scaleY(1)}
+.ins-page .spec__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .3s var(--ease)}
+.ins-page .spec:hover .spec__ic{background:var(--orange);color:#fff}
+.ins-page .spec__ic svg{width:25px;height:25px}
+.ins-page .spec h3{margin-bottom:10px}.ins-page .spec p{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.ins-page .spec__link{font-weight:700;font-size:.88rem;color:var(--navy);display:inline-flex;align-items:center;gap:7px}
+.ins-page .spec__link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.ins-page .spec:hover .spec__link{color:var(--orange)}.ins-page .spec:hover .spec__link svg{transform:translateX(4px)}
+
+/* values */
+.ins-page .values{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ins-page .val{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:var(--shadow-sm)}
+.ins-page .val__ic{width:48px;height:48px;border-radius:12px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .3s var(--ease)}
+.ins-page .val:hover .val__ic{background:var(--orange);color:#fff}
+.ins-page .val__ic svg{width:24px;height:24px}
+.ins-page .val h3{margin-bottom:10px}
+.ins-page .val>p{font-size:.92rem;color:var(--muted);margin-bottom:18px}
+.ins-page .val ul{list-style:none;display:grid;gap:10px}
+.ins-page .val li{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--text)}
+.ins-page .val li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:9px}
+
+/* ---------- WHY INSYNC: motion layer ----------
+   Ambient drifting brand-colour washes behind the grid, an orange accent bar
+   that wipes down on hover, the icon glyph drawing itself in on entry, and the
+   checklist items dealing in one after another. Cursor-follow tilt + spotlight
+   are wired to .val through the shared follow engine below. */
+.ins-page #why{ position:relative; isolation:isolate; overflow:clip; }
+.ins-page #why .why__amb{ position:absolute; inset:0; pointer-events:none; z-index:-1; overflow:clip; }
+.ins-page #why .why__orb{ position:absolute; width:560px; height:560px; border-radius:50%;   /* orb — allowed round */
+  filter:blur(8px); opacity:.85; will-change:transform; }
+.ins-page #why .why__orb--a{ left:-160px; top:-140px;
+  background:radial-gradient(circle, rgba(239,90,40,.10), rgba(239,90,40,0) 66%);
+  animation:insWhyDriftA 26s ease-in-out infinite alternate; }
+.ins-page #why .why__orb--b{ right:-180px; bottom:-200px;
+  background:radial-gradient(circle, rgba(44,68,116,.13), rgba(44,68,116,0) 66%);
+  animation:insWhyDriftB 32s ease-in-out infinite alternate; }
+@keyframes insWhyDriftA{ 0%{ transform:translate3d(0,0,0) scale(1); } 100%{ transform:translate3d(70px,54px,0) scale(1.12); } }
+@keyframes insWhyDriftB{ 0%{ transform:translate3d(0,0,0) scale(1.08); } 100%{ transform:translate3d(-64px,-46px,0) scale(1); } }
+
+/* hover language shared with the service + credential cards */
+.ins-page .val{ position:relative; overflow:hidden;
+  transition:box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.ins-page .val::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--orange); transform:scaleY(0); transform-origin:top;
+  transition:transform .3s var(--ease); z-index:2; }
+.ins-page .val:hover::before{ transform:scaleY(1); }
+.ins-page .val:hover{ box-shadow:var(--shadow); border-color:transparent; }
+
+/* icon: glyph draws itself, tile pulses once as the card lands */
+.ins-page #why .val__ic{ position:relative; }
+.ins-page #why .val.why-on .val__ic{ animation:insWhyIcPop .62s var(--ease) .05s 1; }
+@keyframes insWhyIcPop{ 0%{ transform:scale(1); } 42%{ transform:scale(1.14); } 100%{ transform:scale(1); } }
+
+/* checklist deals in, each bullet popping as its line arrives */
+.ins-page.js #why .val li{ opacity:0; transform:translateX(-10px);
+  transition:opacity .55s var(--ease), transform .55s var(--ease); }
+.ins-page.js #why .val li::before{ transform:scale(0); transition:transform .42s var(--ease); }
+.ins-page.js #why .val.why-on li{ opacity:1; transform:none; }
+.ins-page.js #why .val.why-on li::before{ transform:scale(1); }
+.ins-page.js #why .val.why-on li:nth-child(1){ transition-delay:.16s; }
+.ins-page.js #why .val.why-on li:nth-child(2){ transition-delay:.28s; }
+.ins-page.js #why .val.why-on li:nth-child(3){ transition-delay:.40s; }
+.ins-page.js #why .val.why-on li:nth-child(1)::before{ transition-delay:.30s; }
+.ins-page.js #why .val.why-on li:nth-child(2)::before{ transition-delay:.42s; }
+.ins-page.js #why .val.why-on li:nth-child(3)::before{ transition-delay:.54s; }
+
+@media (prefers-reduced-motion:reduce){
+  .ins-page #why .why__orb{ animation:none; }
+  .ins-page #why .val.why-on .val__ic{ animation:none; }
+  .ins-page.js #why .val li,
+  .ins-page.js #why .val li::before{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* pain */
+.ins-page .pain{background:var(--navy-deep);color:#fff}
+.ins-page .pain .head h2{color:#fff}
+.ins-page .pain__rows{display:flex;flex-direction:column}
+.ins-page .pain__row{display:grid;grid-template-columns:auto 1fr auto;gap:0 28px;padding:38px 0;align-items:center;border-top:1px solid rgba(255,255,255,.1)}
+.ins-page .pain__row:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+.ins-page .pain__ic{width:52px;height:52px;border-radius:14px;background:rgba(239,90,40,.14);color:var(--orange-light);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.ins-page .pain__row:hover .pain__ic{background:var(--orange);color:#fff}
+.ins-page .pain__ic svg{width:24px;height:24px}
+.ins-page .pain__row h3{color:#fff;font-size:1.3rem;margin-bottom:10px}
+.ins-page .pain__row p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.7}
+.ins-page .pain__tag{display:inline-block;margin-bottom:12px;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;padding:4px 14px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light)}
+.ins-page .pain__ghost{font-size:4.5rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;letter-spacing:-.04em;user-select:none}
+
+/* process */
+.ins-page .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ins-page .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;position:relative;overflow:hidden;transition:all .3s var(--ease)}
+.ins-page .step:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.ins-page .step__n{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:var(--orange-soft);color:var(--orange);font-size:1.05rem;font-weight:800;line-height:1;margin-bottom:16px;transition:all .3s var(--ease)}
+.ins-page .step:hover .step__n{background:var(--orange);color:#fff}
+.ins-page .step h3{margin:0 0 10px;position:relative;z-index:1}
+.ins-page .step p{font-size:.88rem;color:var(--muted);position:relative;z-index:1}
+
+/* testimonials */
+.ins-page .test__layout{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:stretch}
+.ins-page .test__feat{background:var(--orange);color:#fff;border-radius:20px;padding:48px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.ins-page .test__mark{font-size:4rem;line-height:.5;color:rgba(255,255,255,.4);font-weight:800}
+.ins-page .test__q{font-size:1.08rem;line-height:1.7;color:rgba(255,255,255,.95);margin:8px 0 30px;position:relative;z-index:1}
+.ins-page .test__by{display:flex;align-items:center;gap:13px;flex-wrap:wrap;position:relative;z-index:1}
+.ins-page .test__av{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff}
+.ins-page .test__name{font-weight:800;font-size:.95rem;color:#fff}
+.ins-page .test__role{font-size:.78rem;color:rgba(255,255,255,.7)}
+.ins-page .test__badge{margin-left:auto;background:rgba(255,255,255,.18);border-radius:50px;padding:5px 14px;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.ins-page .test__right{display:flex;flex-direction:column;gap:24px}
+.ins-page .test__stats{background:var(--navy);border-radius:20px;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff}
+.ins-page .test__stat{text-align:center;flex:1}
+.ins-page .test__stat strong{display:block;font-size:1.6rem;font-weight:800;color:var(--orange-light);line-height:1;letter-spacing:-.03em}
+.ins-page .test__stat span{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;display:block}
+.ins-page .test__sdiv{width:1px;height:36px;background:rgba(255,255,255,.18);flex-shrink:0}
+.ins-page .test__card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;flex:1;box-shadow:var(--shadow-sm)}
+.ins-page .test__card .test__mark{color:var(--orange);font-size:3rem}
+.ins-page .test__card .test__q{color:var(--text);font-style:italic;font-size:.96rem;margin:4px 0 22px}
+.ins-page .test__card .test__name{color:var(--ink)}.ins-page .test__card .test__role{color:var(--muted)}
+.ins-page .test__card .test__av{background:var(--navy)}
+
+/* bonus / lead form */
+.ins-page .bonus{background:var(--bg-alt)}
+.ins-page .bonus .wrap{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.ins-page .bonus h2{margin:16px 0 16px}
+.ins-page .bonus__chapters{list-style:none;display:grid;gap:11px;margin-top:24px}
+.ins-page .bonus__chapters li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--text)}
+.ins-page .bonus__chapters li svg{width:19px;height:19px;color:var(--orange);flex-shrink:0;margin-top:3px}
+.ins-page .bonus__card{background:#fff;border-radius:20px;padding:40px;box-shadow:var(--shadow)}
+.ins-page .bonus__card h3{font-size:1.4rem;margin-bottom:6px}
+.ins-page .bonus__card>p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.ins-page .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ins-page .fg{margin-bottom:14px}
+.ins-page .fg label{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ins-page .fg input{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--f);font-size:1rem;color:var(--text)}
+.ins-page .fg input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.ins-page .fsubmit{width:100%;justify-content:center;margin-top:6px}
+.ins-page .fnote{font-size:.7rem;color:var(--muted);line-height:1.7;margin-top:14px}
+.ins-page .fthanks{display:none;text-align:center;color:var(--orange);font-weight:700;padding:20px}
+
+/* footer */
+
+/* certifications carousel */
+.ins-page .cert-stage{max-width:880px;margin:0 auto;position:relative}
+.ins-page .cert-slide{display:none;align-items:center;gap:48px}
+.ins-page .cert-slide.is-active{display:flex;animation:certIn .45s var(--ease)}
+@keyframes certIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ins-page .cert-frame{flex-shrink:0;width:200px;height:200px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;padding:26px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.ins-page .cert-frame img{width:100%;height:100%;object-fit:contain}
+.ins-page .cert-info__num{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:10px}
+.ins-page .cert-info__name{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:800;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em}
+.ins-page .cert-info__desc{font-size:.96rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.ins-page .cert-info__tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);background:var(--orange-soft);border:1px solid rgba(239,90,40,.2);border-radius:50px;padding:6px 16px}
+.ins-page .cert-progress{max-width:880px;margin:38px auto 0;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.ins-page .cert-bar{height:100%;width:0;background:var(--orange);border-radius:3px}
+.ins-page .cert-nav{display:flex;justify-content:center;gap:10px;margin-top:26px;flex-wrap:wrap}
+.ins-page .cert-thumb{width:62px;height:62px;border-radius:13px;background:#fff;border:2px solid var(--line);padding:8px;cursor:pointer;transition:all .25s var(--ease);flex-shrink:0}
+.ins-page .cert-thumb img{width:100%;height:100%;object-fit:contain}
+.ins-page .cert-thumb:hover{border-color:rgba(239,90,40,.4);transform:translateY(-2px)}
+.ins-page .cert-thumb.is-active{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+@media(max-width:768px){
+.ins-page .cert-slide.is-active{flex-direction:column;text-align:center;gap:26px}
+.ins-page .cert-frame{width:160px;height:160px}
+.ins-page .cert-thumb{width:50px;height:50px}
+}
+
+/* reveal */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ================================================================
+   MOTION LAYER (from the Apex motion build, re-dressed for the
+   light design system). Mechanics are the donor page's verbatim:
+   scroll-scrubbed hero video, fixed morph hero + page-load entrance,
+   spring parallax, drifting brand squares, GHL-safe pinned horizontal
+   tracks, section video band, scan sweep, v2 reveal contract.
+   Surfaces/colors follow insync-website-standards v1.0 throughout.
+   ================================================================ */
+
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene (it carries its own nav clearance) — but the moment the hero returns
+   to normal flow (phones / coarse pointers / reduced motion) the spacer must
+   come back, or the hero top hides under the fixed bar. The nav script
+   re-syncs the spacer height inline, so this needs !important to hold. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{ height:0 !important; }
+}
+
+/* ---------- scroll-scrubbed backdrop (apex v2 Layer 1): ONE continuous clip
+   behind the hero AND the section that follows it. Frame 1 at the top of the
+   hero, final frame at the end of the Verified Credentials band, playhead
+   driven by scroll. Per the v2 spec the hero shows the video CLEAN apart from
+   the constant left-fade gradient (copy side dark, footage side clear); a
+   plain black shade ramps in across the hero's last 45vh and holds through
+   the band. Mobile autoplay-loops the clip as the hero backdrop (paused once
+   scrolled past); reduced motion freezes frame 1. */
+.ins-page .ins-scrub{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:var(--navy-deep); opacity:0; transition:opacity .5s ease; }
+.ins-page .ins-scrub.is-on{ opacity:1; }
+.ins-page .ins-scrub__par{ position:absolute; inset:0; will-change:transform; }
+.ins-page .ins-scrub__vid{ position:absolute; left:50%; top:50%; width:114%; height:114%;
+  transform:translate(-50%,-50%); object-fit:cover; will-change:transform;
+  filter:contrast(1.06) saturate(1.08) brightness(.93); }   /* extra size = parallax room; grade richens high-key footage */
+/* dark band: full strength across the left third, then ONE continuous ease-in-out
+   curve — it begins to lift almost imperceptibly after the third, passes the
+   centre still strong, and dissolves gradually out towards the right edge. No
+   plateau-to-fade corner, no visible seam anywhere. */
+.ins-page .ins-scrub__grad{ position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,   rgba(0,0,0,.84) 27%,   rgba(0,0,0,.83) 30%,   rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%, rgba(0,0,0,.77) 39.3%, rgba(0,0,0,.74) 42.4%, rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%, rgba(0,0,0,.61) 51.7%, rgba(0,0,0,.55) 54.8%, rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,   rgba(0,0,0,.40) 64.1%, rgba(0,0,0,.35) 67.2%, rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%, rgba(0,0,0,.18) 76%,   rgba(0,0,0,.09) 78.5%, rgba(0,0,0,0) 80%); }
+.ins-page .ins-scrub__shade{ position:absolute; inset:0; opacity:0; background:rgba(0,0,0,.80); }
+/* mobile: the hero rides the looping clip — hero surface goes transparent
+   (the light system's own ≤1024 rules already reduce ::after to the soft
+   radial glow, which reads fine over footage) */
+@media (max-width:1024px){
+  .ins-page .hero--wonder{ background:transparent; }
+}
+
+/* ---------- Wonder hero: the light hero as a fixed full-viewport scene.
+   Base = fixed; the same media that turns the morph script off returns
+   it to normal flow (phones / coarse pointers / reduced motion). */
+.ins-page .hero--wonder{ position:fixed; inset:0; height:100svh; z-index:40;
+  will-change:opacity,transform; display:flex; align-items:center;
+  padding:0; }
+@media (min-width:1025px) and (pointer:fine){
+  .ins-page .hero--wonder{ background:transparent; }        /* scrub shows through */
+  .ins-page .hero--wonder::before{ display:none; }          /* photo slot is the scrub layer */
+  .ins-page .hero--wonder .wrap{ padding-top:132px; }       /* clear the fixed 120px nav */
+}
+/* no collage: the copy owns a single column and the footage is the visual.
+   The light hero's own ::after veil (navy radial on the right) is off in every
+   mode so the right side of the video stays clean. */
+.ins-page .hero--wonder::after{ display:none; }
+.ins-page .hero--wonder .wrap{ grid-template-columns:1fr; }
+.ins-page .hero--wonder .hero__copy{ max-width:700px; }
+.ins-page .hero__scene{ width:100%; }
+.ins-page .ins-fadespacer{ height:100svh; }                  /* runway the fixed hero fades across */
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{ position:relative; inset:auto; height:auto; z-index:auto;
+    display:block; padding:92px 0 104px; }
+  .ins-page .ins-fadespacer{ display:none; }
+}
+
+/* everything after the hero paints above the fixed scrub layer */
+.ins-page .ins-below{ position:relative; z-index:10; background:#fff; }
+
+/* ---------- page-load entrance (donor mechanics: snap into a zoomed state
+   pre-paint, transition out on load; hero copy holds, then releases) */
+.ins-page .hero--wonder.ap-enter #apHeroS1{
+  transform:scale(1.12) !important; opacity:.5 !important; transition:none !important; }
+.ins-page .hero--wonder.ap-entering #apHeroS1{
+  transition:transform 1.7s cubic-bezier(.16,.84,.28,1), opacity 1.2s ease !important; }
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{
+  opacity:0 !important; transform:translateY(24px) !important; }
+.ins-page .hero--wonder.ap-reveal-hero .reveal{
+  opacity:1 !important; transform:none !important; }
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{ transform:none !important; opacity:1 !important; }
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ---------- drifting brand squares (the donor's ember drift, re-branded:
+   rule 2 allows no decorative circles, embellishments are orange + navy-2
+   squares inside the hero — so the particles are exactly that) */
+.ins-page .hero__sqembers{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
+.ins-page .ins-sq-ember{
+  position:absolute; bottom:-3%;
+  width:var(--sz,7px); height:var(--sz,7px); border-radius:22%;
+  left:var(--x,50%); background:var(--sq-c,var(--orange));
+  opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite; }
+@keyframes insSqDrift{
+  0%{ transform:translate3d(0,2vh,0) rotate(0deg); opacity:0; }
+  10%{ opacity:var(--op,.2); }
+  85%{ opacity:var(--op,.2); }
+  100%{ transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg)); opacity:0; }
+}
+.ins-page .hero--wonder .wrap{ position:relative; z-index:2; }
+
+/* ================================================================
+   PINNED HORIZONTAL TRACKS (donor pin engine; .pcx machinery names,
+   light surfaces). JS adds .pcx--pinned / .pcx--native and drives
+   the stage inline; dots + swipe cue are injected on mobile.
+   ================================================================ */
+.ins-page .pcx{ position:relative; }
+.ins-page .pcx__stage{ position:relative; left:0; width:100%;
+  display:flex; flex-direction:column; }
+.ins-page .pcx__head{ flex:0 0 auto; padding-top:24px; }
+.ins-page .pcx__head .head{ margin-bottom:26px; }
+.ins-page .pcx__viewport{ flex:1 1 auto; display:flex; align-items:center;
+  overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory; scrollbar-width:none; }
+.ins-page .pcx__viewport::-webkit-scrollbar{ display:none; }
+.ins-page .pcx__track{ display:flex; align-items:stretch; gap:22px;
+  padding:20px var(--gutter,32px); will-change:transform; }
+.ins-page .pcx__card{ flex:0 0 var(--card-w); width:var(--card-w);
+  scroll-snap-align:center;
+  opacity:.55; transform:scale(.96);
+  transition:opacity .45s var(--ease), transform .45s var(--ease),
+             box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.ins-page .pcx__card.is-active{ opacity:1; transform:scale(1); }
+
+/* desktop pin mode */
+.ins-page .pcx--pinned .pcx__viewport{ overflow:hidden; scroll-snap-type:none; }
+.ins-page .pcx--pinned .pcx__head{ padding-top:196px; }   /* clear the fixed 120px nav + breathing room above the eyebrow */
+/* Pinned section heads run full-bleed: the standard .head/.lead caps (680/600px)
+   would wrap this headline onto three lines. Wide container + a size that tracks
+   the viewport keeps the headline and the lead each on a SINGLE line, at the same
+   3rem cap every other section heading uses. */
+.ins-page .pcx--pinned .pcx__head .wrap{ max-width:min(1680px, 96vw); }
+.ins-page .pcx--pinned .pcx__head .head{ max-width:none; }
+.ins-page .pcx--pinned .pcx__head .lead{ max-width:none; }
+.ins-page .certs-pin .pcx__head .head, .ins-page .certs-pin .pcx__head .lead{ margin-left:auto; margin-right:auto; }
+/* The headline keeps the SAME scale as every other section heading
+   (clamp(2rem,3.8vw,3rem)); the wide container is what unwraps it. At 3rem the
+   longest headline measures ~1460px, so single-line is only forced where the
+   container can actually hold it — below that it wraps normally rather than
+   shrinking the type. */
+@media (min-width:1620px){
+  .ins-page .pcx--pinned .pcx__head h2,
+  .ins-page .pcx--pinned .pcx__head .lead{ white-space:nowrap; }
+}
+/* native mode (mobile / fallback): restore the standard section rhythm */
+.ins-page .pcx--native .pcx__stage{ position:relative; padding:100px 0; }
+.ins-page .pcx--native .pcx__viewport{ padding-bottom:6px; }
+.ins-page .pcx--native .pcx__head{ padding-top:0; }
+@media (max-width:760px){ .ins-page .pcx--native .pcx__stage{ padding:72px 0; } }
+
+/* hint (desktop pin): tiny scroll cue, fades once moving */
+.ins-page .pcx__hint{ position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
+  display:none; align-items:center; gap:9px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  transition:opacity .4s ease; pointer-events:none; z-index:3; }
+.ins-page .pcx--pinned .pcx__hint{ display:flex; position:relative; left:auto; bottom:auto;
+  transform:none; margin:6px auto 16px; justify-content:center; }   /* in flow: reserves space, never overlaps the cards */
+.ins-page .pcx__hint svg{ width:16px; height:16px; }
+.ins-page .pcx__hint-track{ width:46px; height:2px; background:var(--line); border-radius:2px; overflow:hidden; position:relative; }
+.ins-page .pcx__hint-track::after{ content:''; position:absolute; inset:0; width:40%;
+  background:var(--orange); border-radius:2px;
+  transform:translateX(var(--pcx-hint,0%)); transition:transform .1s linear; }
+
+/* injected dots + swipe cue (mobile) */
+.ins-page .pcx__dots{ display:flex; justify-content:center; gap:8px; padding:16px 0 6px; }
+.ins-page .pcx__dot{ width:22px; height:4px; border-radius:3px; border:0; padding:0;
+  background:var(--line); cursor:pointer; transition:background .25s var(--ease); }
+.ins-page .pcx__dot[aria-selected="true"]{ background:var(--orange); }
+.ins-page .pcx__swipe{ display:flex; align-items:center; justify-content:center; gap:8px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); padding:10px 0 0; transition:opacity .4s ease; }
+.ins-page .pcx__swipe svg{ width:15px; height:15px; }
+/* prev / next arrows (native mode only). Sit just inside the stage edges,
+   vertically centred on the track; disabled at either end. */
+.ins-page .pcx__arrows{ display:none; }
+.ins-page .pcx__rail{ position:relative; }
+.ins-page .pcx--native .pcx__arrows{ display:block; position:absolute; left:0; right:0; top:50%;
+  transform:translateY(-50%); pointer-events:none; z-index:4; }
+.ins-page .pcx__arrow{ position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:12px; border:1px solid var(--line);
+  background:#fff; color:var(--navy); box-shadow:var(--shadow-sm); padding:0;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  pointer-events:auto; -webkit-tap-highlight-color:transparent;
+  transition:opacity .25s var(--ease), background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease); }
+.ins-page .pcx__arrow svg{ width:20px; height:20px; }
+.ins-page .pcx__arrow--prev{ left:10px; }
+.ins-page .pcx__arrow--next{ right:10px; }
+.ins-page .pcx__arrow--next svg{ transform:scaleX(-1); }
+.ins-page .pcx__arrow:active{ transform:translateY(-50%) scale(.94); }
+.ins-page .pcx__arrow:disabled{ opacity:.35; cursor:default; }
+@media (hover:hover){ .ins-page .pcx__arrow:not(:disabled):hover{ background:var(--orange); color:#fff; border-color:transparent; } }
+/* credentials band: the arrows overlap the white card edge, so keep the solid
+   white / navy treatment (it also reads cleanly on the navy) with a stronger
+   shadow to lift it off both surfaces */
+.ins-page .certs-pin .pcx__arrow{ box-shadow:0 6px 18px rgba(15,24,48,.28); border-color:transparent; }
+
+/* iOS: the swipe engine drives scrollLeft directly during the drag. On a
+   container with scroll-snap-type:x mandatory, Safari re-snaps every
+   programmatic position back to the nearest snap point, so the track appears
+   dead under the finger. In native mode the JS already owns snapping (settle),
+   so hand it the whole job. If JS never ran, .pcx--native is absent and the
+   pure-CSS snap fallback still applies. */
+.ins-page .pcx--native .pcx__viewport{ scroll-snap-type:none; touch-action:pan-x pan-y; overscroll-behavior-x:contain; }
+
+@media (min-width:1025px){ .ins-page .pcx__dots, .ins-page .pcx__swipe{ display:none; } }
+
+/* ---------- SPECIALTIES pinned track: the light spec cards ride the pin */
+/* ---------- SERVICES pinned track — the SECOND section, which the scrub
+   span covers. Desktop (fine pointer, motion allowed): TRANSPARENT over the
+   fixed scroll-scrubbed backdrop under the black shade; head goes white and
+   the light spec cards read on the dimmed footage. Mobile / reduced motion:
+   its own light-alt band as before. */
+.ins-page .spec-pin{ --card-w:560px; padding:0; position:relative; z-index:10; }
+.ins-page .spec-pin .pcx__stage, .ins-page .spec-pin .pcx__spacer{ background:var(--bg-alt); }
+.ins-page .spec-pin .pcx__card.spec{ display:flex; flex-direction:column; min-height:0; }
+/* Desktop (fine pointer, motion allowed): section two is TRANSPARENT over the
+   fixed scroll-scrubbed backdrop under the black shade, so the head goes white
+   over the dimmed footage. Mobile / reduced motion: its own light-alt band. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .spec-pin .pcx__stage, .ins-page .spec-pin .pcx__spacer{ background:transparent; }
+  .ins-page .spec-pin .head h2{ color:#fff; }
+  .ins-page .spec-pin .head .lead{ color:rgba(255,255,255,.6); }
+  .ins-page .spec-pin .eyebrow{ color:var(--orange-light); }
+}
+/* inside the track the active state owns the transform; hover keeps its
+   shadow/icon language but must not fight the scale */
+.ins-page .pcx__card.spec:hover{ transform:scale(.96); }
+.ins-page .pcx__card.spec.is-active:hover{ transform:scale(1); }
+.ins-page .pcx__card.spec.is-active{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page .pcx__card.spec.is-active::before{ transform:scaleY(1); }
+.ins-page .pcx__card.spec.is-active .spec__ic{ background:var(--orange); color:#fff; }
+.ins-page .pcx__card.spec.is-active .spec__link{ color:var(--orange); }
+@media (max-width:1024px){ .ins-page .spec-pin{ --card-w:min(84vw,340px); } }
+@media (min-width:1025px){ .ins-page .spec-pin .pcx__stage{ overflow:hidden; } }
+/* Desktop: the icon sits BESIDE the heading + description instead of stacked
+   above them — reclaims ~70px of card height, which buys the head more top
+   clearance. Pills/footer stay full width, footer anchors to the card bottom
+   so the reclaimed space doesn't become a dead gap. */
+.ins-page .spec-pin .pcx__card.spec{ display:flex; flex-direction:column; }
+.ins-page .spec-pin .pcx__card.spec .spec__foot{ margin-top:auto; }
+@media (min-width:1025px){
+  .ins-page .spec-pin .pcx__card.spec .spec__top{ display:grid;
+    grid-template-columns:auto 1fr; column-gap:20px; align-items:center; }
+  .ins-page .spec-pin .pcx__card.spec .spec__top .spec__ic{ margin-bottom:0;
+    grid-column:1; grid-row:1 / span 2; align-self:center; }
+  .ins-page .spec-pin .pcx__card.spec .spec__top h3{ grid-column:2; grid-row:1;
+    align-self:end; margin-bottom:6px; }
+  .ins-page .spec-pin .pcx__card.spec .spec__top p{ grid-column:2; grid-row:2;
+    align-self:start; margin-bottom:0; }
+  .ins-page .spec-pin .pcx__card.spec .spec__pills{ margin-top:18px; }
+}
+/* Short viewports only need a slightly tighter nav clearance now that the
+   head is a single line — no type scaling, no card-furniture changes. */
+@media (min-width:1025px) and (max-height:820px){
+  .ins-page .pcx--pinned .pcx__head{ padding-top:176px; }   /* nav bottom is 121px */
+  .ins-page .pcx--pinned .pcx__head .head{ margin-bottom:18px; }
+}
+
+/* ---------- CERTIFICATIONS pinned track: a solid navy band (the light
+   navy-section pattern) inside the white page flow — white credential cards,
+   white heading. No video behind it in this arrangement. */
+.ins-page .certs-pin{ --card-w:640px; padding:0; }
+.ins-page .certs-pin .pcx__stage, .ins-page .certs-pin .pcx__spacer{ background:var(--navy-deep); }
+.ins-page .certs-pin .pcx__stage{ overflow:hidden; }
+.ins-page .certs-pin .pcx__head, .ins-page .certs-pin .pcx__viewport{ position:relative; z-index:2; }
+.ins-page .certs-pin .head h2{ color:#fff; }
+.ins-page .certs-pin .head .lead{ color:rgba(255,255,255,.6); }
+.ins-page .certs-pin .eyebrow{ color:var(--orange-light); }
+.ins-page .certcard{ background:#fff; border:1.5px solid transparent; border-radius:16px;
+  padding:26px; display:flex; gap:26px; align-items:center;
+  box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+.ins-page .certcard .cert-frame{ width:140px; height:140px; flex-shrink:0;
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:13px;
+  display:flex; align-items:center; justify-content:center; padding:18px; box-shadow:none; }
+.ins-page .certcard .cert-info__desc{ margin-bottom:14px; }
+.ins-page .pcx__card.certcard.is-active{ border-color:var(--orange); box-shadow:var(--shadow); }
+/* Cert cards use the same hover language as the service cards: orange left
+   accent bar wipes down, shadow lifts, border clears, image frame picks up the
+   orange edge. No transform — the pinned track owns card scale. */
+.ins-page .certcard{ transition:box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.ins-page .certcard::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--orange); transform:scaleY(0); transform-origin:top;
+  transition:transform .3s var(--ease); z-index:2; }
+.ins-page .certcard:hover::before{ transform:scaleY(1); }
+.ins-page .certcard:hover{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page .certcard.is-active:hover{ border-color:var(--orange); }
+.ins-page .certcard .cert-frame{ transition:border-color .3s var(--ease); }
+.ins-page .certcard:hover .cert-frame{ border-color:var(--orange); }
+@media (max-width:1024px){
+  .ins-page .certs-pin{ --card-w:min(88vw,420px); }
+  .ins-page .certcard{ flex-direction:column; text-align:center; padding:22px; gap:16px; }
+  .ins-page .certcard .cert-frame{ width:110px; height:110px; }
+  .ins-page .certcard .cert-info__desc{ font-size:.88rem; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ins-page .ins-sq-ember{ animation:none; display:none; }
+  .ins-page .pcx__card{ transition:none; }
+  .ins-page .mock-dash__row, .ins-page .mock-phone__job{ animation:none !important; opacity:1 !important; }
+}
+
+/* ================================================================
+   RESTORED MOTION COMPONENTS — the text that lived inside the donor
+   page's dark UI, rebuilt in light styling: service pills + stat
+   chips, the two dual-path mockups, the pipeline widget, the
+   Step/Challenge labels and the footer HQ chip.
+   ================================================================ */
+
+/* ---------- animated service-card icons ----------
+   Each glyph draws itself on (stroke-dashoffset), the tile breathes gently at
+   idle, and the card the pin makes active gets a short lift so the eye follows
+   the featured card. Transform/stroke only — no layout work during the pinned
+   scroll. Path lengths are measured at runtime (see the icon engine). */
+.ins-page .spec__ic{ will-change:transform; }
+.ins-page .spec__ic svg [stroke-dasharray]{ stroke-dashoffset:var(--dash,0); }
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]{
+  animation:insIcoDraw .68s cubic-bezier(.65,0,.35,1) forwards; }
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]:nth-child(2){ animation-delay:.1s; }
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]:nth-child(3){ animation-delay:.2s; }
+@keyframes insIcoDraw{ from{ stroke-dashoffset:var(--dash,0); } to{ stroke-dashoffset:0; } }
+.ins-page .spec.draw .spec__ic{ animation:insIcoFloat 4.5s ease-in-out 1s infinite; }
+@keyframes insIcoFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); } }
+.ins-page .pcx__card.spec.is-active .spec__ic{ animation:insIcoPop .5s var(--ease); }
+@keyframes insIcoPop{ 0%{ transform:scale(1); } 45%{ transform:scale(1.14) rotate(-4deg); } 100%{ transform:scale(1); } }
+@media (prefers-reduced-motion:reduce){
+  .ins-page .spec__ic, .ins-page .spec.draw .spec__ic,
+  .ins-page .pcx__card.spec.is-active .spec__ic{ animation:none !important; transform:none !important; }
+  .ins-page .spec__ic svg [stroke-dasharray]{ stroke-dashoffset:0 !important; }
+  .ins-page .spec.draw .spec__ic svg [stroke-dasharray]{ animation:none !important; }
+}
+
+/* ---------- service card pills + stat foot ---------- */
+.ins-page .spec__badge{ display:inline-flex; align-items:center; gap:6px; margin-bottom:14px;
+  font-size:.62rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--orange); background:var(--orange-soft); border-radius:6px; padding:5px 9px; }
+.ins-page .spec__badge-dot{ width:5px; height:5px; border-radius:50%; background:var(--orange); }  /* status dot — allowed round */
+.ins-page .spec__pills{ display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 16px; }
+.ins-page .spec__pill{ font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); background:var(--bg-alt); border:1px solid var(--line);
+  border-radius:6px; padding:5px 9px; }
+.ins-page .pcx__card.spec.is-active .spec__pill{ border-color:rgba(239,90,40,.3); color:var(--navy); }
+.ins-page .spec__foot{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+  border-top:1px solid var(--line); padding-top:14px; margin-top:auto; }
+.ins-page .spec__stat{ display:flex; flex-direction:column; gap:2px; }
+.ins-page .spec__stat-v{ font-size:1.35rem; font-weight:800; color:var(--navy); line-height:1; }
+.ins-page .spec__stat-v .accent{ color:var(--orange); }
+.ins-page .spec__stat-l{ font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.ins-page .spec__foot .spec__link{ margin:0; }
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  /* over the video the cards keep their white surface, so no changes needed */
+}
+
+/* ---------- dual-path mockups ---------- */
+.ins-page .path__mock{ background:var(--bg-alt); border:1px solid var(--line); border-radius:14px;
+  padding:18px; margin-bottom:22px; overflow:hidden; }
+.ins-page .mock-dash__head, .ins-page .mock-phone__head{ display:flex; align-items:center;
+  justify-content:space-between; gap:10px; margin-bottom:12px; }
+.ins-page .mock-dash__title, .ins-page .mock-phone__title{ font-weight:800; font-size:.9rem; color:var(--navy); }
+.ins-page .mock-dash__badge{ font-size:.64rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--orange); background:var(--orange-soft); border-radius:6px; padding:4px 8px; }
+.ins-page .mock-dash__row{ display:flex; align-items:center; gap:11px; background:#fff;
+  border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin-bottom:8px;
+  opacity:0; transform:translateY(8px); }
+@keyframes insMockIn{ to{ opacity:1; transform:none; } }
+.ins-page .mock-dash__av{ width:32px; height:32px; border-radius:9px; flex:0 0 32px;
+  background:var(--navy); color:#fff; font-size:.68rem; font-weight:800;
+  display:flex; align-items:center; justify-content:center; }
+.ins-page .mock-dash__lines{ flex:1; display:flex; flex-direction:column; gap:5px; }
+.ins-page .mock-dash__lines i{ display:block; height:6px; border-radius:3px; background:var(--line); }
+.ins-page .mock-dash__lines i:first-child{ width:70%; }
+.ins-page .mock-dash__lines i:last-child{ width:45%; }
+.ins-page .mock-dash__check{ width:20px; height:20px; border-radius:6px; flex:0 0 20px;
+  background:var(--orange); color:#fff; font-size:.66rem;
+  display:flex; align-items:center; justify-content:center; }
+.ins-page .mock-dash__foot{ display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid var(--line); margin-top:12px; padding-top:11px; }
+.ins-page .mock-dash__label{ font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.ins-page .mock-dash__match{ font-size:1.15rem; font-weight:800; color:var(--orange); }
+.ins-page .mock-phone{ position:relative; background:#fff; border:1px solid var(--line);
+  border-radius:16px; padding:20px 14px 14px; }
+.ins-page .mock-phone__notch{ position:absolute; top:8px; left:50%; transform:translateX(-50%);
+  width:52px; height:5px; border-radius:3px; background:var(--line); }
+.ins-page .mock-phone__sub{ font-size:.66rem; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--orange); }
+.ins-page .mock-phone__job{ border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+  margin-bottom:8px; display:flex; flex-direction:column; gap:3px;
+  opacity:0; transform:translateY(8px); }
+.ins-page .mock-phone__job--featured{ border-color:var(--orange); background:var(--orange-soft); }
+.ins-page .mock-phone__role{ font-weight:700; font-size:.84rem; color:var(--navy); }
+.ins-page .mock-phone__loc{ font-size:.74rem; color:var(--muted); }
+
+/* ---------- continuous life in the section visuals ----------
+   Tuned to be legible rather than busy: ONE focal point at a time. Each visual
+   runs a single 9s cycle in which the highlight visits each row/card in turn
+   with a clear gap between, so the eye is led rather than pulled. Colour and
+   transform only; counts and labels never change. */
+
+/* --- employer dashboard: a review pass works down the candidate list --- */
+@keyframes insRowScan{
+  0%       { background:#fff; border-color:var(--line); transform:translateX(0); }
+  4%       { background:var(--orange-soft); border-color:rgba(239,90,40,.45); transform:translateX(5px); }
+  11%      { background:var(--orange-soft); border-color:rgba(239,90,40,.45); transform:translateX(5px); }
+  16%, 100%{ background:#fff; border-color:var(--line); transform:translateX(0); } }
+.ins-page .mock-dash.go .mock-dash__row{
+  animation:insMockIn .5s var(--ease) forwards, insRowScan 10s cubic-bezier(.4,0,.2,1) 1.2s infinite; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(2){ animation-delay:0s, 1.2s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(3){ animation-delay:.1s, 4.2s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(4){ animation-delay:.2s, 7.2s; }
+/* the row's placeholder lines fill as it is reviewed */
+@keyframes insLineFill{
+  0%, 100%{ background:var(--line); }
+  5%, 12% { background:var(--orange-light); } }
+.ins-page .mock-dash.go .mock-dash__lines i{ animation:insLineFill 10s cubic-bezier(.4,0,.2,1) 1.2s infinite; }
+.ins-page .mock-dash.go .mock-dash__lines i:last-child{ animation-delay:1.35s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(3) .mock-dash__lines i{ animation-delay:4.2s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(3) .mock-dash__lines i:last-child{ animation-delay:4.35s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(4) .mock-dash__lines i{ animation-delay:7.2s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(4) .mock-dash__lines i:last-child{ animation-delay:7.35s; }
+@keyframes insCheckPop{
+  0%, 100%{ transform:scale(1); }
+  5%      { transform:scale(1.3); }
+  12%     { transform:scale(1.3); }
+  17%     { transform:scale(1); } }
+.ins-page .mock-dash.go .mock-dash__check{ animation:insCheckPop 10s cubic-bezier(.4,0,.2,1) 1.2s infinite; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(3) .mock-dash__check{ animation-delay:4.2s; }
+.ins-page .mock-dash.go .mock-dash__row:nth-child(4) .mock-dash__check{ animation-delay:7.2s; }
+
+/* --- job seeker phone: the highlighted match moves down the list --- */
+@keyframes insJobCycle{
+  0%       { background:#fff; border-color:var(--line); transform:translateX(0); }
+  4%       { background:var(--orange-soft); border-color:var(--orange); transform:translateX(-5px); }
+  11%      { background:var(--orange-soft); border-color:var(--orange); transform:translateX(-5px); }
+  16%, 100%{ background:#fff; border-color:var(--line); transform:translateX(0); } }
+.ins-page .mock-phone.go .mock-phone__job{
+  animation:insMockIn .5s var(--ease) forwards, insJobCycle 10s cubic-bezier(.4,0,.2,1) 1.4s infinite; }
+.ins-page .mock-phone.go .mock-phone__job:nth-of-type(2){ animation-delay:.1s, 4.4s; }
+.ins-page .mock-phone.go .mock-phone__job:nth-of-type(3){ animation-delay:.2s, 7.4s; }
+
+/* timeline node reacts the moment the scroll fill reaches it */
+@keyframes insNodePop{ 0%{ transform:scale(1); } 45%{ transform:scale(1.16); } 100%{ transform:scale(1); } }
+.ins-page .tl .step.on .step__n{ animation:insNodePop .45s var(--ease); }
+
+@media (prefers-reduced-motion:reduce){
+  .ins-page .mock-dash.go .mock-dash__row,
+  .ins-page .mock-dash.go .mock-dash__check,
+  .ins-page .mock-dash.go .mock-dash__lines i,
+  .ins-page .mock-phone.go .mock-phone__job,
+  .ins-page .tl .step.on .step__n{ animation:none !important; transform:none !important; }
+}
+
+/* ---------- cursor-follow on the animated widgets ----------
+   The dashboard, phone and pipeline tilt toward the pointer (spring-damped,
+   written per frame by the follow engine) and carry a soft orange spotlight
+   that tracks the cursor inside them. Fine pointers only; reduced motion off. */
+.ins-page .path__mock, .ins-page #psxTrack .pcx__card.spec,
+.ins-page #pcxTrack .pcx__card.certcard,
+.ins-page #why .val,
+.ins-page .tl .step{ position:relative; transform-style:preserve-3d; }
+.ins-page .path__mock::after, .ins-page #psxTrack .pcx__card.spec::after,
+.ins-page #pcxTrack .pcx__card.certcard::after,
+.ins-page #why .val::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2;
+  opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%); }
+/* Process step cards: ::after is already the timeline connector tick, so the
+   spotlight lives on a dedicated .step__spot span with the same treatment. */
+.ins-page .tl .step .step__spot{
+  position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2;
+  opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%); }
+.ins-page .path__mock.is-glow::after,
+.ins-page #psxTrack .pcx__card.spec.is-glow::after,
+.ins-page #pcxTrack .pcx__card.certcard.is-glow::after,
+.ins-page #why .val.is-glow::after,
+.ins-page .tl .step.is-glow .step__spot{ opacity:1; }
+/* while the spring drives transform, only box-shadow may transition — the
+   reveal's / track's own transform transitions would otherwise lag the follow */
+.ins-page .path__mock.is-follow,
+.ins-page #psxTrack .pcx__card.spec.is-follow,
+.ins-page #pcxTrack .pcx__card.certcard.is-follow,
+.ins-page #why .val.is-follow,
+.ins-page .tl .step.is-follow{ transition:box-shadow .45s ease !important; transition-delay:0s !important; }
+.ins-page .path__mock.is-glow,
+.ins-page #psxTrack .pcx__card.spec.is-glow,
+.ins-page #pcxTrack .pcx__card.certcard.is-glow,
+.ins-page #why .val.is-glow,
+.ins-page .tl .step.is-glow{ box-shadow:var(--shadow); }
+.ins-page #psxTrack .pcx__card.spec.is-follow,
+.ins-page #pcxTrack .pcx__card.certcard.is-follow{ z-index:3; opacity:1; }
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page .path__mock::after, .ins-page #psxTrack .pcx__card.spec::after,
+  .ins-page #pcxTrack .pcx__card.certcard::after,
+  .ins-page #why .val::after,
+  .ins-page .tl .step .step__spot{ display:none; }
+}
+
+/* ---------- Step / Challenge labels ----------
+   The step label lives INSIDE the card as a small eyebrow above the title.
+   (Floating it beside the node put it straight across the spine line.) */
+.ins-page .step__lab{ display:block; font-size:.64rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--orange); margin:0 0 6px; }
+.ins-page .tl .step .step__lab{ position:static; white-space:nowrap; }
+.ins-page .pain__lab{ display:block; font-size:.64rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--orange-light); margin-bottom:6px; }
+/* ---------- footer HQ chip ---------- */
+.insf-hq{ display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  color:rgba(255,255,255,.8); background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:7px 12px;
+  transition:background .25s ease, border-color .25s ease; }
+.insf-hq:hover{ background:rgba(239,90,40,.16); border-color:rgba(239,90,40,.5); color:#fff; }
+.insf-hq svg{ width:14px; height:14px; }
+
+/* ---------- OUR PROCESS timeline: the six step cards alternate around a
+   central spine; the step-number tile is the node (semi-square, orange
+   recipe — base orange-soft, solid orange once the fill passes it). The
+   orange line height is scroll-driven (see the timeline engine). */
+.ins-page .tl{ position:relative; }
+.ins-page .tl__line{ position:absolute; left:50%; top:47px; bottom:47px; width:2px;
+  background:var(--line); transform:translateX(-50%); border-radius:2px; }
+.ins-page .tl__fill{ position:absolute; top:0; left:0; width:100%; height:0%;
+  background:linear-gradient(180deg,var(--orange-light),var(--orange)); border-radius:2px; }
+.ins-page .tl .step{ overflow:visible; width:calc(50% - 56px); margin-bottom:26px; }
+.ins-page .tl .step:last-child{ margin-bottom:0; }
+/* the spine div is child 1, so even children are steps 1/3/5 (left side) */
+.ins-page .tl .step:nth-child(even){ margin-right:auto; }
+.ins-page .tl .step:nth-child(odd){ margin-left:auto; }
+.ins-page .tl .step .step__n{ position:absolute; top:24px; margin:0; z-index:2;
+  box-shadow:0 0 0 6px var(--bg-alt); }
+.ins-page .tl .step:nth-child(even) .step__n{ right:-79px; }
+.ins-page .tl .step:nth-child(odd) .step__n{ left:-79px; }
+/* connector tick from card edge to node */
+.ins-page .tl .step::after{ content:""; position:absolute; top:46px; width:33px; height:2px;
+  background:var(--line); transition:background .3s var(--ease); }
+.ins-page .tl .step:nth-child(even)::after{ right:-33px; }
+.ins-page .tl .step:nth-child(odd)::after{ left:-33px; }
+/* activation: the fill has passed this node */
+.ins-page .tl .step.on .step__n{ background:var(--orange); color:#fff; }
+.ins-page .tl .step.on::after{ background:var(--orange); }
+@media (max-width:760px){
+  .ins-page .tl__line{ left:23px; transform:none; }
+  .ins-page .tl .step{ width:auto; margin-left:64px !important; margin-right:0 !important; }
+  .ins-page .tl .step .step__n{ left:-64px !important; right:auto !important;
+    box-shadow:0 0 0 6px var(--bg-alt); }
+  .ins-page .tl .step::after{ left:-18px !important; right:auto !important; width:18px; }
+}
+/* ---------- step-card motion ----------
+   Each card carries its own visual life instead of one shared widget above the
+   timeline: a progress meter that fills when the spine reaches the step, a
+   sweep of light across the surface at the moment of activation, the node tile
+   popping, and a hover accent bar. Cursor tilt + spotlight come from the shared
+   follow engine. */
+/* overflow MUST stay visible here: the node tile and connector tick are
+   positioned outside the card. The sweep is therefore animated via
+   background-position (it never leaves its own box) rather than translateX. */
+.ins-page .tl .step{ box-shadow:var(--shadow-sm); }
+
+/* hover accent bar — same language as the service / credential / value cards */
+.ins-page .tl .step::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--orange); border-radius:16px 0 0 16px;
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .3s var(--ease); z-index:3; }
+.ins-page .tl .step:hover::before{ transform:scaleY(1); }
+.ins-page .tl .step:hover{ box-shadow:var(--shadow); border-color:transparent; }
+
+/* activation sweep: a soft band of light crosses the card once, when the
+   scroll fill reaches this step */
+.ins-page .tl .step .step__sweep{ position:absolute; inset:0; pointer-events:none; z-index:1;
+  border-radius:inherit; opacity:0;
+  background:linear-gradient(105deg, transparent 0%, transparent 36%,
+    rgba(239,90,40,.16) 50%, transparent 64%, transparent 100%);
+  background-size:300% 100%; background-position:120% 0; }
+.ins-page .tl .step.on .step__sweep{ animation:insStepSweep 1.15s ease .04s 1; }
+@keyframes insStepSweep{ 0%{ background-position:120% 0; opacity:1; }
+                        100%{ background-position:-120% 0; opacity:1; } }
+
+/* per-step scene: a small illustrated animation of what the step actually
+   does. Each scene only runs once its card is activated by the scroll spine
+   (.on), so nothing animates off-screen. All keyframes are insSv*-prefixed. */
+.ins-page .tl .step .step__viz{ display:block; position:relative; z-index:2; margin-top:18px;
+  width:100%; height:62px; border-radius:11px; background:var(--bg-alt);
+  border:1px solid var(--line); overflow:hidden; }
+.ins-page .tl .step .step__viz svg{ display:block; width:100%; height:100%; }
+.ins-page .tl .step .step__viz .sv-line{ stroke:var(--line); }
+.ins-page .tl .step .step__viz .sv-mut{ fill:var(--line); }
+.ins-page .tl .step .step__viz .sv-nav{ fill:var(--navy); }
+.ins-page .tl .step .step__viz .sv-or{ fill:var(--orange); }
+.ins-page .tl .step .step__viz .sv-ors{ stroke:var(--orange); }
+
+/* 01 Discovery — a lens sweeps the candidate pool, one profile lights up */
+.ins-page .tl .step .sv-a-lens{ animation:insSvLens 4.2s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes insSvLens{ 0%{ transform:translateX(0); } 45%{ transform:translateX(195px); }
+  60%{ transform:translateX(195px); } 100%{ transform:translateX(0); } }
+.ins-page .tl .step .sv-a-cand{ animation:insSvCand 4.2s ease infinite; }
+@keyframes insSvCand{ 0%,14%{ fill:var(--line); } 22%,30%{ fill:var(--orange-light); } 38%,100%{ fill:var(--line); } }
+.ins-page .tl .step .sv-a-cand:nth-of-type(2){ animation-delay:.34s; }
+.ins-page .tl .step .sv-a-cand:nth-of-type(3){ animation-delay:.68s; }
+.ins-page .tl .step .sv-a-pick{ animation:insSvPick 4.2s ease 1.02s infinite; }
+@keyframes insSvPick{ 0%,20%{ fill:var(--line); } 30%,72%{ fill:var(--orange); } 82%,100%{ fill:var(--line); } }
+
+/* 02 Sourcing & Screening — a vetting pass sweeps the pool; most are screened
+   out, the qualified few are kept and checked */
+.ins-page .tl .step .sv-a-scan{ animation:insSvScan 4s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes insSvScan{ 0%{ transform:translateX(0); opacity:0; } 6%{ opacity:1; }
+  56%{ transform:translateX(392px); opacity:1; } 66%,100%{ transform:translateX(392px); opacity:0; } }
+.ins-page .tl .step .sv-a-vet{ animation:insSvVet 4s ease infinite; }
+@keyframes insSvVet{ 0%{ fill:var(--line); opacity:1; } 8%,84%{ fill:var(--line); opacity:.34; }
+  96%,100%{ fill:var(--line); opacity:1; } }
+.ins-page .tl .step .sv-a-keep{ animation:insSvKeep 4s ease infinite; }
+@keyframes insSvKeep{ 0%{ fill:var(--line); } 8%,84%{ fill:var(--orange); } 96%,100%{ fill:var(--line); } }
+.ins-page .tl .step .sv-a-chk{ stroke-dasharray:34; stroke-dashoffset:34;
+  animation:insSvChk 4s ease infinite; }
+@keyframes insSvChk{ 0%,4%{ stroke-dashoffset:34; } 16%,84%{ stroke-dashoffset:0; } 94%,100%{ stroke-dashoffset:34; } }
+/* each tile reacts as the scan line reaches it (scoped so other scenes' rects
+   are untouched) */
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(1){ animation-delay:.06s; }
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(2){ animation-delay:.44s; }
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(3){ animation-delay:.82s; }
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(4){ animation-delay:1.2s; }
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(5){ animation-delay:1.58s; }
+.ins-page .tl .step .sv-scene2 rect:nth-of-type(6){ animation-delay:1.96s; }
+.ins-page .tl .step .sv-scene2 path.sv-a-chk:nth-of-type(1){ animation-delay:.44s; }
+.ins-page .tl .step .sv-scene2 path.sv-a-chk:nth-of-type(2){ animation-delay:1.58s; }
+
+/* 03 Candidate Presentation — a shortlist is dealt, one is chosen */
+.ins-page .tl .step .sv-a-card{ animation:insSvCard 4s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes insSvCard{ 0%{ transform:translateY(14px); opacity:0; }
+  18%,86%{ transform:translateY(0); opacity:1; } 100%{ transform:translateY(0); opacity:0; } }
+.ins-page .tl .step .sv-a-card:nth-of-type(2){ animation-delay:.18s; }
+.ins-page .tl .step .sv-a-card:nth-of-type(3){ animation-delay:.36s; }
+.ins-page .tl .step .sv-a-mark{ animation:insSvMark 4s ease 1.1s infinite; }
+@keyframes insSvMark{ 0%,10%{ opacity:0; transform:scale(.6); }
+  22%,80%{ opacity:1; transform:scale(1); } 92%,100%{ opacity:0; transform:scale(.6); } }
+
+/* 04 Streamlined Interviews — slots scan, one is booked */
+.ins-page .tl .step .sv-a-slot{ animation:insSvSlot 3.8s ease infinite; }
+@keyframes insSvSlot{ 0%,10%{ fill:var(--line); } 18%,26%{ fill:var(--orange-light); } 34%,100%{ fill:var(--line); } }
+.ins-page .tl .step .sv-a-slot:nth-of-type(2){ animation-delay:.24s; }
+.ins-page .tl .step .sv-a-slot:nth-of-type(3){ animation-delay:.48s; }
+.ins-page .tl .step .sv-a-slot:nth-of-type(4){ animation-delay:.72s; }
+.ins-page .tl .step .sv-a-book{ animation:insSvBook 3.8s ease .96s infinite; }
+@keyframes insSvBook{ 0%,16%{ fill:var(--line); } 26%,80%{ fill:var(--orange); } 90%,100%{ fill:var(--line); } }
+.ins-page .tl .step .sv-a-tick{ stroke-dasharray:32; stroke-dashoffset:32;
+  animation:insSvTick 3.8s ease 1.24s infinite; }
+@keyframes insSvTick{ 0%,8%{ stroke-dashoffset:32; } 22%,80%{ stroke-dashoffset:0; } 92%,100%{ stroke-dashoffset:32; } }
+
+/* 05 Selection & Onboarding — paperwork signed and stamped */
+.ins-page .tl .step .sv-a-sign{ stroke-dasharray:150; stroke-dashoffset:150;
+  animation:insSvSign 4.4s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes insSvSign{ 0%,6%{ stroke-dashoffset:150; } 40%,82%{ stroke-dashoffset:0; } 94%,100%{ stroke-dashoffset:150; } }
+.ins-page .tl .step .sv-a-stamp{ animation:insSvStamp 4.4s cubic-bezier(.34,1.4,.5,1) infinite; }
+@keyframes insSvStamp{ 0%,44%{ opacity:0; transform:scale(1.5); }
+  54%,84%{ opacity:1; transform:scale(1); } 94%,100%{ opacity:0; transform:scale(1.5); } }
+.ins-page .tl .step .sv-a-doc{ animation:insSvDoc 4.4s ease infinite; }
+@keyframes insSvDoc{ 0%,8%{ opacity:.35; } 24%,100%{ opacity:1; } }
+
+/* 06 Ongoing Support — a steady signal that never stops */
+.ins-page .tl .step .sv-a-ekg{ stroke-dasharray:330; stroke-dashoffset:330;
+  animation:insSvEkg 3s linear infinite; }
+@keyframes insSvEkg{ 0%{ stroke-dashoffset:330; } 62%,100%{ stroke-dashoffset:-330; } }
+.ins-page .tl .step .sv-a-ping{ transform-origin:center; animation:insSvPing 2s ease-out infinite; }
+@keyframes insSvPing{ 0%{ transform:scale(.5); opacity:.9; } 100%{ transform:scale(2.2); opacity:0; } }
+.ins-page .tl .step .sv-a-beat{ transform-origin:center; animation:insSvBeat 2s ease-in-out infinite; }
+@keyframes insSvBeat{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.18); } }
+
+/* Gate LAST on purpose: the `animation:` shorthands above each reset
+   animation-play-state to running, so an earlier paused rule of equal
+   specificity would be overwritten. Parked until the card is activated. */
+.ins-page .tl .step .step__viz [class*="sv-a"]{ animation-play-state:paused; }
+.ins-page .tl .step.on .step__viz [class*="sv-a"]{ animation-play-state:running; }
+
+/* node tile gets a ring pulse the moment the spine passes it */
+.ins-page .tl .step .step__n::after{ content:""; position:absolute; inset:-4px;
+  border-radius:14px; border:2px solid var(--orange); opacity:0; pointer-events:none; }
+.ins-page .tl .step.on .step__n::after{ animation:insNodeRing .9s var(--ease) 1; }
+@keyframes insNodeRing{ 0%{ transform:scale(.86); opacity:.85; } 100%{ transform:scale(1.35); opacity:0; } }
+
+@media (prefers-reduced-motion:reduce){
+  .ins-page .tl__fill{ height:100% !important; }
+  .ins-page .tl .step .step__n{ background:var(--orange); color:#fff; }
+  .ins-page .tl .step::after{ background:var(--orange); }
+  .ins-page .tl .step .step__sweep{ animation:none !important; display:none; }
+  .ins-page .tl .step .step__n::after{ animation:none !important; }
+  .ins-page .tl .step .step__viz [class*="sv-a"]{ animation:none !important;
+    opacity:1 !important; transform:none !important; stroke-dashoffset:0 !important; }
+}
+
+
+/* responsive */
+@media(max-width:1024px){
+.ins-page .hero h1 br.h1br{display:none}   /* let the headline wrap naturally on narrow screens */
+.ins-page .hero::before{display:none}.ins-page .hero::after{background:radial-gradient(900px 520px at 78% 8%,rgba(44,68,116,.55),transparent 60%)}
+.ins-page .hero .wrap{grid-template-columns:1fr;gap:42px}.ins-page .hero__visual{max-width:none}.ins-page .hc{max-width:560px;margin:0 auto}
+.ins-page .hero__copy{text-align:center}.ins-page .hero__sub{margin-left:auto;margin-right:auto}.ins-page .hero__ctas{justify-content:center}.ins-page .hero__tags{justify-content:center}
+.ins-page .spec-grid,.ins-page .values,.ins-page .steps{grid-template-columns:1fr 1fr}
+.ins-page .bonus .wrap,.ins-page .test__layout{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+.ins-page .section{padding:72px 0}.ins-page .wrap{padding:0 20px}
+.ins-page .creds__track{animation-duration:20s}
+.ins-page .hero__ctas{flex-direction:column;align-items:stretch}.ins-page .hero__ctas .btn{width:100%;justify-content:center}
+.ins-page .stats .wrap{grid-template-columns:1fr 1fr;gap:13px 12px;padding:12px 20px;position:relative}.ins-page .stat::after{display:none}
+.ins-page .stat{padding:8px 6px}.ins-page .stat__n{font-size:1.7rem}.ins-page .stat__l{margin-top:4px;font-size:.78rem}
+.ins-page .stats .wrap::after{content:"";grid-column:1/-1;grid-row:2;height:1px;background:rgba(255,255,255,.14)}
+.ins-page .stats .wrap::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:rgba(255,255,255,.14)}
+.ins-page .dual,.ins-page .spec-grid,.ins-page .values,.ins-page .steps,.ins-page .frow{grid-template-columns:1fr}
+.ins-page .pain__row{grid-template-columns:1fr;gap:14px;align-items:start}.ins-page .pain__ghost{display:none}
+}
+
+</style>
+
+<div class="ins-page">
+<script>(function(){var p=document.querySelector('.ins-page');if(p)p.classList.add('js');})();</script>
+
+<!-- SCROLL-SCRUBBED BACKDROP — one continuous clip behind the hero AND the
+     Verified Credentials band: frame 1 at the top of the hero, final frame at
+     the end of the band, playhead driven by scroll (donor behaviour). Wears
+     the standards §6.11 veil over the hero, the navy band veil over section
+     two. Source is a JS runtime constant. -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- HERO — fixed full-viewport morph scene; copy + collage are the light
+     homepage's verbatim, riding the donor's entrance / parallax / morph -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+    <div class="hero__copy">
+      <span class="eyebrow reveal" style="color:var(--orange-light)">Staffing. Reimagined.</span>
+      <h1 class="reveal d1">Staffing that<br class="h1br"> <span class="hl">actually works.</span><br class="h1br"> For everyone.</h1>
+      <p class="hero__sub reveal d2">Whether you're hiring world-class talent or landing your next great role &mdash; InSync is built for speed, quality, and real results.</p>
+      <div class="hero__ctas reveal d3">
+        <a href="/contact-us/" class="btn btn-primary">Hire Top Talent Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="https://leap.laboredge.com/agencyjobboard/insync" class="btn btn-ghost-w">Find Your Next Role</a>
+      </div>
+      <div class="hero__tags reveal d4">
+        <span>Educational</span><span>Healthcare</span><span>EOR / Payroll</span><span>Commercial</span><span>+ More</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- SPECIALTIES -->
+<section class="section spec-pin pcx" id="specialties">
+  <div class="pcx__spacer" id="psxSpacer">
+    <div class="pcx__stage" id="psxStage">
+      <div class="pcx__head">
+        <div class="wrap">
+          <div class="head reveal">
+            <span class="eyebrow">Our Services</span>
+            <h2>Exceptional Staffing Solutions <em>Tailored for Your Success</em></h2>
+            <p class="lead">From education and healthcare to commercial and payrolling &mdash; we place qualified professionals fast across every sector we serve.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pcx__viewport" id="psxViewport">
+        <div class="pcx__track" id="psxTrack">
+        <a class="pcx__card spec" href="/education-staffing/">
+        <div class="spec__top"><div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div><h3>Educational Staffing</h3><p>School nurses, therapists, SPED teachers, and behavioral specialists placed nationwide.</p></div>
+        <div class="spec__pills"><span class="spec__pill">SPED</span><span class="spec__pill">School Nurses</span><span class="spec__pill">Therapists</span><span class="spec__pill">Subs</span></div><div class="spec__foot"><span class="spec__stat"><span class="spec__stat-v"><span class="accent">3×</span></span><span class="spec__stat-l">Faster Placements</span></span><span class="spec__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </a>
+        <a class="pcx__card spec" href="/healthcare-staffing/">
+        <span class="spec__badge"><i class="spec__badge-dot"></i>Joint Commission Certified</span><div class="spec__top"><div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2z"/></svg></div><h3>Healthcare Staffing</h3><p>Travel nurses, RNs, allied health, clinical specialists, and more &mdash; Joint Commission Certified placements delivered fast.</p></div>
+        <div class="spec__pills"><span class="spec__pill">Travel RN</span><span class="spec__pill">ICU</span><span class="spec__pill">Med-Surg</span><span class="spec__pill">Peds</span><span class="spec__pill">Allied Health</span></div><div class="spec__foot"><span class="spec__stat"><span class="spec__stat-v"><span class="accent">24</span>hr</span><span class="spec__stat-l">Fastest Fills</span></span><span class="spec__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </a>
+        <a class="pcx__card spec" href="/employer-of-record/">
+        <div class="spec__top"><div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg></div><h3>Employer of Record</h3><p>Full-service EOR and payrolling &mdash; compliance, 401k, and benefits handled for you.</p></div>
+        <div class="spec__pills"><span class="spec__pill">Payroll</span><span class="spec__pill">Compliance</span><span class="spec__pill">401k</span><span class="spec__pill">Benefits</span></div><div class="spec__foot"><span class="spec__stat"><span class="spec__stat-v"><span class="accent">100</span>%</span><span class="spec__stat-l">Compliance</span></span><span class="spec__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </a>
+        <a class="pcx__card spec" href="/commercial-staffing/">
+        <div class="spec__top"><div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 9 6 3h12l3 6"/><path d="M9 13h6"/></svg></div><h3>Commercial Staffing</h3><p>Warehouse, manufacturing, logistics, and skilled trades &mdash; deployed within 72 hours.</p></div>
+        <div class="spec__pills"><span class="spec__pill">Warehouse</span><span class="spec__pill">Logistics</span><span class="spec__pill">Manufacturing</span><span class="spec__pill">Skilled Trades</span></div><div class="spec__foot"><span class="spec__stat"><span class="spec__stat-v"><span class="accent">72</span>h</span><span class="spec__stat-l">Deployment</span></span><span class="spec__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </a>
+        <a class="pcx__card spec" href="/strike-work-updates/">
+        <span class="spec__badge"><i class="spec__badge-dot"></i>24/7 Rapid Response</span><div class="spec__top"><div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></div><h3>Strike &amp; Crisis Staffing</h3><p>Rapid-response strike and crisis labor teams (CLS Division), mobilized nationwide.</p></div>
+        <div class="spec__pills"><span class="spec__pill">Contingency</span><span class="spec__pill">Nationwide</span><span class="spec__pill">Continuous Coverage</span></div><div class="spec__foot"><span class="spec__stat"><span class="spec__stat-v"><span class="accent">48</span>h</span><span class="spec__stat-l">Mobilization</span></span><span class="spec__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </a>
+        </div>
+      </div>
+      <div class="pcx__hint" id="psxHint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="pcx__hint-track"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ins-below">
+<!-- CREDENTIALS -->
+<div class="creds" aria-label="InSync credentials">
+  <div class="creds__track">
+    <div class="creds__set"><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Service-Disabled Veteran-Owned</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg>Certified DVBE</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Valid CMAS Contract</div></div>
+    <div class="creds__set" aria-hidden="true"><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Service-Disabled Veteran-Owned</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg>Certified DVBE</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Valid CMAS Contract</div></div>
+    <div class="creds__set" aria-hidden="true"><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Service-Disabled Veteran-Owned</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg>Certified DVBE</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Valid CMAS Contract</div></div>
+    <div class="creds__set" aria-hidden="true"><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Service-Disabled Veteran-Owned</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg>Certified DVBE</div><div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Valid CMAS Contract</div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat reveal"><div class="stat__n"><span data-count="15000">0</span><span class="accent">+</span></div><div class="stat__l">Placements</div></div>
+    <div class="stat reveal d1"><div class="stat__n"><span data-count="92">0</span><span class="accent">%</span></div><div class="stat__l">Retention rate</div></div>
+    <div class="stat reveal d2"><div class="stat__n"><span data-count="50">0</span></div><div class="stat__l">States served</div></div>
+    <div class="stat reveal d3"><div class="stat__n"><span data-count="3">0</span><span class="accent">&times;</span></div><div class="stat__l">Faster fills</div></div>
+  </div>
+</section>
+
+<!-- DUAL PATH -->
+<section class="section" id="employers">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">One partner, both sides</span>
+      <h2>Whether you're hiring or job hunting</h2>
+      <p class="lead" style="margin:0 auto">We sit on both sides of the table &mdash; matching organizations with vetted talent, and professionals with work that fits their life.</p>
+    </div>
+    <div class="dual">
+      <div class="path path--emp reveal">
+        <div class="path__mock" aria-hidden="true">
+          <div class="mock-dash">
+            <div class="mock-dash__head">
+              <span class="mock-dash__title">Top Candidates</span>
+              <span class="mock-dash__badge">3 Ready</span>
+            </div>
+            <div class="mock-dash__row"><span class="mock-dash__av">RN</span><span class="mock-dash__lines"><i></i><i></i></span><span class="mock-dash__check">&#10003;</span></div>
+            <div class="mock-dash__row"><span class="mock-dash__av">MC</span><span class="mock-dash__lines"><i></i><i></i></span><span class="mock-dash__check">&#10003;</span></div>
+            <div class="mock-dash__row"><span class="mock-dash__av">SP</span><span class="mock-dash__lines"><i></i><i></i></span><span class="mock-dash__check">&#10003;</span></div>
+            <div class="mock-dash__foot">
+              <span class="mock-dash__label">Avg. Match</span>
+              <span class="mock-dash__match" id="apMatchPct">94%</span>
+            </div>
+          </div>
+        </div>
+        <span class="path__tag">For Employers</span>
+        <h3>Start hiring today.</h3>
+        <p>Fill roles 3&times; faster with recruiters who get it right the first time. Let's talk about your hiring needs.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Full-cycle sourcing, screening, and onboarding</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Compliance and administrative work handled for you</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Faster time-to-fill on every open role</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Joint Commission certified quality standards</li>
+        </ul>
+        <a href="/contact-us/" class="btn btn-primary">Hire Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="path path--seek" id="talent">
+        <div class="path__mock" aria-hidden="true">
+          <div class="mock-phone">
+            <span class="mock-phone__notch"></span>
+            <div class="mock-phone__head">
+              <span class="mock-phone__title">Jobs for You</span>
+              <span class="mock-phone__sub">3 New Matches</span>
+            </div>
+            <div class="mock-phone__job mock-phone__job--featured">
+              <span class="mock-phone__role">Travel RN &mdash; ICU</span>
+              <span class="mock-phone__loc">Boston, MA &middot; $92/hr</span>
+            </div>
+            <div class="mock-phone__job">
+              <span class="mock-phone__role">SPED Teacher</span>
+              <span class="mock-phone__loc">Sacramento &middot; $58/hr</span>
+            </div>
+            <div class="mock-phone__job">
+              <span class="mock-phone__role">Warehouse Lead</span>
+              <span class="mock-phone__loc">Portland &middot; $24/hr</span>
+            </div>
+          </div>
+        </div>
+        <span class="path__tag">For Job Seekers</span>
+        <h3>Find your next role.</h3>
+        <p>Your advocate is ready. Tell us where you want to go &mdash; we'll help you get there faster than you expected.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Travel &amp; local roles nationwide</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Competitive pay, benefits &amp; 401k</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Quick application &mdash; get matched fast</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>A dedicated recruiter in your corner</li>
+        </ul>
+        <a href="https://leap.laboredge.com/agencyjobboard/insync" class="btn btn-outline">Browse Jobs
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS CAROUSEL -->
+<section class="section certs-pin pcx" id="certifications" aria-label="Government certifications and credentials">
+  <div class="pcx__spacer" id="pcxSpacer">
+    <div class="pcx__stage" id="pcxStage">
+      <div class="pcx__head">
+        <div class="wrap">
+          <div class="head center reveal">
+            <span class="eyebrow">Verified Credentials</span>
+            <h2>8 Active Government <em>Certifications</em></h2>
+            <p class="lead" style="margin:0 auto">State &amp; federal &mdash; renewed annually. Every credential vetted, current, and on file.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pcx__viewport" id="pcxViewport">
+        <div class="pcx__track" id="pcxTrack">
+        <div class="pcx__card certcard" data-i="0">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2F7729094d-6d13-4929-9c4a-164778f75534.png?alt=media" alt="CMAS Approved" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">01</span><h3 class="cert-info__name">CMAS Approved</h3><p class="cert-info__desc">California Multiple Award Schedule contractor — pre-approved to deliver services directly to California government agencies without individual competitive bidding.</p><span class="cert-info__tag">California Procurement</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="1">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2Fdd254276-33cc-4a5f-80c5-16ef0332e8e2.png?alt=media" alt="CA Small Business Certified" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">02</span><h3 class="cert-info__name">CA Small Business</h3><p class="cert-info__desc">Certified California Small Business — qualifies InSync for set-aside contracts and preference programs designed to support small business participation in public procurement.</p><span class="cert-info__tag">Small Business</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="2">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2F6287c4b7-816f-43f6-bd48-d18c1d543dca.png?alt=media" alt="Joint Commission" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">03</span><h3 class="cert-info__name">Joint Commission</h3><p class="cert-info__desc">The Joint Commission National Quality Approval — a nationally recognized mark of quality in healthcare staffing, awarded to agencies that meet rigorous standards for clinical quality and safety.</p><span class="cert-info__tag">Healthcare Gold Standard</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="3">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2F0c6b06c2-4e7c-4012-a219-3384f12a370c.png?alt=media" alt="DVBE Enterprise" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">04</span><h3 class="cert-info__name">DVBE Enterprise</h3><p class="cert-info__desc">Disabled Veteran Business Enterprise — enterprise designation recognizing InSync's commitment to veteran employment and service-connected community impact.</p><span class="cert-info__tag">Veteran-Owned</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="4">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2F07b37d47-84f3-4f38-9bde-605a9950029f.png?alt=media" alt="DVBA California" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">05</span><h3 class="cert-info__name">DVBA California</h3><p class="cert-info__desc">Disabled Veteran Business Alliance — California chapter membership, connecting InSync with a network of veteran-owned businesses and state government procurement officers.</p><span class="cert-info__tag">Alliance Member</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="5">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2F822532a5-8cad-4c3d-a9b0-8931b4b5c927.png?alt=media" alt="SDVOSB" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">06</span><h3 class="cert-info__name">SDVOSB</h3><p class="cert-info__desc">Service-Disabled Veteran-Owned Small Business — federal designation enabling InSync to compete for government contracts reserved for service-disabled veterans.</p><span class="cert-info__tag">Federal Certification</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="6">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2Fab73a928-34e5-4b35-9f41-c867dda09ff5.png?alt=media" alt="DVBE Certified" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">07</span><h3 class="cert-info__name">DVBE Certified</h3><p class="cert-info__desc">Disabled Veteran Business Enterprise — State of California. Recognized as a certified veteran-owned business eligible for government contracting programs.</p><span class="cert-info__tag">State of California</span></div>
+        </div>
+        <div class="pcx__card certcard" data-i="7">
+          <div class="cert-frame"><img src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FlAvsV54bgyIkgTbpk5QX%2Fimages%2Ff2ce7596-edba-468c-9942-01f92ffa8bec.png?alt=media" alt="State of California" loading="lazy"></div>
+          <div class="cert-info"><span class="cert-info__num">08</span><h3 class="cert-info__name">State of California</h3><p class="cert-info__desc">Official State of California certification validating InSync's eligibility to provide staffing services to state agencies, departments, and government-funded programs.</p><span class="cert-info__tag">State Certified</span></div>
+        </div>
+        </div>
+      </div>
+      <div class="pcx__hint" id="pcxHint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="pcx__hint-track"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INSYNC -->
+<section class="section" id="why">
+  <div class="why__amb" aria-hidden="true">
+    <span class="why__orb why__orb--a"></span>
+    <span class="why__orb why__orb--b"></span>
+  </div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Why InSync</span>
+      <h2>Accelerate Your Success with <em>Exceptional Staffing</em></h2>
+      <p class="lead">We take the stress out of staffing &mdash; managing the entire process so you can focus on what matters most.</p>
+    </div>
+    <div class="values">
+      <div class="val reveal">
+        <div class="val__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Streamlined Efficiency</h3>
+        <p>We manage the entire process, from sourcing and vetting candidates to handling administrative tasks &mdash; so you can focus on your core business.</p>
+        <ul>
+          <li>Full-cycle sourcing, screening, and onboarding</li>
+          <li>Compliance and administrative work handled for you</li>
+          <li>Faster time-to-fill on every open role</li>
+        </ul>
+      </div>
+      <div class="val reveal d1">
+        <div class="val__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Quality Staffing</h3>
+        <p>We deliver top-notch talent that aligns with your organization's needs and culture, putting the right people in the right positions for success.</p>
+        <ul>
+          <li>Rigorous candidate vetting and credentialing</li>
+          <li>Culture and skills matching, not just r&eacute;sum&eacute; matching</li>
+          <li>Joint Commission certified quality standards</li>
+        </ul>
+      </div>
+      <div class="val reveal d2">
+        <div class="val__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Trusted Partnership</h3>
+        <p>We're more than a staffing agency. We become an extension of your team, working together to achieve your goals and drive success.</p>
+        <ul>
+          <li>Long-term alliances, not transactional placements</li>
+          <li>Transparent communication at every step</li>
+          <li>Deep knowledge of healthcare and commercial sectors</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section pain">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow" style="color:var(--orange-light)">Overcoming Hiring Hurdles</span>
+      <h2>Clearing the Path to <em>Your Ideal Workforce</em></h2>
+      <p class="lead" style="margin:0 auto;color:rgba(255,255,255,.6)">We know first-hand the challenges of sourcing, recruiting, and retaining top talent. We've walked in your shoes &mdash; which is why we're uniquely positioned to guide you toward effective staffing solutions.</p>
+    </div>
+    <div class="pain__rows">
+      <div class="pain__row reveal">
+        <div class="pain__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div>
+        <div>
+          <span class="pain__lab">Challenge 01</span><span class="pain__tag">Compliance &amp; Paperwork</span>
+          <h3>Administrative Burden</h3>
+          <p>Paperwork, tracking applicants, and ensuring compliance with labor laws adds to the challenges your organization faces. It can be a significant drain on time, resources, and efficiency.</p>
+        </div>
+        <span class="pain__ghost">01</span>
+      </div>
+      <div class="pain__row reveal d1">
+        <div class="pain__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <span class="pain__lab">Challenge 02</span><span class="pain__tag">Time to Fill</span>
+          <h3>Complex &amp; Time-Consuming Hiring</h3>
+          <p>The hiring process can be overwhelming and time-consuming, causing stress, uncertainty, and frustration &mdash; hindering your ability to efficiently find and hire top-quality talent.</p>
+        </div>
+        <span class="pain__ghost">02</span>
+      </div>
+      <div class="pain__row reveal d2">
+        <div class="pain__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div>
+          <span class="pain__lab">Challenge 03</span><span class="pain__tag">Talent Shortage</span>
+          <h3>Difficulty Sourcing Skilled Professionals</h3>
+          <p>Organizations in healthcare, call center, and EOR &amp; payrolling sectors struggle to source and retain highly skilled professionals &mdash; hampering operations and growth.</p>
+        </div>
+        <span class="pain__ghost">03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section alt" id="process">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Our Process</span>
+      <h2>Get the Path to <em>Effortless Staffing Success</em></h2>
+      <p class="lead">A proven, efficient step-by-step plan that takes the guesswork out of hiring.</p>
+    </div>
+    <div class="tl" id="insTl">
+      <div class="tl__line" aria-hidden="true"><span class="tl__fill" id="insTlFill"></span></div>
+      <div class="step tl__item reveal"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">01</span><span class="step__lab">Step 01</span><h3>Discovery</h3><p>We collaborate to understand your staffing needs, company culture, and the key skills required for success in each role.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g>
+<rect class="sv-a-cand sv-mut" x="40" y="16" width="22" height="30" rx="5"/>
+<rect class="sv-a-cand sv-mut" x="105" y="16" width="22" height="30" rx="5"/>
+<rect class="sv-a-cand sv-mut" x="170" y="16" width="22" height="30" rx="5"/>
+<rect class="sv-a-pick sv-mut" x="235" y="16" width="22" height="30" rx="5"/>
+<rect class="sv-mut" x="300" y="16" width="22" height="30" rx="5"/>
+<rect class="sv-mut" x="365" y="16" width="22" height="30" rx="5"/>
+<g class="sv-a-lens">
+<circle cx="51" cy="31" r="16" fill="none" class="sv-ors" stroke-width="2.6"/>
+<path d="M62 42 L73 53" class="sv-ors" stroke-width="2.6" stroke-linecap="round"/>
+</g></g></svg></span></div>
+      <div class="step tl__item reveal d1"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">02</span><span class="step__lab">Step 02</span><h3>Sourcing &amp; Screening</h3><p>We proactively source candidates and assess technical skills, experience, and fit through interviews, reference checks, and assessments.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g class="sv-scene2">
+<rect class="sv-a-vet sv-mut" x="26" y="14" width="56" height="34" rx="7"/>
+<rect class="sv-a-keep sv-mut" x="94" y="14" width="56" height="34" rx="7"/>
+<rect class="sv-a-vet sv-mut" x="162" y="14" width="56" height="34" rx="7"/>
+<rect class="sv-a-vet sv-mut" x="230" y="14" width="56" height="34" rx="7"/>
+<rect class="sv-a-keep sv-mut" x="298" y="14" width="56" height="34" rx="7"/>
+<rect class="sv-a-vet sv-mut" x="366" y="14" width="56" height="34" rx="7"/>
+<path class="sv-a-chk" d="M112 31 l6 6 L134 24" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="sv-a-chk" d="M316 31 l6 6 L338 24" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="sv-a-scan" d="M20 6 L20 56" stroke="var(--orange)" stroke-width="2.6" stroke-linecap="round"/>
+</g></svg></span></div>
+      <div class="step tl__item reveal d2"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">03</span><span class="step__lab">Step 03</span><h3>Candidate Presentation</h3><p>We present a curated shortlist with comprehensive profiles. You have the final say on who to interview.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g>
+<g class="sv-a-card"><rect x="40" y="12" width="92" height="40" rx="8" fill="#fff" class="sv-line" stroke-width="1.8"/>
+<rect class="sv-mut" x="52" y="22" width="30" height="5" rx="2.5"/><rect class="sv-mut" x="52" y="33" width="58" height="4" rx="2"/><rect class="sv-mut" x="52" y="41" width="44" height="4" rx="2"/></g>
+<g class="sv-a-card"><rect x="174" y="12" width="92" height="40" rx="8" fill="#fff" class="sv-ors" stroke-width="2"/>
+<rect class="sv-or" x="186" y="22" width="30" height="5" rx="2.5"/><rect class="sv-mut" x="186" y="33" width="58" height="4" rx="2"/><rect class="sv-mut" x="186" y="41" width="44" height="4" rx="2"/></g>
+<g class="sv-a-card"><rect x="308" y="12" width="92" height="40" rx="8" fill="#fff" class="sv-line" stroke-width="1.8"/>
+<rect class="sv-mut" x="320" y="22" width="30" height="5" rx="2.5"/><rect class="sv-mut" x="320" y="33" width="58" height="4" rx="2"/><rect class="sv-mut" x="320" y="41" width="44" height="4" rx="2"/></g>
+<g class="sv-a-mark" transform-origin="220px 12px"><rect class="sv-or" x="206" y="3" width="28" height="18" rx="5"/>
+<path d="M213 12 l4.4 4.4 L228 6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g></svg></span></div>
+      <div class="step tl__item reveal"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">04</span><span class="step__lab">Step 04</span><h3>Streamlined Interviews</h3><p>We coordinate scheduling, provide interview-prep support, and gather feedback for a seamless hiring experience.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g>
+<rect class="sv-line" x="30" y="9" width="380" height="44" rx="9" fill="none" stroke-width="1.8"/>
+<path d="M30 23 L410 23" class="sv-line" stroke-width="1.5"/>
+<circle class="sv-mut" cx="44" cy="16" r="3"/><circle class="sv-mut" cx="56" cy="16" r="3"/>
+<rect class="sv-a-slot sv-mut" x="48" y="31" width="44" height="15" rx="4"/>
+<rect class="sv-a-slot sv-mut" x="120" y="31" width="44" height="15" rx="4"/>
+<rect class="sv-a-slot sv-mut" x="192" y="31" width="44" height="15" rx="4"/>
+<rect class="sv-a-slot sv-mut" x="264" y="31" width="44" height="15" rx="4"/>
+<rect class="sv-a-book sv-mut" x="336" y="31" width="44" height="15" rx="4"/>
+<path class="sv-a-tick" d="M348 38.5 l5 5 L369 33" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g></svg></span></div>
+      <div class="step tl__item reveal d1"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">05</span><span class="step__lab">Step 05</span><h3>Selection &amp; Onboarding</h3><p>We assist with offer negotiation and handle background checks, paperwork, and compliance for smooth onboarding.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g>
+<g class="sv-a-doc"><rect x="104" y="6" width="132" height="50" rx="8" fill="#fff" class="sv-line" stroke-width="1.9"/>
+<rect class="sv-mut" x="118" y="16" width="66" height="4" rx="2"/>
+<rect class="sv-mut" x="118" y="25" width="96" height="4" rx="2"/>
+<rect class="sv-mut" x="118" y="34" width="78" height="4" rx="2"/></g>
+<path class="sv-a-sign" d="M118 48 c12 -12 20 8 30 -1 c8 -7 15 7 25 -3 c8 -7 16 6 24 -2"
+  fill="none" stroke="var(--orange)" stroke-width="2.6" stroke-linecap="round"/>
+<g class="sv-a-stamp" transform-origin="303px 31px">
+<rect class="sv-or" x="286" y="14" width="34" height="34" rx="9"/>
+<path d="M295 31 l5.5 5.5 L312 24" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g></svg></span></div>
+      <div class="step tl__item reveal d2"><span class="step__sweep" aria-hidden="true"></span><span class="step__spot" aria-hidden="true"></span><span class="step__n">06</span><span class="step__lab">Step 06</span><h3>Ongoing Support</h3><p>We maintain open communication and support the successful integration of every new hire into your organization.</p><span class="step__viz" aria-hidden="true"><svg viewBox="0 0 440 62" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g>
+<path d="M30 31 L130 31 L152 12 L178 50 L202 22 L222 31 L330 31" fill="none" class="sv-line" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="sv-a-ekg" d="M30 31 L130 31 L152 12 L178 50 L202 22 L222 31 L330 31" fill="none"
+  stroke="var(--orange)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle class="sv-a-ping sv-or" cx="380" cy="31" r="9" opacity=".45"/>
+<circle class="sv-a-beat sv-or" cx="380" cy="31" r="6"/>
+</g></svg></span></div>
+    </div>
+    <div class="center-cta reveal">
+      <a href="/contact-us/" class="btn btn-primary">Schedule a Free Consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Client Stories</span>
+      <h2>What Our Partners <em>Say</em></h2>
+      <p class="lead">Two years of results. Dozens of placements. One consistent verdict &mdash; InSync delivers where others fall short.</p>
+    </div>
+    <div class="test__layout">
+      <div class="test__feat reveal">
+        <div>
+          <div class="test__mark">&ldquo;</div>
+          <p class="test__q">InSync is a key partner to us at TalentWave, and we're grateful for the ongoing alliance we've had with them for over two years. Time and again we've seen their ability to be flexible and creative when supporting our mutual clients. They are highly responsive, fully transparent, and keep clear, dependable lines of communication open at all times.</p>
+        </div>
+        <div class="test__by">
+          <div class="test__av">NB</div>
+          <div><div class="test__name">Neal B.</div><div class="test__role">Strategic Staffing Partner &bull; TalentWave</div></div>
+          <span class="test__badge">2+ Year Alliance</span>
+        </div>
+      </div>
+      <div class="test__right">
+        <div class="test__stats reveal d1">
+          <div class="test__stat"><strong>2+</strong><span>Years Together</span></div>
+          <div class="test__sdiv"></div>
+          <div class="test__stat"><strong>100%</strong><span>Exclusive Partner</span></div>
+          <div class="test__sdiv"></div>
+          <div class="test__stat"><strong>Always</strong><span>Responsive</span></div>
+        </div>
+        <div class="test__card reveal d2">
+          <div class="test__mark">&ldquo;</div>
+          <p class="test__q">The trust we've established between our two businesses reinforces the value we see in the relationship every day. Flexible, creative, and always responsive &mdash; they deliver results other agencies simply can't match.</p>
+          <div class="test__by">
+            <div class="test__av">IS</div>
+            <div><div class="test__name">Healthcare Client</div><div class="test__role">Healthcare Sector &bull; Long-Term Partner</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE GUIDE -->
+<section class="section bonus" id="free-guide">
+  <div class="wrap">
+    <div class="bonus__left reveal">
+      <span class="eyebrow">Free Resource</span>
+      <h2><em>Free Bonus!</em> The Ultimate Guide to Successful Staffing Strategies</h2>
+      <p class="lead">How to attract, hire, and retain top talent &mdash; a complete 8-chapter guide from the InSync team, yours free.</p>
+      <ul class="bonus__chapters">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Understanding Your Staffing Needs</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Attracting Top Talent &mdash; Effective Candidate Acquisition</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Structured Interview Process &amp; Cultural Fit</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Building a Positive Work Culture &amp; Retention</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Performance Management &amp; Ongoing Development</li>
+      </ul>
+    </div>
+    <div class="bonus__card reveal d1">
+      <h3>Get Your Free Guide</h3>
+      <p>Enter your details below and we'll send it right over.</p>
+      <form id="guideForm">
+        <div class="frow">
+          <div class="fg"><label for="fn">First Name *</label><input id="fn" type="text" placeholder="First Name" required></div>
+          <div class="fg"><label for="ln">Last Name *</label><input id="ln" type="text" placeholder="Last Name" required></div>
+        </div>
+        <div class="fg"><label for="em">Email *</label><input id="em" type="email" placeholder="Email" required></div>
+        <button type="submit" class="btn btn-primary fsubmit">Get your free guide today!</button>
+        <p class="fnote">By submitting the form you acknowledge and agree that InSync Consulting Services will collect and process your personal data to contact you and provide information about our staffing services, in compliance with applicable privacy laws.</p>
+      </form>
+      <p class="fthanks" id="guideThanks">Thank you! Your free guide is on its way.</p>
+    </div>
+  </div>
+</section>
+</div><!-- /.ins-below -->
+</div>
+
+<script>
+'use strict';
+(function(){var f=document.getElementById('guideForm'),t=document.getElementById('guideThanks');if(f){f.addEventListener('submit',function(e){e.preventDefault();f.style.display='none';t.style.display='block';});}})();
+/* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && p.classList.contains('tl')) return;   /* timeline cards: spine-driven, no sibling delay */
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line. Catch anything at the observer's
+  // own trigger point (-12% viewport) and nothing below it.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+(function(){var done=false;function run(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.getAttribute('data-count'),dur=1600,start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),val=Math.floor((1-Math.pow(1-p,3))*target);el.textContent=val.toLocaleString();if(p<1)requestAnimationFrame(step);else el.textContent=target.toLocaleString();}requestAnimationFrame(step);});}var s=document.querySelector('.stats');if(s&&'IntersectionObserver'in window){new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!done){done=true;run();}});},{threshold:.4}).observe(s);}else run();})();
+(function(){var stage=document.getElementById('certStage');if(!stage)return;var slides=stage.querySelectorAll('.cert-slide'),thumbs=document.querySelectorAll('.cert-thumb'),bar=document.getElementById('certBar'),sec=document.getElementById('certifications');var i=0,timer=null,D=5000;function fill(){if(!bar)return;bar.style.transition='none';bar.style.width='0';void bar.offsetWidth;bar.style.transition='width '+D+'ms linear';bar.style.width='100%';}function start(){fill();clearTimeout(timer);timer=setTimeout(function(){go(i+1);},D);}function go(n){slides[i].classList.remove('is-active');thumbs[i].classList.remove('is-active');i=(n+slides.length)%slides.length;slides[i].classList.add('is-active');thumbs[i].classList.add('is-active');start();}thumbs.forEach(function(t){t.addEventListener('click',function(){go(+t.getAttribute('data-target'));});});stage.addEventListener('mouseenter',function(){clearTimeout(timer);if(bar){var w=getComputedStyle(bar).width;bar.style.transition='none';bar.style.width=w;}});stage.addEventListener('mouseleave',start);if('IntersectionObserver'in window){var on=false;new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!on){on=true;start();}});},{threshold:.3}).observe(sec);}else{start();}})();
+</script>
+
+<!-- MOTION ENGINES (donor mechanics; selectors adapted to the light page) -->
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var s1 = document.getElementById('apHeroS1');
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* Hero backdrop is the shared SCROLL-SCRUBBED video (#apScrubVid), fixed
+     behind the hero in the standards §6.11 photo slot. Source URL lives in
+     the scrub script as a runtime constant. */
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pVisual = hero.querySelector('.hero__visual');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor (negative parallax); near layers travel
+           more than far ones. Depth order, most-to-least travel:
+           squares > copy > collage > BACKGROUND VIDEO (deepest, subtle). */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pVisual) pVisual.style.transform = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0)';
+        /* the background video moves OPPOSITE the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+function apInitPinnedScroll(ids){
+  'use strict';
+  var root     = document.getElementById(ids.root);
+  var spacer   = document.getElementById(ids.spacer);
+  var stage    = document.getElementById(ids.stage);
+  var viewport = document.getElementById(ids.viewport);
+  var track    = document.getElementById(ids.track);
+  var hint     = ids.hint ? document.getElementById(ids.hint) : null;
+  if (!root || !spacer || !stage || !viewport || !track) return;
+  var cards = [].slice.call(track.querySelectorAll('.pcx__card'));
+  var N = cards.length;
+  if (!N) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  // Detect an ancestor that would break position:fixed (its transform/filter/etc.
+  // makes IT the containing block for fixed descendants -> pin would be wrong).
+  function ancestorBreaksFixed(){
+    var el = root.parentElement;
+    while (el && el !== document.documentElement && el !== document.body){
+      var cs = window.getComputedStyle(el);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.backdropFilter && cs.backdropFilter !== 'none') ||
+          (cs.willChange && /transform|perspective|filter/i.test(cs.willChange)) ||
+          (cs.contain && /(^|\s)(paint|layout|strict|content)(\s|$)/i.test(cs.contain))){
+        return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  var canPin = fine && !touch && !reduced && !ancestorBreaksFixed();
+
+  // ---------- NATIVE fallback: real horizontal swipe, no inflated spacer ----------
+  function nativeActive(){
+    var mid = viewport.scrollLeft + viewport.clientWidth / 2;
+    var best = 0, bd = Infinity;
+    for (var i = 0; i < N; i++){
+      var c = cards[i];
+      var cc = c.offsetLeft + c.offsetWidth / 2;
+      var d = Math.abs(cc - mid);
+      if (d < bd){ bd = d; best = i; }
+    }
+    for (var j = 0; j < N; j++){ cards[j].classList.toggle('is-active', j === best); }
+  }
+
+  if (!canPin){
+    root.classList.add('pcx--native');
+
+    // --- SWIPE ------------------------------------------------------------
+    // iOS locks a touch gesture to ONE axis on the first few pixels of travel.
+    // These cards are ~500px tall, so almost every swipe starts with a little
+    // vertical drift, Safari locks to vertical page scrolling, and the track
+    // never moves — the slider feels dead. (The credentials carousel escapes
+    // this because it declares touch-action:pan-x, but we can't do that here:
+    // it would stop the visitor scrolling the PAGE from over a card that fills
+    // their screen.) So we decide the axis ourselves, with a bias toward
+    // horizontal, and drive scrollLeft directly once we've claimed the gesture.
+    var tX = 0, tY = 0, tScroll = 0, axis = null, dragged = false;
+    var vel = 0, lastX = 0, lastT = 0, animRaf = 0;
+
+    function stopAnim(){ if (animRaf){ cancelAnimationFrame(animRaf); animRaf = 0; } }
+
+    // Eased programmatic scroll. scrollTo({behavior:'smooth'}) uses the browser's
+    // own curve and duration, which lands hard and feels mechanical next to a
+    // finger flick; this is a soft ease-out we control.
+    function animateTo(target, dur){
+      stopAnim();
+      var start = viewport.scrollLeft, delta = target - start;
+      if (Math.abs(delta) < 1){ viewport.scrollLeft = target; return; }
+      if (reduced){ viewport.scrollLeft = target; return; }
+      var t0 = (window.performance && performance.now) ? performance.now() : Date.now();
+      dur = dur || 460;
+      function step(now){
+        var p = Math.min(1, (now - t0) / dur);
+        var e = 1 - Math.pow(1 - p, 3);            // ease-out cubic
+        viewport.scrollLeft = start + delta * e;
+        animRaf = p < 1 ? requestAnimationFrame(step) : 0;
+      }
+      animRaf = requestAnimationFrame(step);
+    }
+
+    function cardLeft(i){
+      var c = cards[Math.max(0, Math.min(N - 1, i))];
+      return c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2;
+    }
+
+    viewport.addEventListener('touchstart', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      stopAnim();                                   // let a new grab interrupt the glide
+      tX = e.touches[0].clientX; tY = e.touches[0].clientY;
+      tScroll = viewport.scrollLeft; axis = null; dragged = false;
+      lastX = tX; vel = 0;
+      lastT = (window.performance && performance.now) ? performance.now() : Date.now();
+    }, { passive:true });
+
+    viewport.addEventListener('touchmove', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      var cx = e.touches[0].clientX;
+      var dx = cx - tX;
+      var dy = e.touches[0].clientY - tY;
+      if (axis === null){
+        // engage sooner (3px) and with a friendlier bias, so the slider claims
+        // the gesture before it starts to feel like it is resisting
+        if (Math.abs(dx) < 3 && Math.abs(dy) < 3) return;
+        axis = (Math.abs(dx) > Math.abs(dy) * 0.6) ? 'x' : 'y';
+      }
+      if (axis !== 'x') return;                              // let the page scroll
+      e.preventDefault();                                    // claim the gesture
+      dragged = true;
+      var now = (window.performance && performance.now) ? performance.now() : Date.now();
+      var dt = now - lastT;
+      if (dt > 0){
+        // smoothed px/ms, so one jittery frame can't throw the flick off
+        vel = vel * 0.7 + ((cx - lastX) / dt) * 0.3;
+        lastX = cx; lastT = now;
+      }
+      viewport.scrollLeft = tScroll - dx;
+    }, { passive:false });                                   // MUST be non-passive
+
+    function indexAt(pos){
+      var mid = pos + viewport.clientWidth / 2, best = 0, bestD = Infinity;
+      for (var i = 0; i < N; i++){
+        var c = cards[i], d = Math.abs((c.offsetLeft + c.offsetWidth / 2) - mid);
+        if (d < bestD){ bestD = d; best = i; }
+      }
+      return best;
+    }
+    function nearestIndex(){ return indexAt(viewport.scrollLeft); }
+
+    // On release, resolve against the card the gesture STARTED on, so one swipe
+    // always means one card. (Measuring from the nearest card instead double
+    // counts: a long drag has already moved the nearest card forward, so adding
+    // a flick on top of it skips one.) Either a quick flick OR a deliberate drag
+    // past ~18% of a card commits the move — the distance rule is what makes a
+    // slow, short swipe feel like it took, instead of springing back.
+    function settle(){
+      var startIdx = indexAt(tScroll);
+      var moved = viewport.scrollLeft - tScroll;
+      var speed = Math.abs(vel);
+      var committed = speed > 0.25 || Math.abs(moved) > cards[0].offsetWidth * 0.18;
+      var idx = startIdx;
+      if (committed && moved !== 0){
+        idx = startIdx + (moved > 0 ? 1 : -1) * (speed > 1.1 ? 2 : 1);
+      }
+      idx = Math.max(0, Math.min(N - 1, idx));
+      animateTo(cardLeft(idx), speed > 0.8 ? 380 : 480);
+    }
+    viewport.addEventListener('touchend', function(){
+      if (axis === 'x') settle();
+      axis = null;
+    }, { passive:true });
+
+    // --- DRAG vs TAP ---------------------------------------------------
+    // Every card in this track is an <a>. Without this guard the browser
+    // resolves a swipe as a tap on the link and navigates away mid-gesture,
+    // which reads exactly like "the slider won't slide". We watch how far the
+    // pointer travelled (and whether the track actually scrolled) and cancel
+    // the click in the CAPTURE phase if it was a drag.
+    var downX = 0, downY = 0, downScroll = 0;
+    function markDown(x, y){ downX = x; downY = y; downScroll = viewport.scrollLeft; dragged = false; }
+    function markMove(x, y){
+      if (Math.abs(x - downX) > 8 || Math.abs(y - downY) > 8) dragged = true;
+    }
+    viewport.addEventListener('pointerdown', function(e){ markDown(e.clientX, e.clientY); }, { passive:true });
+    viewport.addEventListener('pointermove', function(e){ markMove(e.clientX, e.clientY); }, { passive:true });
+    // once native scrolling takes over the browser cancels the pointer stream,
+    // so a cancel is itself proof the gesture became a scroll
+    viewport.addEventListener('pointercancel', function(){ dragged = true; }, { passive:true });
+    viewport.addEventListener('touchstart', function(e){
+      if (e.touches && e.touches[0]) markDown(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('touchmove', function(e){
+      if (e.touches && e.touches[0]) markMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('click', function(e){
+      if (dragged || Math.abs(viewport.scrollLeft - downScroll) > 4){
+        e.preventDefault(); e.stopPropagation();
+      }
+      dragged = false;
+    }, true);
+    // stop the browser's native link-drag (mouse) from pre-empting the scroll
+    track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    cards.forEach(function(c){ c.setAttribute('draggable', 'false'); });
+
+    // mouse drag-to-scroll, for the desktop native fallback where there are no
+    // touch gestures and a link drag would otherwise be the only outcome
+    var mDown = false, mStartX = 0, mStartScroll = 0;
+    viewport.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      mDown = true; mStartX = e.clientX; mStartScroll = viewport.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if (!mDown) return;
+      viewport.scrollLeft = mStartScroll - (e.clientX - mStartX);
+    });
+    window.addEventListener('pointerup', function(){ mDown = false; });
+
+    // --- centre-snap padding: without it the first and last card can never sit
+    // --- in the middle of the viewport, so scroll-snap-align:center misbehaves
+    function padNative(){
+      var vw = viewport.clientWidth;
+      // offsetWidth = layout width. getBoundingClientRect() folds the inactive
+      // card's scale(.96) into the number and skews the centre pad.
+      var cardW = cards[0].offsetWidth;
+      var pad = Math.max(12, (vw - cardW) / 2);
+      track.style.paddingLeft = pad + 'px';
+      track.style.paddingRight = pad + 'px';
+    }
+
+    // --- dot pagination + swipe cue (mobile affordance; the pinned scroll hint
+    // --- is desktop-only, so on a phone nothing said "this slides") ---
+    var dots = null, dotBtns = [], cue = null, cueHidden = false, prevBtn = null, nextBtn = null;
+    if (N > 1){
+      dots = document.createElement('div');
+      dots.className = 'pcx__dots';
+      dots.setAttribute('role', 'tablist');
+      dots.setAttribute('aria-label', 'Slide navigation');
+      for (var d = 0; d < N; d++){
+        (function(idx){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'pcx__dot';
+          b.setAttribute('role', 'tab');
+          b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+          var nm = cards[idx].querySelector('.cert-info__name, h3');
+          b.setAttribute('aria-label', nm ? nm.textContent.trim() : ('Slide ' + (idx + 1)));
+          b.addEventListener('click', function(){
+            animateTo(cardLeft(idx), 520);   // same eased glide as a flick
+          });
+          dots.appendChild(b);
+          dotBtns.push(b);
+        })(d);
+      }
+      // --- prev / next arrows: an explicit way to move the track that does not
+      // --- depend on the swipe gesture being honoured by the device ---
+      var arrows = document.createElement('div');
+      arrows.className = 'pcx__arrows';
+      var ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+      prevBtn = document.createElement('button');
+      prevBtn.type = 'button'; prevBtn.className = 'pcx__arrow pcx__arrow--prev';
+      prevBtn.setAttribute('aria-label', 'Previous'); prevBtn.innerHTML = ARROW_SVG;
+      nextBtn = document.createElement('button');
+      nextBtn.type = 'button'; nextBtn.className = 'pcx__arrow pcx__arrow--next';
+      nextBtn.setAttribute('aria-label', 'Next'); nextBtn.innerHTML = ARROW_SVG;
+      prevBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() - 1), 520); });
+      nextBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() + 1), 520); });
+      arrows.appendChild(prevBtn); arrows.appendChild(nextBtn);
+      // wrap the viewport in a rail so the arrows centre on the TRACK, not on
+      // the whole stage (which also holds the heading)
+      var rail = document.createElement('div');
+      rail.className = 'pcx__rail';
+      viewport.parentNode.insertBefore(rail, viewport);
+      rail.appendChild(viewport);
+      rail.appendChild(arrows);
+
+      cue = document.createElement('div');
+      cue.className = 'pcx__swipe';
+      cue.setAttribute('aria-hidden', 'true');
+      cue.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Swipe for more</span>';
+      stage.appendChild(cue);
+      stage.appendChild(dots);
+    }
+
+    function syncDots(){
+      if (dotBtns.length){
+        for (var i = 0; i < N; i++){
+          dotBtns[i].setAttribute('aria-selected', cards[i].classList.contains('is-active') ? 'true' : 'false');
+        }
+      }
+      if (prevBtn && nextBtn){
+        var cur = nearestIndex();
+        prevBtn.disabled = cur <= 0;
+        nextBtn.disabled = cur >= N - 1;
+      }
+    }
+
+    // set an initial active card and track native scroll
+    var nraf = 0;
+    viewport.addEventListener('scroll', function(){
+      if (!cueHidden && cue && viewport.scrollLeft > 24){ cueHidden = true; cue.style.opacity = '0'; }
+      if (!nraf) nraf = requestAnimationFrame(function(){ nraf = 0; nativeActive(); syncDots(); });
+    }, { passive:true });
+
+    window.addEventListener('resize', function(){ padNative(); nativeActive(); syncDots(); });
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ padNative(); nativeActive(); syncDots(); });
+    }
+
+    padNative();
+    // first active = card nearest center on load
+    nativeActive();
+    // if nothing is active yet (scrollLeft 0), force first
+    if (!track.querySelector('.is-active')) cards[0].classList.add('is-active');
+    syncDots();
+    return;
+  }
+
+  // ---------- PIN mode: manual fixed/absolute pin ----------
+  root.classList.add('pcx--pinned');
+
+  var spacerTop = 0, travel = 0, vh = 0, raf = 0;
+
+  function measure(){
+    var vw = viewport.clientWidth;
+    // centre the first & last card: pad both ends by (viewport - card)/2.
+    // offsetWidth = layout width (rect width folds in the inactive scale).
+    var cardW = cards[0].offsetWidth;
+    var pad = Math.max(0, (vw - cardW) / 2);
+    track.style.paddingLeft  = pad + 'px';
+    track.style.paddingRight = pad + 'px';
+
+    travel = Math.max(0, track.scrollWidth - vw);   // total horizontal distance
+    vh = window.innerHeight;
+
+    stage.style.height = vh + 'px';                 // stage fills viewport (matches spacer math)
+    spacer.style.height = (vh + travel) + 'px';     // spacer = one screen + travel  -> zero gap
+    spacerTop = spacer.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function paint(){
+    raf = 0;
+    var y = window.scrollY;
+    // recompute the spacer's absolute top LIVE each frame (never stale after layout shifts)
+    var rectTop = spacer.getBoundingClientRect().top + y;
+    var start = rectTop, end = rectTop + travel;
+    var progress, pos;
+
+    if (y < start){ progress = 0; pos = 'before'; }
+    else if (y >= end){ progress = 1; pos = 'after'; }
+    else { progress = travel > 0 ? (y - start) / travel : 0; pos = 'pinned'; }
+
+    // pin position: absolute(before) -> fixed(pinned) -> absolute(after)
+    if (pos === 'pinned'){
+      stage.style.position = 'fixed';   stage.style.top = '0'; stage.style.bottom = '';
+    } else if (pos === 'before'){
+      stage.style.position = 'absolute'; stage.style.top = '0'; stage.style.bottom = '';
+    } else { // after
+      stage.style.position = 'absolute'; stage.style.top = '';  stage.style.bottom = '0';
+    }
+    stage.style.left = '0'; stage.style.width = '100%';
+
+    // cards slide sideways 0 -> -travel
+    track.style.transform = 'translate3d(' + (-(progress * travel)).toFixed(2) + 'px,0,0)';
+
+    // active = centred card
+    var ai = Math.round(progress * (N - 1));
+    for (var i = 0; i < N; i++){ cards[i].classList.toggle('is-active', i === ai); }
+
+    // scroll hint: fill + fade out as we move
+    if (hint){
+      hint.style.setProperty('--pcx-hint', (progress * 150).toFixed(0) + '%');
+      hint.style.opacity = String(Math.max(0, 1 - progress * 3));
+    }
+  }
+
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', function(){ measure(); paint(); });
+  window.addEventListener('load', function(){ measure(); paint(); });
+  // re-measure once fonts/images settle (card width is fixed, but be safe)
+  if (document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ measure(); paint(); }); }
+
+  measure();
+  paint();
+}
+// initialise both pinned horizontal-scroll sections
+apInitPinnedScroll({ root:'specialties', spacer:'psxSpacer', stage:'psxStage', viewport:'psxViewport', track:'psxTrack', hint:'psxHint' });
+apInitPinnedScroll({ root:'certifications', spacer:'pcxSpacer', stage:'pcxStage', viewport:'pcxViewport', track:'pcxTrack', hint:'pcxHint' });
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  if (!wrap || !vid) return;
+
+  // Media source as a runtime constant (immune to GHL attribute corruption).
+  var AP_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a91bc72934a62aec865f510.mp4';   // g12 scrub encode
+  vid.src = AP_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+  // Hero shows the video with the left-fade gradient only; as you leave the hero
+  // the two CROSS-FADE — the directional gradient goes out while a single flat,
+  // even shade comes in, so the Services section sits under a uniform overlay
+  // (no left-to-right falloff) with the cards/text still legible.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    // v2 spec: the hero shows the video CLEAN apart from the constant left-fade
+    // grad; the plain black shade ramps 0->1 across the hero's LAST 45vh so it
+    // is at full strength the moment the SECOND section (Our Services)
+    // starts, and holds there through the band.
+    var sp = document.getElementById('psxSpacer');
+    var svcTop = sp ? (sp.getBoundingClientRect().top + y) : vh;   // absolute top of Our Services
+    // Longer runway + smoothstep easing: the handoff reads as one continuous
+    // darkening rather than a linear ramp with hard endpoints.
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    // The two layers do NOT sum linearly. Fading the gradient out at the same
+    // rate the shade comes in makes the copy side get LIGHTER mid-transition
+    // (0.84 -> ~0.65 -> 0.80) before darkening again. So instead of a fixed
+    // curve, solve for the gradient opacity that holds the COMPOSITE on the
+    // copy side steady as it eases from the gradient's 0.84 to the shade's
+    // 0.80: 1-(1-GA*g)(1-SA*e) = T. The right-hand side of the frame simply
+    // darkens 0 -> 0.80. Result: no dip, no bump, and g reaches 0 continuously
+    // exactly as the shade lands at full.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers
+      var T = GA + (SA - GA) * e;               // target composite on the copy side
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  // shade runs independently of video readiness, in every mode
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // The scrub spans scrollY 0 (top of hero) -> the bottom of the SECOND
+  // section (Our Services): frame 1 at the top of the hero, the final frame
+  // as the pinned track's runway ends — the donor page's own hero+Services
+  // span, restored.
+  function scrubEnd(){
+    var sp = document.getElementById('psxSpacer');
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of Services (incl. pin runway)
+  }
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      // static: hold on the first frame
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      // mobile/touch: simple muted autoplay loop as a moving background
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+
+      // Gate the layer to its span. Visibility and PLAYBACK are decoupled on
+      // purpose: iOS (and older Android) will only decode one video stream at a
+      // time, so if this clip is still playing when the band layer tries to
+      // start, the band's play() is refused and the band stays black. We
+      // therefore release the decoder BEFORE the band probe turns on, while
+      // leaving the layer visible on its frozen last frame — by that point the
+      // shade has ramped to full black over it, so nothing looks different.
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        // v2: on mobile the clip backs the HERO only — the layer's visual
+        // span and its playback both end at the hero, so the loop costs
+        // nothing further down the page.
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  // Resume the loop the moment each seek lands, and measure how long the seek
+  // took: past ~80ms the clip is sparse-keyframed or still buffering, and the
+  // eased approach (many small seeks) would multiply that cost — so slow clips
+  // switch to direct-to-target writes (one seek per update) while spec -g 12
+  // encodes keep the buttery ease.
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    // toggle the whole layer off once we're well past the certs (band video takes over)
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  // rAF loop: ease currentTime toward the scroll-derived target for smoothness.
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      // snap when very close, otherwise ease (kills micro-stutter while staying responsive)
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight. On sparse-keyframe
+        // or still-buffering clips every write aborts and restarts the
+        // pending seek, so no frame ever finishes presenting and the video
+        // looks FROZEN — worst deep into the span (section two), where seeks
+        // are furthest from a keyframe. On spec `-g 12` encodes each seek
+        // completes within a frame, so this gate never engages.
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      // keep animating while not settled
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  // prime
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Our Process timeline — the orange spine fills as the visitor scrolls the
+     section; each node flips to the solid-orange recipe state the moment the
+     fill passes its centre. Same motion grammar as the donor's process
+     line-fill, made continuous. Reduced motion: fully filled, all nodes on. */
+  var tl = document.getElementById('insTl');
+  if (!tl) return;
+  var fill = document.getElementById('insTlFill');
+  var line = tl.querySelector('.tl__line');
+  var items = Array.prototype.slice.call(tl.querySelectorAll('.step'));
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced){
+    if (fill) fill.style.height = '100%';
+    items.forEach(function(it){ it.classList.add('on'); });
+    return;
+  }
+  var raf = 0;
+  function nodeCenter(it){
+    var n = it.querySelector('.step__n');
+    var r = n.getBoundingClientRect();
+    return r.top + r.height / 2;
+  }
+  function paint(){
+    raf = 0;
+    var r = tl.getBoundingClientRect();
+    if (!items.length || !line) return;
+    /* spine runs first node centre -> last node centre (card heights vary in
+       the alternating layout, so the bottom is measured, not assumed) */
+    var topY = nodeCenter(items[0]);
+    var botY = nodeCenter(items[items.length - 1]);
+    line.style.top = (topY - r.top) + 'px';
+    line.style.bottom = (r.bottom - botY) + 'px';
+    /* fill progress: how far the read line (66% of the viewport) has travelled
+       from the first node to the last */
+    var read = window.innerHeight * 0.66;
+    var p = (read - topY) / Math.max(1, (botY - topY));
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    if (fill) fill.style.height = (p * 100).toFixed(2) + '%';
+    var fillY = topY + (botY - topY) * p;
+    items.forEach(function(it){
+      it.classList.toggle('on', nodeCenter(it) <= fillY + 1);
+    });
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* reveal transitions shift the cards (translateY) after a paint has already
+     measured them — re-measure whenever one settles so the spine bounds and
+     activation line stay true even if the visitor stops scrolling mid-reveal */
+  tl.addEventListener('transitionend', onScroll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(onScroll);
+  paint();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* The restored dual-path mockups and the pipeline widget animate their rows
+     in when scrolled to, and the employer dashboard's match % drifts around
+     90-96%. Donor mechanics; the stepper is guarded so overlapping timers
+     can't run the number off the scale. */
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onView(el, cb){
+    if (!el) return;
+    if (reduced || !('IntersectionObserver' in window)){ cb(); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting){ cb(); io.disconnect(); } });
+    }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+    io.observe(el);
+  }
+  ['.mock-dash', '.mock-phone'].forEach(function(sel){
+    var el = document.querySelector(sel);
+    onView(el, function(){ el.classList.add('go'); });
+  });
+
+  var pctEl = document.getElementById('apMatchPct');
+  if (pctEl && !reduced){
+    var pctTimer = null;
+    setInterval(function(){
+      var targetPct = 90 + Math.floor(Math.random() * 8);
+      var cur = parseInt(pctEl.textContent, 10); if (isNaN(cur)) cur = 94;
+      if (pctTimer){ clearInterval(pctTimer); pctTimer = null; }
+      if (cur === targetPct) return;
+      var step = cur < targetPct ? 1 : -1, n = cur;
+      pctTimer = setInterval(function(){
+        n += step; pctEl.textContent = n + '%';
+        if (n === targetPct){ clearInterval(pctTimer); pctTimer = null; }
+      }, 40);
+    }, 2600);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Service-card icons draw themselves on when the card first reaches the
+     viewport. Path lengths are MEASURED (getTotalLength) rather than hardcoded,
+     so swapping an SVG can't silently break the effect. */
+  var cards = [].slice.call(document.querySelectorAll('#psxTrack .pcx__card.spec'));
+  if (!cards.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach(function(card){
+    var shapes = card.querySelectorAll('.spec__ic svg path, .spec__ic svg circle, .spec__ic svg rect, .spec__ic svg line, .spec__ic svg polyline');
+    [].forEach.call(shapes, function(s){
+      var len = 0;
+      try { len = s.getTotalLength ? s.getTotalLength() : 0; } catch(e){ len = 0; }
+      if (!len) return;                       /* unmeasurable shape: leave it alone */
+      len = Math.ceil(len) + 1;
+      s.setAttribute('stroke-dasharray', len);
+      s.style.setProperty('--dash', len);
+      if (reduced) s.style.strokeDashoffset = '0';
+    });
+  });
+  if (reduced){ cards.forEach(function(c){ c.classList.add('draw'); }); return; }
+
+  function draw(card){ card.classList.add('draw'); }
+  if (!('IntersectionObserver' in window)){ cards.forEach(draw); return; }
+  /* threshold:0 — the pinned track is several viewports tall, so a ratio
+     threshold would never resolve for cards parked off to the side. */
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ draw(x.target); io.unobserve(x.target); } });
+  }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+
+  /* the pin engine moves cards horizontally inside a fixed stage, so a card can
+     become visible without the observer refiring — sweep on scroll as a net */
+  var raf = 0;
+  function sweep(){
+    raf = 0;
+    var left = document.querySelectorAll('#psxTrack .pcx__card.spec:not(.draw)');
+    for (var i = 0; i < left.length; i++){
+      var r = left[i].getBoundingClientRect();
+      if (r.right > 0 && r.left < window.innerWidth && r.top < window.innerHeight) draw(left[i]);
+    }
+    if (!document.querySelectorAll('#psxTrack .pcx__card.spec:not(.draw)').length){
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* WHY INSYNC entrance: each card's icon glyph draws itself in (stroke
+     dash offset -> 0) and the checklist deals in beneath it. Follows the v2
+     reveal contract: threshold 0 with a -12% rootMargin, and an on-screen-only
+     safety net so a card can never be left mid-draw. */
+  var sec = document.getElementById('why');
+  if (!sec) return;
+  var cards = [].slice.call(sec.querySelectorAll('.val'));
+  if (!cards.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduced){
+    cards.forEach(function(card){
+      var shapes = [].slice.call(card.querySelectorAll('.val__ic svg > *'));
+      shapes.forEach(function(sh){
+        var len = 0;
+        try { len = sh.getTotalLength ? sh.getTotalLength() : 0; } catch(e){ len = 0; }
+        if (!len) return;
+        sh.style.strokeDasharray  = len;
+        sh.style.strokeDashoffset = len;
+      });
+    });
+  }
+
+  function play(card){
+    if (card.getAttribute('data-why-on')) return;
+    card.setAttribute('data-why-on', '1');
+    card.classList.add('why-on');
+    if (reduced) return;
+    var shapes = [].slice.call(card.querySelectorAll('.val__ic svg > *'));
+    shapes.forEach(function(sh, i){
+      if (!sh.style.strokeDasharray) return;
+      sh.style.transition = 'stroke-dashoffset .95s cubic-bezier(.4,0,.2,1) ' + (i * 110) + 'ms';
+      sh.style.strokeDashoffset = '0';
+    });
+  }
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        play(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+    cards.forEach(function(c){ io.observe(c); });
+    // on-screen-only safety net: never leave a visible card mid-draw
+    setTimeout(function(){
+      cards.forEach(function(c){
+        var r = c.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) play(c);
+      });
+    }, 2500);
+  } else {
+    cards.forEach(play);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the dashboard, phone, service, credential, value and
+     process-step cards: the card
+     tilts toward the pointer and a spotlight tracks it. Spring-damped so the
+     motion feels weighted (same STIFF/DAMP family as the hero parallax); on
+     leave it eases back to rest and returns control to the page's own
+     transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '.path__mock, #psxTrack .pcx__card.spec, #pcxTrack .pcx__card.certcard, #why .val, .tl .step';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; with per-element binding that card's listeners would be
+     attached to a detached node and it would silently stop responding while
+     every other card kept working. Delegation resolves the card from whatever
+     is under the pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      /* service cards carry a base scale from the pin (.96 inactive / 1 active)
+         that must ride along, or the follow would flatten the track's depth */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ============== END INSYNC HOMEPAGE BODY ============== -->

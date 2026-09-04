@@ -1,0 +1,2113 @@
+<!-- ================================================================
+     INSYNC — HEALTHCARE STAFFING (Motion Standards build)
+     insync-website-standards v1.0 skin + the motion page's cinematic
+     layer, assembled per the insync-motion-standards skill:
+     scroll-scrubbed hero video under one flat even shade (no hero
+     gradient), fixed morph hero + page-load entrance, spring
+     parallax, drifting brand squares, challenge->response pairs with
+     per-card micro-visuals + connector pulses, ECG pulse motif,
+     GHL-safe pinned placement track (native swipe + dots + arrows on
+     touch), cursor-follow tilt + spotlight, coverage radar + spine-
+     filled capabilities index, v2 reveal contract.
+     Body-only GHL block — paste between GHL-PASTE-START/END into ONE
+     Custom Code element, full-width section, padding 0, between the
+     global nav and footer blocks.
+     ================================================================ -->
+<!-- ═══════════════ GHL-PASTE-START ═══════════════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+  --white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+.ins-page{font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px}
+.ins-page .hl{color:var(--orange-light)}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head h2{margin:16px 0 16px}
+.ins-page .center-cta{text-align:center;margin-top:48px}
+
+.ins-page .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.ins-page .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+
+/* hero */
+
+.ins-page .sec-cta{text-align:center;margin-top:48px}
+.ins-page #placement-challenges .sec-cta,.ins-page #staffing-solutions .sec-cta,.ins-page #staffing-support .sec-cta{text-align:left}
+.ins-page .hero{position:relative;overflow:hidden;padding:118px 0 122px;text-align:center;background:var(--navy-deep)}
+.ins-page .hero::before{content:"";position:absolute;inset:0;
+  background:url(https://images.leadconnectorhq.com/image/f_webp/q_80/r_1600/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a50ab98708c41d4df6b61c7.jpg) center/cover no-repeat}
+.ins-page .hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.74)),radial-gradient(1000px 460px at 50% 30%,rgba(44,68,116,.5),transparent 70%)}
+.ins-page .hero .wrap{position:relative;z-index:2}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero h1{color:#fff;margin:16px 0 18px}
+.ins-page .hero h1 .accent{color:var(--orange-light)}
+.ins-page .hero__sub{font-size:1.08rem;color:rgba(255,255,255,.82);line-height:1.7;max-width:680px;margin:0 auto}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+.ins-page .hero__tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.ins-page .hero__tag{display:inline-block;background:rgba(239,90,40,.18);border:1px solid rgba(239,90,40,.34);border-radius:50px;padding:4px 14px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light)}
+
+.ins-page .creds{position:relative;border-bottom:1px solid var(--line);background:#fff;padding:22px 0;overflow:hidden}
+.ins-page .creds::before,.ins-page .creds::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.ins-page .creds::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds__track{display:flex;width:max-content;animation:insCredScroll 32s linear infinite}
+.ins-page .creds:hover .creds__track{animation-play-state:paused}
+.ins-page .creds__set{display:flex;align-items:center}
+.ins-page .cred{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.92rem;color:var(--ink);white-space:nowrap;padding:0 34px;position:relative}
+.ins-page .cred::after{content:"";position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:25%;background:var(--orange);opacity:.5}
+.ins-page .cred svg{width:22px;height:22px;color:var(--orange);flex-shrink:0}
+@keyframes insCredScroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+@media(prefers-reduced-motion:reduce){
+  .ins-page .creds__track{animation:none;width:100%;justify-content:center}
+  .ins-page .creds__set{flex-wrap:wrap;justify-content:center;row-gap:10px}
+  .ins-page .creds__set[aria-hidden="true"]{display:none}
+}
+
+/* ── Split layout: collage beside content (mirrors live) ── */
+.ins-page .split{display:grid;grid-template-columns:0.82fr 1.18fr;gap:56px;align-items:center}
+.ins-page .test{background:var(--bg-alt)}
+.ins-page .test__inner{max-width:940px;margin:0 auto}
+.ins-page .test__label{color:var(--orange);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.ins-page .test__feat{position:relative;background:var(--orange);border-radius:20px;padding:42px 40px;color:#fff;box-shadow:var(--shadow-orange);margin-top:18px}
+.ins-page .test__mark{font-size:3.4rem;line-height:.6;font-weight:800;color:rgba(255,255,255,.55);display:block;height:28px}
+.ins-page .test__quote{font-size:1.02rem;color:rgba(255,255,255,.95);line-height:1.72;margin-top:8px}
+.ins-page .test__div{height:1px;background:rgba(255,255,255,.28);margin:24px 0}
+.ins-page .test__attr{display:flex;align-items:center;gap:14px}
+.ins-page .test__avatar{width:50px;height:50px;border-radius:50%;background:#fff;color:var(--orange);font-weight:800;font-size:1.15rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ins-page .test__name strong{display:block;color:#fff;font-weight:700}
+.ins-page .test__name span{font-size:.86rem;color:rgba(255,255,255,.8)}
+
+.ins-page .contact{background:var(--navy-deep);color:#fff}
+.ins-page .contact .split{align-items:start}
+.ins-page .contact .eyebrow{color:var(--orange-light)}
+.ins-page .contact h2{color:#fff}
+.ins-page .contact h2 em{color:var(--orange-light)}
+.ins-page .contact__intro p{color:rgba(255,255,255,.72);margin-top:16px;font-size:1rem}
+.ins-page .contact__lines{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.ins-page .contact__line{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.85);font-size:.95rem}
+.ins-page .contact__line svg{width:20px;height:20px;color:var(--orange-light);flex-shrink:0}
+.ins-page .cform{background:#fff;border-radius:20px;padding:34px;box-shadow:var(--shadow)}
+.ins-page .cform__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ins-page .field{display:flex;flex-direction:column;gap:7px}
+.ins-page .field.full{grid-column:1/-1}
+.ins-page .field label{font-size:.78rem;font-weight:700;color:var(--ink)}
+.ins-page .field input,.ins-page .field textarea{font-family:var(--f);font-size:.95rem;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.ins-page .field textarea{resize:vertical;min-height:120px}
+.ins-page .field input:focus,.ins-page .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.ins-page .consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px}
+.ins-page .consent input{margin-top:3px;accent-color:var(--orange);width:16px;height:16px;flex-shrink:0}
+.ins-page .consent label{font-size:.76rem;color:var(--muted);line-height:1.55}
+.ins-page .consent a{color:var(--orange);font-weight:600}
+.ins-page .cform .btn{width:100%;margin-top:18px}
+
+/* reveal */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ================================================================
+   MOTION LAYER (from the Apex motion build, re-dressed for the
+   light design system). Mechanics are the donor page's verbatim:
+   scroll-scrubbed hero video, fixed morph hero + page-load entrance,
+   spring parallax, drifting brand squares, GHL-safe pinned horizontal
+   tracks, section video band, scan sweep, v2 reveal contract.
+   Surfaces/colors follow insync-website-standards v1.0 throughout.
+   ================================================================ */
+
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene (it carries its own nav clearance) — but the moment the hero returns
+   to normal flow (phones / coarse pointers / reduced motion) the spacer must
+   come back, or the hero top hides under the fixed bar. The nav script
+   re-syncs the spacer height inline, so this needs !important to hold. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{ height:0 !important; }
+}
+
+/* ---------- scroll-scrubbed backdrop (apex v2 Layer 1): ONE continuous clip
+   behind the hero AND the section that follows it. Frame 1 at the top of the
+   hero, final frame at the end of the Verified Credentials band, playhead
+   driven by scroll. Per the v2 spec the hero shows the video CLEAN apart from
+   the constant left-fade gradient (copy side dark, footage side clear); a
+   plain black shade ramps in across the hero's last 45vh and holds through
+   the band. Mobile autoplay-loops the clip as the hero backdrop (paused once
+   scrolled past); reduced motion freezes frame 1. */
+.ins-page .ins-scrub{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:var(--navy-deep); opacity:0; transition:opacity .5s ease; }
+.ins-page .ins-scrub.is-on{ opacity:1; }
+.ins-page .ins-scrub__par{ position:absolute; inset:0; will-change:transform; }
+.ins-page .ins-scrub__vid{ position:absolute; left:50%; top:50%; width:114%; height:114%;
+  transform:translate(-50%,-50%); object-fit:cover; will-change:transform;
+  filter:contrast(1.06) saturate(1.08) brightness(.93); }   /* extra size = parallax room; grade richens high-key footage */
+/* dark band: full strength across the left third, then ONE continuous ease-in-out
+   curve — it begins to lift almost imperceptibly after the third, passes the
+   centre still strong, and dissolves gradually out towards the right edge. No
+   plateau-to-fade corner, no visible seam anywhere. */
+.ins-page .ins-scrub__grad{ position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,   rgba(0,0,0,.84) 27%,   rgba(0,0,0,.83) 30%,   rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%, rgba(0,0,0,.77) 39.3%, rgba(0,0,0,.74) 42.4%, rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%, rgba(0,0,0,.61) 51.7%, rgba(0,0,0,.55) 54.8%, rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,   rgba(0,0,0,.40) 64.1%, rgba(0,0,0,.35) 67.2%, rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%, rgba(0,0,0,.18) 76%,   rgba(0,0,0,.09) 78.5%, rgba(0,0,0,0) 80%); }
+.ins-page .ins-scrub__shade{ position:absolute; inset:0; opacity:0; background:rgba(0,0,0,.80); }
+/* mobile: the hero rides the looping clip — hero surface goes transparent
+   (the light system's own ≤1024 rules already reduce ::after to the soft
+   radial glow, which reads fine over footage) */
+@media (max-width:1024px){
+  .ins-page .hero--wonder{ background:transparent; }
+}
+
+/* ---------- Wonder hero: the light hero as a fixed full-viewport scene.
+   Base = fixed; the same media that turns the morph script off returns
+   it to normal flow (phones / coarse pointers / reduced motion). */
+.ins-page .hero--wonder{ position:fixed; inset:0; height:100svh; z-index:40;
+  will-change:opacity,transform; display:flex; align-items:center;
+  padding:0; }
+@media (min-width:1025px) and (pointer:fine){
+  .ins-page .hero--wonder{ background:transparent; }        /* scrub shows through */
+  .ins-page .hero--wonder::before{ display:none; }          /* photo slot is the scrub layer */
+  .ins-page .hero--wonder .wrap{ padding-top:132px; }       /* clear the fixed 120px nav */
+}
+/* no collage: the copy owns a single column and the footage is the visual.
+   The light hero's own ::after veil (navy radial on the right) is off in every
+   mode so the right side of the video stays clean. */
+.ins-page .hero--wonder::after{ display:none; }
+.ins-page .hero--wonder .wrap{ grid-template-columns:1fr; }
+.ins-page .hero--wonder .hero__copy{ max-width:700px; }
+.ins-page .hero__scene{ width:100%; }
+.ins-page .ins-fadespacer{ height:100svh; }                  /* runway the fixed hero fades across */
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{ position:relative; inset:auto; height:auto; z-index:auto;
+    display:block; padding:92px 0 104px; }
+  .ins-page .ins-fadespacer{ display:none; }
+}
+
+/* everything after the hero paints above the fixed scrub layer */
+.ins-page .ins-below{ position:relative; z-index:10; background:#fff; }
+
+/* ---------- page-load entrance (donor mechanics: snap into a zoomed state
+   pre-paint, transition out on load; hero copy holds, then releases) */
+.ins-page .hero--wonder.ap-enter #apHeroS1{
+  transform:scale(1.12) !important; opacity:.5 !important; transition:none !important; }
+.ins-page .hero--wonder.ap-entering #apHeroS1{
+  transition:transform 1.7s cubic-bezier(.16,.84,.28,1), opacity 1.2s ease !important; }
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{
+  opacity:0 !important; transform:translateY(24px) !important; }
+.ins-page .hero--wonder.ap-reveal-hero .reveal{
+  opacity:1 !important; transform:none !important; }
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{ transform:none !important; opacity:1 !important; }
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ---------- drifting brand squares (the donor's ember drift, re-branded:
+   rule 2 allows no decorative circles, embellishments are orange + navy-2
+   squares inside the hero — so the particles are exactly that) */
+.ins-page .hero__sqembers{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
+.ins-page .ins-sq-ember{
+  position:absolute; bottom:-3%;
+  width:var(--sz,7px); height:var(--sz,7px); border-radius:22%;
+  left:var(--x,50%); background:var(--sq-c,var(--orange));
+  opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite; }
+@keyframes insSqDrift{
+  0%{ transform:translate3d(0,2vh,0) rotate(0deg); opacity:0; }
+  10%{ opacity:var(--op,.2); }
+  85%{ opacity:var(--op,.2); }
+  100%{ transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg)); opacity:0; }
+}
+.ins-page .hero--wonder .wrap{ position:relative; z-index:2; }
+
+
+/* ================================================================
+   PINNED HORIZONTAL TRACKS (donor pin engine; .pcx machinery names,
+   light surfaces). JS adds .pcx--pinned / .pcx--native and drives
+   the stage inline; dots + swipe cue are injected on mobile.
+   ================================================================ */
+.ins-page .pcx{ position:relative; }
+.ins-page .pcx__stage{ position:relative; left:0; width:100%;
+  display:flex; flex-direction:column; }
+.ins-page .pcx__head{ flex:0 0 auto; padding-top:24px; }
+.ins-page .pcx__head .head{ margin-bottom:26px; }
+.ins-page .pcx__viewport{ flex:1 1 auto; display:flex; align-items:center;
+  overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory; scrollbar-width:none; }
+.ins-page .pcx__viewport::-webkit-scrollbar{ display:none; }
+.ins-page .pcx__track{ display:flex; align-items:stretch; gap:22px;
+  padding:20px var(--gutter,32px); will-change:transform; }
+.ins-page .pcx__card{ flex:0 0 var(--card-w); width:var(--card-w);
+  scroll-snap-align:center;
+  opacity:.55; transform:scale(.96);
+  transition:opacity .45s var(--ease), transform .45s var(--ease),
+             box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.ins-page .pcx__card.is-active{ opacity:1; transform:scale(1); }
+
+/* desktop pin mode */
+.ins-page .pcx--pinned .pcx__viewport{ overflow:hidden; scroll-snap-type:none; }
+.ins-page .pcx--pinned .pcx__head{ padding-top:196px; }   /* clear the fixed 120px nav + breathing room above the eyebrow */
+/* Pinned section heads run full-bleed: the standard .head/.lead caps (680/600px)
+   would wrap this headline onto three lines. Wide container + a size that tracks
+   the viewport keeps the headline and the lead each on a SINGLE line, at the same
+   3rem cap every other section heading uses. */
+.ins-page .pcx--pinned .pcx__head .wrap{ max-width:min(1680px, 96vw); }
+.ins-page .pcx--pinned .pcx__head .head{ max-width:none; }
+.ins-page .pcx--pinned .pcx__head .lead{ max-width:none; }
+.ins-page .certs-pin .pcx__head .head, .ins-page .certs-pin .pcx__head .lead{ margin-left:auto; margin-right:auto; }
+/* The headline keeps the SAME scale as every other section heading
+   (clamp(2rem,3.8vw,3rem)); the wide container is what unwraps it. At 3rem the
+   longest headline measures ~1460px, so single-line is only forced where the
+   container can actually hold it — below that it wraps normally rather than
+   shrinking the type. */
+@media (min-width:1620px){
+  .ins-page .pcx--pinned .pcx__head h2,
+  .ins-page .pcx--pinned .pcx__head .lead{ white-space:nowrap; }
+}
+/* native mode (mobile / fallback): restore the standard section rhythm */
+.ins-page .pcx--native .pcx__stage{ position:relative; padding:100px 0; }
+.ins-page .pcx--native .pcx__viewport{ padding-bottom:6px; }
+.ins-page .pcx--native .pcx__head{ padding-top:0; }
+@media (max-width:760px){ .ins-page .pcx--native .pcx__stage{ padding:72px 0; } }
+
+/* hint (desktop pin): tiny scroll cue, fades once moving */
+.ins-page .pcx__hint{ position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
+  display:none; align-items:center; gap:9px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  transition:opacity .4s ease; pointer-events:none; z-index:3; }
+.ins-page .pcx--pinned .pcx__hint{ display:flex; position:relative; left:auto; bottom:auto;
+  transform:none; margin:6px auto 16px; justify-content:center; }   /* in flow: reserves space, never overlaps the cards */
+.ins-page .pcx__hint svg{ width:16px; height:16px; }
+.ins-page .pcx__hint-track{ width:46px; height:2px; background:var(--line); border-radius:2px; overflow:hidden; position:relative; }
+.ins-page .pcx__hint-track::after{ content:''; position:absolute; inset:0; width:40%;
+  background:var(--orange); border-radius:2px;
+  transform:translateX(var(--pcx-hint,0%)); transition:transform .1s linear; }
+
+/* injected dots + swipe cue (mobile) */
+.ins-page .pcx__dots{ display:flex; justify-content:center; gap:8px; padding:16px 0 6px; }
+.ins-page .pcx__dot{ width:22px; height:4px; border-radius:3px; border:0; padding:0;
+  background:var(--line); cursor:pointer; transition:background .25s var(--ease); }
+.ins-page .pcx__dot[aria-selected="true"]{ background:var(--orange); }
+.ins-page .pcx__swipe{ display:flex; align-items:center; justify-content:center; gap:8px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); padding:10px 0 0; transition:opacity .4s ease; }
+.ins-page .pcx__swipe svg{ width:15px; height:15px; }
+/* prev / next arrows (native mode only). Sit just inside the stage edges,
+   vertically centred on the track; disabled at either end. */
+.ins-page .pcx__arrows{ display:none; }
+.ins-page .pcx__rail{ position:relative; }
+.ins-page .pcx--native .pcx__arrows{ display:block; position:absolute; left:0; right:0; top:50%;
+  transform:translateY(-50%); pointer-events:none; z-index:4; }
+.ins-page .pcx__arrow{ position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:12px; border:1px solid var(--line);
+  background:#fff; color:var(--navy); box-shadow:var(--shadow-sm); padding:0;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  pointer-events:auto; -webkit-tap-highlight-color:transparent;
+  transition:opacity .25s var(--ease), background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease); }
+.ins-page .pcx__arrow svg{ width:20px; height:20px; }
+.ins-page .pcx__arrow--prev{ left:10px; }
+.ins-page .pcx__arrow--next{ right:10px; }
+.ins-page .pcx__arrow--next svg{ transform:scaleX(-1); }
+.ins-page .pcx__arrow:active{ transform:translateY(-50%) scale(.94); }
+.ins-page .pcx__arrow:disabled{ opacity:.35; cursor:default; }
+@media (hover:hover){ .ins-page .pcx__arrow:not(:disabled):hover{ background:var(--orange); color:#fff; border-color:transparent; } }
+/* credentials band: the arrows overlap the white card edge, so keep the solid
+   white / navy treatment (it also reads cleanly on the navy) with a stronger
+   shadow to lift it off both surfaces */
+.ins-page .certs-pin .pcx__arrow{ box-shadow:0 6px 18px rgba(15,24,48,.28); border-color:transparent; }
+
+/* iOS: the swipe engine drives scrollLeft directly during the drag. On a
+   container with scroll-snap-type:x mandatory, Safari re-snaps every
+   programmatic position back to the nearest snap point, so the track appears
+   dead under the finger. In native mode the JS already owns snapping (settle),
+   so hand it the whole job. If JS never ran, .pcx--native is absent and the
+   pure-CSS snap fallback still applies. */
+.ins-page .pcx--native .pcx__viewport{ scroll-snap-type:none; touch-action:pan-x pan-y; overscroll-behavior-x:contain; }
+
+@media (min-width:1025px){ .ins-page .pcx__dots, .ins-page .pcx__swipe{ display:none; } }
+
+/* ================================================================
+   HEALTHCARE PAGE COMPONENTS — the dark motion page's section
+   machinery (challenge→response pairs, ECG motif, pinned placement
+   cards, capabilities index + coverage radar, contact beacon),
+   re-dressed in insync-website-standards v1.0 light styling.
+   Namespaced hc-*; engines keep their ins/ap/pcx contracts.
+   ================================================================ */
+
+/* ---------- wonder hero, centered (the healthcare page's composition):
+   the copy column sits in the middle of the footage instead of the
+   homepage's left column. Apex hero rules already center the text,
+   CTAs and tags inside it. */
+.ins-page .hero--wonder .hero__copy{ max-width:900px; margin-left:auto; margin-right:auto; }
+
+/* ---------- kinetic clip-wipe on section headings (donor motion).
+   Rides ON TOP of the reveal: the .head reveals as a block, the h2
+   additionally wipes on. Descender padding stops the clip shaving
+   the tails of g/p/y. */
+.ins-page.js .head h2{ clip-path:inset(0 105% 0 0);
+  transition:clip-path 1.05s var(--ease), opacity .7s var(--ease), transform .7s var(--ease);
+  padding-bottom:.09em; }
+.ins-page.js .head.in h2{ clip-path:inset(0 0 0 0); }
+
+/* ================================================================
+   SECTION 2 — CHALLENGES (challenge → response pairs) rides the
+   scroll-scrubbed backdrop under the black shade on desktop, the
+   same arrangement as the homepage's Services section: transparent
+   surface, white heads. Mobile / coarse / reduced: its own white
+   section (the scrub is hero-only there).
+   ================================================================ */
+.ins-page .hc-chal{ position:relative; z-index:10; background:#fff; }
+.ins-page .hc-pairs{ display:flex; flex-direction:column; }
+.ins-page .hc-pair{ position:relative; display:grid; grid-template-columns:1fr 66px 1fr; align-items:stretch; }
+.ins-page .hc-prob{ position:relative; padding:34px 34px 34px 0; }
+.ins-page .hc-ghost{ position:absolute; top:-16px; right:14px; font-family:var(--f);
+  font-size:clamp(70px,9vw,124px); font-weight:800; line-height:1; color:transparent;
+  -webkit-text-stroke:1px rgba(44,68,116,.16); z-index:0; pointer-events:none; }
+.ins-page .hc-tag{ display:inline-block; font-size:.74rem; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--orange); }
+.ins-page .hc-prob h3{ position:relative; z-index:1; font-size:1.35rem; margin:12px 0 0; }
+.ins-page .hc-prob p{ position:relative; z-index:1; font-size:.92rem; color:var(--muted); line-height:1.65; margin:12px 0 0; max-width:430px; }
+
+/* connector: rail + traveling pulse + node ripple */
+.ins-page .hc-conn{ position:relative; display:flex; align-items:center; justify-content:center; }
+.ins-page .hc-conn::before{ content:''; position:absolute; left:50%; top:0; bottom:0; width:1px;
+  background:linear-gradient(180deg,transparent,var(--line) 20%,var(--line) 80%,transparent);
+  transform:translateX(-50%); }
+.ins-page .hc-conn__node{ position:relative; z-index:1; width:38px; height:38px; border-radius:12px;
+  background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  display:flex; align-items:center; justify-content:center; color:var(--muted);
+  transition:border-color .5s var(--ease), color .5s var(--ease), background .5s var(--ease), transform .5s var(--ease); }
+.ins-page .hc-conn__node svg{ width:16px; height:16px; }
+.ins-page.js .hc-pair.in .hc-conn__node{ border-color:var(--orange); color:var(--orange);
+  background:var(--orange-soft); transform:scale(1.06); transition-delay:.25s; }
+/* pulse dot — status-dot family (allowed round) */
+.ins-page .hc-conn__pulse{ position:absolute; left:50%; top:6px; width:7px; height:7px; margin-left:-3.5px;
+  border-radius:50%; background:var(--orange); box-shadow:0 0 10px rgba(239,90,40,.7); opacity:0; z-index:0; }
+.ins-page.js .hc-pair.in .hc-conn__pulse{ animation:insHcTravel 2.3s var(--ease) infinite; }
+@keyframes insHcTravel{ 0%{ top:6px; opacity:0; } 15%{ opacity:1; } 85%{ opacity:1; } 100%{ top:calc(100% - 12px); opacity:0; } }
+.ins-page .hc-conn__node::after{ content:''; position:absolute; inset:-1px; border-radius:12px;
+  border:1px solid var(--orange); opacity:0; pointer-events:none; }
+.ins-page.js .hc-pair.in .hc-conn__node::after{ animation:insHcRipple 2.3s var(--ease) infinite; }
+@keyframes insHcRipple{ 0%{ transform:scale(1); opacity:.65; } 70%{ transform:scale(1.85); opacity:0; } 100%{ opacity:0; } }
+
+/* response checklist: squares tick in with a staggered pop */
+.ins-page .hc-resp{ padding:34px 0 34px 34px; display:flex; flex-direction:column; justify-content:center; }
+.ins-page .hc-checks{ list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.ins-page .hc-checks li{ position:relative; padding-left:32px; font-size:.9rem; color:var(--text); line-height:1.6; }
+.ins-page .hc-checks li::before{ content:''; position:absolute; left:0; top:1px; width:20px; height:20px;
+  border-radius:6px; background:var(--orange-soft); border:1px solid var(--orange-soft2); }
+.ins-page .hc-checks li::after{ content:''; position:absolute; left:6px; top:6px; width:8px; height:5px;
+  border-left:2px solid var(--orange); border-bottom:2px solid var(--orange);
+  transform:rotate(-45deg); opacity:0; transition:opacity .4s var(--ease); }
+.ins-page.js .hc-checks li::after{ transform:rotate(-45deg) scale(0);
+  transition:transform .55s var(--ease), opacity .4s var(--ease); }
+.ins-page.js .hc-pair.in .hc-checks li::after{ transform:rotate(-45deg) scale(1); opacity:1; }
+.ins-page.js .hc-pair.in .hc-checks li:nth-child(2)::after{ transition-delay:.16s; }
+.ins-page:not(.js) .hc-checks li::after{ opacity:1; }
+
+/* challenge micro-visuals — each animates its card's meaning */
+.ins-page .hc-mv{ position:relative; z-index:1; height:42px; margin-bottom:16px; display:flex; align-items:flex-end; gap:5px; }
+.ins-page .hc-mv svg{ width:42px; height:42px; overflow:visible; }
+/* supply bars — muted = covered, orange = the gap */
+.ins-page .hc-mv--supply i{ width:6px; border-radius:2px 2px 0 0; background:var(--line); }
+.ins-page .hc-mv--supply i:nth-child(1){ height:58%; }
+.ins-page .hc-mv--supply i:nth-child(2){ height:86%; }
+.ins-page .hc-mv--supply i:nth-child(3){ height:36%; background:var(--orange); }
+.ins-page .hc-mv--supply i:nth-child(4){ height:100%; }
+.ins-page .hc-mv--supply i:nth-child(5){ height:46%; background:var(--orange); }
+.ins-page.js .hc-pair.in .hc-mv--supply i:nth-child(3){ animation:insHcGap 1.8s var(--ease) infinite; transform-origin:bottom; }
+.ins-page.js .hc-pair.in .hc-mv--supply i:nth-child(5){ animation:insHcGap 1.8s var(--ease) .3s infinite; transform-origin:bottom; }
+@keyframes insHcGap{ 0%,100%{ transform:scaleY(.66); opacity:.5; } 50%{ transform:scaleY(1); opacity:1; } }
+/* turnover cycle */
+.ins-page .hc-mv--cycle svg .ring{ transform-origin:20px 20px; }
+.ins-page.js .hc-pair.in .hc-mv--cycle svg .ring{ animation:insHcSpin 2.6s linear infinite; }
+@keyframes insHcSpin{ to{ transform:rotate(360deg); } }
+/* specialty target-lock */
+.ins-page .hc-mv--match svg .dot{ transform-origin:20px 20px; }
+.ins-page .hc-mv--match svg .r1{ transform-origin:20px 20px; }
+.ins-page.js .hc-pair.in .hc-mv--match svg .dot{ animation:insHcLock 2.4s var(--ease) infinite; }
+.ins-page.js .hc-pair.in .hc-mv--match svg .r1{ animation:insHcPing 2.4s var(--ease) infinite; }
+@keyframes insHcLock{ 0%{ transform:translate(9px,-8px) scale(.55); opacity:.4; } 45%,62%{ transform:translate(0,0) scale(1); opacity:1; } 100%{ transform:translate(-8px,7px) scale(.55); opacity:.4; } }
+@keyframes insHcPing{ 0%,100%{ opacity:.25; } 50%{ opacity:.7; } }
+/* shift-week fill sweep */
+.ins-page .hc-mv--week{ gap:4px; }
+.ins-page .hc-mv--week i{ flex:1; height:58%; align-self:center; border-radius:2px; background:var(--line); }
+.ins-page.js .hc-pair.in .hc-mv--week i{ animation:insHcFill 3.4s var(--ease) infinite; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(1){ animation-delay:0s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(2){ animation-delay:.11s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(3){ animation-delay:.22s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(4){ animation-delay:.33s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(5){ animation-delay:.44s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(6){ animation-delay:.55s; }
+.ins-page.js .hc-pair.in .hc-mv--week i:nth-child(7){ animation-delay:.66s; }
+@keyframes insHcFill{ 0%,72%,100%{ background:var(--line); } 16%,44%{ background:var(--orange); } }
+
+/* DESKTOP fine-pointer, motion on: the section is TRANSPARENT over the
+   fixed scrubbed footage under the .80 shade — white heads, light-alpha
+   furniture, exactly the homepage's Services treatment. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .hc-chal{ background:transparent; }
+  .ins-page .hc-chal .head h2{ color:#fff; }
+  .ins-page .hc-chal .head .lead{ color:rgba(255,255,255,.6); }
+  .ins-page .hc-chal .eyebrow{ color:var(--orange-light); }
+  .ins-page .hc-ghost{ -webkit-text-stroke:1px rgba(255,255,255,.12); }
+  .ins-page .hc-prob h3{ color:#fff; }
+  .ins-page .hc-prob p{ color:rgba(255,255,255,.6); }
+  .ins-page .hc-tag{ color:var(--orange-light); }
+  .ins-page .hc-conn::before{ background:linear-gradient(180deg,transparent,rgba(255,255,255,.22) 20%,rgba(255,255,255,.22) 80%,transparent); }
+  .ins-page .hc-conn__node{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.22); color:rgba(255,255,255,.55); box-shadow:none; }
+  .ins-page.js .hc-pair.in .hc-conn__node{ background:rgba(239,90,40,.14); border-color:rgba(239,90,40,.55); color:var(--orange-light); }
+  .ins-page .hc-checks li{ color:rgba(255,255,255,.78); }
+  .ins-page .hc-checks li::before{ background:rgba(239,90,40,.14); border-color:rgba(239,90,40,.4); }
+  .ins-page .hc-checks li::after{ border-color:var(--orange-light); }
+  .ins-page .hc-mv--supply i, .ins-page .hc-mv--week i{ background:rgba(255,255,255,.2); }
+  .ins-page .hc-mv--supply i:nth-child(3), .ins-page .hc-mv--supply i:nth-child(5){ background:var(--orange); }
+  .ins-page .hc-mv--cycle svg .ring{ stroke:var(--orange); }
+  .ins-page .hc-mv--match svg .r1, .ins-page .hc-mv--match svg .r2{ stroke:rgba(255,255,255,.25); }
+}
+@keyframes insHcWeekDark{ 0%,72%,100%{ background:rgba(255,255,255,.2); } 16%,44%{ background:var(--orange); } }
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page.js .hc-pair.in .hc-mv--week i{ animation-name:insHcWeekDark; }
+}
+
+/* ================================================================
+   ECG DIVIDER — the motion page's pulse signature, in brand orange.
+   Seamless tiling track: four identical tiles across a 200%-wide
+   flex track; the loop shifts by exactly 50% (two tiles = one full
+   container width) so there is no drained edge and no snap.
+   ================================================================ */
+.ins-page .hc-ecg{ display:block; width:100%; height:100%; }
+.ins-page .hc-ecg-track{ position:absolute; inset:0; display:flex; width:200%;
+  transform:translate3d(0,0,0); will-change:transform; backface-visibility:hidden; }
+.ins-page .hc-ecg-track > .hc-ecg{ flex:0 0 25%; width:25%; height:100%; }
+.ins-page.js .hc-ecg--run{ animation:insHcEcgSlide 11s linear infinite; }
+@keyframes insHcEcgSlide{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(-50%,0,0); } }
+.ins-page .hc-ecg__line{ fill:none; stroke:var(--orange); stroke-width:1.6; opacity:.55; stroke-linejoin:round; stroke-linecap:round; }
+
+/* ================================================================
+   PLACEMENT — pinned card track (pcx engine), light-alt band.
+   White cards, orange icon tiles, P-numbers; the same head padding,
+   dots, arrows and native swipe come from the shared pcx machinery.
+   ================================================================ */
+.ins-page .place-pin{ --card-w:500px; padding:0; }
+/* head clearance trimmed from the engine's 196px: this page's ticker sits
+   directly above the track, so the pre-pin dead space read as a gap. 150px
+   still clears the fixed nav (measured 34px above the eyebrow when pinned)
+   and MUST match in both states or the head jumps as the pin engages. */
+.ins-page .place-pin.pcx--pinned .pcx__head{ padding-top:150px; }
+.ins-page .place-pin .pcx__stage, .ins-page .place-pin .pcx__spacer{ background:var(--bg-alt); }
+@media (min-width:1025px){ .ins-page .place-pin .pcx__stage{ overflow:hidden; } }
+@media (max-width:1024px){ .ins-page .place-pin{ --card-w:min(84vw,340px); } }
+.ins-page .pcx__card.pcard{ display:flex; flex-direction:column; background:#fff;
+  border:1.5px solid var(--line); border-radius:16px; padding:28px;
+  box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+.ins-page .pcard__n{ font-size:.74rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--orange); }
+.ins-page .pcard__ic{ width:46px; height:46px; border-radius:12px; background:var(--orange-soft); color:var(--orange);
+  display:flex; align-items:center; justify-content:center; margin:16px 0 18px;
+  transition:background .3s var(--ease), color .3s var(--ease); will-change:transform; }
+.ins-page .pcard__ic svg{ width:22px; height:22px; }
+.ins-page .pcard h3{ font-size:1.12rem; line-height:1.3; }
+.ins-page .pcard p{ font-size:.88rem; color:var(--muted); line-height:1.62; margin-top:10px; }
+/* hover language 1+2: orange accent bar + shadow lift (transform belongs to the pin) */
+.ins-page .pcx__card.pcard::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--orange); transform:scaleY(0); transform-origin:top;
+  transition:transform .3s var(--ease); z-index:3; }
+.ins-page .pcx__card.pcard:hover::before{ transform:scaleY(1); }
+.ins-page .pcx__card.pcard:hover{ box-shadow:var(--shadow); border-color:transparent; }
+.ins-page .pcx__card.pcard:hover .pcard__ic{ background:var(--orange); color:#fff; }
+/* the pin owns card scale — mirror the services rule so hover can't fight it */
+.ins-page .pcx__card.pcard:hover{ transform:scale(.96); }
+.ins-page .pcx__card.pcard.is-active:hover{ transform:scale(1); }
+.ins-page .pcx__card.pcard.is-active{ border-color:var(--orange); box-shadow:var(--shadow); }
+.ins-page .pcx__card.pcard.is-active::before{ transform:scaleY(1); }
+.ins-page .pcx__card.pcard.is-active .pcard__ic{ background:var(--orange); color:#fff; }
+
+/* icon glyphs draw themselves on (engine measures path lengths), the tile
+   breathes at idle, and the active card's tile pops — the services recipe */
+.ins-page .pcard__ic svg [stroke-dasharray]{ stroke-dashoffset:var(--dash,0); }
+.ins-page .pcard.draw .pcard__ic svg [stroke-dasharray]{
+  animation:insHcIcoDraw .68s cubic-bezier(.65,0,.35,1) forwards; }
+.ins-page .pcard.draw .pcard__ic svg [stroke-dasharray]:nth-child(2){ animation-delay:.1s; }
+.ins-page .pcard.draw .pcard__ic svg [stroke-dasharray]:nth-child(3){ animation-delay:.2s; }
+@keyframes insHcIcoDraw{ from{ stroke-dashoffset:var(--dash,0); } to{ stroke-dashoffset:0; } }
+.ins-page .pcard.draw .pcard__ic{ animation:insHcIcoFloat 4.5s ease-in-out 1s infinite; }
+@keyframes insHcIcoFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); } }
+.ins-page .pcx__card.pcard.is-active .pcard__ic{ animation:insHcIcoPop .5s var(--ease); }
+@keyframes insHcIcoPop{ 0%{ transform:scale(1); } 45%{ transform:scale(1.14) rotate(-4deg); } 100%{ transform:scale(1); } }
+
+/* ================================================================
+   SUPPORT — split head with the coverage radar, then the nine-way
+   capabilities index on an orange progress spine.
+   ================================================================ */
+.ins-page .head--split{ display:grid; grid-template-columns:1fr auto; gap:clamp(24px,4vw,56px);
+  align-items:center; max-width:none; }
+.ins-page .head--split .head__text{ max-width:620px; }
+.ins-page .hc-cover{ width:clamp(172px,20vw,224px); flex:none; justify-self:end; }
+.ins-page .hc-cover svg{ width:100%; height:auto; display:block; overflow:visible; }
+.ins-page .hc-cover__ring{ opacity:.5; }
+.ins-page .hc-cover__core{ transform-origin:110px 110px; }
+.ins-page .hc-cover__sweep{ transform-origin:110px 110px; }
+.ins-page .hc-cover__nodes{ transform-origin:110px 110px; }
+.ins-page.js .head--split.in .hc-cover__sweep{ animation:insHcCvSweep 7s linear infinite; }
+.ins-page.js .head--split.in .hc-cover__nodes{ animation:insHcCvOrbit 48s linear infinite; }
+.ins-page.js .head--split.in .hc-cover__ring{ animation:insHcCvPulse 3.6s ease-in-out infinite; }
+.ins-page.js .head--split.in .hc-cover__ring:nth-of-type(2){ animation-delay:.5s; }
+.ins-page.js .head--split.in .hc-cover__ring:nth-of-type(3){ animation-delay:1s; }
+.ins-page.js .head--split.in .hc-cover__core{ animation:insHcCvCore 2.6s ease-in-out infinite; }
+@keyframes insHcCvSweep{ to{ transform:rotate(360deg); } }
+@keyframes insHcCvOrbit{ to{ transform:rotate(-360deg); } }
+@keyframes insHcCvPulse{ 0%,100%{ opacity:.32; } 50%{ opacity:.65; } }
+@keyframes insHcCvCore{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.28); } }
+
+.ins-page .hc-index{ list-style:none; margin:0; padding:0; position:relative;
+  display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(32px,5vw,72px); border-top:1px solid var(--line); }
+.ins-page .hc-index__spine{ position:absolute; left:50%; top:0; bottom:0; width:2px;
+  transform:translateX(-50%); background:var(--line); overflow:hidden; z-index:0; }
+.ins-page .hc-index__spine-fill{ position:absolute; top:0; left:0; width:100%; height:0;
+  background:linear-gradient(180deg,var(--orange),var(--orange-light)); }
+.ins-page .hc-idx{ position:relative; display:grid; grid-template-columns:auto auto 1fr; column-gap:16px;
+  align-items:start; padding:26px 4px; border-bottom:1px solid var(--line); transition:padding-left .4s var(--ease); }
+.ins-page .hc-idx:hover{ padding-left:14px; }
+.ins-page .hc-idx__ic{ width:38px; height:38px; border-radius:10px; background:var(--orange-soft);
+  border:1px solid var(--orange-soft2); display:flex; align-items:center; justify-content:center; color:var(--orange); flex:none;
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1), background .3s var(--ease), color .3s var(--ease); }
+.ins-page .hc-idx__ic svg{ width:19px; height:19px; }
+.ins-page .hc-idx:hover .hc-idx__ic{ transform:scale(1.12) rotate(-6deg); background:var(--orange); color:#fff; }
+.ins-page .hc-idx__n{ font-size:.9rem; font-weight:800; color:var(--muted); letter-spacing:.06em;
+  padding-top:9px; transition:color .35s var(--ease); }
+.ins-page .hc-idx:hover .hc-idx__n{ color:var(--orange); }
+.ins-page .hc-idx h4{ font-size:1.02rem; font-weight:700; margin:0; line-height:1.35; padding-top:7px; }
+.ins-page .hc-idx p{ font-size:.88rem; color:var(--muted); line-height:1.6; margin:8px 0 0; }
+
+/* ================================================================
+   TESTIMONIAL — the standards orange feature card, its divider
+   replaced by the live ECG trace (white, low alpha).
+   ================================================================ */
+.ins-page .test__rule{ position:relative; height:22px; max-width:340px; margin:24px 0; overflow:hidden; }
+.ins-page .test__rule .hc-ecg__line{ stroke:#fff; opacity:.5; stroke-width:1.6; }
+
+/* ================================================================
+   CONTACT — the standards navy split + white form card, with the
+   motion page's signal beacon above the eyebrow and the sent state.
+   Beacon rings are square-cornered (brand square language).
+   ================================================================ */
+.ins-page .hc-beacon{ position:relative; width:46px; height:46px; margin-bottom:22px; }
+.ins-page .hc-beacon::before{ content:''; position:absolute; inset:0; margin:auto; width:10px; height:10px;
+  border-radius:3px; background:var(--orange); box-shadow:0 0 12px rgba(239,90,40,.7); }
+.ins-page .hc-beacon span{ position:absolute; inset:0; margin:auto; width:14px; height:14px;
+  border-radius:4px; border:1.5px solid var(--orange); opacity:0; }
+.ins-page.js .hc-beacon span{ animation:insHcRings 2.9s var(--ease) infinite; }
+.ins-page.js .hc-beacon span:nth-child(2){ animation-delay:.95s; }
+.ins-page.js .hc-beacon span:nth-child(3){ animation-delay:1.9s; }
+@keyframes insHcRings{ 0%{ width:14px; height:14px; opacity:.8; } 100%{ width:56px; height:56px; opacity:0; } }
+.ins-page .hc-thanks{ display:none; text-align:center; padding:44px 24px;
+  border:1px solid var(--orange-soft2); border-radius:20px; background:#fff; box-shadow:var(--shadow); }
+.ins-page .hc-thanks.on{ display:block; }
+.ins-page .hc-thanks b{ display:block; font-size:1.15rem; font-weight:800; color:var(--ink); margin-bottom:8px; }
+.ins-page .hc-thanks span{ font-size:.92rem; color:var(--muted); }
+
+/* ---------- cursor restore: keep a visible cursor inside this page even if
+   a global layer hides the native cursor (apex v2 rule, GHL-safe) */
+.ins-page, .ins-page *{ cursor:auto; }
+.ins-page a[href], .ins-page button, .ins-page .btn, .ins-page label[for], .ins-page [role="button"],
+.ins-page .pcx__dot, .ins-page .pcx__arrow{ cursor:pointer; }
+.ins-page input, .ins-page textarea, .ins-page select{ cursor:text; }
+.ins-page input[type="checkbox"], .ins-page input[type="radio"]{ cursor:pointer; }
+
+/* ================================================================
+   CURSOR-FOLLOW lists — every family bound in the follow engine's
+   SEL must appear in EVERY list below (missing entries are how
+   "card doesn't follow the cursor" happens).
+   ================================================================ */
+.ins-page #ppxTrack .pcx__card.pcard{ position:relative; transform-style:preserve-3d; }
+.ins-page #ppxTrack .pcx__card.pcard::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2;
+  opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%); }
+.ins-page #ppxTrack .pcx__card.pcard.is-glow::after{ opacity:1; }
+.ins-page #ppxTrack .pcx__card.pcard.is-follow{ transition:box-shadow .45s ease !important; transition-delay:0s !important; }
+.ins-page #ppxTrack .pcx__card.pcard.is-glow{ box-shadow:var(--shadow); }
+.ins-page #ppxTrack .pcx__card.pcard.is-follow{ z-index:3; opacity:1; }
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page #ppxTrack .pcx__card.pcard::after{ display:none; }
+}
+
+/* ================================================================
+   RESPONSIVE (mobile rules AFTER base rules, so they win)
+   ================================================================ */
+@media (max-width:1024px){
+  .ins-page .head--split{ grid-template-columns:1fr; }
+  .ins-page .hc-cover{ width:176px; justify-self:start; margin-top:6px; }
+  .ins-page .hc-index{ grid-template-columns:1fr; }
+  .ins-page .hc-index__spine{ display:none; }
+}
+@media (max-width:760px){
+  .ins-page .hc-pair{ grid-template-columns:1fr; gap:0; }
+  .ins-page .hc-prob{ padding:30px 0 20px; }
+  .ins-page .hc-ghost{ right:0; top:-8px; }
+  .ins-page .hc-conn{ height:52px; }
+  .ins-page .hc-conn::before{ top:0; bottom:0; }
+  .ins-page .hc-resp{ padding:22px 0 34px; border-top:1px solid var(--line); }
+  .ins-page .hc-idx{ column-gap:13px; }
+  .ins-page .hc-idx__ic{ width:34px; height:34px; }
+  .ins-page .hc-idx__ic svg{ width:17px; height:17px; }
+  .ins-page .hc-idx__n{ padding-top:7px; }
+  .ins-page .test__feat{ padding:30px 26px; }
+  .ins-page .cform{ padding:26px; }
+  .ins-page .contact .split{ grid-template-columns:1fr; }
+}
+
+/* ================================================================
+   GATES LAST — an `animation:` shorthand above resets play-state,
+   so every freeze/park rule sits at the end of the stylesheet.
+   Reduced motion freezes to the RESTING state, never the empty one.
+   ================================================================ */
+@media (prefers-reduced-motion:reduce){
+  .ins-page.js .head h2{ clip-path:none !important; transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .ins-page.js .hc-pair.in .hc-mv--supply i:nth-child(3),
+  .ins-page.js .hc-pair.in .hc-mv--supply i:nth-child(5),
+  .ins-page.js .hc-pair.in .hc-mv--cycle svg .ring,
+  .ins-page.js .hc-pair.in .hc-mv--match svg .dot,
+  .ins-page.js .hc-pair.in .hc-mv--match svg .r1,
+  .ins-page.js .hc-pair.in .hc-mv--week i,
+  .ins-page.js .hc-pair.in .hc-conn__pulse,
+  .ins-page.js .hc-pair.in .hc-conn__node::after,
+  .ins-page.js .hc-ecg--run,
+  .ins-page.js .head--split.in .hc-cover__sweep,
+  .ins-page.js .head--split.in .hc-cover__nodes,
+  .ins-page.js .head--split.in .hc-cover__ring,
+  .ins-page.js .head--split.in .hc-cover__core,
+  .ins-page.js .hc-beacon span,
+  .ins-page .pcard.draw .pcard__ic,
+  .ins-page .pcx__card.pcard.is-active .pcard__ic{ animation:none !important; }
+  .ins-page .hc-mv--match svg .dot{ transform:none; }
+  .ins-page.js .hc-checks li::after{ transform:rotate(-45deg) scale(1) !important; opacity:1 !important; }
+  .ins-page .hc-conn__pulse{ opacity:0 !important; }
+  .ins-page .hc-index__spine-fill{ height:100% !important; }
+  .ins-page .pcard__ic{ transform:none !important; }
+  .ins-page .pcard__ic svg [stroke-dasharray]{ stroke-dashoffset:0 !important; animation:none !important; }
+}
+@media (pointer:coarse){
+  .ins-page.js .hc-ecg--run{ animation-duration:16s; }
+}
+
+
+/* PREVIEW FIX — mobile horizontal overflow.
+   A collapsed `1fr` grid column still sizes to the item's intrinsic minimum, and
+   the contact phone line uses non-breaking spaces between the two numbers, so its
+   min-content was 518px and pushed the document to 551px wide at 390px viewport.
+   minmax(0,1fr) caps the column at the container; the flex line is allowed to wrap. */
+@media (max-width:760px){
+  .ins-page .contact .split{ grid-template-columns:minmax(0,1fr); }
+  .ins-page .contact__intro, .ins-page .contact__lines{ min-width:0; }
+  .ins-page .contact__line{ flex-wrap:wrap; min-width:0; }
+  /* the form's two-column grid never collapsed, and an <input> carries a default
+     intrinsic width (~20 characters), so the grid sized to the inputs, not the card */
+  .ins-page .cform__grid{ grid-template-columns:minmax(0,1fr); }
+  .ins-page .field{ min-width:0; }
+  .ins-page .field input, .ins-page .field textarea{ min-width:0; width:100%; box-sizing:border-box; }
+}
+</style>
+
+<div class="ins-page">
+<script>(function(){var p=document.querySelector('.ins-page');if(p)p.classList.add('js');})();</script>
+
+<!-- SCROLL-SCRUBBED BACKDROP — one continuous clip behind the hero AND the
+     Challenges section: frame 1 at the top of the hero, final frame at the
+     end of the challenge pairs, playhead driven by scroll. Wears the
+     standards §6.11 veil over the hero, the flat shade over section two.
+     Source is a JS runtime constant. -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- HERO — fixed full-viewport morph scene; centered composition and copy
+     are the light healthcare page's verbatim, riding the donor's
+     entrance / parallax / morph -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+    <div class="hero__copy">
+      <span class="eyebrow reveal">Healthcare Staffing</span>
+      <h1 class="reveal d1">Healthcare <span class="accent">Staffing</span></h1>
+      <p class="hero__sub reveal d2">The right healthcare staff plays a vital role in ensuring quality patient care and efficiency. We understand the significance of having a skilled and dedicated healthcare workforce. That is why we provide staffing solutions that address these challenges.</p>
+      <div class="hero__ctas reveal d3">
+        <a href="/contact-us/" class="btn btn-primary">Schedule a Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://leap.laboredge.com/agencyjobboard/insync" target="_blank" rel="noopener" class="btn btn-ghost-w">Browse Jobs</a>
+      </div>
+      <div class="hero__tags reveal d4">
+        <span class="hero__tag">Nursing</span>
+        <span class="hero__tag">Allied Health</span>
+        <span class="hero__tag">Therapists</span>
+        <span class="hero__tag">Locums</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- ════ CHALLENGES — challenge → response pairs, riding the shaded
+     footage on desktop (the homepage's Services treatment). The scrub
+     span ends at the bottom of this section. ════ -->
+<section class="section hc-chal" id="staffing-challenges">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The Challenge</span>
+      <h2><em>Challenges</em> in Healthcare Staffing</h2>
+      <p class="lead">Navigating the complex and demanding landscape of healthcare staffing can present numerous challenges, from the scarcity of qualified professionals to the need for specialized expertise in different healthcare settings. At InSync, we understand these challenges and are dedicated to providing comprehensive staffing solutions that address the unique demands of the healthcare industry.</p>
+    </div>
+
+    <div class="hc-pairs">
+
+      <div class="hc-pair reveal">
+        <div class="hc-prob">
+          <span class="hc-ghost" aria-hidden="true">01</span>
+          <div class="hc-mv hc-mv--supply" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Healthcare shortage</h3>
+          <p>The healthcare industry often faces a shortage of qualified professionals, which can put a strain on healthcare facilities and impact patient care.</p>
+        </div>
+        <div class="hc-conn" aria-hidden="true"><span class="hc-conn__pulse"></span><span class="hc-conn__node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="hc-resp">
+          <span class="hc-tag">Our Response</span>
+          <ul class="hc-checks">
+            <li>A robust network of qualified healthcare professionals to promptly address staffing needs.</li>
+            <li>Extensive recruitment resources and strategies to attract top healthcare talent.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hc-pair reveal">
+        <div class="hc-prob">
+          <span class="hc-ghost" aria-hidden="true">02</span>
+          <div class="hc-mv hc-mv--cycle" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path class="ring" d="M20 5a15 15 0 1 1-10.6 4.4" stroke="var(--orange)" stroke-width="3" stroke-linecap="round"/><path class="ring" d="M9.4 9.4l-3.6-.8 .7 3.7" stroke="var(--orange)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="3" fill="var(--orange-light)"/></svg></div>
+          <h3>High turnover rates</h3>
+          <p>Healthcare professionals may experience burnout or seek better opportunities elsewhere, leading to high turnover rates and the need for constant recruitment.</p>
+        </div>
+        <div class="hc-conn" aria-hidden="true"><span class="hc-conn__pulse"></span><span class="hc-conn__node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="hc-resp">
+          <span class="hc-tag">Our Response</span>
+          <ul class="hc-checks">
+            <li>Strong relationships, competitive compensation, and clear paths for professional growth and development.</li>
+            <li>A focus on satisfaction and work-life balance to reduce turnover and foster long-term partnerships.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hc-pair reveal">
+        <div class="hc-prob">
+          <span class="hc-ghost" aria-hidden="true">03</span>
+          <div class="hc-mv hc-mv--match" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle class="r1" cx="20" cy="20" r="15" stroke="var(--line)" stroke-width="2"/><circle class="r2" cx="20" cy="20" r="9" stroke="var(--line)" stroke-width="2"/><circle class="dot" cx="20" cy="20" r="3.6" fill="var(--orange)"/></svg></div>
+          <h3>Specialized healthcare needs</h3>
+          <p>Different healthcare facilities require professionals with specialized skills and expertise, such as critical care, pediatrics, or geriatrics.</p>
+        </div>
+        <div class="hc-conn" aria-hidden="true"><span class="hc-conn__pulse"></span><span class="hc-conn__node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="hc-resp">
+          <span class="hc-tag">Our Response</span>
+          <ul class="hc-checks">
+            <li>Expertise in sourcing and placing professionals with specialized skills across healthcare settings.</li>
+            <li>Careful matching of facility requirements with the right professional expertise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hc-pair reveal">
+        <div class="hc-prob">
+          <span class="hc-ghost" aria-hidden="true">04</span>
+          <div class="hc-mv hc-mv--week" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Complex scheduling and shift coverage</h3>
+          <p>Healthcare facilities must ensure adequate staffing for various shifts and maintain a balanced schedule to meet patient needs.</p>
+        </div>
+        <div class="hc-conn" aria-hidden="true"><span class="hc-conn__pulse"></span><span class="hc-conn__node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="hc-resp">
+          <span class="hc-tag">Our Response</span>
+          <ul class="hc-checks">
+            <li>Advanced scheduling technology and a flexible staffing approach for comprehensive shift coverage.</li>
+            <li>Proactive management of conflicts, working closely with facilities to optimize efficiency.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="sec-cta reveal" style="text-align:left"><a href="/contact-us/" class="btn btn-primary">Schedule a Consultation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  </div>
+</section>
+
+<div class="ins-below">
+
+
+<!-- ════ 02 — CREDENTIALS TICKER ════ -->
+<div class="creds" aria-label="InSync healthcare credentials">
+  <div class="creds__track">
+    <div class="creds__set">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Healthcare Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Healthcare Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Healthcare Network</div>
+    </div>
+    <div class="creds__set" aria-hidden="true">
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Joint Commission Certified</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Certified DVBE</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</div>
+      <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Nationwide Healthcare Network</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PLACEMENT — pinned horizontal card track (pcx engine) ════ -->
+<section class="section place-pin pcx" id="placement-challenges" aria-label="Challenges in healthcare placement">
+  <div class="pcx__spacer" id="ppxSpacer">
+    <div class="pcx__stage" id="ppxStage">
+      <div class="pcx__head">
+        <div class="wrap">
+          <div class="head reveal">
+            <span class="eyebrow">Staffing &amp; Placement</span>
+            <h2><em>Challenges</em> in Healthcare Placement</h2>
+            <p class="lead">Placing the right healthcare professionals poses distinct challenges due to the dynamic nature of staffing, including seamless transitions between facilities, compliance with varying state regulations, and maintaining consistent quality of care. At InSync, we offer specialized solutions for a smooth and efficient staffing experience.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pcx__viewport" id="ppxViewport">
+        <div class="pcx__track" id="ppxTrack">
+
+          <div class="pcx__card pcard">
+            <span class="pcard__n">P01</span>
+            <div class="pcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+            <h3>Limited pool of available professionals</h3>
+            <p>Demand for qualified healthcare professionals often exceeds supply, and location, specialty, and competition can further limit the available talent pool.</p>
+          </div>
+
+          <div class="pcx__card pcard">
+            <span class="pcard__n">P02</span>
+            <div class="pcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></div>
+            <h3>Licensing &amp; credentialing compliance</h3>
+            <p>Each state has its own licensing and credentialing requirements. Verifying licenses, certifications, and documentation before placement can pose challenges.</p>
+          </div>
+
+          <div class="pcx__card pcard">
+            <span class="pcard__n">P03</span>
+            <div class="pcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.17L4 17.17z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="12" x2="13" y2="12"/></svg></div>
+            <h3>Adapting to different systems and policies</h3>
+            <p>Professionals must quickly adapt to varied settings, policies, and electronic health record systems, and adjust to different workflows and patient populations.</p>
+          </div>
+
+          <div class="pcx__card pcard">
+            <span class="pcard__n">P04</span>
+            <div class="pcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h3>Managing onboarding and logistics</h3>
+            <p>Coordinating onboarding, documentation, transportation, and on-site resources takes careful planning to keep every placement supported.</p>
+          </div>
+
+          <div class="pcx__card pcard">
+            <span class="pcard__n">P05</span>
+            <div class="pcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Building rapport with existing staff</h3>
+            <p>Joining teams on short notice makes quick rapport essential. Integration with clinicians, physicians, and support staff ensures continuity of care.</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="pcx__hint" id="ppxHint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="pcx__hint-track"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SUPPORT — coverage radar + nine-way capabilities index ════ -->
+<section class="section" id="staffing-support">
+  <div class="wrap">
+    <div class="head head--split reveal">
+      <div class="head__text">
+        <span class="eyebrow">Placement Support</span>
+        <h2>How <em>InSync Supports</em> Healthcare Professionals</h2>
+        <p class="lead">From recruitment and credentialing to onboarding, logistics, and team integration — we support our healthcare professionals end-to-end.</p>
+      </div>
+      <div class="hc-cover" aria-hidden="true">
+        <svg viewBox="0 0 220 220">
+          <circle class="hc-cover__ring" cx="110" cy="110" r="36" fill="none" stroke="var(--navy-2)" stroke-width="1.5"/>
+          <circle class="hc-cover__ring" cx="110" cy="110" r="66" fill="none" stroke="var(--navy-2)" stroke-width="1.5"/>
+          <circle class="hc-cover__ring" cx="110" cy="110" r="96" fill="none" stroke="var(--navy-2)" stroke-width="1.5"/>
+          <g class="hc-cover__nodes">
+            <circle class="hc-cover__node" cx="110" cy="14"  r="3.6" fill="var(--orange)"/>
+            <circle class="hc-cover__node" cx="27"  cy="158" r="3"   fill="var(--muted)"/>
+            <circle class="hc-cover__node" cx="193" cy="158" r="3.6" fill="var(--orange)"/>
+            <circle class="hc-cover__node" cx="167" cy="77"  r="3"   fill="var(--muted)"/>
+            <circle class="hc-cover__node" cx="53"  cy="77"  r="3.4" fill="var(--orange)"/>
+            <circle class="hc-cover__node" cx="110" cy="176" r="3"   fill="var(--muted)"/>
+            <circle class="hc-cover__node" cx="128" cy="79"  r="2.6" fill="var(--muted)"/>
+            <circle class="hc-cover__node" cx="74"  cy="110" r="2.8" fill="var(--orange)"/>
+            <circle class="hc-cover__node" cx="128" cy="141" r="2.6" fill="var(--muted)"/>
+          </g>
+          <g class="hc-cover__sweep">
+            <line x1="110" y1="110" x2="110" y2="16" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+            <circle cx="110" cy="16" r="4" fill="var(--orange-light)"/>
+          </g>
+          <circle class="hc-cover__core" cx="110" cy="110" r="7" fill="var(--orange)"/>
+        </svg>
+      </div>
+    </div>
+
+    <ol class="hc-index">
+      <span class="hc-index__spine" aria-hidden="true"><span class="hc-index__spine-fill" id="hcSpineFill"></span></span>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-2-2"/></svg></span><span class="hc-idx__n">01</span><div><h4>Proactive recruitment and partnerships</h4><p>We maintain a robust network of healthcare professionals and partner with training programs and organizations to tap into emerging talent.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="hc-idx__n">02</span><div><h4>Access to resources and support</h4><p>We provide training materials, documentation guidelines, and a support team to help professionals integrate into different healthcare settings.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="hc-idx__n">03</span><div><h4>Clear communication channels</h4><p>We ensure access to key contacts within the facility, with regular check-ins and evaluations to keep communication open and address concerns promptly.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="hc-idx__n">04</span><div><h4>National reach and extensive connections</h4><p>Our nationwide presence and industry connections let us access a wider pool of professionals and better match candidates to specific assignments.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="hc-idx__n">05</span><div><h4>Relocation &amp; housing support</h4><p>For roles that require relocation, we help professionals find suitable, affordable accommodations through our network and partnerships.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><span class="hc-idx__n">06</span><div><h4>Comprehensive orientation and onboarding</h4><p>Thorough orientation and onboarding on specific systems, policies, and procedures helps professionals adapt quickly and deliver high-quality care.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></span><span class="hc-idx__n">07</span><div><h4>Dedicated credentialing team</h4><p>A dedicated team stays current with state licensing requirements and keeps credentials verified and up-to-date, reducing administrative burden.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h9l3 4h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg></span><span class="hc-idx__n">08</span><div><h4>Logistics coordination</h4><p>Our coordination team handles transportation and scheduling for smooth transitions into new assignments, so professionals can focus on their work.</p></div></li>
+      <li class="hc-idx reveal"><span class="hc-idx__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span><span class="hc-idx__n">09</span><div><h4>Team integration initiatives</h4><p>We organize activities and events that build relationships between our professionals and existing staff, encouraging collaboration and a positive environment.</p></div></li>
+    </ol>
+    <div class="sec-cta reveal"><a href="/contact-us/" class="btn btn-primary">Schedule a Consultation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ════ TESTIMONIAL — the standards orange feature card with a live pulse rule ════ -->
+<section class="section test" id="testimonial">
+  <div class="wrap">
+    <div class="test__inner">
+      <div class="reveal">
+        <span class="test__label">Testimonial</span>
+        <div class="test__feat">
+          <span class="test__mark" aria-hidden="true">&ldquo;</span>
+          <p class="test__quote">InSync is a key partner to us at TalentWave and we are grateful for the ongoing alliance that we've had with them for over two years. We've seen over and over again, InSync's ability to be flexible and creative when supporting our mutual clients. They are highly responsive, fully transparent and keep clear and dependable lines of communication open with us at all times. The trust that we've established between our two businesses reinforces the value we see in our relationship, each day, with InSync.</p>
+          <div class="test__rule" aria-hidden="true">
+            <div class="hc-ecg-track hc-ecg--run">
+              <svg class="hc-ecg" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true">
+                <path class="hc-ecg__line" d="M0,11 H70 l6,-2 l5,5 l4,-8 l5,14 l5,-9 l5,2 H150 l6,0 l4,-4 l4,4 H240"/>
+              </svg>
+              <svg class="hc-ecg" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true">
+                <path class="hc-ecg__line" d="M0,11 H70 l6,-2 l5,5 l4,-8 l5,14 l5,-9 l5,2 H150 l6,0 l4,-4 l4,4 H240"/>
+              </svg>
+              <svg class="hc-ecg" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true">
+                <path class="hc-ecg__line" d="M0,11 H70 l6,-2 l5,5 l4,-8 l5,14 l5,-9 l5,2 H150 l6,0 l4,-4 l4,4 H240"/>
+              </svg>
+              <svg class="hc-ecg" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true">
+                <path class="hc-ecg__line" d="M0,11 H70 l6,-2 l5,5 l4,-8 l5,14 l5,-9 l5,2 H150 l6,0 l4,-4 l4,4 H240"/>
+              </svg>
+            </div>
+          </div>
+          <div class="test__attr">
+            <div class="test__avatar" aria-hidden="true">N</div>
+            <div class="test__name"><strong>Neal B.</strong><span>TalentWave</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT INSYNC SUPPORT (form) ════ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="split">
+      <div class="contact__intro reveal">
+        <div class="hc-beacon" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Contact <em>InSync</em> Support</h2>
+        <p>Not all problems are the same, and not all agencies are created equal. Tell us what you need and our team will get back to you.</p>
+        <div class="contact__lines">
+          <div class="contact__line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(888) 641-3444 &nbsp;·&nbsp; (916) 244-2085</span></div>
+      </div>
+      </div>
+      <!-- NOTE: styled placeholder — wire fields to a real GHL form/CRM workflow before publishing -->
+      <div class="reveal d1">
+      <form class="cform" id="hcForm" onsubmit="return false" novalidate>
+        <div class="cform__grid">
+          <div class="field"><label for="fn">First Name *</label><input id="fn" type="text" name="first_name" required></div>
+          <div class="field"><label for="ln">Last Name *</label><input id="ln" type="text" name="last_name" required></div>
+          <div class="field full"><label for="em">Email *</label><input id="em" type="email" name="email" required></div>
+          <div class="field full"><label for="ph">Phone *</label><input id="ph" type="tel" name="phone" required></div>
+          <div class="field full"><label for="msg">Message *</label><textarea id="msg" name="message" required></textarea></div>
+        </div>
+        <div class="consent">
+          <input id="consent" type="checkbox" required>
+          <label for="consent">I agree to receive communications by text message from InSync Consulting Services regarding updates, hiring, and support. Reply STOP to opt out or HELP for help. Message frequency varies; message and data rates may apply. See our <a href="/privacy-policy/">Privacy Policy</a>.</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+      <div class="hc-thanks" id="hcThanks"><b>Message received.</b><span>Thanks — our team will be in touch shortly.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /ins-below -->
+</div><!-- /ins-page -->
+
+
+<script>
+'use strict';
+(function(){var f=document.getElementById('guideForm'),t=document.getElementById('guideThanks');if(f){f.addEventListener('submit',function(e){e.preventDefault();f.style.display='none';t.style.display='block';});}})();
+/* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && p.classList.contains('tl')) return;   /* timeline cards: spine-driven, no sibling delay */
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line. Catch anything at the observer's
+  // own trigger point (-12% viewport) and nothing below it.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+(function(){var done=false;function run(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.getAttribute('data-count'),dur=1600,start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),val=Math.floor((1-Math.pow(1-p,3))*target);el.textContent=val.toLocaleString();if(p<1)requestAnimationFrame(step);else el.textContent=target.toLocaleString();}requestAnimationFrame(step);});}var s=document.querySelector('.stats');if(s&&'IntersectionObserver'in window){new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!done){done=true;run();}});},{threshold:.4}).observe(s);}else run();})();
+(function(){var stage=document.getElementById('certStage');if(!stage)return;var slides=stage.querySelectorAll('.cert-slide'),thumbs=document.querySelectorAll('.cert-thumb'),bar=document.getElementById('certBar'),sec=document.getElementById('certifications');var i=0,timer=null,D=5000;function fill(){if(!bar)return;bar.style.transition='none';bar.style.width='0';void bar.offsetWidth;bar.style.transition='width '+D+'ms linear';bar.style.width='100%';}function start(){fill();clearTimeout(timer);timer=setTimeout(function(){go(i+1);},D);}function go(n){slides[i].classList.remove('is-active');thumbs[i].classList.remove('is-active');i=(n+slides.length)%slides.length;slides[i].classList.add('is-active');thumbs[i].classList.add('is-active');start();}thumbs.forEach(function(t){t.addEventListener('click',function(){go(+t.getAttribute('data-target'));});});stage.addEventListener('mouseenter',function(){clearTimeout(timer);if(bar){var w=getComputedStyle(bar).width;bar.style.transition='none';bar.style.width=w;}});stage.addEventListener('mouseleave',start);if('IntersectionObserver'in window){var on=false;new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!on){on=true;start();}});},{threshold:.3}).observe(sec);}else{start();}})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var s1 = document.getElementById('apHeroS1');
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* Hero backdrop is the shared SCROLL-SCRUBBED video (#apScrubVid), fixed
+     behind the hero in the standards §6.11 photo slot. Source URL lives in
+     the scrub script as a runtime constant. */
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pVisual = hero.querySelector('.hero__visual');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor (negative parallax); near layers travel
+           more than far ones. Depth order, most-to-least travel:
+           squares > copy > collage > BACKGROUND VIDEO (deepest, subtle). */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pVisual) pVisual.style.transform = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0)';
+        /* the background video moves OPPOSITE the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+function apInitPinnedScroll(ids){
+  'use strict';
+  var root     = document.getElementById(ids.root);
+  var spacer   = document.getElementById(ids.spacer);
+  var stage    = document.getElementById(ids.stage);
+  var viewport = document.getElementById(ids.viewport);
+  var track    = document.getElementById(ids.track);
+  var hint     = ids.hint ? document.getElementById(ids.hint) : null;
+  if (!root || !spacer || !stage || !viewport || !track) return;
+  var cards = [].slice.call(track.querySelectorAll('.pcx__card'));
+  var N = cards.length;
+  if (!N) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  // Detect an ancestor that would break position:fixed (its transform/filter/etc.
+  // makes IT the containing block for fixed descendants -> pin would be wrong).
+  function ancestorBreaksFixed(){
+    var el = root.parentElement;
+    while (el && el !== document.documentElement && el !== document.body){
+      var cs = window.getComputedStyle(el);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.backdropFilter && cs.backdropFilter !== 'none') ||
+          (cs.willChange && /transform|perspective|filter/i.test(cs.willChange)) ||
+          (cs.contain && /(^|\s)(paint|layout|strict|content)(\s|$)/i.test(cs.contain))){
+        return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  var canPin = fine && !touch && !reduced && !ancestorBreaksFixed();
+
+  // ---------- NATIVE fallback: real horizontal swipe, no inflated spacer ----------
+  function nativeActive(){
+    var mid = viewport.scrollLeft + viewport.clientWidth / 2;
+    var best = 0, bd = Infinity;
+    for (var i = 0; i < N; i++){
+      var c = cards[i];
+      var cc = c.offsetLeft + c.offsetWidth / 2;
+      var d = Math.abs(cc - mid);
+      if (d < bd){ bd = d; best = i; }
+    }
+    for (var j = 0; j < N; j++){ cards[j].classList.toggle('is-active', j === best); }
+  }
+
+  if (!canPin){
+    root.classList.add('pcx--native');
+
+    // --- SWIPE ------------------------------------------------------------
+    // iOS locks a touch gesture to ONE axis on the first few pixels of travel.
+    // These cards are ~500px tall, so almost every swipe starts with a little
+    // vertical drift, Safari locks to vertical page scrolling, and the track
+    // never moves — the slider feels dead. (The credentials carousel escapes
+    // this because it declares touch-action:pan-x, but we can't do that here:
+    // it would stop the visitor scrolling the PAGE from over a card that fills
+    // their screen.) So we decide the axis ourselves, with a bias toward
+    // horizontal, and drive scrollLeft directly once we've claimed the gesture.
+    var tX = 0, tY = 0, tScroll = 0, axis = null, dragged = false;
+    var vel = 0, lastX = 0, lastT = 0, animRaf = 0;
+
+    function stopAnim(){ if (animRaf){ cancelAnimationFrame(animRaf); animRaf = 0; } }
+
+    // Eased programmatic scroll. scrollTo({behavior:'smooth'}) uses the browser's
+    // own curve and duration, which lands hard and feels mechanical next to a
+    // finger flick; this is a soft ease-out we control.
+    function animateTo(target, dur){
+      stopAnim();
+      var start = viewport.scrollLeft, delta = target - start;
+      if (Math.abs(delta) < 1){ viewport.scrollLeft = target; return; }
+      if (reduced){ viewport.scrollLeft = target; return; }
+      var t0 = (window.performance && performance.now) ? performance.now() : Date.now();
+      dur = dur || 460;
+      function step(now){
+        var p = Math.min(1, (now - t0) / dur);
+        var e = 1 - Math.pow(1 - p, 3);            // ease-out cubic
+        viewport.scrollLeft = start + delta * e;
+        animRaf = p < 1 ? requestAnimationFrame(step) : 0;
+      }
+      animRaf = requestAnimationFrame(step);
+    }
+
+    function cardLeft(i){
+      var c = cards[Math.max(0, Math.min(N - 1, i))];
+      return c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2;
+    }
+
+    viewport.addEventListener('touchstart', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      stopAnim();                                   // let a new grab interrupt the glide
+      tX = e.touches[0].clientX; tY = e.touches[0].clientY;
+      tScroll = viewport.scrollLeft; axis = null; dragged = false;
+      lastX = tX; vel = 0;
+      lastT = (window.performance && performance.now) ? performance.now() : Date.now();
+    }, { passive:true });
+
+    viewport.addEventListener('touchmove', function(e){
+      if (!e.touches || e.touches.length !== 1) return;
+      var cx = e.touches[0].clientX;
+      var dx = cx - tX;
+      var dy = e.touches[0].clientY - tY;
+      if (axis === null){
+        // engage sooner (3px) and with a friendlier bias, so the slider claims
+        // the gesture before it starts to feel like it is resisting
+        if (Math.abs(dx) < 3 && Math.abs(dy) < 3) return;
+        axis = (Math.abs(dx) > Math.abs(dy) * 0.6) ? 'x' : 'y';
+      }
+      if (axis !== 'x') return;                              // let the page scroll
+      e.preventDefault();                                    // claim the gesture
+      dragged = true;
+      var now = (window.performance && performance.now) ? performance.now() : Date.now();
+      var dt = now - lastT;
+      if (dt > 0){
+        // smoothed px/ms, so one jittery frame can't throw the flick off
+        vel = vel * 0.7 + ((cx - lastX) / dt) * 0.3;
+        lastX = cx; lastT = now;
+      }
+      viewport.scrollLeft = tScroll - dx;
+    }, { passive:false });                                   // MUST be non-passive
+
+    function indexAt(pos){
+      var mid = pos + viewport.clientWidth / 2, best = 0, bestD = Infinity;
+      for (var i = 0; i < N; i++){
+        var c = cards[i], d = Math.abs((c.offsetLeft + c.offsetWidth / 2) - mid);
+        if (d < bestD){ bestD = d; best = i; }
+      }
+      return best;
+    }
+    function nearestIndex(){ return indexAt(viewport.scrollLeft); }
+
+    // On release, resolve against the card the gesture STARTED on, so one swipe
+    // always means one card. (Measuring from the nearest card instead double
+    // counts: a long drag has already moved the nearest card forward, so adding
+    // a flick on top of it skips one.) Either a quick flick OR a deliberate drag
+    // past ~18% of a card commits the move — the distance rule is what makes a
+    // slow, short swipe feel like it took, instead of springing back.
+    function settle(){
+      var startIdx = indexAt(tScroll);
+      var moved = viewport.scrollLeft - tScroll;
+      var speed = Math.abs(vel);
+      var committed = speed > 0.25 || Math.abs(moved) > cards[0].offsetWidth * 0.18;
+      var idx = startIdx;
+      if (committed && moved !== 0){
+        idx = startIdx + (moved > 0 ? 1 : -1) * (speed > 1.1 ? 2 : 1);
+      }
+      idx = Math.max(0, Math.min(N - 1, idx));
+      animateTo(cardLeft(idx), speed > 0.8 ? 380 : 480);
+    }
+    viewport.addEventListener('touchend', function(){
+      if (axis === 'x') settle();
+      axis = null;
+    }, { passive:true });
+
+    // --- DRAG vs TAP ---------------------------------------------------
+    // Every card in this track is an <a>. Without this guard the browser
+    // resolves a swipe as a tap on the link and navigates away mid-gesture,
+    // which reads exactly like "the slider won't slide". We watch how far the
+    // pointer travelled (and whether the track actually scrolled) and cancel
+    // the click in the CAPTURE phase if it was a drag.
+    var downX = 0, downY = 0, downScroll = 0;
+    function markDown(x, y){ downX = x; downY = y; downScroll = viewport.scrollLeft; dragged = false; }
+    function markMove(x, y){
+      if (Math.abs(x - downX) > 8 || Math.abs(y - downY) > 8) dragged = true;
+    }
+    viewport.addEventListener('pointerdown', function(e){ markDown(e.clientX, e.clientY); }, { passive:true });
+    viewport.addEventListener('pointermove', function(e){ markMove(e.clientX, e.clientY); }, { passive:true });
+    // once native scrolling takes over the browser cancels the pointer stream,
+    // so a cancel is itself proof the gesture became a scroll
+    viewport.addEventListener('pointercancel', function(){ dragged = true; }, { passive:true });
+    viewport.addEventListener('touchstart', function(e){
+      if (e.touches && e.touches[0]) markDown(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('touchmove', function(e){
+      if (e.touches && e.touches[0]) markMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+    viewport.addEventListener('click', function(e){
+      if (dragged || Math.abs(viewport.scrollLeft - downScroll) > 4){
+        e.preventDefault(); e.stopPropagation();
+      }
+      dragged = false;
+    }, true);
+    // stop the browser's native link-drag (mouse) from pre-empting the scroll
+    track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    cards.forEach(function(c){ c.setAttribute('draggable', 'false'); });
+
+    // mouse drag-to-scroll, for the desktop native fallback where there are no
+    // touch gestures and a link drag would otherwise be the only outcome
+    var mDown = false, mStartX = 0, mStartScroll = 0;
+    viewport.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      mDown = true; mStartX = e.clientX; mStartScroll = viewport.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if (!mDown) return;
+      viewport.scrollLeft = mStartScroll - (e.clientX - mStartX);
+    });
+    window.addEventListener('pointerup', function(){ mDown = false; });
+
+    // --- centre-snap padding: without it the first and last card can never sit
+    // --- in the middle of the viewport, so scroll-snap-align:center misbehaves
+    function padNative(){
+      var vw = viewport.clientWidth;
+      // offsetWidth = layout width. getBoundingClientRect() folds the inactive
+      // card's scale(.96) into the number and skews the centre pad.
+      var cardW = cards[0].offsetWidth;
+      var pad = Math.max(12, (vw - cardW) / 2);
+      track.style.paddingLeft = pad + 'px';
+      track.style.paddingRight = pad + 'px';
+    }
+
+    // --- dot pagination + swipe cue (mobile affordance; the pinned scroll hint
+    // --- is desktop-only, so on a phone nothing said "this slides") ---
+    var dots = null, dotBtns = [], cue = null, cueHidden = false, prevBtn = null, nextBtn = null;
+    if (N > 1){
+      dots = document.createElement('div');
+      dots.className = 'pcx__dots';
+      dots.setAttribute('role', 'tablist');
+      dots.setAttribute('aria-label', 'Slide navigation');
+      for (var d = 0; d < N; d++){
+        (function(idx){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'pcx__dot';
+          b.setAttribute('role', 'tab');
+          b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+          var nm = cards[idx].querySelector('.cert-info__name, h3');
+          b.setAttribute('aria-label', nm ? nm.textContent.trim() : ('Slide ' + (idx + 1)));
+          b.addEventListener('click', function(){
+            animateTo(cardLeft(idx), 520);   // same eased glide as a flick
+          });
+          dots.appendChild(b);
+          dotBtns.push(b);
+        })(d);
+      }
+      // --- prev / next arrows: an explicit way to move the track that does not
+      // --- depend on the swipe gesture being honoured by the device ---
+      var arrows = document.createElement('div');
+      arrows.className = 'pcx__arrows';
+      var ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+      prevBtn = document.createElement('button');
+      prevBtn.type = 'button'; prevBtn.className = 'pcx__arrow pcx__arrow--prev';
+      prevBtn.setAttribute('aria-label', 'Previous'); prevBtn.innerHTML = ARROW_SVG;
+      nextBtn = document.createElement('button');
+      nextBtn.type = 'button'; nextBtn.className = 'pcx__arrow pcx__arrow--next';
+      nextBtn.setAttribute('aria-label', 'Next'); nextBtn.innerHTML = ARROW_SVG;
+      prevBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() - 1), 520); });
+      nextBtn.addEventListener('click', function(){ animateTo(cardLeft(nearestIndex() + 1), 520); });
+      arrows.appendChild(prevBtn); arrows.appendChild(nextBtn);
+      // wrap the viewport in a rail so the arrows centre on the TRACK, not on
+      // the whole stage (which also holds the heading)
+      var rail = document.createElement('div');
+      rail.className = 'pcx__rail';
+      viewport.parentNode.insertBefore(rail, viewport);
+      rail.appendChild(viewport);
+      rail.appendChild(arrows);
+
+      cue = document.createElement('div');
+      cue.className = 'pcx__swipe';
+      cue.setAttribute('aria-hidden', 'true');
+      cue.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Swipe for more</span>';
+      stage.appendChild(cue);
+      stage.appendChild(dots);
+    }
+
+    function syncDots(){
+      if (dotBtns.length){
+        for (var i = 0; i < N; i++){
+          dotBtns[i].setAttribute('aria-selected', cards[i].classList.contains('is-active') ? 'true' : 'false');
+        }
+      }
+      if (prevBtn && nextBtn){
+        var cur = nearestIndex();
+        prevBtn.disabled = cur <= 0;
+        nextBtn.disabled = cur >= N - 1;
+      }
+    }
+
+    // set an initial active card and track native scroll
+    var nraf = 0;
+    viewport.addEventListener('scroll', function(){
+      if (!cueHidden && cue && viewport.scrollLeft > 24){ cueHidden = true; cue.style.opacity = '0'; }
+      if (!nraf) nraf = requestAnimationFrame(function(){ nraf = 0; nativeActive(); syncDots(); });
+    }, { passive:true });
+
+    window.addEventListener('resize', function(){ padNative(); nativeActive(); syncDots(); });
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ padNative(); nativeActive(); syncDots(); });
+    }
+
+    padNative();
+    // first active = card nearest center on load
+    nativeActive();
+    // if nothing is active yet (scrollLeft 0), force first
+    if (!track.querySelector('.is-active')) cards[0].classList.add('is-active');
+    syncDots();
+    return;
+  }
+
+  // ---------- PIN mode: manual fixed/absolute pin ----------
+  root.classList.add('pcx--pinned');
+
+  var spacerTop = 0, travel = 0, vh = 0, raf = 0;
+
+  function measure(){
+    var vw = viewport.clientWidth;
+    // centre the first & last card: pad both ends by (viewport - card)/2.
+    // offsetWidth = layout width (rect width folds in the inactive scale).
+    var cardW = cards[0].offsetWidth;
+    var pad = Math.max(0, (vw - cardW) / 2);
+    track.style.paddingLeft  = pad + 'px';
+    track.style.paddingRight = pad + 'px';
+
+    travel = Math.max(0, track.scrollWidth - vw);   // total horizontal distance
+    vh = window.innerHeight;
+
+    stage.style.height = vh + 'px';                 // stage fills viewport (matches spacer math)
+    spacer.style.height = (vh + travel) + 'px';     // spacer = one screen + travel  -> zero gap
+    spacerTop = spacer.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function paint(){
+    raf = 0;
+    var y = window.scrollY;
+    // recompute the spacer's absolute top LIVE each frame (never stale after layout shifts)
+    var rectTop = spacer.getBoundingClientRect().top + y;
+    var start = rectTop, end = rectTop + travel;
+    var progress, pos;
+
+    if (y < start){ progress = 0; pos = 'before'; }
+    else if (y >= end){ progress = 1; pos = 'after'; }
+    else { progress = travel > 0 ? (y - start) / travel : 0; pos = 'pinned'; }
+
+    // pin position: absolute(before) -> fixed(pinned) -> absolute(after)
+    if (pos === 'pinned'){
+      stage.style.position = 'fixed';   stage.style.top = '0'; stage.style.bottom = '';
+    } else if (pos === 'before'){
+      stage.style.position = 'absolute'; stage.style.top = '0'; stage.style.bottom = '';
+    } else { // after
+      stage.style.position = 'absolute'; stage.style.top = '';  stage.style.bottom = '0';
+    }
+    stage.style.left = '0'; stage.style.width = '100%';
+
+    // cards slide sideways 0 -> -travel
+    track.style.transform = 'translate3d(' + (-(progress * travel)).toFixed(2) + 'px,0,0)';
+
+    // active = centred card
+    var ai = Math.round(progress * (N - 1));
+    for (var i = 0; i < N; i++){ cards[i].classList.toggle('is-active', i === ai); }
+
+    // scroll hint: fill + fade out as we move
+    if (hint){
+      hint.style.setProperty('--pcx-hint', (progress * 150).toFixed(0) + '%');
+      hint.style.opacity = String(Math.max(0, 1 - progress * 3));
+    }
+  }
+
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', function(){ measure(); paint(); });
+  window.addEventListener('load', function(){ measure(); paint(); });
+  // re-measure once fonts/images settle (card width is fixed, but be safe)
+  if (document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ measure(); paint(); }); }
+
+  measure();
+  paint();
+}
+// initialise the pinned horizontal-scroll section
+apInitPinnedScroll({ root:'placement-challenges', spacer:'ppxSpacer', stage:'ppxStage', viewport:'ppxViewport', track:'ppxTrack', hint:'ppxHint' });
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  if (!wrap || !vid) return;
+
+  // Media source as a runtime constant (immune to GHL attribute corruption).
+  var AP_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a9a07f50e3d7a2f06e82999.mp4';   // hospital corridor scrub clip (g12 H.264)
+  vid.src = AP_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+  // Hero shows the video with the left-fade gradient only; as you leave the hero
+  // the two CROSS-FADE — the directional gradient goes out while a single flat,
+  // even shade comes in, so the Services section sits under a uniform overlay
+  // (no left-to-right falloff) with the cards/text still legible.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    // v2 spec: the hero shows the video CLEAN apart from the constant left-fade
+    // grad; the plain black shade ramps 0->1 across the hero's LAST 45vh so it
+    // is at full strength the moment the SECOND section (Our Services)
+    // starts, and holds there through the band.
+    var sp = document.getElementById('staffing-challenges');
+    var svcTop = sp ? (sp.getBoundingClientRect().top + y) : vh;   // absolute top of Our Services
+    // Longer runway + smoothstep easing: the handoff reads as one continuous
+    // darkening rather than a linear ramp with hard endpoints.
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = '1';   // flat, even, constant — hero reads like section two
+    // The two layers do NOT sum linearly. Fading the gradient out at the same
+    // rate the shade comes in makes the copy side get LIGHTER mid-transition
+    // (0.84 -> ~0.65 -> 0.80) before darkening again. So instead of a fixed
+    // curve, solve for the gradient opacity that holds the COMPOSITE on the
+    // copy side steady as it eases from the gradient's 0.84 to the shade's
+    // 0.80: 1-(1-GA*g)(1-SA*e) = T. The right-hand side of the frame simply
+    // darkens 0 -> 0.80. Result: no dip, no bump, and g reaches 0 continuously
+    // exactly as the shade lands at full.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers
+      var T = GA + (SA - GA) * e;               // target composite on the copy side
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  // shade runs independently of video readiness, in every mode
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // The scrub spans scrollY 0 (top of hero) -> the bottom of the SECOND
+  // section (Our Services): frame 1 at the top of the hero, the final frame
+  // as the pinned track's runway ends — the donor page's own hero+Services
+  // span, restored.
+  function scrubEnd(){
+    var sp = document.getElementById('staffing-challenges');
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of Services (incl. pin runway)
+  }
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      // static: hold on the first frame
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      // mobile/touch: simple muted autoplay loop as a moving background
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+
+      // Gate the layer to its span. Visibility and PLAYBACK are decoupled on
+      // purpose: iOS (and older Android) will only decode one video stream at a
+      // time, so if this clip is still playing when the band layer tries to
+      // start, the band's play() is refused and the band stays black. We
+      // therefore release the decoder BEFORE the band probe turns on, while
+      // leaving the layer visible on its frozen last frame — by that point the
+      // shade has ramped to full black over it, so nothing looks different.
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        // v2: on mobile the clip backs the HERO only — the layer's visual
+        // span and its playback both end at the hero, so the loop costs
+        // nothing further down the page.
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  // Resume the loop the moment each seek lands, and measure how long the seek
+  // took: past ~80ms the clip is sparse-keyframed or still buffering, and the
+  // eased approach (many small seeks) would multiply that cost — so slow clips
+  // switch to direct-to-target writes (one seek per update) while spec -g 12
+  // encodes keep the buttery ease.
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    // toggle the whole layer off once we're well past the certs (band video takes over)
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  // rAF loop: ease currentTime toward the scroll-derived target for smoothness.
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      // snap when very close, otherwise ease (kills micro-stutter while staying responsive)
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight. On sparse-keyframe
+        // or still-buffering clips every write aborts and restarts the
+        // pending seek, so no frame ever finishes presenting and the video
+        // looks FROZEN — worst deep into the span (section two), where seeks
+        // are furthest from a keyframe. On spec `-g 12` encodes each seek
+        // completes within a frame, so this gate never engages.
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      // keep animating while not settled
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  // prime
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Service-card icons draw themselves on when the card first reaches the
+     viewport. Path lengths are MEASURED (getTotalLength) rather than hardcoded,
+     so swapping an SVG can't silently break the effect. */
+  var cards = [].slice.call(document.querySelectorAll('#ppxTrack .pcx__card.pcard'));
+  if (!cards.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach(function(card){
+    var shapes = card.querySelectorAll('.pcard__ic svg path, .pcard__ic svg circle, .pcard__ic svg rect, .pcard__ic svg line, .pcard__ic svg polyline');
+    [].forEach.call(shapes, function(s){
+      var len = 0;
+      try { len = s.getTotalLength ? s.getTotalLength() : 0; } catch(e){ len = 0; }
+      if (!len) return;                       /* unmeasurable shape: leave it alone */
+      len = Math.ceil(len) + 1;
+      s.setAttribute('stroke-dasharray', len);
+      s.style.setProperty('--dash', len);
+      if (reduced) s.style.strokeDashoffset = '0';
+    });
+  });
+  if (reduced){ cards.forEach(function(c){ c.classList.add('draw'); }); return; }
+
+  function draw(card){ card.classList.add('draw'); }
+  if (!('IntersectionObserver' in window)){ cards.forEach(draw); return; }
+  /* threshold:0 — the pinned track is several viewports tall, so a ratio
+     threshold would never resolve for cards parked off to the side. */
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ draw(x.target); io.unobserve(x.target); } });
+  }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+
+  /* the pin engine moves cards horizontally inside a fixed stage, so a card can
+     become visible without the observer refiring — sweep on scroll as a net */
+  var raf = 0;
+  function sweep(){
+    raf = 0;
+    var left = document.querySelectorAll('#ppxTrack .pcx__card.pcard:not(.draw)');
+    for (var i = 0; i < left.length; i++){
+      var r = left[i].getBoundingClientRect();
+      if (r.right > 0 && r.left < window.innerWidth && r.top < window.innerHeight) draw(left[i]);
+    }
+    if (!document.querySelectorAll('#ppxTrack .pcx__card.pcard:not(.draw)').length){
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the dashboard, phone, service, credential, value and
+     process-step cards: the card
+     tilts toward the pointer and a spotlight tracks it. Spring-damped so the
+     motion feels weighted (same STIFF/DAMP family as the hero parallax); on
+     leave it eases back to rest and returns control to the page's own
+     transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '#ppxTrack .pcx__card.pcard';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; with per-element binding that card's listeners would be
+     attached to a detached node and it would silently stop responding while
+     every other card kept working. Delegation resolves the card from whatever
+     is under the pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      /* service cards carry a base scale from the pin (.96 inactive / 1 active)
+         that must ride along, or the follow would flatten the track's depth */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* backdrop safety: if the scrub clip fails to load (bad/pending CDN URL,
+     codec refused), the layer never gets .is-on and the fixed hero would sit
+     on white with white copy. Turn the layer on anyway so its navy base
+     shows and the hero stays legible; the shade/gradient run regardless. */
+  var sv = document.getElementById('apScrubVid'), sw = document.getElementById('apScrub');
+  if (sv && sw) sv.addEventListener('error', function(){ sw.classList.add('is-on'); }, { once:true });
+})();
+(function(){
+  'use strict';
+  /* support: the orange spine fill tracks the capabilities index through the
+     viewport (motion-page engine, ins-page scoped). Reduced motion: full. */
+  var idx = document.querySelector('.ins-page .hc-index');
+  var fill = document.getElementById('hcSpineFill');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (idx && fill && !reduce){
+    var raf = 0;
+    var upd = function(){
+      raf = 0;
+      var r = idx.getBoundingClientRect(), vh = window.innerHeight || 800;
+      var total = r.height + vh * 0.5;
+      var p = (vh * 0.82 - r.top) / total; p = Math.max(0, Math.min(1, p));
+      fill.style.height = (p * 100).toFixed(1) + '%';
+    };
+    var onUpd = function(){ if (!raf) raf = requestAnimationFrame(upd); };
+    window.addEventListener('scroll', onUpd, { passive:true });
+    window.addEventListener('resize', onUpd);
+    upd();
+  } else if (fill){ fill.style.height = '100%'; }
+})();
+(function(){
+  'use strict';
+  /* contact form -> sent state (placeholder; wire to GHL before publish) */
+  var form = document.getElementById('hcForm');
+  var thanks = document.getElementById('hcThanks');
+  if (form && thanks){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (form.checkValidity && !form.checkValidity()){ if (form.reportValidity) form.reportValidity(); return; }
+      form.style.display = 'none';
+      thanks.classList.add('on');
+    });
+  }
+})();
+</script>
+<!-- ═══════════════ GHL-PASTE-END ═══════════════ -->
