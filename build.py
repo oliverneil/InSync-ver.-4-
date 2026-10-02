@@ -58,9 +58,14 @@ def build():
             missing.append(meta['file']); continue
         html = SHELL.format(title=meta['title'], description=meta['description'],
                             nav=nav, body=read(src), footer=footer)
-        out_dir = DIST if slug == 'index' else os.path.join(DIST, slug)
-        os.makedirs(out_dir, exist_ok=True)
-        out = os.path.join(out_dir, 'index.html')
+        # '404' is special: Vercel serves /404.html for unmatched routes, so it is
+        # written as a FILE at the output root, not as /404/index.html.
+        if slug == '404':
+            out = os.path.join(DIST, '404.html')
+        else:
+            out_dir = DIST if slug == 'index' else os.path.join(DIST, slug)
+            os.makedirs(out_dir, exist_ok=True)
+            out = os.path.join(out_dir, 'index.html')
         with open(out, 'w', encoding='utf-8') as f:
             f.write(html)
         built.append((slug, os.path.relpath(out, ROOT), len(html)))
@@ -68,15 +73,16 @@ def build():
     # a tiny index of what's live, for the reviewer
     links = '\n'.join(
         f'    <li><a href="/{"" if s == "index" else s + "/"}">{PAGE_META[s]["nav_label"]}</a>'
-        f' <span>{PAGE_META[s]["status"]}</span></li>' for s, _, _ in built)
+        f' <span>{PAGE_META[s]["status"]}</span></li>' for s, _, _ in built if s != '404')
     with open(os.path.join(DIST, 'preview.html'), 'w', encoding='utf-8') as f:
         f.write(PREVIEW.format(links=links))
 
-    # 404: the nav links to pages that aren't in this preview yet (About, Contact,
-    # Apply Now, Employee Hub...). Without this a reviewer clicking one gets a bare
-    # server error and thinks the build is broken.
-    with open(os.path.join(DIST, '404.html'), 'w', encoding='utf-8') as f:
-        f.write(NOT_FOUND.format(links=links))
+    # 404: use the real branded page when pages/404.html exists (it is built above);
+    # otherwise fall back to a plain index of what IS in the preview, so a reviewer
+    # clicking an unbuilt nav link doesn't hit a bare server error.
+    if not any(s == '404' for s, _, _ in built):
+        with open(os.path.join(DIST, '404.html'), 'w', encoding='utf-8') as f:
+            f.write(NOT_FOUND.format(links=links))
 
     print(f'built {len(built)} page(s):')
     for slug, path, size in built:

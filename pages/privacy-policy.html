@@ -1,0 +1,762 @@
+<!-- ================================================================
+     INSYNC — PRIVACY POLICY (page body block)
+     InSync Website Standards v1.0 skin + Motion Standards layer.
+     Paste between the InSync navigation block and footer block,
+     in a full-width section with section/row/column padding = 0.
+     Copy is byte-identical to the v1.0 light build.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── TOKENS (v1.0, scoped) ── */
+.ins-page{
+--orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+--orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+--navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+--ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+--white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+--f:'Plus Jakarta Sans',system-ui,sans-serif;
+--shadow-sm:0 2px 14px rgba(22,34,63,.06);
+--shadow:0 18px 48px rgba(22,34,63,.12);
+--shadow-orange:0 16px 40px rgba(239,90,40,.28);
+--ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* ── BASE ── */
+.ins-page{font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow:clip}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page [id]{scroll-margin-top:140px}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+
+/* ── BUTTONS ── */
+.ins-page .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── HERO (dark band) ── */
+.ins-page .legal-hero{background:var(--navy-deep);color:#fff;padding:92px 0 84px;text-align:center}
+.ins-page .legal-hero .eyebrow{color:var(--orange-light)}
+.ins-page .legal-hero h1{color:#fff;margin:16px auto 16px;max-width:760px}
+.ins-page .legal-hero h1 em{font-style:normal;color:var(--orange-light)}
+.ins-page .legal-hero__sub{color:rgba(255,255,255,.78);font-size:1.12rem;line-height:1.7;max-width:540px;margin:0 auto}
+.ins-page .legal-hero__meta{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.7;margin-top:16px}
+
+/* ── LEGAL CONTENT LAYOUT ── */
+.ins-page .legal-wrap{max-width:860px;margin:0 auto;padding:0 32px;display:grid;gap:56px}
+
+/* ── TOC PANEL (16px card, semi-square) ── */
+.ins-page .legal-toc{background:var(--bg-alt);border:1px solid var(--line);border-radius:16px;padding:32px 36px;position:relative;overflow:hidden}
+.ins-page .legal-toc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.ins-page .legal-toc__label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.ins-page .legal-toc ol{list-style:none;counter-reset:instoc;display:grid;grid-template-columns:1fr 1fr;gap:10px 40px}
+.ins-page .legal-toc ol li{counter-increment:instoc;display:flex;gap:10px;align-items:flex-start}
+.ins-page .legal-toc ol li::before{content:counter(instoc,decimal-leading-zero);font-size:.78rem;font-weight:800;color:var(--orange);line-height:1.7;flex-shrink:0;letter-spacing:.06em}
+.ins-page .legal-toc ol li a{font-size:.88rem;font-weight:600;color:var(--text);line-height:1.7;transition:color .25s var(--ease)}
+.ins-page .legal-toc ol li a:hover{color:var(--orange)}
+
+/* ── INTRO ── */
+.ins-page .legal-intro p{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:14px}
+.ins-page .legal-intro p:last-child{margin-bottom:0}
+.ins-page .legal-intro strong{color:var(--ink);font-weight:700}
+
+/* ── POLICY SECTIONS (step-number tile = the orange icon recipe) ── */
+.ins-page .legal-section h2{display:flex;align-items:center;gap:16px;font-size:1.2rem;font-weight:700;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.ins-page .legal-section__n{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:var(--orange-soft);color:var(--orange);font-size:1.05rem;font-weight:800;line-height:1;flex-shrink:0;transition:all .3s var(--ease)}
+.ins-page .legal-section:hover .legal-section__n{background:var(--orange);color:#fff}
+.ins-page .legal-section p{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:14px}
+.ins-page .legal-section p:last-child{margin-bottom:0}
+.ins-page .legal-section strong{color:var(--ink);font-weight:700}
+.ins-page .legal-section a{font-weight:600;color:var(--navy);transition:color .25s var(--ease)}
+.ins-page .legal-section a:hover{color:var(--orange)}
+.ins-page .legal-section ul{list-style:none;display:grid;gap:10px;margin-bottom:14px}
+.ins-page .legal-section ul:last-child{margin-bottom:0}
+.ins-page .legal-section li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:var(--text);line-height:1.7}
+.ins-page .legal-section li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:11px}   /* bullet dot: allowed round */
+
+/* ── CTA PANEL (navy feature panel, 20px) ── */
+.ins-page .legal-cta{background:var(--navy);border-radius:20px;padding:46px;text-align:center;transition:all .3s var(--ease)}
+.ins-page .legal-cta h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
+.ins-page .legal-cta p{color:rgba(255,255,255,.78);font-size:.95rem;line-height:1.7;max-width:480px;margin:0 auto 28px}
+.ins-page .legal-cta__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── SCROLL REVEAL ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+.ins-page .section{padding:72px 0}
+.ins-page .wrap,.ins-page .legal-wrap{padding-left:20px;padding-right:20px}
+.ins-page .legal-hero{padding:72px 0 64px}
+.ins-page .legal-wrap{gap:44px}
+.ins-page .legal-toc{padding:26px 22px}
+.ins-page .legal-toc ol{grid-template-columns:1fr}
+.ins-page .legal-cta{padding:34px}
+.ins-page .legal-cta__btns{flex-direction:column;align-items:stretch}
+.ins-page .legal-cta__btns .btn{width:100%;justify-content:center}
+}
+
+/* ================================================================
+   MOTION LAYER (insync-motion-standards, re-dressed for this page).
+   Mechanics reuse the standards' engines byte-for-byte where they
+   apply: page-load entrance (zoom-out + same-frame copy release),
+   drifting brand squares, spring-damped hero parallax, kinetic
+   clip-wipe headings, v2 reveal contract, ambient orbs, accent bar +
+   shadow lift + cursor-follow tilt/spotlight on the card families,
+   list deal-in with dot pop, and the dark build's floating hero chips
+   + ghost numerals rebuilt in the light system. Gates declared last.
+   ================================================================ */
+
+/* ---------- hero scene ---------- */
+.ins-page .legal-hero{position:relative;overflow:clip;isolation:isolate}
+.ins-page .legal-hero::before{content:"";position:absolute;top:-38%;left:50%;transform:translateX(-50%);width:900px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(239,90,40,.10) 0%,rgba(239,90,40,0) 65%);pointer-events:none;z-index:0}
+.ins-page .hero__scene{position:relative;width:100%;transform-origin:50% 42%}
+.ins-page .legal-hero .wrap{position:relative;z-index:2}
+.ins-page .hero__copy{position:relative;will-change:transform}
+/* clip-wipe descender room: "Privacy Policy" carries a y */
+.ins-page .legal-hero h1{padding-bottom:.16em;margin-bottom:calc(16px - .16em)}
+
+/* page-load entrance (donor mechanics: snap into a zoomed state pre-paint,
+   transition out on load; hero copy holds, then releases in the same frame) */
+.ins-page .legal-hero.ap-enter #apHeroS1{transform:scale(1.12) !important;opacity:.5 !important;transition:none !important}
+.ins-page .legal-hero.ap-entering #apHeroS1{transition:transform 1.7s cubic-bezier(.16,.84,.28,1),opacity 1.2s ease !important}
+.ins-page .legal-hero.ap-enter .reveal,
+.ins-page .legal-hero.ap-entering .reveal{opacity:0 !important;transform:translateY(24px) !important}
+.ins-page .legal-hero.ap-reveal-hero .reveal{opacity:1 !important;transform:none !important}
+.ins-page .legal-hero.ap-enter .kw,
+.ins-page .legal-hero.ap-entering .kw{clip-path:inset(0 105% 0 0) !important}
+.ins-page .legal-hero.ap-reveal-hero .kw{clip-path:inset(0 0 0 0) !important}
+
+/* drifting brand squares (the donor's ember drift, re-branded: orange +
+   navy-2 squares only, no decorative circles) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;will-change:transform}
+.ins-page .ins-sq-ember{
+  position:absolute;bottom:-3%;
+  width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;
+  left:var(--x,50%);background:var(--sq-c,var(--orange));
+  opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+
+/* floating hero chips (dark build's floating pills, light styling: white
+   glass on navy, semi-square, a square status dot with a pulse ring). The
+   chip text echoes section titles already on the page. */
+.ins-page .hero__chips{position:absolute;inset:0;pointer-events:none;z-index:1;will-change:transform}
+.ins-page .hero__chip{position:absolute;display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:9px;
+  padding:11px 16px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.86);
+  box-shadow:0 18px 40px rgba(0,0,0,.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  animation:insChipFloat 7s ease-in-out infinite}
+.ins-page .hero__chip-dot{position:relative;width:7px;height:7px;border-radius:2px;background:var(--orange-light);flex-shrink:0}
+.ins-page .hero__chip-dot::after{content:"";position:absolute;inset:-4px;border:1px solid rgba(255,122,77,.55);border-radius:3px;animation:insChipPulse 2.4s var(--ease) infinite}
+.ins-page .hero__chip--1{top:30%;left:7%;animation-delay:0s}
+.ins-page .hero__chip--2{bottom:24%;right:7%;animation-delay:-3.5s}
+@keyframes insChipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes insChipPulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.9);opacity:0}}
+@media(max-width:1200px){
+  .ins-page .hero__chips{position:relative;inset:auto;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px;padding:0 20px;transform:none !important}
+  .ins-page .hero__chip{position:static}
+}
+@media(max-width:640px){.ins-page .hero__chip{padding:9px 13px;font-size:.62rem}}
+
+/* ---------- kinetic clip-wipe headings ---------- */
+.ins-page.js .kw{clip-path:inset(0 100% 0 0);transition:clip-path .9s var(--ease) .1s}
+.ins-page.js .kw.in,.ins-page.js .in .kw{clip-path:inset(0 0 0 0)}
+
+/* ---------- content section: ambient orbs (allowed round) ---------- */
+.ins-page #insLegal{position:relative;isolation:isolate;overflow:clip}
+.ins-page .legal__amb{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:clip}
+.ins-page .legal__orb{position:absolute;width:560px;height:560px;border-radius:50%;   /* orb — allowed round */
+  filter:blur(8px);opacity:.85;will-change:transform}
+.ins-page .legal__orb--a{left:-160px;top:-140px;
+  background:radial-gradient(circle,rgba(239,90,40,.10),rgba(239,90,40,0) 66%);
+  animation:insLegDriftA 26s ease-in-out infinite alternate}
+.ins-page .legal__orb--b{right:-180px;bottom:-200px;
+  background:radial-gradient(circle,rgba(44,68,116,.13),rgba(44,68,116,0) 66%);
+  animation:insLegDriftB 32s ease-in-out infinite alternate}
+@keyframes insLegDriftA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(70px,54px,0) scale(1.12)}}
+@keyframes insLegDriftB{0%{transform:translate3d(0,0,0) scale(1.08)}100%{transform:translate3d(-64px,-46px,0) scale(1)}}
+
+/* ---------- TOC card: the three hover languages ---------- */
+.ins-page .legal-toc{transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .legal-toc::before{transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .legal-toc:hover::before{transform:scaleY(1)}
+.ins-page .legal-toc:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .legal-toc ol li a{display:inline-block;transition:color .25s var(--ease),transform .25s var(--ease)}
+.ins-page .legal-toc ol li a:hover{transform:translateX(6px)}
+
+/* ---------- policy sections: ghost numeral, tile pop, list deal-in ---------- */
+.ins-page .legal-wrap{counter-reset:insleg}
+.ins-page .legal-section{position:relative;counter-increment:insleg}
+.ins-page .legal-section::after{content:counter(insleg,decimal-leading-zero);position:absolute;top:-14px;right:0;
+  font-size:clamp(4rem,8vw,7rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink);opacity:.045;
+  user-select:none;pointer-events:none;z-index:0}
+.ins-page .legal-section h2,.ins-page .legal-section p,.ins-page .legal-section ul{position:relative;z-index:1}
+.ins-page .legal-section.in .legal-section__n{animation:insLegNPop .62s var(--ease) .35s 1}
+@keyframes insLegNPop{0%{transform:scale(1)}42%{transform:scale(1.14)}100%{transform:scale(1)}}
+.ins-page.js .legal-section li{opacity:0;transform:translateX(-10px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.ins-page.js .legal-section li::before{transform:scale(0);transition:transform .42s var(--ease)}
+.ins-page.js .legal-section.in li{opacity:1;transform:none}
+.ins-page.js .legal-section.in li::before{transform:scale(1)}
+.ins-page.js .legal-section.in li:nth-child(1){transition-delay:.16s}
+.ins-page.js .legal-section.in li:nth-child(2){transition-delay:.26s}
+.ins-page.js .legal-section.in li:nth-child(3){transition-delay:.36s}
+.ins-page.js .legal-section.in li:nth-child(4){transition-delay:.46s}
+.ins-page.js .legal-section.in li:nth-child(5){transition-delay:.56s}
+.ins-page.js .legal-section.in li:nth-child(6){transition-delay:.66s}
+.ins-page.js .legal-section.in li:nth-child(7){transition-delay:.76s}
+.ins-page.js .legal-section.in li:nth-child(8){transition-delay:.86s}
+.ins-page.js .legal-section.in li:nth-child(1)::before{transition-delay:.30s}
+.ins-page.js .legal-section.in li:nth-child(2)::before{transition-delay:.40s}
+.ins-page.js .legal-section.in li:nth-child(3)::before{transition-delay:.50s}
+.ins-page.js .legal-section.in li:nth-child(4)::before{transition-delay:.60s}
+.ins-page.js .legal-section.in li:nth-child(5)::before{transition-delay:.70s}
+.ins-page.js .legal-section.in li:nth-child(6)::before{transition-delay:.80s}
+.ins-page.js .legal-section.in li:nth-child(7)::before{transition-delay:.90s}
+.ins-page.js .legal-section.in li:nth-child(8)::before{transition-delay:1s}
+@media(max-width:760px){.ins-page .legal-section::after{display:none}}
+
+/* ---------- CTA panel: the three hover languages ---------- */
+.ins-page .legal-cta{position:relative;overflow:hidden;transition:box-shadow .3s var(--ease)}
+.ins-page .legal-cta::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);
+  transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .legal-cta:hover::before{transform:scaleY(1)}
+.ins-page .legal-cta:hover{box-shadow:var(--shadow)}
+.ins-page .legal-cta h3,.ins-page .legal-cta p,.ins-page .legal-cta__btns{position:relative;z-index:1}
+
+/* ---------- cursor-follow on the card families ----------
+   The TOC card and the CTA panel tilt toward the pointer (spring-damped,
+   written per frame by the follow engine) and carry a soft orange spotlight
+   that tracks the cursor. Fine pointers only; reduced motion off. Every
+   family bound in JS appears in every list here. */
+.ins-page .legal-toc,
+.ins-page .legal-cta{position:relative;transform-style:preserve-3d}
+.ins-page .legal-toc::after,
+.ins-page .legal-cta::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  opacity:0;transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page .legal-toc.is-glow::after,
+.ins-page .legal-cta.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition */
+.ins-page .legal-toc.is-follow,
+.ins-page .legal-cta.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page .legal-toc.is-glow,
+.ins-page .legal-cta.is-glow{box-shadow:var(--shadow)}
+
+/* ---------- gates (declared last) ---------- */
+@media (prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .ins-page .legal-toc::after,
+  .ins-page .legal-cta::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ins-page .legal-hero.ap-enter #apHeroS1,
+  .ins-page .legal-hero.ap-entering #apHeroS1{transform:none !important;opacity:1 !important}
+  .ins-page .legal-hero.ap-enter .reveal,
+  .ins-page .legal-hero.ap-entering .reveal{opacity:1 !important;transform:none !important}
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page .hero__chip{animation:none}
+  .ins-page .hero__chip-dot::after{animation:none;display:none}
+  .ins-page .legal__orb{animation:none}
+  .ins-page.js .kw{clip-path:none !important;transition:none}
+  .ins-page.js .reveal{opacity:1;transform:none;transition:none}
+  .ins-page.js .legal-section li,
+  .ins-page.js .legal-section li::before{opacity:1 !important;transform:none !important;transition:none !important}
+  .ins-page .legal-section.in .legal-section__n{animation:none}
+  .ins-page .hero__copy,.ins-page .hero__sqembers,.ins-page .hero__chips{transform:none !important}
+}
+</style>
+
+<div class="ins-page" id="insPage">
+<script>
+/* PRE-PAINT: flag the wrapper as JS-driven before anything renders, so the
+   reveal rules (.ins-page.js .reveal{opacity:0}) never paint-then-blank. */
+(function(){var w=document.getElementById('insPage');if(w)w.classList.add('js');})();
+</script>
+
+  <!-- ── HERO ── -->
+  <header class="legal-hero" id="apHero">
+    <div class="hero__scene" id="apHeroS1">
+      <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero__copy" id="apHeroCopy">
+          <span class="eyebrow reveal">Legal</span>
+          <h1 class="reveal d1 kw">Privacy <em>Policy</em></h1>
+          <p class="legal-hero__sub reveal d2">We are committed to protecting your personal information. This policy explains how we collect, use, and safeguard your data when you engage with InSync Consulting.</p>
+          <p class="legal-hero__meta reveal d3">Effective Date: January 1, 2026 &nbsp;&middot;&nbsp; Last Updated: March 2026</p>
+        </div>
+      </div>
+      <div class="hero__chips" id="apChips" aria-hidden="true">
+        <span class="hero__chip hero__chip--1"><i class="hero__chip-dot"></i>Security</span>
+        <span class="hero__chip hero__chip--2"><i class="hero__chip-dot"></i>Your Rights</span>
+      </div>
+    </div>
+  </header>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+  <!-- ── CONTENT ── -->
+  <section class="section" id="insLegal">
+    <div class="legal__amb" aria-hidden="true">
+      <span class="legal__orb legal__orb--a"></span><span class="legal__orb legal__orb--b"></span>
+    </div>
+    <div class="legal-wrap">
+
+      <!-- TABLE OF CONTENTS -->
+      <nav class="legal-toc reveal" aria-label="Table of contents">
+        <span class="legal-toc__label">Table of Contents</span>
+        <ol>
+          <li><a href="#information-we-collect">Information We Collect</a></li>
+          <li><a href="#how-we-use">How We Use Your Information</a></li>
+          <li><a href="#sharing">Sharing of Information</a></li>
+          <li><a href="#data-retention">Data Retention</a></li>
+          <li><a href="#your-rights">Your Rights</a></li>
+          <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#international">International Transfers</a></li>
+          <li><a href="#children">Children's Privacy</a></li>
+          <li><a href="#changes">Changes to This Policy</a></li>
+        </ol>
+      </nav>
+
+      <!-- INTRO -->
+      <div class="legal-intro reveal">
+        <p>InSync Consulting Services ("InSync," "we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy describes how we collect, use, and share information when you visit <strong>insynconline.net</strong>, use our staffing services, or interact with our team.</p>
+        <p>By using our website or services, you agree to the practices described in this policy.</p>
+      </div>
+
+      <!-- 1. INFORMATION WE COLLECT -->
+      <div class="legal-section reveal" id="information-we-collect">
+        <h2 class="kw"><span class="legal-section__n">1</span>Information We Collect</h2>
+        <p>We collect information you provide directly, including:</p>
+        <ul>
+          <li><span><strong>Contact information</strong> — name, email, phone number, physical address</span></li>
+          <li><span><strong>Employment information</strong> — resume, work history, certifications, skills, and availability</span></li>
+          <li><span><strong>Business information</strong> — company name, job title, staffing needs, hiring preferences</span></li>
+          <li><span><strong>Healthcare credentials</strong> — licenses, certifications, compliance documentation (for healthcare placements)</span></li>
+          <li><span><strong>Communications</strong> — messages, emails, or other content you send to us</span></li>
+        </ul>
+        <p>We also collect information automatically:</p>
+        <ul>
+          <li><span>IP address, browser type, device type, and operating system</span></li>
+          <li><span>Pages visited, time on site, and referring URLs</span></li>
+          <li><span>Cookies and similar tracking technologies</span></li>
+        </ul>
+      </div>
+
+      <!-- 2. HOW WE USE -->
+      <div class="legal-section reveal" id="how-we-use">
+        <h2 class="kw"><span class="legal-section__n">2</span>How We Use Your Information</h2>
+        <ul>
+          <li><span>Match candidates with relevant job opportunities</span></li>
+          <li><span>Connect employers with qualified talent</span></li>
+          <li><span>Process applications and manage placements</span></li>
+          <li><span>Communicate about open roles, interviews, and onboarding</span></li>
+          <li><span>Verify credentials and conduct background checks (with consent)</span></li>
+          <li><span>Send service updates and relevant communications</span></li>
+          <li><span>Improve our website and services through analytics</span></li>
+          <li><span>Comply with legal and regulatory obligations</span></li>
+        </ul>
+      </div>
+
+      <!-- 3. SHARING -->
+      <div class="legal-section reveal" id="sharing">
+        <h2 class="kw"><span class="legal-section__n">3</span>Sharing of Information</h2>
+        <p>We do not sell your personal information. We may share it with:</p>
+        <ul>
+          <li><span><strong>Employer clients</strong> — candidate profiles shared with employers seeking to fill open roles, with your consent</span></li>
+          <li><span><strong>Service providers</strong> — background check providers, ATS platforms, payroll processors, and other vendors operating under confidentiality agreements</span></li>
+          <li><span><strong>Compliance authorities</strong> — credentialing bodies, Joint Commission, or regulatory agencies as required</span></li>
+          <li><span><strong>Legal authorities</strong> — when required by law, subpoena, or to protect our rights</span></li>
+          <li><span><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets</span></li>
+        </ul>
+      </div>
+
+      <!-- 4. DATA RETENTION -->
+      <div class="legal-section reveal" id="data-retention">
+        <h2 class="kw"><span class="legal-section__n">4</span>Data Retention</h2>
+        <p>We retain candidate and employer information for as long as necessary to maintain our working relationship and comply with applicable laws. Candidate profiles may be retained for up to seven (7) years to facilitate future placements. You may request deletion of your information at any time (subject to legal retention requirements).</p>
+      </div>
+
+      <!-- 5. YOUR RIGHTS -->
+      <div class="legal-section reveal" id="your-rights">
+        <h2 class="kw"><span class="legal-section__n">5</span>Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li><span><strong>Access</strong> — request a copy of the personal information we hold about you</span></li>
+          <li><span><strong>Correction</strong> — request updates to inaccurate or outdated information</span></li>
+          <li><span><strong>Deletion</strong> — request removal of your personal data from our systems</span></li>
+          <li><span><strong>Opt-out</strong> — unsubscribe from marketing communications at any time</span></li>
+          <li><span><strong>Portability</strong> — receive your data in a portable format</span></li>
+        </ul>
+        <p>To exercise your rights, email us at <a href="mailto:privacy@insynconline.net">privacy@insynconline.net</a>. We respond within 30 days.</p>
+      </div>
+
+      <!-- 6. COOKIES -->
+      <div class="legal-section reveal" id="cookies">
+        <h2 class="kw"><span class="legal-section__n">6</span>Cookies &amp; Tracking</h2>
+        <p>We use cookies for website functionality, analytics (Google Analytics), and marketing. You can control cookie preferences through your browser settings. Disabling cookies may affect certain website features.</p>
+      </div>
+
+      <!-- 7. SECURITY -->
+      <div class="legal-section reveal" id="security">
+        <h2 class="kw"><span class="legal-section__n">7</span>Security</h2>
+        <p>We use industry-standard security measures including HTTPS encryption, access controls, and regular security reviews to protect your information. No internet transmission is 100% secure, but we take every reasonable precaution to safeguard your data.</p>
+      </div>
+
+      <!-- 8. INTERNATIONAL -->
+      <div class="legal-section reveal" id="international">
+        <h2 class="kw"><span class="legal-section__n">8</span>International Transfers</h2>
+        <p>InSync operates primarily within the United States. If your information is transferred internationally, we ensure appropriate safeguards are in place in accordance with applicable data protection laws.</p>
+      </div>
+
+      <!-- 9. CHILDREN -->
+      <div class="legal-section reveal" id="children">
+        <h2 class="kw"><span class="legal-section__n">9</span>Children's Privacy</h2>
+        <p>Our services are intended for adults 18 and older. We do not knowingly collect information from individuals under 18. If you believe we have collected information from a minor, please contact us immediately.</p>
+      </div>
+
+      <!-- 10. CHANGES -->
+      <div class="legal-section reveal" id="changes">
+        <h2 class="kw"><span class="legal-section__n">10</span>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy periodically. We will post the updated policy on this page with a revised "Last Updated" date. Significant changes will be communicated via email or a website notice.</p>
+        <p>Questions? Contact us at <a href="mailto:privacy@insynconline.net">privacy@insynconline.net</a> or call <a href="tel:8886413444">(888) 641-3444</a>.</p>
+      </div>
+
+      <!-- CTA PANEL -->
+      <div class="legal-cta reveal">
+        <h3>Privacy Questions?</h3>
+        <p>Our team responds to all privacy requests within 30 business days.</p>
+        <div class="legal-cta__btns">
+          <a href="/contact-us/" class="btn btn-primary">
+            Get in Touch
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="tel:8886413444" class="btn btn-ghost-w">(888) 641-3444</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  /* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+     starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+     safety net, and a scroll sweep for fast flicks. */
+  var els = document.querySelectorAll('.ins-page .reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so grouped blocks cascade instead of popping
+  // as a slab. Authored d1-d5 delays are left alone. The legal column
+  // (.legal-wrap) is excluded: its blocks stack vertically and each crosses
+  // the trigger line on its own, so a sibling delay would only make them late.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && (p.classList.contains('tl') || p.classList.contains('legal-wrap'))) return;
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line. Catch anything at the observer's
+  // own trigger point (-12% viewport) and nothing below it.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.ins-page .reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.ins-page .reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* ---------- parallax: adaptive spring-damped depth ----------
+     Layers ride inner wrappers (never the reveal targets): squares travel the
+     most, then the floating chips, then the copy block. */
+  if (!coarse && !reduced) {
+    var pCopy = document.getElementById('apHeroCopy');
+    var pChips = document.getElementById('apChips');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pChips)  pChips.style.transform  = 'translate3d(' + (-x * 52 * mag) + 'px,' + (-y * 34 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy + title wipe release in the SAME frame
+    });
+    // Clean up the override once done so the page's own transitions take over.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the TOC card and the CTA panel: the card tilts toward
+     the pointer and a spotlight tracks it. Spring-damped so the motion feels
+     weighted (same STIFF/DAMP family as the hero parallax); on leave it eases
+     back to rest and returns control to the page's own transitions. Fine
+     pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '.ins-page .legal-toc, .ins-page .legal-cta';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; delegation resolves the card from whatever is under the
+     pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ============== END INSYNC PRIVACY POLICY BODY ============== -->

@@ -62,6 +62,13 @@
     "title": "Joint Commission Policy Statement \u2014 InSync Consulting Services",
     "description": "InSync Consulting Services Joint Commission policy statement, standards and complaint reporting information."
   },
+  "continuing-education-links": {
+    "file": "continuing-education-links.html",
+    "nav_label": "Continuing Education",
+    "status": "ready",
+    "title": "Continuing Education Resources \u2014 InSync Consulting Services",
+    "description": "Continuing education resources and CEU links for InSync Consulting Services clinicians and staff."
+  },
   "strike-work-updates": {
     "file": "strike-work-updates.html",
     "nav_label": "Strike Work & Updates",
@@ -76,6 +83,13 @@
     "title": "Apply Now \u2014 Find Your Next Role with InSync",
     "description": "Apply to InSync Consulting Services and find your next healthcare, educational or commercial role."
   },
+  "contact-us": {
+    "file": "contact-us.html",
+    "nav_label": "Contact Us",
+    "status": "ready",
+    "title": "Contact Us \u2014 InSync Consulting Services",
+    "description": "Work with a staffing partner that answers. Call, email or send InSync Consulting Services a message."
+  },
   "employee-hub-login": {
     "file": "employee-hub-login.html",
     "nav_label": "Employee Hub Login",
@@ -83,11 +97,53 @@
     "title": "Employee Hub Login \u2014 InSync Consulting Services",
     "description": "Log in to the InSync Consulting Services Employee Hub for documents, benefits and payroll."
   },
-  "contact-us": {
-    "file": "contact-us.html",
-    "nav_label": "Contact Us",
+  "employee-hub": {
+    "file": "employee-hub.html",
+    "nav_label": "Employee Hub",
     "status": "ready",
-    "title": "Contact Us \u2014 InSync Consulting Services",
-    "description": "Work with a staffing partner that answers. Call, email or send InSync Consulting Services a message."
+    "title": "Employee Hub \u2014 InSync Consulting Services",
+    "description": "The InSync Employee Hub \u2014 documents, benefits, payroll and resources for InSync employees."
+  },
+  "employee-portal": {
+    "file": "employee-portal.html",
+    "nav_label": "Employee Info",
+    "status": "ready",
+    "title": "Employee Info \u2014 Benefits & Resources Hub | InSync Consulting Services",
+    "description": "Your InSync benefits and resources hub \u2014 payroll, benefits, policies and support in one place."
+  },
+  "employee-documents": {
+    "file": "employee-documents.html",
+    "nav_label": "Employee Documents",
+    "status": "ready",
+    "title": "Employee Documents \u2014 InSync Consulting Services",
+    "description": "Your InSync employment documents, all in one place: onboarding forms, payroll and compliance paperwork."
+  },
+  "employee-benefits": {
+    "file": "employee-benefits.html",
+    "nav_label": "Employee Benefits",
+    "status": "ready",
+    "title": "Employee Benefits \u2014 InSync Consulting Services",
+    "description": "Health, dental, vision, 401k and additional benefits available to InSync Consulting Services employees."
+  },
+  "privacy-policy": {
+    "file": "privacy-policy.html",
+    "nav_label": "Privacy Policy",
+    "status": "ready",
+    "title": "Privacy Policy \u2014 InSync Consulting Services",
+    "description": "How InSync Consulting Services collects, uses and protects your personal information, including SMS consent."
+  },
+  "terms-and-conditions": {
+    "file": "terms-and-conditions.html",
+    "nav_label": "Terms & Conditions",
+    "status": "ready",
+    "title": "Terms & Conditions \u2014 InSync Consulting Services",
+    "description": "The terms and conditions governing use of the InSync Consulting Services website and services."
+  },
+  "404": {
+    "file": "404.html",
+    "nav_label": "404 \u2014 Not Found",
+    "status": "ready",
+    "title": "Page Not Found \u2014 InSync Consulting Services",
+    "description": "That page is out of sync. Find staffing services, job openings and contact details for InSync Consulting Services."
   }
 }

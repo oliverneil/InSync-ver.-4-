@@ -49,6 +49,10 @@ Steps: push this repo to GitHub → Vercel → **Add New Project** → import th
 Pages listed in `pages.json` whose body file is missing are skipped with a notice, so the manifest can run
 ahead of the work.
 
+The slug `404` is special: it is written to `dist/404.html` at the output root (what Vercel serves for an
+unmatched route) rather than `/404/index.html`. If no `pages/404.html` exists, the build falls back to a
+plain list of the pages that are in the preview.
+
 ## Design system
 
 Every page follows the **InSync Motion Standards** skill (light Website Standards v1.0 skin + the

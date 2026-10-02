@@ -1,0 +1,951 @@
+<!-- ================================================================
+     INSYNC — 404 PAGE NOT FOUND (page body block)
+     InSync Motion Standards v1.0 — Website Standards v1.0 skin over the
+     homepage motion layer (scroll-scrubbed video + compensated
+     gradient-to-shade cross-fade, Wonder morph hero, page-load entrance,
+     spring parallax, drifting brand squares, v2 reveal contract, icon
+     stroke-draw, cursor-follow tilt + spotlight, ambient orbs).
+     Paste between the global navigation block and global footer block,
+     in a full-width section with section/row/column padding = 0.
+     Video source is a JS runtime constant (never an attribute).
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+--orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+--orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+--navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+--ink:#1b2746;--text:#3c4350;--muted:#6b7280;--white:#fff;
+--bg-alt:#f5f7fa;--line:#e7eaef;
+--shadow-sm:0 2px 14px rgba(22,34,63,.06);--shadow:0 18px 48px rgba(22,34,63,.12);
+--shadow-orange:0 16px 40px rgba(239,90,40,.28);
+--ease:cubic-bezier(.22,1,.36,1);--f:'Plus Jakarta Sans',system-ui,sans-serif;
+font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head.center .lead{margin-left:auto;margin-right:auto}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* Buttons (verbatim recipes) */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── 404 HERO (navy-deep dark surface; rides the scrub layer) ─── */
+.ins-page .err{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden;padding:0;text-align:center}
+.ins-page .err .hero__scene{position:relative;width:100%;padding:128px 0 140px}
+.ins-page .err__ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(14rem,28vw,22rem);font-weight:800;color:rgba(255,255,255,.05);letter-spacing:-.03em;line-height:1;pointer-events:none;user-select:none;will-change:transform}
+.ins-page .err__inner{position:relative;z-index:2;max-width:700px;margin:0 auto;padding:0 24px}
+.ins-page .err__tag{display:inline-block;margin-bottom:22px;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;padding:4px 14px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light)}
+.ins-page .err__code{font-size:clamp(5rem,12vw,8.5rem);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff;margin-bottom:14px}
+.ins-page .err__code span{color:var(--orange-light)}
+.ins-page .err h1{font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:18px}
+.ins-page .err__sub{font-size:1.12rem;color:rgba(255,255,255,.78);line-height:1.7;max-width:540px;margin:0 auto 40px}
+.ins-page .err__ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.ins-page .err__scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.ins-page .err__scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:insErrScroll 1.8s var(--ease) infinite}
+@keyframes insErrScroll{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
+/* the 404 digits wipe in (kinetic clip reveal) instead of the plain slide;
+   the reveal contract still owns the .in trigger */
+.ins-page.js .err__code.reveal{transform:none;clip-path:inset(0 100% 0 0);transition:opacity .7s var(--ease),clip-path .9s var(--ease)}
+.ins-page.js .err__code.reveal.in{clip-path:inset(0 0 0 0)}
+.ins-page .err__code span{display:inline-block;animation:insErrZero 3.6s var(--ease) 1.4s infinite}
+@keyframes insErrZero{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ── QUICK NAVIGATION — spec cards (verbatim recipe + motion) ───── */
+.ins-page .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ins-page .spec{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;transition:all .3s var(--ease);position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
+.ins-page .spec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .spec:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent}
+.ins-page .spec:hover::before{transform:scaleY(1)}
+.ins-page .spec__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background .3s var(--ease),color .3s var(--ease);position:relative;z-index:1;will-change:transform}
+.ins-page .spec:hover .spec__ic{background:var(--orange);color:#fff}
+.ins-page .spec__ic svg{width:25px;height:25px}
+.ins-page .spec h3{margin-bottom:10px;position:relative;z-index:1}
+.ins-page .spec p{font-size:.9rem;color:var(--muted);margin-bottom:16px;position:relative;z-index:1}
+.ins-page .spec__link{font-weight:700;font-size:.88rem;color:var(--navy);display:inline-flex;align-items:center;gap:7px;position:relative;z-index:1}
+.ins-page .spec__link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.ins-page .spec:hover .spec__link{color:var(--orange)}
+.ins-page .spec:hover .spec__link svg{transform:translateX(4px)}
+/* icon glyph draws itself on when the card first reaches the viewport (path
+   lengths measured at runtime by the icon engine), then breathes at idle */
+.ins-page .spec__ic svg [stroke-dasharray]{stroke-dashoffset:var(--dash,0)}
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]{animation:insIcoDraw .68s cubic-bezier(.65,0,.35,1) forwards}
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]:nth-child(2){animation-delay:.1s}
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]:nth-child(3){animation-delay:.2s}
+.ins-page .spec.draw .spec__ic svg [stroke-dasharray]:nth-child(4){animation-delay:.3s}
+@keyframes insIcoDraw{from{stroke-dashoffset:var(--dash,0)}to{stroke-dashoffset:0}}
+.ins-page .spec.draw .spec__ic{animation:insIcoFloat 4.5s ease-in-out 1s infinite}
+@keyframes insIcoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+/* the section sits over the fixed scrub layer; desktop turns it transparent
+   under the flat shade (head goes white, cards keep their white surface) */
+.ins-page .qn{position:relative;z-index:10}
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .qn{background:transparent}
+  .ins-page .qn .head h2{color:#fff}
+  .ins-page .qn .head .lead{color:rgba(255,255,255,.6)}
+  .ins-page .qn .eyebrow{color:var(--orange-light)}
+}
+
+/* ── CTA BAND (navy dark section + ambient orbs) ───────────────── */
+.ins-page .helpcta{background:var(--navy);color:#fff;position:relative;isolation:isolate;overflow:clip}
+.ins-page .helpcta .eyebrow{color:var(--orange-light)}
+.ins-page .helpcta__inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;z-index:1}
+.ins-page .helpcta__text{flex:1;min-width:280px}
+.ins-page .helpcta__text h2{color:#fff;margin:16px 0 16px}
+.ins-page .helpcta__sub{color:rgba(255,255,255,.74);font-size:1.06rem;line-height:1.7;max-width:460px}
+.ins-page .helpcta__actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;flex-shrink:0}
+.ins-page .helpcta__amb{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:clip}
+.ins-page .helpcta__orb{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(8px);opacity:.85;will-change:transform}   /* orb — allowed round */
+.ins-page .helpcta__orb--a{left:-160px;top:-160px;background:radial-gradient(circle,rgba(239,90,40,.16),rgba(239,90,40,0) 66%);animation:insCtaDriftA 26s ease-in-out infinite alternate}
+.ins-page .helpcta__orb--b{right:-180px;bottom:-220px;background:radial-gradient(circle,rgba(255,122,77,.12),rgba(255,122,77,0) 66%);animation:insCtaDriftB 32s ease-in-out infinite alternate}
+@keyframes insCtaDriftA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(70px,54px,0) scale(1.12)}}
+@keyframes insCtaDriftB{0%{transform:translate3d(0,0,0) scale(1.08)}100%{transform:translate3d(-64px,-46px,0) scale(1)}}
+
+/* ── Scroll reveal (gated on .js) — v2 reveal contract ─────────── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ================================================================
+   MOTION LAYER (homepage engines, verbatim mechanics)
+   ================================================================ */
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene (it carries its own nav clearance) — it must return the moment the
+   hero is in flow (phones / coarse pointers / reduced motion). The nav script
+   re-syncs the spacer height inline, so this needs !important to hold. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{height:0 !important}
+}
+
+/* ---------- scroll-scrubbed backdrop: ONE continuous clip behind the hero
+   AND the Quick Navigation section. Frame 1 at the top of the hero, final
+   frame at the end of Quick Navigation, playhead driven by scroll. The hero
+   wears a CENTRED veil (the 404 copy is centred, so the homepage's left-fade
+   is re-shaped symmetrically: .84 plateau across the middle, one continuous
+   ease out to .30 at both edges); a plain black shade cross-fades in across
+   the hero's last 72vh and holds through Quick Navigation. Mobile loops the
+   clip behind the hero only; reduced motion freezes frame 1. */
+.ins-page .ins-scrub{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--navy-deep);opacity:0;transition:opacity .5s ease}
+.ins-page .ins-scrub.is-on{opacity:1}
+.ins-page .ins-scrub__par{position:absolute;inset:0;will-change:transform}
+.ins-page .ins-scrub__vid{position:absolute;left:50%;top:50%;width:114%;height:114%;transform:translate(-50%,-50%);object-fit:cover;will-change:transform;filter:contrast(1.06) saturate(1.08) brightness(.93)}   /* extra size = parallax room; grade richens high-key footage */
+.ins-page .ins-scrub__grad{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.30) 0%,    rgba(0,0,0,.34) 5%,    rgba(0,0,0,.40) 10%,   rgba(0,0,0,.47) 15%,
+    rgba(0,0,0,.55) 20%,   rgba(0,0,0,.63) 25%,   rgba(0,0,0,.70) 29%,   rgba(0,0,0,.76) 32%,
+    rgba(0,0,0,.80) 35%,   rgba(0,0,0,.83) 38%,   rgba(0,0,0,.84) 41%,   rgba(0,0,0,.84) 59%,
+    rgba(0,0,0,.83) 62%,   rgba(0,0,0,.80) 65%,   rgba(0,0,0,.76) 68%,   rgba(0,0,0,.70) 71%,
+    rgba(0,0,0,.63) 75%,   rgba(0,0,0,.55) 80%,   rgba(0,0,0,.47) 85%,   rgba(0,0,0,.40) 90%,
+    rgba(0,0,0,.34) 95%,   rgba(0,0,0,.30) 100%)}
+.ins-page .ins-scrub__shade{position:absolute;inset:0;opacity:0;background:rgba(0,0,0,.80)}
+/* the hero surface goes transparent only once the layer is live, so a clip
+   that never loads still leaves the navy-deep 404 surface in place */
+.ins-page .ins-scrub.is-on ~ #apHeroWrap .hero--wonder{background:transparent}
+
+/* ---------- Wonder hero: the 404 hero as a fixed full-viewport scene.
+   Base = fixed; the same media that turns the morph script off returns
+   it to normal flow (phones / coarse pointers / reduced motion). */
+.ins-page .hero--wonder{position:fixed;inset:0;height:100svh;z-index:40;will-change:opacity,transform;display:flex;align-items:center}
+.ins-page .hero--wonder .hero__scene{height:100%;display:flex;align-items:center;justify-content:center;padding:120px 0 60px}
+.ins-page .hero--wonder .wrap{position:relative;z-index:2;width:100%}
+.ins-page .ins-fadespacer{height:100svh}                  /* runway the fixed hero fades across */
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{position:relative;inset:auto;height:auto;z-index:auto;display:block}
+  .ins-page .hero--wonder .hero__scene{height:auto;display:block;padding:128px 0 140px}
+  .ins-page .ins-fadespacer{display:none}
+}
+
+/* everything after the hero paints above the fixed scrub layer */
+.ins-page .ins-below{position:relative;z-index:10;background:#fff}
+
+/* ---------- page-load entrance (snap into a zoomed state pre-paint,
+   transition out on load; hero copy holds, then releases) */
+.ins-page .hero--wonder.ap-enter #apHeroS1{transform:scale(1.12) !important;opacity:.5 !important;transition:none !important}
+.ins-page .hero--wonder.ap-entering #apHeroS1{transition:transform 1.7s cubic-bezier(.16,.84,.28,1),opacity 1.2s ease !important}
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{opacity:0 !important;transform:translateY(24px) !important}
+.ins-page .hero--wonder.ap-enter .err__code.reveal,
+.ins-page .hero--wonder.ap-entering .err__code.reveal{transform:none !important;clip-path:inset(0 100% 0 0) !important}
+.ins-page .hero--wonder.ap-reveal-hero .reveal{opacity:1 !important;transform:none !important;clip-path:inset(0 0 0 0) !important}
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{transform:none !important;opacity:1 !important}
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{opacity:1 !important;transform:none !important;clip-path:inset(0 0 0 0) !important}
+}
+
+/* ---------- drifting brand squares (orange + navy-2 squares only; no
+   decorative circles) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+
+/* ---------- cursor-follow on the quick-nav cards ----------
+   The card tilts toward the pointer (spring-damped, written per frame by the
+   follow engine) and carries a soft orange spotlight that tracks the cursor.
+   Fine pointers only; reduced motion off. Every family bound in the JS SEL
+   string appears in every list below. */
+.ins-page #qnGrid .spec{position:relative;transform-style:preserve-3d}
+.ins-page #qnGrid .spec::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .45s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page #qnGrid .spec.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition — the
+   reveal's own transform transition would otherwise lag the follow */
+.ins-page #qnGrid .spec.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page #qnGrid .spec.is-glow{box-shadow:var(--shadow);border-color:transparent}
+.ins-page #qnGrid .spec.is-follow{z-index:3}
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page #qnGrid .spec::after{display:none}
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media(max-width:1024px){
+.ins-page .spec-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+.ins-page .section{padding:72px 0}.ins-page .wrap{padding:0 20px}
+.ins-page .err .hero__scene,.ins-page .hero--wonder .hero__scene{padding:96px 0 116px}
+.ins-page .err__ctas{flex-direction:column;align-items:stretch}.ins-page .err__ctas .btn{width:100%;justify-content:center}
+.ins-page .spec-grid{grid-template-columns:1fr}
+.ins-page .helpcta__inner{flex-direction:column;align-items:flex-start}
+.ins-page .helpcta__actions{flex-direction:column;align-items:stretch;width:100%}
+.ins-page .helpcta__actions .btn{width:100%;justify-content:center}
+}
+
+/* ── Gates — declared LAST: an `animation:` shorthand above resets
+   animation-play-state, so the freeze rules must win by source order.
+   Reduced motion freezes to the RESTING state, never the empty one. ── */
+@media (prefers-reduced-motion:reduce){
+  .ins-page .err__scroll-line{animation:none}
+  .ins-page .err__code span{animation:none}
+  .ins-page.js .err__code.reveal{clip-path:inset(0 0 0 0);transition:opacity .7s var(--ease)}
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page .helpcta__orb{animation:none}
+  .ins-page .spec__ic,.ins-page .spec.draw .spec__ic{animation:none !important;transform:none !important}
+  .ins-page .spec__ic svg [stroke-dasharray]{stroke-dashoffset:0 !important}
+  .ins-page .spec.draw .spec__ic svg [stroke-dasharray]{animation:none !important}
+}
+@media (pointer:coarse){
+  .ins-page .helpcta__orb{animation:none}
+}
+</style>
+
+<div class="ins-page">
+<script>(function(){var p=document.querySelector('.ins-page');if(p)p.classList.add('js');})();</script>
+
+<!-- SCROLL-SCRUBBED BACKDROP — one continuous clip behind the hero AND the
+     Quick Navigation section. Source is a JS runtime constant. -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- ═══ 404 HERO — fixed full-viewport morph scene ═══ -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder err" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="err__ghost hero__visual" aria-hidden="true">404</div>
+    <div class="wrap">
+    <div class="err__inner hero__copy">
+      <span class="err__tag reveal">404 Error</span>
+      <div class="err__code reveal d1">4<span>0</span>4</div>
+      <h1 class="reveal d2">This Page Is Out of Sync</h1>
+      <p class="err__sub reveal d3">The page you're looking for has been moved, removed, or never existed. But the right opportunity — or the right talent — is just a click away.</p>
+      <div class="err__ctas reveal d4">
+        <a href="/" class="btn btn-primary">Back to Home
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/contact-us/" class="btn btn-ghost-w">Contact Us</a>
+      </div>
+    </div>
+    </div>
+    <div class="err__scroll" aria-hidden="true">
+      <div class="err__scroll-line"></div>
+      <span>Explore</span>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- ═══ QUICK NAVIGATION — transparent over the shaded footage on desktop ═══ -->
+<section class="section alt qn" id="qnSec">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Find Your Way</span>
+      <h2>Where Would You Like to <em>Go</em>?</h2>
+      <p class="lead">Explore our most-visited pages below to find exactly what you need.</p>
+    </div>
+
+    <div class="spec-grid" id="qnGrid">
+
+      <a href="/education-staffing/" class="spec reveal">
+        <div class="spec__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>Educational Staffing</h3>
+        <p>Qualified educators and support staff placed in schools, districts, and institutions.</p>
+        <span class="spec__link">Explore Education
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="/healthcare-staffing/" class="spec reveal">
+        <div class="spec__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Healthcare Staffing</h3>
+        <p>Credentialed nurses, allied health, and clinical professionals placed in days — not weeks.</p>
+        <span class="spec__link">Explore Healthcare
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="/employer-of-record/" class="spec reveal">
+        <div class="spec__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Employer of Record &amp; Payroll</h3>
+        <p>Complete EOR and payroll solutions that keep your workforce compliant and on schedule.</p>
+        <span class="spec__link">Explore EOR / Payroll
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="/commercial-staffing/" class="spec reveal">
+        <div class="spec__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Commercial Staffing</h3>
+        <p>Reliable, vetted commercial talent to keep your operations running at full capacity.</p>
+        <span class="spec__link">Explore Commercial
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="/apply-now/" class="spec reveal">
+        <div class="spec__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>Apply Now</h3>
+        <p>Ready to take the next step? Submit your application and join the InSync family today.</p>
+        <span class="spec__link">Start Your Application
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="ins-below">
+<!-- ═══ CTA BAND ═══ -->
+<section class="section helpcta">
+  <div class="helpcta__amb" aria-hidden="true">
+    <span class="helpcta__orb helpcta__orb--a"></span><span class="helpcta__orb helpcta__orb--b"></span>
+  </div>
+  <div class="wrap">
+    <div class="helpcta__inner">
+      <div class="helpcta__text reveal">
+        <span class="eyebrow">Still Need Help?</span>
+        <h2>We're <em>Here</em> When You Need Us</h2>
+        <p class="helpcta__sub">Can't find what you're looking for? Our team is standing by to point you in the right direction — whether you're hiring, applying, or just exploring.</p>
+      </div>
+      <div class="helpcta__actions reveal d2">
+        <a href="/contact-us/" class="btn btn-primary">Get In Touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:8886413444" class="btn btn-ghost-w">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.42a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l.9-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (888) 641-3444
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /.ins-below -->
+
+</div>
+
+<script>
+'use strict';
+/* v2 reveal contract: threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && p.classList.contains('tl')) return;   /* timeline cards: spine-driven, no sibling delay */
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line. Catch anything at the observer's
+  // own trigger point (-12% viewport) and nothing below it.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- drifting brand squares (orange + navy-2 squares) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* Hero backdrop is the shared SCROLL-SCRUBBED video (#apScrubVid), fixed
+     behind the hero. Source URL lives in the scrub script as a runtime constant. */
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pVisual = hero.querySelector('.hero__visual');     /* the ghost 404 numeral */
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor (negative parallax); near layers travel
+           more than far ones. Depth order, most-to-least travel:
+           squares > copy > ghost numeral > BACKGROUND VIDEO (deepest, subtle). */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pVisual) pVisual.style.transform = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0)';
+        /* the background video moves OPPOSITE the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  if (!wrap || !vid) return;
+
+  // Media source as a runtime constant (immune to GHL attribute corruption).
+  var AP_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a91bc72934a62aec865f510.mp4';   // g12 scrub encode
+  vid.src = AP_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+  // Hero shows the video with the centred veil only; as you leave the hero
+  // the two CROSS-FADE — the veil goes out while a single flat, even shade
+  // comes in, so Quick Navigation sits under a uniform overlay with the
+  // cards/text still legible.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    var sp = document.getElementById('qnSec');
+    var svcTop = sp ? (sp.getBoundingClientRect().top + y) : vh;   // absolute top of Quick Navigation
+    // Longer runway + smoothstep easing: the handoff reads as one continuous
+    // darkening rather than a linear ramp with hard endpoints.
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    // The two layers do NOT sum linearly. Fading the gradient out at the same
+    // rate the shade comes in makes the copy side get LIGHTER mid-transition
+    // (0.84 -> ~0.65 -> 0.80) before darkening again. So instead of a fixed
+    // curve, solve for the gradient opacity that holds the COMPOSITE on the
+    // copy side steady as it eases from the gradient's 0.84 to the shade's
+    // 0.80: 1-(1-GA*g)(1-SA*e) = T. Result: no dip, no bump, and g reaches 0
+    // continuously exactly as the shade lands at full.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers
+      var T = GA + (SA - GA) * e;               // target composite on the copy side
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  // shade runs independently of video readiness, in every mode
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // The scrub spans scrollY 0 (top of hero) -> the bottom of the SECOND
+  // section (Quick Navigation): frame 1 at the top of the hero, the final
+  // frame as Quick Navigation ends.
+  function scrubEnd(){
+    var sp = document.getElementById('qnSec');
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of Quick Navigation
+  }
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      // static: hold on the first frame
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      // mobile/touch: simple muted autoplay loop as a moving background
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+
+      // Gate the layer to its span. Visibility and PLAYBACK are decoupled on
+      // purpose: iOS (and older Android) will only decode one video stream at a
+      // time, so the decoder is released before the layer scrolls out of view,
+      // while the layer stays visible on its frozen last frame.
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        // on mobile the clip backs the HERO only — the layer's visual span and
+        // its playback both end at the hero, so the loop costs nothing further
+        // down the page.
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  // Resume the loop the moment each seek lands, and measure how long the seek
+  // took: past ~80ms the clip is sparse-keyframed or still buffering, and the
+  // eased approach (many small seeks) would multiply that cost — so slow clips
+  // switch to direct-to-target writes (one seek per update) while spec -g 12
+  // encodes keep the buttery ease.
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    // toggle the whole layer off once we're well past Quick Navigation
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  // rAF loop: ease currentTime toward the scroll-derived target for smoothness.
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      // snap when very close, otherwise ease (kills micro-stutter while staying responsive)
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight. On sparse-keyframe
+        // or still-buffering clips every write aborts and restarts the
+        // pending seek, so no frame ever finishes presenting and the video
+        // looks FROZEN. On spec `-g 12` encodes each seek completes within a
+        // frame, so this gate never engages.
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      // keep animating while not settled
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  // prime
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Quick-nav card icons draw themselves on when the card first reaches the
+     viewport. Path lengths are MEASURED (getTotalLength) rather than hardcoded,
+     so swapping an SVG can't silently break the effect. */
+  var cards = [].slice.call(document.querySelectorAll('#qnGrid .spec'));
+  if (!cards.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach(function(card){
+    var shapes = card.querySelectorAll('.spec__ic svg path, .spec__ic svg circle, .spec__ic svg rect, .spec__ic svg line, .spec__ic svg polyline');
+    [].forEach.call(shapes, function(s){
+      var len = 0;
+      try { len = s.getTotalLength ? s.getTotalLength() : 0; } catch(e){ len = 0; }
+      if (!len) return;                       /* unmeasurable shape: leave it alone */
+      len = Math.ceil(len) + 1;
+      s.setAttribute('stroke-dasharray', len);
+      s.style.setProperty('--dash', len);
+      if (reduced) s.style.strokeDashoffset = '0';
+    });
+  });
+  if (reduced){ cards.forEach(function(c){ c.classList.add('draw'); }); return; }
+
+  function draw(card){ card.classList.add('draw'); }
+  if (!('IntersectionObserver' in window)){ cards.forEach(draw); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ draw(x.target); io.unobserve(x.target); } });
+  }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+
+  /* on-screen sweep as a net for fast flicks */
+  var raf = 0;
+  function sweep(){
+    raf = 0;
+    var left = document.querySelectorAll('#qnGrid .spec:not(.draw)');
+    for (var i = 0; i < left.length; i++){
+      var r = left[i].getBoundingClientRect();
+      if (r.right > 0 && r.left < window.innerWidth && r.top < window.innerHeight) draw(left[i]);
+    }
+    if (!document.querySelectorAll('#qnGrid .spec:not(.draw)').length){
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the quick-nav cards: the card tilts toward the pointer
+     and a spotlight tracks it. Spring-damped so the motion feels weighted
+     (same STIFF/DAMP family as the hero parallax); on leave it eases back to
+     rest and returns control to the page's own transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '#qnGrid .spec';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; delegation resolves the card from whatever is under the
+     pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ============== END INSYNC 404 PAGE BODY ============== -->

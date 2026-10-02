@@ -1,0 +1,825 @@
+<!-- ================================================================
+     INSYNC — TERMS & CONDITIONS · MOTION STANDARDS (GHL custom code block)
+     Body only. Paste between the InSync navigation block and footer
+     block, in a full-width section with section/row/column padding = 0.
+     Built to InSync Website Standards v1.0 + insync-motion-standards:
+     the light skin carries the Apex build's motion layer (hero entrance,
+     drifting brand squares, spring parallax, 3D agreement mockup with a
+     live loop, ghost numerals, deal-in lists, cursor-follow tilt +
+     spotlight, accent bars, ambient orbs). Copy is byte-identical to the
+     v1.0 Terms & Conditions page.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;--white:#fff;
+  --bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  font-family:var(--f);color:var(--text);background:var(--white);
+  line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  position:relative;isolation:isolate;overflow:clip;
+}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page [id]{scroll-margin-top:140px}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── Page hero (dark, no collage — no embellishments outside the hero) ── */
+.ins-page .lhero{position:relative;background:var(--navy-deep);color:#fff;padding:92px 0 84px;text-align:center;overflow:hidden}
+.ins-page .lhero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 520px at 78% 8%,rgba(44,68,116,.55),transparent 60%)}
+.ins-page .lhero__scene{position:relative;width:100%;will-change:transform,opacity}
+.ins-page .lhero .wrap{position:relative;z-index:2}
+.ins-page .lhero__copy{position:relative;will-change:transform}
+.ins-page .lhero .eyebrow{color:var(--orange-light)}
+.ins-page .lhero h1{color:#fff;margin:16px auto 16px;max-width:760px}
+.ins-page .lhero h1 .accent{color:var(--orange-light)}
+.ins-page .lhero__sub{color:rgba(255,255,255,.78);font-size:1.12rem;line-height:1.7;max-width:540px;margin:0 auto}
+.ins-page .lhero__meta{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.7;margin-top:16px}
+/* meta chip (Apex meta-chip, light-system recipe): pulsing status dot is an allowed round */
+.ins-page .lhero__chip{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);font-size:.82rem;font-weight:600;line-height:1.45;transition:border-color .25s var(--ease),background .25s var(--ease)}
+.ins-page .lhero__chip:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09)}
+.ins-page .lhero__dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--orange-light);flex-shrink:0}   /* status dot — allowed round */
+.ins-page .lhero__dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(255,122,77,.6);opacity:0;animation:insDotPulse 2.2s var(--ease) infinite}
+@keyframes insDotPulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.7);opacity:0}}
+
+/* kinetic headline: each word wipes up out of a clip; the clip is padded
+   below so descenders are never shaved (clip-wipe descender fix) */
+.ins-page .kw{display:inline-block;vertical-align:bottom;clip-path:inset(-.12em 0 -.28em 0);overflow:visible}
+.ins-page .kw>span{display:inline-block;transition:transform .95s var(--ease)}
+.ins-page.js .reveal .kw>span{transform:translateY(118%)}
+.ins-page.js .reveal.in .kw>span{transform:none}
+.ins-page.js .reveal.in .kw:nth-child(2)>span{transition-delay:.12s}
+
+/* page-load entrance (donor mechanics): snap into a zoomed state pre-paint,
+   transition out on load; hero copy holds, then releases with it */
+.ins-page .lhero.ap-enter .lhero__scene{transform:scale(1.08) !important;opacity:.5 !important;transition:none !important}
+.ins-page .lhero.ap-entering .lhero__scene{transition:transform 1.7s cubic-bezier(.16,.84,.28,1),opacity 1.2s ease !important}
+.ins-page .lhero.ap-enter .reveal,
+.ins-page .lhero.ap-entering .reveal{opacity:0 !important;transform:translateY(24px) !important}
+.ins-page .lhero.ap-reveal-hero .reveal{opacity:1 !important;transform:none !important}
+
+/* drifting brand squares (donor ember drift, re-branded: orange + navy-2
+   squares only, inside the hero) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;will-change:transform}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+
+/* ── Overview: 3D agreement mockup + Table of Contents (bg-alt) ── */
+.ins-page .overview{position:relative;isolation:isolate;overflow:clip}
+.ins-page .overview__amb{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:clip}
+.ins-page .overview__orb{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(8px);opacity:.85;will-change:transform}   /* orb — allowed round */
+.ins-page .overview__orb--a{left:-160px;top:-140px;background:radial-gradient(circle,rgba(239,90,40,.10),rgba(239,90,40,0) 66%);animation:insOvDriftA 26s ease-in-out infinite alternate}
+.ins-page .overview__orb--b{right:-180px;bottom:-200px;background:radial-gradient(circle,rgba(44,68,116,.13),rgba(44,68,116,0) 66%);animation:insOvDriftB 32s ease-in-out infinite alternate}
+@keyframes insOvDriftA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(70px,54px,0) scale(1.12)}}
+@keyframes insOvDriftB{0%{transform:translate3d(0,0,0) scale(1.08)}100%{transform:translate3d(-64px,-46px,0) scale(1)}}
+.ins-page .overview__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+
+/* 3D agreement mockup — the Apex contract card in the light recipe. The
+   resting tilt lives on the INNER wrapper so the follow engine can drive the
+   outer card's transform per frame without fighting it. */
+.ins-page .mock-wrap{perspective:1200px;display:flex;justify-content:center}
+.ins-page .mock{position:relative;width:min(360px,100%);transform-style:preserve-3d}
+.ins-page .mock__inner{position:relative;padding:30px 28px 30px;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden;transform:rotateY(-12deg) rotateX(4deg);transition:transform .8s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .mock-wrap:hover .mock__inner{transform:rotateY(-5deg) rotateX(2deg);box-shadow:var(--shadow);border-color:transparent}
+.ins-page .mock__inner::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .mock-wrap:hover .mock__inner::before{transform:scaleY(1)}
+.ins-page .mock__tab{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);background:var(--orange-soft);border-radius:50px;padding:6px 12px;line-height:1.45;margin-bottom:18px}
+.ins-page .mock__title{font-size:1.2rem;font-weight:800;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:4px}
+.ins-page .mock__title .accent{color:var(--orange)}
+.ins-page .mock__co{font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.ins-page .mock__row{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line);position:relative}
+.ins-page .mock__row:last-of-type{border-bottom:1px solid var(--line)}
+.ins-page .mock__row::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(239,90,40,0) 0%,rgba(239,90,40,.10) 50%,rgba(239,90,40,0) 100%);background-size:300% 100%;background-position:120% 0;opacity:0;pointer-events:none}
+.ins-page .mock__n{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--orange-soft);color:var(--orange);font-size:.72rem;font-weight:800;line-height:1;transition:background .3s var(--ease),color .3s var(--ease)}
+.ins-page .mock__t{font-size:.86rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.7}
+.ins-page .mock__foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px}
+.ins-page .mock__meter{display:block;flex:1;height:6px;border-radius:9px;background:var(--line);overflow:hidden}   /* display:block — an inline span has no width */
+.ins-page .mock__meter i{display:block;height:100%;width:0;background:var(--orange);border-radius:9px}
+.ins-page .mock__seal{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--orange);color:#fff;transform:scale(.6);opacity:0}   /* badge is square */
+.ins-page .mock__seal svg{width:16px;height:16px}
+/* live loop: rows light one after another as if being read, the meter fills,
+   the seal lands. Parked until on screen (.go); gate declared LAST below. */
+.ins-page .mock.go .mock__row::after{animation:insMockScan 4.8s ease infinite}
+.ins-page .mock.go .mock__row:nth-of-type(1)::after{animation-delay:0s}
+.ins-page .mock.go .mock__row:nth-of-type(2)::after{animation-delay:.42s}
+.ins-page .mock.go .mock__row:nth-of-type(3)::after{animation-delay:.84s}
+.ins-page .mock.go .mock__row:nth-of-type(4)::after{animation-delay:1.26s}
+.ins-page .mock.go .mock__row:nth-of-type(5)::after{animation-delay:1.68s}
+@keyframes insMockScan{0%{background-position:120% 0;opacity:0}6%{opacity:1}26%{background-position:-120% 0;opacity:1}30%,100%{background-position:-120% 0;opacity:0}}
+.ins-page .mock.go .mock__n{animation:insMockNum 4.8s ease infinite}
+.ins-page .mock.go .mock__row:nth-of-type(1) .mock__n{animation-delay:.1s}
+.ins-page .mock.go .mock__row:nth-of-type(2) .mock__n{animation-delay:.52s}
+.ins-page .mock.go .mock__row:nth-of-type(3) .mock__n{animation-delay:.94s}
+.ins-page .mock.go .mock__row:nth-of-type(4) .mock__n{animation-delay:1.36s}
+.ins-page .mock.go .mock__row:nth-of-type(5) .mock__n{animation-delay:1.78s}
+@keyframes insMockNum{0%,4%{background:var(--orange-soft);color:var(--orange)}10%,38%{background:var(--orange);color:#fff}46%,100%{background:var(--orange-soft);color:var(--orange)}}
+.ins-page .mock.go .mock__meter i{animation:insMockMeter 4.8s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes insMockMeter{0%{width:0}52%,88%{width:100%}100%{width:100%}}
+.ins-page .mock.go .mock__seal{animation:insMockSeal 4.8s cubic-bezier(.34,1.4,.5,1) infinite}
+@keyframes insMockSeal{0%,50%{opacity:0;transform:scale(.6)}60%,90%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+
+/* TOC card — white on bg-alt; the Apex list hover (tile + orange) in the
+   light recipe; entries deal in one after another on reveal */
+.ins-page .toc{position:relative;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px 32px;box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .toc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .toc:hover::before{transform:scaleY(1)}
+.ins-page .toc:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .toc__label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.ins-page .toc ol{margin:0;padding-left:18px;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;position:relative;z-index:3}
+.ins-page .toc ol li{font-size:.88rem;line-height:1.7;color:var(--muted);padding-left:4px}
+.ins-page .toc ol li::marker{font-weight:700;color:var(--orange)}
+.ins-page .toc ol li a{position:relative;display:inline-block;font-weight:600;color:var(--navy);transition:color .25s var(--ease),transform .25s var(--ease)}
+.ins-page .toc ol li a::after{content:"";position:absolute;left:0;bottom:2px;width:0;height:2px;background:var(--orange);transition:width .25s var(--ease)}
+.ins-page .toc ol li a:hover{color:var(--orange);transform:translateX(3px)}
+.ins-page .toc ol li a:hover::after{width:100%}
+.ins-page.js .toc ol li{opacity:0;transform:translateX(-10px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.ins-page.js .toc.in ol li{opacity:1;transform:none;transition-delay:calc(.12s + var(--i,0)*.05s)}
+
+/* ── Legal layout ── */
+.ins-page .legal{background:var(--white)}
+.ins-page .legal-col{max-width:860px;margin:0 auto;display:grid;gap:56px}
+
+/* Intro */
+.ins-page .legal-intro{position:relative;padding-left:26px}
+.ins-page .legal-intro::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .9s var(--ease) .2s}
+.ins-page .legal-intro.in::before{transform:scaleY(1)}
+.ins-page .legal-intro p{color:var(--text);font-size:1.06rem;line-height:1.7}
+.ins-page .legal-intro strong{color:var(--ink)}
+
+/* Legal sections — numbered with the step-badge orange recipe; the Apex
+   ghost numeral sits at the right edge and warms on hover (desktop only) */
+.ins-page .lsec{position:relative}
+.ins-page .lsec__head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.ins-page .lsec__n{position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--orange-soft);color:var(--orange);font-size:1.05rem;font-weight:800;line-height:1;transition:all .3s var(--ease)}
+.ins-page .lsec:hover .lsec__n{background:var(--orange);color:#fff}
+/* node ring: a square ring pulses out of the badge the moment the section lands */
+.ins-page .lsec__n::after{content:"";position:absolute;inset:-4px;border-radius:14px;border:2px solid var(--orange);opacity:0;pointer-events:none}
+.ins-page.js .lsec.in .lsec__n{animation:insNumPop .62s var(--ease) .05s 1}
+.ins-page.js .lsec.in .lsec__n::after{animation:insNodeRing .9s var(--ease) .1s 1}
+@keyframes insNumPop{0%{transform:scale(1)}42%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes insNodeRing{0%{transform:scale(.86);opacity:.85}100%{transform:scale(1.35);opacity:0}}
+/* activation sweep: a soft band of light crosses the section once as it lands
+   (background-position, never translateX, so nothing leaves the box) */
+.ins-page .lsec__sweep{position:absolute;inset:-12px -16px;pointer-events:none;z-index:0;border-radius:16px;opacity:0;background:linear-gradient(105deg,transparent 0%,transparent 36%,rgba(239,90,40,.10) 50%,transparent 64%,transparent 100%);background-size:300% 100%;background-position:120% 0}
+.ins-page.js .lsec.in .lsec__sweep{animation:insStepSweep 1.15s ease .04s 1}
+@keyframes insStepSweep{0%{background-position:120% 0;opacity:1}100%{background-position:-120% 0;opacity:1}}
+.ins-page .lsec__ghost{position:absolute;right:-8px;top:-18px;font-size:5rem;font-weight:800;letter-spacing:-.03em;line-height:1;color:rgba(32,51,90,.06);user-select:none;pointer-events:none;transition:color .5s var(--ease)}
+.ins-page .lsec:hover .lsec__ghost{color:rgba(239,90,40,.14)}
+.ins-page .lsec h2{font-size:1.2rem;font-weight:700;line-height:1.15;letter-spacing:-.02em;position:relative}
+.ins-page .lsec p{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:14px;position:relative}
+.ins-page .lsec p:last-child{margin-bottom:0}
+.ins-page .lsec strong{color:var(--ink)}
+.ins-page .lsec a{color:var(--navy);font-weight:600;transition:color .25s var(--ease)}
+.ins-page .lsec a:hover{color:var(--orange)}
+.ins-page .lsec ul{list-style:none;display:grid;gap:10px;margin-bottom:14px;position:relative}
+.ins-page .lsec ul:last-child{margin-bottom:0}
+.ins-page .lsec li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;line-height:1.7;color:var(--text)}
+.ins-page .lsec li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:11px}   /* bullet dot — allowed round */
+/* checklist deals in, each bullet popping as its line arrives */
+.ins-page.js .lsec li{opacity:0;transform:translateX(-10px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.ins-page.js .lsec li::before{transform:scale(0);transition:transform .42s var(--ease)}
+.ins-page.js .lsec.in li{opacity:1;transform:none}
+.ins-page.js .lsec.in li::before{transform:scale(1)}
+.ins-page.js .lsec.in li:nth-child(1){transition-delay:.16s}
+.ins-page.js .lsec.in li:nth-child(2){transition-delay:.28s}
+.ins-page.js .lsec.in li:nth-child(3){transition-delay:.40s}
+.ins-page.js .lsec.in li:nth-child(4){transition-delay:.52s}
+.ins-page.js .lsec.in li:nth-child(5){transition-delay:.64s}
+.ins-page.js .lsec.in li:nth-child(1)::before{transition-delay:.30s}
+.ins-page.js .lsec.in li:nth-child(2)::before{transition-delay:.42s}
+.ins-page.js .lsec.in li:nth-child(3)::before{transition-delay:.54s}
+.ins-page.js .lsec.in li:nth-child(4)::before{transition-delay:.66s}
+.ins-page.js .lsec.in li:nth-child(5)::before{transition-delay:.78s}
+
+/* CTA panel — dark feature panel recipe, no embellishments */
+.ins-page .lcta{position:relative;background:var(--navy);border-radius:20px;padding:46px;text-align:center;overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+.ins-page .lcta::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .lcta:hover::before{transform:scaleY(1)}
+.ins-page .lcta:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.ins-page .lcta h3{color:#fff;font-size:1.4rem;margin-bottom:10px;position:relative;z-index:3}
+.ins-page .lcta p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.7;max-width:480px;margin:0 auto 28px;position:relative;z-index:3}
+.ins-page .lcta__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:3}
+
+/* ── Scroll reveal (v2 contract) ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ---------- cursor-follow on the cards ----------
+   The mockup, the TOC card and the CTA panel tilt toward the pointer
+   (spring-damped, written per frame by the follow engine) and carry a soft
+   orange spotlight that tracks the cursor. Fine pointers only; reduced off.
+   Every family bound in JS appears in every list here. */
+.ins-page .mock,
+.ins-page .toc,
+.ins-page .lcta{position:relative;transform-style:preserve-3d}
+.ins-page .mock .mock__inner::after,
+.ins-page .toc::after,
+.ins-page .lcta::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .45s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page .mock.is-glow .mock__inner::after,
+.ins-page .toc.is-glow::after,
+.ins-page .lcta.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition */
+.ins-page .mock.is-follow,
+.ins-page .toc.is-follow,
+.ins-page .lcta.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page .mock.is-glow .mock__inner,
+.ins-page .toc.is-glow,
+.ins-page .lcta.is-glow{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .ins-page .mock .mock__inner::after,
+  .ins-page .toc::after,
+  .ins-page .lcta::after{display:none}
+}
+
+/* ── Responsive (mobile rules after base rules) ── */
+@media(max-width:1024px){
+  .ins-page .overview__grid{grid-template-columns:1fr;gap:48px}
+  .ins-page .mock-wrap{order:2}
+  .ins-page .mock__inner{transform:none}
+  .ins-page .mock-wrap:hover .mock__inner{transform:none}
+  .ins-page .lsec__ghost{display:none}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:72px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .lhero{padding:72px 0 64px}
+  .ins-page .legal-col{gap:44px}
+  .ins-page .toc{padding:24px 20px}
+  .ins-page .toc ol{grid-template-columns:1fr}
+  .ins-page .legal-intro{padding-left:20px}
+  .ins-page .lcta{padding:34px 24px}
+  .ins-page .lcta__btns{flex-direction:column;align-items:stretch}
+  .ins-page .lcta__btns .btn{width:100%;justify-content:center}
+  .ins-page .lhero__chip{max-width:100%;white-space:normal;text-align:left}
+}
+
+/* ── Gates (declared LAST: an animation shorthand resets play-state) ── */
+@media (prefers-reduced-motion:reduce){
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page .overview__orb{animation:none}
+  .ins-page .lhero__dot::after{animation:none;display:none}
+  .ins-page .lhero.ap-enter .lhero__scene,
+  .ins-page .lhero.ap-entering .lhero__scene{transform:none !important;opacity:1 !important}
+  .ins-page .lhero.ap-enter .reveal,
+  .ins-page .lhero.ap-entering .reveal{opacity:1 !important;transform:none !important}
+  .ins-page.js .reveal .kw>span{transform:none;transition:none}
+  .ins-page .mock__inner{transform:none;transition:none}
+  .ins-page .mock .mock__row::after,.ins-page .mock .mock__n,.ins-page .mock .mock__meter i,.ins-page .mock .mock__seal{animation:none !important}
+  .ins-page .mock .mock__meter i{width:100%}
+  .ins-page .mock .mock__seal{opacity:1;transform:none}
+  .ins-page.js .toc ol li,.ins-page.js .lsec li,.ins-page.js .lsec li::before{opacity:1 !important;transform:none !important;transition:none !important}
+  .ins-page .legal-intro::before{transform:none;transition:none}
+  .ins-page.js .lsec.in .lsec__n,.ins-page.js .lsec.in .lsec__n::after,.ins-page.js .lsec.in .lsec__sweep{animation:none}
+  .ins-page .lsec__sweep{display:none}
+}
+</style>
+
+<div class="ins-page">
+<script>(function(){var p=document.querySelector('.ins-page');if(p)p.classList.add('js');})();</script>
+
+  <!-- ── HERO — the v1.0 legal hero riding the donor's entrance, parallax and brand squares ── -->
+  <header class="lhero" id="apHero">
+    <div class="lhero__scene" id="apHeroS1">
+      <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="lhero__copy">
+          <span class="eyebrow reveal">Legal</span>
+          <h1 class="reveal d1"><span class="kw"><span>Terms &amp;</span></span> <span class="kw"><span class="accent">Conditions</span></span></h1>
+          <p class="lhero__sub reveal d2">Please read these terms carefully before engaging our services. By using InSync Consulting, you agree to the terms outlined below.</p>
+          <p class="lhero__meta reveal d3"><span class="lhero__chip"><span class="lhero__dot" aria-hidden="true"></span>Effective Date: January 1, 2026 &nbsp;&middot;&nbsp; Last Updated: March 2026</span></p>
+        </div>
+      </div>
+    </div>
+  </header>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+  <!-- ── OVERVIEW: 3D agreement mockup + Table of Contents (bg-alt) ── -->
+  <section class="section alt overview">
+    <div class="overview__amb" aria-hidden="true">
+      <span class="overview__orb overview__orb--a"></span><span class="overview__orb overview__orb--b"></span>
+    </div>
+    <div class="wrap">
+      <div class="overview__grid">
+
+        <!-- the agreement mockup reuses only text that already lives on the page -->
+        <div class="mock-wrap reveal">
+          <div class="mock" id="tcMock" aria-hidden="true">
+            <div class="mock__inner">
+              <span class="mock__tab">Legal</span>
+              <div class="mock__title">Terms &amp; <span class="accent">Conditions</span></div>
+              <div class="mock__co">insynconline.net</div>
+              <div class="mock__row"><span class="mock__n">1</span><span class="mock__t">Acceptance of Terms</span></div>
+              <div class="mock__row"><span class="mock__n">2</span><span class="mock__t">Our Services</span></div>
+              <div class="mock__row"><span class="mock__n">3</span><span class="mock__t">Employer Terms</span></div>
+              <div class="mock__row"><span class="mock__n">4</span><span class="mock__t">Candidate Terms</span></div>
+              <div class="mock__row"><span class="mock__n">5</span><span class="mock__t">Fees &amp; Payment</span></div>
+              <div class="mock__foot">
+                <span class="mock__meter"><i></i></span>
+                <span class="mock__seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc reveal d1">
+          <span class="toc__label">Table of Contents</span>
+          <ol>
+            <li style="--i:0"><a href="#acceptance">Acceptance of Terms</a></li>
+            <li style="--i:1"><a href="#services">Our Services</a></li>
+            <li style="--i:2"><a href="#employer-terms">Employer Terms</a></li>
+            <li style="--i:3"><a href="#candidate-terms">Candidate Terms</a></li>
+            <li style="--i:4"><a href="#fees">Fees &amp; Payment</a></li>
+            <li style="--i:5"><a href="#confidentiality">Confidentiality</a></li>
+            <li style="--i:6"><a href="#intellectual-property">Intellectual Property</a></li>
+            <li style="--i:7"><a href="#disclaimers">Disclaimers</a></li>
+            <li style="--i:8"><a href="#limitation">Limitation of Liability</a></li>
+            <li style="--i:9"><a href="#termination">Termination</a></li>
+            <li style="--i:10"><a href="#governing-law">Governing Law</a></li>
+            <li style="--i:11"><a href="#contact">Contact Us</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTENT ── -->
+  <section class="section legal">
+    <div class="wrap">
+      <div class="legal-col">
+
+        <!-- Intro -->
+        <div class="legal-intro reveal">
+          <p>These Terms and Conditions ("Terms") govern your use of the services provided by InSync Consulting Services ("InSync," "we," "our," or "us"). By engaging our services or accessing <strong>insynconline.net</strong>, you agree to these Terms in full.</p>
+        </div>
+
+        <!-- 1. Acceptance of Terms -->
+        <div class="lsec reveal" id="acceptance">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">1</span>
+          <div class="lsec__head"><span class="lsec__n">1</span><h2>Acceptance of Terms</h2></div>
+          <p>By using our website or services — whether as a job seeker, employer client, or other visitor — you confirm that you have read, understood, and agree to be bound by these Terms. If you represent a business, you confirm you have authority to bind that entity.</p>
+        </div>
+
+        <!-- 2. Our Services -->
+        <div class="lsec reveal" id="services">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">2</span>
+          <div class="lsec__head"><span class="lsec__n">2</span><h2>Our Services</h2></div>
+          <p>InSync Consulting provides staffing, recruiting, and workforce solutions including:</p>
+          <ul>
+            <li>Healthcare staffing (travel nursing, allied health, per diem)</li>
+            <li>Commercial and call center staffing</li>
+            <li>Educational staffing</li>
+            <li>Employer of Record (EOR) and payroll services</li>
+          </ul>
+          <p>We reserve the right to modify, suspend, or discontinue any service at any time with reasonable notice to affected parties.</p>
+        </div>
+
+        <!-- 3. Employer Terms -->
+        <div class="lsec reveal" id="employer-terms">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">3</span>
+          <div class="lsec__head"><span class="lsec__n">3</span><h2>Employer Terms</h2></div>
+          <p>As an employer client, you agree to:</p>
+          <ul>
+            <li>Provide accurate and complete information about open roles and requirements</li>
+            <li>Treat all candidates referred by InSync fairly and in compliance with applicable employment laws</li>
+            <li>Not directly hire, solicit, or engage any InSync-referred candidate outside of the placement agreement for a period of 12 months without prior written consent</li>
+            <li>Pay all fees as outlined in your signed service agreement</li>
+            <li>Provide timely feedback on submitted candidates</li>
+          </ul>
+        </div>
+
+        <!-- 4. Candidate Terms -->
+        <div class="lsec reveal" id="candidate-terms">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">4</span>
+          <div class="lsec__head"><span class="lsec__n">4</span><h2>Candidate Terms</h2></div>
+          <p>As a job seeker or placed candidate, you agree to:</p>
+          <ul>
+            <li>Provide truthful and accurate information on your application and resume</li>
+            <li>Maintain valid licenses, certifications, and credentials required for your placement</li>
+            <li>Comply with the policies of the client employer during your assignment</li>
+            <li>Notify InSync promptly of any issues arising during a placement</li>
+            <li>Not misrepresent qualifications, experience, or background</li>
+          </ul>
+          <p>Falsification of credentials or background information may result in immediate termination of placement and possible legal action.</p>
+        </div>
+
+        <!-- 5. Fees & Payment -->
+        <div class="lsec reveal" id="fees">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">5</span>
+          <div class="lsec__head"><span class="lsec__n">5</span><h2>Fees &amp; Payment</h2></div>
+          <p>Staffing fees, markups, and billing terms are set forth in the signed service agreement between InSync and the employer client. Unless otherwise agreed:</p>
+          <ul>
+            <li>Invoices are due within 30 days of issuance</li>
+            <li>Late payments accrue interest at 1.5% per month</li>
+            <li>InSync reserves the right to suspend services for non-payment after written notice</li>
+            <li>Placement fees are earned upon a candidate's first day of work (unless a guarantee period applies)</li>
+          </ul>
+        </div>
+
+        <!-- 6. Confidentiality -->
+        <div class="lsec reveal" id="confidentiality">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">6</span>
+          <div class="lsec__head"><span class="lsec__n">6</span><h2>Confidentiality</h2></div>
+          <p>Both parties agree to keep confidential all proprietary information disclosed during the course of the engagement, including business data, candidate information, pricing, and client identities. Confidentiality obligations survive termination for three (3) years.</p>
+          <p>Candidate resumes and profiles may be shared with potential employer clients as part of normal recruitment activity, with the candidate's understanding.</p>
+        </div>
+
+        <!-- 7. Intellectual Property -->
+        <div class="lsec reveal" id="intellectual-property">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">7</span>
+          <div class="lsec__head"><span class="lsec__n">7</span><h2>Intellectual Property</h2></div>
+          <p>All content on insynconline.net — including the InSync name, logo, text, graphics, and proprietary processes — is owned by InSync Consulting Services and protected by applicable intellectual property laws. You may not reproduce or use our materials without written permission.</p>
+        </div>
+
+        <!-- 8. Disclaimers -->
+        <div class="lsec reveal" id="disclaimers">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">8</span>
+          <div class="lsec__head"><span class="lsec__n">8</span><h2>Disclaimers</h2></div>
+          <p>InSync acts as a staffing intermediary and does not guarantee employment, placement duration, or client satisfaction with any particular candidate. Our services are provided <strong>"as is."</strong> Specific performance guarantees, replacement terms, and service level commitments are defined in individual service agreements.</p>
+        </div>
+
+        <!-- 9. Limitation of Liability -->
+        <div class="lsec reveal" id="limitation">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">9</span>
+          <div class="lsec__head"><span class="lsec__n">9</span><h2>Limitation of Liability</h2></div>
+          <p>To the maximum extent permitted by law, InSync shall not be liable for indirect, incidental, special, or consequential damages arising from use of our services. Our total liability for any claim shall not exceed the total fees paid by the claiming party in the three (3) months preceding the claim.</p>
+        </div>
+
+        <!-- 10. Termination -->
+        <div class="lsec reveal" id="termination">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">10</span>
+          <div class="lsec__head"><span class="lsec__n">10</span><h2>Termination</h2></div>
+          <p>Either party may terminate a service engagement with 14 days written notice. InSync may terminate immediately for material breach, non-payment, or conduct harmful to our candidates or reputation. Termination does not relieve either party of outstanding payment obligations.</p>
+        </div>
+
+        <!-- 11. Governing Law -->
+        <div class="lsec reveal" id="governing-law">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">11</span>
+          <div class="lsec__head"><span class="lsec__n">11</span><h2>Governing Law</h2></div>
+          <p>These Terms are governed by the laws of the State of California, United States. Any disputes shall be resolved through binding arbitration in Sacramento, California, except where injunctive relief is sought.</p>
+        </div>
+
+        <!-- 12. Contact Us -->
+        <div class="lsec reveal" id="contact">
+          <span class="lsec__sweep" aria-hidden="true"></span><span class="lsec__ghost" aria-hidden="true">12</span>
+          <div class="lsec__head"><span class="lsec__n">12</span><h2>Contact Us</h2></div>
+          <p>For legal questions or concerns:</p>
+          <ul>
+            <li><strong>Email:</strong>&nbsp;<a href="mailto:legal@insynconline.net">legal@insynconline.net</a></li>
+            <li><strong>Phone:</strong>&nbsp;<a href="tel:+18886413444">(888) 641-3444</a></li>
+            <li><strong>Address:</strong>&nbsp;InSync Consulting Services, Sacramento, CA</li>
+          </ul>
+        </div>
+
+        <!-- CTA panel -->
+        <div class="lcta reveal">
+          <h3>Questions About Our Terms?</h3>
+          <p>Our team is happy to walk you through any part of this agreement before you engage.</p>
+          <div class="lcta__btns">
+            <a href="/contact-us/" class="btn btn-white">
+              Get in Touch
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="tel:+18886413444" class="btn btn-ghost-w">(888) 641-3444</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+'use strict';
+/* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.ins-page .reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so grids cascade instead of popping as a
+  // slab. Authored d1-d5 delays are left alone; the legal column is excluded
+  // (each clause lands on its own trigger line, and an inline delay on a card
+  // the follow engine drives every frame would stop it moving).
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    if (p.classList && p.classList.contains('legal-col')) return;
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: catch anything a fast flick jumped past the trigger line.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.ins-page .reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.ins-page .reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // .ap-enter is on (scaled, no transition) and has painted. Arm the
+    // transition, force a reflow so the zoomed start value registers WITH a
+    // transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.08 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* ---------- parallax: adaptive spring-damped depth on the inner wrappers ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.lhero__copy');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* scene moves AGAINST the cursor; near layers travel more: squares > copy */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* The agreement mockup plays its live loop (rows read, meter fills, seal
+     lands) only once it is on screen. Reduced motion: parked at rest (the CSS
+     gate holds the meter full and the seal landed). */
+  var el = document.getElementById('tcMock');
+  if (!el) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)){ el.classList.add('go'); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ el.classList.add('go'); io.disconnect(); } });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  io.observe(el);
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the agreement mockup, the TOC card and the CTA panel:
+     the card tilts toward the pointer and a spotlight tracks it. Spring-damped
+     so the motion feels weighted (same STIFF/DAMP family as the hero
+     parallax); on leave it eases back to rest and returns control to the
+     page's own transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '.ins-page .mock, .ins-page .toc, .ins-page .lcta';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load, so a node GHL re-renders still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      var sc = st.hover ? 1.012 : 1;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');
+    st.schedule();
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ============== END INSYNC TERMS & CONDITIONS · MOTION ============== -->
