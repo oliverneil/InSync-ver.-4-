@@ -27,6 +27,9 @@
 .insf ul{list-style:none}
 .insf-wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .insf-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1.1fr;gap:36px;padding-bottom:46px}
+/* Logo on a dark surface is PURE WHITE. brightness(0) crushes every opaque pixel
+   to black, invert(1) flips it to #fff, and the PNG's alpha is untouched — so the
+   navy mark and orange link both render white with no halo. */
 .insf-logo{height:42px;margin-bottom:18px;filter:brightness(0) invert(1);display:block}
 .insf-blurb{font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.52);max-width:300px;margin-bottom:18px}
 .insf-blurb strong{color:rgba(255,255,255,.85);font-weight:700}
