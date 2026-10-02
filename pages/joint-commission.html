@@ -1,0 +1,1185 @@
+<!-- GHL-PASTE-START — InSync Consulting Services — Joint Commission page body
+     Light InSync Website Standards v1.0 skin, wearing the Motion Standards
+     layer: scroll-scrubbed hero video with the compensated gradient/shade
+     cross-fade, Wonder morph hero + page-load entrance, spring parallax,
+     drifting brand squares, floating credential cards, cursor-follow tilt +
+     spotlight, verification-scan signature motif, v2 reveal contract.
+     Body-only block: nav and footer are separate GHL global blocks. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ── Scoped reset + tokens (scoped to the page wrapper only) ─────────── */
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;--white:#fff;
+  --bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  font-family:var(--f);color:var(--text);background:var(--white);
+  line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  position:relative;overflow:clip;isolation:isolate;
+}
+html{scroll-behavior:smooth}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page ::selection{background:rgba(239,90,40,.3);color:#fff}
+
+/* the global Apex layer on the live site hides the native cursor — restore
+   a visible one, scoped + !important, for this block */
+.ins-page,.ins-page *{cursor:auto!important}
+.ins-page a[href],.ins-page button,.ins-page .btn,.ins-page label[for],.ins-page [role="button"]{cursor:pointer!important}
+.ins-page input,.ins-page textarea,.ins-page select{cursor:text!important}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+
+/* ── Section headers ─────────────────────────────────────────── */
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.ins-page .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease);position:relative;overflow:hidden}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease);position:relative;z-index:1}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.ins-page .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+/* slow sheen across the primary CTA while its section is on screen (gated) */
+.ins-page .btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:44%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);transform:skewX(-18deg);pointer-events:none;opacity:0}
+.ins-page.js .go .btn-primary::after{opacity:1;animation:insSheen 5.2s var(--ease) infinite}
+@keyframes insSheen{0%{left:-60%}55%,100%{left:130%}}
+
+/* ================================================================
+   MOTION LAYER — Motion Standards engines, light skin
+   ================================================================ */
+
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene (it carries its own nav clearance); it returns the moment the hero is
+   back in normal flow (phones / coarse pointers / reduced motion). */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{height:0 !important}
+}
+
+/* ---------- scroll-scrubbed backdrop (Layer 1): ONE continuous clip behind the
+   hero AND the section that follows it (credentials strip + Our Certification).
+   Frame 1 at the top of the hero, final frame at the end of Our Certification,
+   playhead driven by scroll. The hero shows the video CLEAN apart from the
+   constant left-fade gradient (copy side dark, footage side clear); the flat
+   black shade ramps in across the hero's last 72vh and holds through the
+   spanned section. Mobile autoplay-loops the clip as the hero backdrop
+   (paused once scrolled past); reduced motion freezes frame 1. */
+.ins-page .ins-scrub{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+  background:var(--navy-deep);opacity:0;transition:opacity .5s ease}
+.ins-page .ins-scrub.is-on{opacity:1}
+.ins-page .ins-scrub--inline{position:absolute;inset:0}               /* transformed-ancestor fallback: hero-only, in-flow */
+.ins-page .ins-scrub__par{position:absolute;inset:0;will-change:transform}
+/* Framing: top-anchored subject, bled on all four edges so parallax drift can
+   never expose a seam; grade richens high-key footage (never touch opacity) */
+.ins-page .ins-scrub__vid{position:absolute;left:-7%;top:-2%;width:114%;height:118%;
+  object-fit:cover;object-position:50% 0;will-change:transform;
+  filter:contrast(1.06) saturate(1.08) brightness(.93)}
+/* dark band: full strength across the left third, then ONE continuous ease-in-out
+   curve to clean at 80%; plus a top fade for bright upper-right footage */
+.ins-page .ins-scrub__grad{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,   rgba(0,0,0,.84) 27%,   rgba(0,0,0,.83) 30%,   rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%, rgba(0,0,0,.77) 39.3%, rgba(0,0,0,.74) 42.4%, rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%, rgba(0,0,0,.61) 51.7%, rgba(0,0,0,.55) 54.8%, rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,   rgba(0,0,0,.40) 64.1%, rgba(0,0,0,.35) 67.2%, rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%, rgba(0,0,0,.18) 76%,   rgba(0,0,0,.09) 78.5%, rgba(0,0,0,0) 80%)}
+.ins-page .ins-scrub__shade{position:absolute;inset:0;opacity:0;background:rgba(0,0,0,.80)}
+
+/* ---------- HERO (light standards hero as a fixed full-viewport scene) */
+.ins-page .hero{position:relative;background:var(--navy-deep);color:#fff;overflow:hidden;padding:130px 0 120px}
+/* photo slot (WebP proxy) — only if the clip dies, so nothing ever flashes */
+.ins-page .hero::before{content:"";position:absolute;inset:0;z-index:0;display:none;
+  background:url(https://images.leadconnectorhq.com/image/f_webp/q_80/r_1600/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a2c598496783b1af58e52e9.jpg) center/cover no-repeat}
+.ins-page .hero::after{content:"";position:absolute;inset:0;z-index:1;display:none;background:rgba(0,0,0,.8)}
+.ins-page.vidfail .hero::before,.ins-page.vidfail .hero::after{display:block}
+.ins-page .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero h1{color:#fff;margin:16px 0 18px;padding-bottom:.08em}
+.ins-page .hero h1 .accent{color:var(--orange)}
+.ins-page .hero__sub{font-size:1.12rem;color:rgba(255,255,255,.78);max-width:560px;margin:0 0 32px}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
+.ins-page .hero__copy{max-width:640px;will-change:transform}
+.ins-page .hero__visual{position:relative;will-change:transform}
+
+/* floating credential cards (the hero tags, given motion): white standards
+   cards bobbing over the clean side of the footage, each icon tile pulsing a
+   verification ring in sequence */
+.ins-page .hfloats{position:relative;height:440px}
+.ins-page .hfloat{position:absolute;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);color:var(--ink);font-weight:700;font-size:.98rem;letter-spacing:-.01em;white-space:nowrap}
+.ins-page.js .hfloat{animation:insFloat 6s var(--ease) infinite}
+.ins-page .hfloat__ic{width:40px;height:40px;min-width:40px;border-radius:11px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;position:relative}
+.ins-page .hfloat__ic svg{width:20px;height:20px}
+.ins-page .hfloat__ic::after{content:"";position:absolute;inset:-1px;border:1.5px solid var(--orange);border-radius:11px;opacity:0}
+.ins-page.js .go .hfloat__ic::after{animation:insVerify 5.4s var(--ease) infinite}
+.ins-page .hfloat--1{top:8%;left:2%;animation-delay:0s}
+.ins-page .hfloat--2{top:34%;right:0;animation-delay:1.1s}
+.ins-page .hfloat--3{top:60%;left:8%;animation-delay:2.2s}
+.ins-page .hfloat--4{top:84%;right:6%;animation-delay:3.3s}
+.ins-page .hfloat--1 .hfloat__ic::after{animation-delay:.2s}
+.ins-page .hfloat--2 .hfloat__ic::after{animation-delay:1.5s}
+.ins-page .hfloat--3 .hfloat__ic::after{animation-delay:2.8s}
+.ins-page .hfloat--4 .hfloat__ic::after{animation-delay:4.1s}
+@keyframes insFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes insVerify{0%{opacity:0;transform:scale(1)}12%{opacity:.85;transform:scale(1)}45%{opacity:0;transform:scale(1.22)}100%{opacity:0;transform:scale(1.22)}}
+
+/* Wonder morph: base = fixed full-viewport; the same media that turns the morph
+   script off returns it to normal flow */
+.ins-page .hero--wonder{position:fixed;inset:0;height:100svh;z-index:40;
+  will-change:opacity,transform;display:flex;align-items:center;padding:0}
+@media (min-width:1025px) and (pointer:fine){
+  .ins-page .hero--wonder{background:transparent}            /* scrub shows through */
+  .ins-page .hero--wonder .wrap{padding-top:132px}           /* clear the fixed 121px nav */
+}
+.ins-page .hero__scene{width:100%}
+.ins-page .ins-fadespacer{height:100svh}                     /* runway the fixed hero fades across */
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{position:relative;inset:auto;height:auto;z-index:auto;display:block;padding:104px 0 96px;background:transparent}
+  .ins-page .ins-fadespacer{display:none}
+  /* in-flow hero rides the looping clip: flat veil (the light page's own 80%) */
+  .ins-page .hero::after{display:block;background:rgba(0,0,0,.72)}
+}
+
+/* section two (credentials strip + Our Certification) paints above the fixed
+   scrub layer; on desktop with a live clip it goes transparent over the flat
+   black shade and its copy turns white. Everything after it is solid white. */
+.ins-page .ins-span2{position:relative;z-index:10;background:#fff}
+.ins-page .ins-below{position:relative;z-index:10;background:#fff}
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page.vidok .ins-span2{background:transparent}
+  .ins-page.vidok .creds{background:transparent;border-color:rgba(255,255,255,.14)}
+  .ins-page.vidok .creds::before{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
+  .ins-page.vidok .creds::after{background:linear-gradient(270deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
+  .ins-page.vidok .cred{color:#fff}
+  .ins-page.vidok .cert h2{color:#fff}
+  .ins-page.vidok .cert .lead{color:rgba(255,255,255,.72)}
+  .ins-page.vidok .cert .eyebrow{color:var(--orange-light)}
+  .ins-page.vidok .seal-badge{background:#fff;border-color:transparent;box-shadow:var(--shadow)}
+}
+
+/* page-load entrance: snap into a zoomed state pre-paint, transition out on
+   load; hero copy holds, then releases in the SAME frame as the zoom */
+.ins-page .hero--wonder.ap-enter #apHeroS1{transform:scale(1.12) !important;opacity:.5 !important;transition:none !important}
+.ins-page .hero--wonder.ap-entering #apHeroS1{transition:transform 1.7s cubic-bezier(.16,.84,.28,1), opacity 1.2s ease !important}
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{opacity:0 !important;transform:translateY(24px) !important}
+.ins-page .hero--wonder.ap-reveal-hero .reveal{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{transform:none !important;opacity:1 !important}
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{opacity:1 !important;transform:none !important}
+}
+
+/* drifting brand squares (orange + navy-2 squares inside the hero) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;
+  left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+.ins-page .hero--wonder .wrap{position:relative;z-index:2}
+
+/* ── Signature motif · verification scan ────────────────────────
+   A hairline rule that a warm scan pulse travels along, echoing the Gold Seal
+   "verification" idea. Section divider, seal-frame sweep, document-card sweep. */
+.ins-page .ins-scan{position:relative;height:1px;background:var(--line);margin:0 auto;max-width:1240px;overflow:hidden}
+.ins-page .ins-scan::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0}
+.ins-page.js .ins-scan.go::after{opacity:1;animation:insScanRun 4.6s var(--ease) infinite}
+@keyframes insScanRun{0%{left:-30%}70%,100%{left:110%}}
+
+/* ── Credentials ticker (trust marquee, gated) ─────────────────── */
+.ins-page .creds{position:relative;border-bottom:1px solid var(--line);background:#fff;padding:22px 0;overflow:hidden}
+.ins-page .creds::before,.ins-page .creds::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.ins-page .creds::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.ins-page .creds__track{display:flex;width:max-content}
+.ins-page.js .creds.go .creds__track{animation:insCredScroll 30s linear infinite}
+.ins-page .creds:hover .creds__track{animation-play-state:paused}
+.ins-page .creds__set{display:flex;align-items:center}
+.ins-page .cred{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.92rem;color:var(--ink);white-space:nowrap;padding:0 34px;position:relative}
+.ins-page .cred::after{content:"";position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:25%;background:var(--orange);opacity:.5}
+.ins-page .cred svg{width:22px;height:22px;color:var(--orange);flex-shrink:0}
+@keyframes insCredScroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+
+/* ── Our Certification (split + seal frame) ───────────────────── */
+.ins-page .cert .wrap{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.ins-page .cert h2{margin:16px 0 16px}
+.ins-page .cert__copy>.lead{margin-bottom:26px}
+.ins-page .seal-badge{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;background:var(--orange-soft);border:1px solid var(--orange-soft2);border-radius:16px;padding:18px 22px;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .seal-badge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:2}
+.ins-page .seal-badge:hover::before{transform:scaleY(1)}
+.ins-page .seal-badge:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .seal-badge__ic{width:52px;height:52px;min-width:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;position:relative}
+.ins-page .seal-badge__ic svg{width:24px;height:24px}
+.ins-page .seal-badge__ic i{position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange);opacity:.9}   /* status dot — allowed round */
+.ins-page.js .go .seal-badge__ic i{animation:insBlink 2.6s ease-in-out infinite}
+@keyframes insBlink{0%,100%{opacity:.95}50%{opacity:.22}}
+.ins-page .seal-badge__t strong{display:block;font-size:.95rem;font-weight:800;color:var(--ink);margin-bottom:2px}
+.ins-page .seal-badge__t span{font-size:.85rem;color:var(--muted)}
+
+/* seal frame: a light card housing the real Gold Seal — instrument grid,
+   verification sweep, corner brackets lighting in sequence, gentle 3D tilt */
+.ins-page .cert__photo{display:flex;align-items:center;justify-content:center;perspective:1200px}
+.ins-page .seal-frame{position:relative;overflow:hidden;transform-style:preserve-3d;transform:rotateY(-12deg) rotateX(3deg);transition:transform .8s var(--ease),box-shadow .8s var(--ease);background:#fff;border:1px solid var(--line);border-radius:22px;padding:44px;box-shadow:var(--shadow)}
+.ins-page .cert__photo:hover .seal-frame{transform:rotateY(-5deg) rotateX(1deg)}
+.ins-page .seal-frame__grid{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.7;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}
+.ins-page .seal-frame__glow{position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(circle at 100% 0%,rgba(239,90,40,.12) 0%,transparent 60%);pointer-events:none;z-index:1}
+.ins-page .seal-frame__sweep{position:absolute;left:0;right:0;top:-20%;height:24%;z-index:3;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(239,90,40,.14),transparent);opacity:0}
+.ins-page.js .go .seal-frame__sweep{opacity:1;animation:insSealSweep 5.6s var(--ease) infinite}
+@keyframes insSealSweep{0%{top:-24%}62%,100%{top:104%}}
+.ins-page .seal-frame b{position:absolute;width:22px;height:22px;border:1.5px solid var(--orange);opacity:.22;z-index:3;pointer-events:none}
+.ins-page .seal-frame b:nth-of-type(1){top:16px;left:16px;border-right:0;border-bottom:0;border-radius:4px 0 0 0}
+.ins-page .seal-frame b:nth-of-type(2){top:16px;right:16px;border-left:0;border-bottom:0;border-radius:0 4px 0 0}
+.ins-page .seal-frame b:nth-of-type(3){bottom:16px;right:16px;border-left:0;border-top:0;border-radius:0 0 4px 0}
+.ins-page .seal-frame b:nth-of-type(4){bottom:16px;left:16px;border-right:0;border-top:0;border-radius:0 0 0 4px}
+.ins-page.js .go .seal-frame b{animation:insBracket 5.6s var(--ease) infinite}
+.ins-page.js .go .seal-frame b:nth-of-type(2){animation-delay:.22s}
+.ins-page.js .go .seal-frame b:nth-of-type(3){animation-delay:.44s}
+.ins-page.js .go .seal-frame b:nth-of-type(4){animation-delay:.66s}
+@keyframes insBracket{0%,58%{opacity:.22}68%{opacity:1}88%,100%{opacity:.22}}
+.ins-page .seal-frame img{width:230px;max-width:56vw;height:auto;position:relative;z-index:2;filter:drop-shadow(0 10px 24px rgba(22,34,63,.18))}
+
+/* ── Centered statement (HSS certification) ──────────────────── */
+.ins-page .hss .head{max-width:760px;margin-bottom:0}   /* the scan rule closes the block */
+.ins-page .hss__rule{display:block;position:relative;height:1px;background:var(--line);margin:44px auto 0;max-width:520px;overflow:hidden;transform:scaleX(.2);transform-origin:center;transition:transform 1.1s var(--ease)}
+.ins-page.js .reveal.in .hss__rule{transform:scaleX(1)}
+.ins-page .hss__rule::after{content:"";position:absolute;top:0;left:-34%;width:34%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0}
+.ins-page.js .go .hss__rule::after{opacity:1;animation:insScanRun 4.6s var(--ease) infinite}
+
+/* ── Document cards (spec-card recipe + scan sweep) ───────────── */
+.ins-page .spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.ins-page .spec{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;transition:all .3s var(--ease);position:relative;overflow:hidden;display:block;box-shadow:var(--shadow-sm)}
+.ins-page .spec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .spec:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent}
+.ins-page .spec:hover::before{transform:scaleY(1)}
+.ins-page .spec>*{position:relative;z-index:1}
+/* warm scan crossing each card in turn while the grid is on screen */
+.ins-page .spec .spec__scan{position:absolute;top:0;bottom:0;left:-55%;width:40%;background:linear-gradient(90deg,transparent,rgba(239,90,40,.07),transparent);transform:skewX(-16deg);pointer-events:none;opacity:0;z-index:0}
+.ins-page.js .go .spec .spec__scan{opacity:1;animation:insTileScan 7s var(--ease) infinite}
+.ins-page.js .go .spec:nth-child(2) .spec__scan{animation-delay:.5s}
+.ins-page.js .go .spec:nth-child(3) .spec__scan{animation-delay:1s}
+.ins-page.js .go .spec:nth-child(4) .spec__scan{animation-delay:1.5s}
+@keyframes insTileScan{0%{left:-55%}42%,100%{left:130%}}
+.ins-page .spec__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .3s var(--ease)}
+.ins-page .spec:hover .spec__ic{background:var(--orange);color:#fff}
+.ins-page .spec__ic svg{width:25px;height:25px}
+.ins-page .spec h3{font-size:1.2rem;margin-bottom:10px}
+.ins-page .spec p{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.ins-page .spec__link{font-weight:700;font-size:.88rem;color:var(--navy);display:inline-flex;align-items:center;gap:7px}
+.ins-page .spec__link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.ins-page .spec:hover .spec__link{color:var(--orange)}
+.ins-page .spec:hover .spec__link svg{transform:translateX(4px)}
+.ins-page .ext{font-size:.62rem;font-weight:700;background:var(--orange-soft);color:var(--orange);padding:2px 7px;border-radius:50px;margin-left:6px}
+
+/* ── Certifications band (navy) — checks tick off one by one ─── */
+.ins-page .certs{background:var(--navy);color:#fff}
+.ins-page .certs .inner{max-width:860px;margin:0 auto;text-align:center}
+.ins-page .certs .eyebrow{color:var(--orange-light);margin-bottom:16px}
+.ins-page .certs p{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.74)}
+.ins-page .certs p strong{color:#fff;font-weight:700}
+.ins-page .cert-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.ins-page .cert-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;padding:8px 20px;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--orange-light)}
+.ins-page .cert-pill svg{width:15px;height:15px;flex-shrink:0;transform-origin:50% 50%}
+.ins-page.js .certs.go .cert-pill{animation:insCredCard 8s var(--ease) infinite}
+.ins-page.js .certs.go .cert-pill svg{animation:insCredTick 8s var(--ease) infinite}
+.ins-page.js .certs.go .cert-pill:nth-child(2),.ins-page.js .certs.go .cert-pill:nth-child(2) svg{animation-delay:.55s}
+.ins-page.js .certs.go .cert-pill:nth-child(3),.ins-page.js .certs.go .cert-pill:nth-child(3) svg{animation-delay:1.1s}
+.ins-page.js .certs.go .cert-pill:nth-child(4),.ins-page.js .certs.go .cert-pill:nth-child(4) svg{animation-delay:1.65s}
+@keyframes insCredTick{0%,4%{transform:scale(.72);opacity:.45}12%{transform:scale(1.16);opacity:1}20%,100%{transform:scale(1);opacity:1}}
+@keyframes insCredCard{0%,4%{border-color:rgba(239,90,40,.3);background:rgba(239,90,40,.15)}12%{border-color:var(--orange);background:rgba(239,90,40,.36);color:#fff}30%,100%{border-color:rgba(239,90,40,.3);background:rgba(239,90,40,.15)}}
+
+/* ── Final CTA (navy-deep) ─────────────────────────────────────── */
+.ins-page .cta{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.ins-page .cta .wrap{position:relative;z-index:1}
+.ins-page .cta .inner{max-width:680px;margin:0 auto;text-align:center}
+.ins-page .cta .eyebrow{color:var(--orange-light)}
+.ins-page .cta h2{color:#fff;margin:16px 0 16px}
+.ins-page .cta p{font-size:1.06rem;color:rgba(255,255,255,.78);max-width:560px;margin:0 auto 40px}
+.ins-page .cta__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── Scroll reveal (v2 contract; armed only once JS marks the wrapper) ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+/* kinetic clip-wipe on headings (descender room via padding-bottom) */
+.ins-page h2.kw{padding-bottom:.1em}
+.ins-page.js .reveal .kw,.ins-page.js .reveal.kw{clip-path:inset(0 105% 0 0);transition:clip-path 1.05s var(--ease)}
+.ins-page.js .reveal.in .kw,.ins-page.js .reveal.kw.in{clip-path:inset(0 0 0 0)}
+.ins-page.js .hero--wonder.ap-reveal-hero .reveal.kw{clip-path:inset(0 0 0 0)}
+
+/* ---------- cursor-follow on the document cards + seal badge ----------
+   Spring-damped tilt written per frame by the follow engine, and a soft orange
+   spotlight that tracks the pointer. Every family bound in JS appears in each
+   list below. Fine pointers only; reduced motion off. */
+.ins-page .spec,
+.ins-page .seal-badge{position:relative;transform-style:preserve-3d}
+.ins-page .spec::after,
+.ins-page .seal-badge::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  opacity:0;transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%)}
+.ins-page .spec.is-glow::after,
+.ins-page .seal-badge.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition */
+.ins-page .spec.is-follow,
+.ins-page .seal-badge.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page .spec.is-glow,
+.ins-page .seal-badge.is-glow{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page .spec::after,
+  .ins-page .seal-badge::after{display:none}
+}
+
+/* ── Responsive (mobile rules stay AFTER base rules) ─────────── */
+@media(max-width:1024px){
+  .ins-page .hero .wrap{grid-template-columns:1fr;gap:42px;text-align:center}
+  .ins-page .hero__copy{max-width:700px;margin:0 auto}
+  .ins-page .hero__sub{margin-left:auto;margin-right:auto}
+  .ins-page .hero__ctas{justify-content:center}
+  /* floats settle into a tidy 2×2 grid so all four credentials stay visible */
+  .ins-page .hfloats{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:0 auto}
+  .ins-page .hfloat{position:static;padding:14px 18px;font-size:.9rem;white-space:normal;text-align:left}
+  .ins-page.js .hfloat{animation:none}
+  .ins-page .cert .wrap{grid-template-columns:1fr;gap:40px}
+  .ins-page .cert__photo{order:-1}
+  .ins-page .seal-frame{padding:34px;transform:none}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:72px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page.js .creds.go .creds__track{animation-duration:20s}
+  .ins-page .hero__ctas,.ins-page .cta__btns{flex-direction:column;align-items:stretch}
+  .ins-page .hero__ctas .btn,.ins-page .cta__btns .btn{width:100%;justify-content:center}
+  .ins-page .spec-grid{grid-template-columns:1fr}
+  .ins-page .hfloats{grid-template-columns:1fr}
+  .ins-page .seal-frame{padding:26px}
+}
+
+/* ── Reduced motion: everything frozen in its RESTING state ────── */
+@media(prefers-reduced-motion:reduce){
+  .ins-page .creds__track{animation:none;width:100%;justify-content:center}
+  .ins-page .creds__set{flex-wrap:wrap;justify-content:center;row-gap:10px}
+  .ins-page .creds__set[aria-hidden="true"]{display:none}
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page.js .hfloat,.ins-page.js .go .hfloat__ic::after,.ins-page.js .go .seal-frame b,
+  .ins-page.js .go .seal-badge__ic i,.ins-page.js .certs.go .cert-pill,.ins-page.js .certs.go .cert-pill svg
+  .ins-page .hfloat__ic::after{opacity:0}
+  .ins-page .seal-frame b{opacity:.5}
+  .ins-page .seal-frame__sweep,.ins-page .spec__scan,.ins-page .btn-primary::after,.ins-page .ins-scan::after,.ins-page .hss__rule::after{display:none}
+  .ins-page .seal-frame{transform:none;transition:none}
+  .ins-page.js .reveal{opacity:1;transform:none;transition:none}
+  .ins-page.js .reveal .kw,.ins-page.js .reveal.kw{clip-path:none;transition:none}
+  .ins-page .hss__rule{transform:scaleX(1);transition:none}
+}
+</style>
+
+<div class="ins-page" id="apPage">
+<script>(function(){var p=document.getElementById('apPage');if(p)p.classList.add('js');})();</script>
+
+<!-- SCROLL-SCRUBBED BACKDROP — one continuous clip behind the hero AND the
+     section that follows it. Source is a JS runtime constant. -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- ══ 01 · HERO — fixed full-viewport morph scene ═══════════════ -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__copy">
+        <span class="eyebrow reveal">Certification &amp; Compliance</span>
+        <h1 class="reveal d1 kw">Joint <span class="accent">Commission</span></h1>
+        <p class="hero__sub reveal d2">InSync Consulting Services is proud to have earned the Joint Commission's Gold Seal of Approval.</p>
+        <div class="hero__ctas reveal d3">
+          <a href="/joint-commission-policy-statement" target="_blank" rel="noopener" class="btn btn-primary">
+            View Policy Statement
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="/contact-us/" class="btn btn-ghost-w">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hfloats reveal d4" aria-label="InSync credentials">
+          <div class="hfloat hfloat--1">
+            <span class="hfloat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span>Gold Seal of Approval</span>
+          </div>
+          <div class="hfloat hfloat--2">
+            <span class="hfloat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>SDVOSB</span>
+          </div>
+          <div class="hfloat hfloat--3">
+            <span class="hfloat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>DVBE</span>
+          </div>
+          <div class="hfloat hfloat--4">
+            <span class="hfloat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            <span>CMAS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- section two: rides the scrubbed clip under the flat shade on desktop -->
+<div class="ins-span2" id="apSpan2">
+
+  <!-- ══ 02 · CREDENTIALS TICKER (trust strip) ══════════════════ -->
+  <div class="creds" aria-label="InSync credentials and accreditations">
+    <div class="creds__track">
+      <div class="creds__set">
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SDVOSB</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DVBE</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Healthcare Staffing Services Certification</span>
+      </div>
+      <div class="creds__set" aria-hidden="true">
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SDVOSB</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DVBE</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Healthcare Staffing Services Certification</span>
+      </div>
+      <div class="creds__set" aria-hidden="true">
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SDVOSB</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DVBE</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Healthcare Staffing Services Certification</span>
+      </div>
+      <div class="creds__set" aria-hidden="true">
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Joint Commission Gold Seal</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SDVOSB</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DVBE</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Valid CMAS Contract</span>
+        <span class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Healthcare Staffing Services Certification</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 03 · JOINT COMMISSION CERTIFICATION (seal frame + copy) ══ -->
+  <section class="section cert" id="certification">
+    <div class="wrap">
+      <div class="cert__photo reveal">
+        <div class="seal-frame">
+          <span class="seal-frame__grid" aria-hidden="true"></span>
+          <span class="seal-frame__glow" aria-hidden="true"></span>
+          <span class="seal-frame__sweep" aria-hidden="true"></span>
+          <b aria-hidden="true"></b><b aria-hidden="true"></b><b aria-hidden="true"></b><b aria-hidden="true"></b>
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_600/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6474d89696c72121bd35ef4f.png" alt="InSync Consulting Services Joint Commission certification" loading="lazy">
+        </div>
+      </div>
+      <div class="cert__copy reveal d1">
+        <span class="eyebrow">Our Certification</span>
+        <h2 class="kw">Joint Commission <em>Certification</em></h2>
+        <p class="lead">InSync Consulting Services is proud to have earned the Joint Commission's Gold Seal of Approval.</p>
+        <div class="seal-badge">
+          <div class="seal-badge__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><i aria-hidden="true"></i>
+          </div>
+          <div class="seal-badge__t">
+            <strong>Gold Seal of Approval</strong>
+            <span>Healthcare Staffing Services Certification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.ins-span2 -->
+
+<div class="ins-below">
+
+  <div class="ins-scan" aria-hidden="true"></div>
+
+  <!-- ══ 04 · HEALTHCARE STAFFING SERVICES CERTIFICATION ════════ -->
+  <section class="section alt hss">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">Healthcare Staffing Services Certification</span>
+        <h2 class="kw">Healthcare Staffing Services <em>Certification</em></h2>
+        <p class="lead" style="max-width:680px;margin-left:auto;margin-right:auto">InSync Consulting Services is certified by The Joint Commission through its Healthcare Staffing Services Certification program. The certification acknowledges compliance with The Joint Commission's national set of consensus-based quality standards and demonstrates a commitment to excellence in providing healthcare staffing.</p>
+        <span class="hss__rule" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 05 · DOCUMENT LINKS ════════════════════════════════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">Employee Resources</span>
+        <h2 class="kw">Important Documents &amp; <em>Links</em></h2>
+      </div>
+      <div class="spec-grid">
+
+        <a href="/joint-commission-policy-statement" target="_blank" rel="noopener" class="spec reveal d1">
+          <span class="spec__scan" aria-hidden="true"></span>
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <h3>Joint Commission Policy Statement</h3>
+          <p>View our official Joint Commission policy.</p>
+          <span class="spec__link">View document
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="/continuing-education-links" target="_blank" rel="noopener" class="spec reveal d2">
+          <span class="spec__scan" aria-hidden="true"></span>
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3>Continuing Education Links</h3>
+          <p>Access approved continuing education resources.</p>
+          <span class="spec__link">View resources
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/1%20Employee%20Handbook.pdf" target="_blank" rel="noopener" class="spec reveal d3">
+          <span class="spec__scan" aria-hidden="true"></span>
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h3>InSync Consulting Employee Handbook</h3>
+          <p>Download the complete employee handbook.</p>
+          <span class="spec__link">Download PDF<span class="ext">↗</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="https://app.hellosign.com/s/3174653d" target="_blank" rel="noopener" class="spec reveal d4">
+          <span class="spec__scan" aria-hidden="true"></span>
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3>Employee Handbook Acknowledgement Form</h3>
+          <p>Sign the handbook acknowledgement electronically.</p>
+          <span class="spec__link">Open form<span class="ext">↗</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ins-scan" aria-hidden="true"></div>
+
+  <!-- ══ 06 · CERTIFICATIONS BAND (navy) ════════════════════════ -->
+  <section class="section certs">
+    <div class="wrap">
+      <div class="inner reveal">
+        <span class="eyebrow">Our Credentials</span>
+        <p>We are proud to be <strong>Joint Commission Certified</strong>, a nationally recognized <strong>Service-Disabled Veteran-Owned Small Business (SDVOSB)</strong> and <strong>Certified Disabled Veteran Business Enterprise (DVBE)</strong>, and we hold a valid <strong>CMAS contract</strong>.</p>
+        <div class="cert-pills">
+          <span class="cert-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Joint Commission Certified</span>
+          <span class="cert-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SDVOSB</span>
+          <span class="cert-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>DVBE</span>
+          <span class="cert-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CMAS Contract</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 07 · FINAL CTA (navy-deep) ═════════════════════════════ -->
+  <section class="section cta">
+    <div class="wrap">
+      <div class="inner reveal">
+        <span class="eyebrow">Ready to Get Started?</span>
+        <h2 class="kw">Ready to Work With a <em>Certified</em> Agency?</h2>
+        <p>Partner with a Joint Commission Certified staffing agency committed to quality, compliance, and excellence in healthcare staffing.</p>
+        <div class="cta__btns">
+          <a href="/contact-us/" class="btn btn-white">
+            Contact Us Today
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="/apply-now/" class="btn btn-ghost-w">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.ins-below -->
+</div><!-- /.ins-page -->
+
+<script>
+'use strict';
+/* v2 reveal contract: threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.ins-page .reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.ins-page .reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.ins-page .reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+
+/* Looping visuals: gated on scroll-in (.go), idle off-screen. Reduced motion
+   leaves everything in its resting state via CSS. */
+(function(){
+  var page = document.getElementById('apPage');
+  if (!page) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var anims = [].slice.call(page.querySelectorAll('#apHero, .creds, .cert, .hss, .spec-grid, .certs, .cta, .ins-scan'));
+  if ('IntersectionObserver' in window && !reduce){
+    var io2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.target.classList.toggle('go', e.isIntersecting); });
+    }, { threshold:0, rootMargin:'80px 0px 80px 0px' });
+    anims.forEach(function(el){ io2.observe(el); });
+  } else {
+    anims.forEach(function(el){ el.classList.add('go'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pVisual = hero.querySelector('.hero__visual');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor; near layers travel more than far ones.
+           Depth order, most-to-least travel: squares > copy > floats > BACKGROUND VIDEO */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pVisual) pVisual.style.transform = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0)';
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+/* ══ LAYER 1 · scroll-scrubbed hero background video ═══════════════
+   Desktop/fine-pointer: the playhead is driven by scroll — frame 1 at the
+   top of the page, last frame at the foot of Our Certification — eased each
+   rAF to kill micro-stutter. The directional gradient and the flat shade
+   CROSS-FADE across the hero's last 72vh with the copy-side composite held
+   steady (compositing solve, not a linear sum). Touch/coarse: muted autoplay
+   loop for the hero only. Reduced-motion: frozen on frame 1. Media URL is a
+   JS runtime constant (immune to GHL attribute corruption). A decode error
+   or a transformed ancestor falls back cleanly.                        */
+(function(){
+  'use strict';
+  var page = document.getElementById('apPage');
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  var hero = document.getElementById('apHero');
+  if (!page || !wrap || !vid || !hero) return;
+
+  // SWAP HERE to change the hero clip. Must stay .mp4 (H.264) with dense
+  // keyframes (ffmpeg -g 12) or scrubbing stutters.
+  var AP_JC_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6abfbc520edabbe5a499a1ad.mp4';
+  vid.src = AP_JC_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+
+  /* position:fixed dies inside a transformed/filtered ancestor. Detect it
+     once and fall back to a hero-only in-flow layer. */
+  function fixedBroken(el){
+    for (var n = el.parentElement; n && n !== document.body; n = n.parentElement){
+      var s = window.getComputedStyle(n);
+      if (s.transform !== 'none' || s.filter !== 'none' || s.perspective !== 'none' ||
+          (s.willChange || '').indexOf('transform') > -1 || (s.contain || '').indexOf('paint') > -1) return true;
+    }
+    return false;
+  }
+  var inline = fixedBroken(wrap);
+  if (inline){
+    wrap.classList.add('ins-scrub--inline');
+    hero.insertBefore(wrap, hero.firstChild);
+    page.classList.add('vidinline');
+  }
+
+  /* decode guard: on error the layer stays off for good and every surface
+     stays solid (hero photo + veil return) */
+  var dead = false;
+  vid.addEventListener('error', function(){
+    dead = true; page.classList.remove('vidok'); page.classList.add('vidfail');
+    wrap.classList.remove('is-on'); wrap.style.display = 'none';
+  });
+  function live(){ if (!dead) page.classList.add('vidok'); }
+
+  /* section two = the credentials strip + Our Certification (#apSpan2) */
+  function span2(){ return document.getElementById('apSpan2'); }
+  function span2Top(){
+    var sp = span2();
+    return sp ? (sp.getBoundingClientRect().top + window.scrollY) : window.innerHeight;
+  }
+  function scrubEnd(){
+    var sp = span2();
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of section two
+  }
+
+  // Hero shows the video with the left-fade gradient only; as you leave the hero
+  // the two CROSS-FADE — the directional gradient goes out while a single flat,
+  // even shade comes in, so section two sits under a uniform overlay.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    var svcTop = span2Top();
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    // The two layers do NOT sum linearly. Solve for the gradient opacity that
+    // holds the COPY-side composite steady as it eases from the gradient's
+    // 0.84 to the shade's 0.80: 1-(1-GA*g)(1-SA*e) = T.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers (SA must match CSS)
+      var T = GA + (SA - GA) * e;
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced && !inline;
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    vid.addEventListener('loadeddata', live);
+    wrap.classList.add('is-on');
+    if (reduced){
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+      // hero-only below desktop: the layer's visual span and its playback both
+      // end at the hero, so the loop costs nothing further down the page
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        if (dead) return;
+        var vh = window.innerHeight;
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;
+        var release = window.scrollY > end - vh * 0.75;
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+  var looping = false, slowCount = 0, seekTimer = 0;
+
+  /* Safety net: a clip with sparse keyframes (or a CDN that refuses range
+     requests) can't scrub — seeks take hundreds of ms or never complete and
+     the hero reads as a still. After three slow seeks, or one that never
+     returns, hand the layer to a plain muted loop so the footage still moves.
+     Shade/gradient compositing keeps running from scroll either way. */
+  function fallbackLoop(){
+    if (looping || dead) return;
+    looping = true;
+    clearTimeout(seekTimer);
+    page.classList.add('vidloop');
+    vid.loop = true; vid.muted = true; vid.setAttribute('autoplay','');
+    try { vid.currentTime = 0; } catch(e){}
+    var p = vid.play(); if (p && p.catch) p.catch(function(){});
+    wrap.classList.add('is-on');
+  }
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; if (ready){ wrap.classList.add('is-on'); live(); tick(); } }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  vid.addEventListener('canplay', function(){ if(!ready) onMeta(); });
+  vid.addEventListener('seeked', function(){
+    clearTimeout(seekTimer);
+    var cost = performance.now() - lastSeekStart;
+    slowSeeks = cost > 80;
+    if (cost > 350){ if (++slowCount >= 3) fallbackLoop(); } else { slowCount = 0; }
+    schedule();
+  });
+  vid.addEventListener('stalled', function(){ if (ready && !looping) fallbackLoop(); });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  function tick(){
+    raf = 0;
+    if (looping){ computeTarget(); return; }      // loop mode: only the on/off span
+    if (ready && !dead){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight (sparse clips would
+        // otherwise abort every pending seek and look frozen).
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        clearTimeout(seekTimer);
+        seekTimer = setTimeout(fallbackLoop, 1500);   // a seek that never returns
+        try { vid.currentTime = next; } catch(e){}
+      }
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the document cards and the seal badge: the card tilts
+     toward the pointer and a spotlight tracks it. Spring-damped so the motion
+     feels weighted; on leave it eases back to rest and returns control to the
+     page's own transitions. Delegated from the document (GHL can re-render a
+     node after load). Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '.ins-page .spec, .ins-page .seal-badge';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;
+      var base = 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');
+    st.schedule();
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- GHL-PASTE-END -->

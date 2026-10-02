@@ -1,0 +1,1060 @@
+
+
+<!-- ================================================================
+     INSYNC — STRIKE WORK & UPDATES (page body block) · MOTION STANDARDS v1.0
+     InSync Website Standards v1.0 skin (Plus Jakarta Sans, orange + navy,
+     semi-square corners) fused with the homepage motion layer:
+       · scroll-scrubbed hero video spanning Hero → Current Status → Strike
+         Support, with the compensated gradient→shade cross-fade
+       · frosted floating cards + 3D strike board mockup with live loop
+       · v2 reveal contract, kinetic clip-wipe headings, count-ups
+       · accent bar / shadow lift / spring cursor-follow tilt + spotlight
+         on every card family, ambient brand orbs, drifting brand squares
+     Desktop (fine pointer, motion allowed): the hero span rides the footage;
+     everything from Example Tiles down sits on plain white. ≤1024 / touch /
+     reduced motion: solid light surfaces; the hero loops the clip (reduced
+     motion freezes frame 1).
+     Video URLs are JS runtime constants (never attributes). Tokens live on
+     the .ins-page wrapper. Manual pins only; overflow is clipped, not hidden.
+     Paste between the global nav block and global footer block, in a
+     full-width GHL section with section/row/column padding = 0.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ── Scope & tokens (on the .ins-page wrapper) ── */
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+  --white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  /* dark-over-footage surfaces (desktop motion mode) */
+  --glass:rgba(255,255,255,.06);--glass-hi:rgba(255,255,255,.09);
+  --glass-line:rgba(255,255,255,.14);--hair:rgba(255,255,255,.10);
+  --w78:rgba(255,255,255,.78);--w60:rgba(255,255,255,.6);--w55:rgba(255,255,255,.55);
+  font-family:var(--f);color:var(--text);background:var(--white);
+  line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  position:relative;overflow:clip;
+}
+
+/* ── Base ── */
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0;position:relative}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page [id]{scroll-margin-top:140px}
+.ins-page .accent{color:var(--orange)}
+
+/* ── Section headers (eyebrow → h2 → lead, 16/16 rhythm) ── */
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px;line-height:1.7}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head--wide{max-width:880px}
+.ins-page .head--wide .lead{max-width:none}
+.ins-page .head.center .lead{margin-left:auto;margin-right:auto}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── Reveal contract (hidden only under .js; flagged pre-paint) ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+/* Kinetic clip-wipe headings (left → right); descender room via padding-bottom */
+.ins-page.js .kw{clip-path:inset(0 105% 0 0);transition:clip-path 1.05s var(--ease) .12s}
+.ins-page.js .in .kw,.ins-page.js .kw.in{clip-path:inset(0 0 0 0)}
+.ins-page h1.kw{padding-bottom:.12em;margin-bottom:6px}
+.ins-page h2.kw{padding-bottom:.08em}
+
+/* ════════ LAYER 1 — SCROLL-SCRUBBED BACKGROUND VIDEO (hero span) ════════
+   Fixed behind Hero → Current Status → Strike Support. Frame 1 at page top,
+   last frame at the bottom of the Strike Support split. Left-fade gradient
+   keeps hero copy readable; the flat .80 shade cross-fades in across the
+   hero's last 72vh (composite held steady by the JS solver). */
+.ins-page .ins-scrub{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--navy-deep);opacity:0;transition:opacity .5s ease}
+.ins-page .ins-scrub.is-on{opacity:1}
+.ins-page .ins-scrub__par{position:absolute;inset:0;will-change:transform}
+.ins-page .ins-scrub__vid{position:absolute;left:50%;top:50%;width:114%;height:114%;transform:translate(-50%,-50%);object-fit:cover;will-change:transform;filter:contrast(1.06) saturate(1.08) brightness(.93)}
+.ins-page .ins-scrub__grad{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.32) 0%,rgba(0,0,0,.14) 22%,rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,rgba(0,0,0,.84) 27%,rgba(0,0,0,.83) 30%,rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%,rgba(0,0,0,.77) 39.3%,rgba(0,0,0,.74) 42.4%,rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%,rgba(0,0,0,.61) 51.7%,rgba(0,0,0,.55) 54.8%,rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,rgba(0,0,0,.40) 64.1%,rgba(0,0,0,.35) 67.2%,rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%,rgba(0,0,0,.18) 76%,rgba(0,0,0,.09) 78.5%,rgba(0,0,0,0) 80%)}
+.ins-page .ins-scrub__shade{position:absolute;inset:0;opacity:0;background:rgba(0,0,0,.80)}
+
+/* ════════ 01 HERO (copy + floating cards over the scrub) ════════ */
+.ins-page.ins-novid .hero{background:var(--navy-deep)}
+.ins-page .hero{position:relative;z-index:1;background:transparent;color:#fff;overflow:hidden;padding:84px 0 104px;min-height:calc(100svh - 120px);display:flex;align-items:center}
+.ins-page .hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero h1{color:#fff;margin:16px 0 18px}
+.ins-page .hero h1 .accent{color:var(--orange)}
+.ins-page .hero__sub{font-size:1.12rem;color:var(--w78);max-width:540px;margin:0 0 32px;line-height:1.7}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
+.ins-page .hero__tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.ins-page .htag{display:inline-block;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;padding:6px 16px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light);line-height:1.45}
+/* parallax rides INNER wrappers — never the .reveal targets */
+.ins-page .hero__copy-in{will-change:transform}
+.ins-page .hero__cards{position:relative;height:440px;perspective:900px}
+.ins-page .hero__cards-in{position:relative;height:100%;transform-style:preserve-3d;will-change:transform}
+
+/* drifting brand squares (orange + navy-2 only; no decorative circles) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}10%{opacity:var(--op,.2)}85%{opacity:var(--op,.2)}100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}}
+
+/* Floating cards — frosted glass over the footage (16px, semi-square) */
+.ins-page .fcard{position:absolute;width:212px;padding:16px 18px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(8px) saturate(1.08);backdrop-filter:blur(8px) saturate(1.08);box-shadow:0 30px 60px -18px rgba(0,0,0,.85),0 10px 30px -12px rgba(239,90,40,.18);animation:insFloat 6s var(--ease) infinite}
+.ins-page .fcard__top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
+.ins-page .fcard__ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.ins-page .fcard__ic svg{width:17px;height:17px}
+.ins-page .fcard__ic--o{background:linear-gradient(135deg,var(--orange),var(--orange-light))}
+.ins-page .fcard__ic--n{background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.ins-page .fcard__role{font-size:.86rem;font-weight:700;color:#fff;line-height:1.3}
+.ins-page .fcard__meta{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--w55);margin-top:2px}
+.ins-page .fcard__row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.74rem;color:var(--w78);padding-top:9px;border-top:1px solid var(--hair)}
+.ins-page .fcard__val{color:#fff;font-weight:800}
+.ins-page .fcard__val .accent{color:var(--orange-light)}
+.ins-page .fcard__status{display:inline-flex;align-items:center;gap:7px;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-light)}
+.ins-page .pulse{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(239,90,40,.6);animation:insPulse 2.2s var(--ease) infinite;flex-shrink:0}   /* status dot — allowed round */
+.ins-page .fcard--1{top:4%;left:2%;animation-delay:0s}
+.ins-page .fcard--2{top:30%;right:0;width:196px;animation-delay:1.4s}
+.ins-page .fcard--3{bottom:2%;left:12%;width:232px;animation-delay:.7s}
+@keyframes insFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes insPulse{0%{box-shadow:0 0 0 0 rgba(239,90,40,.55)}70%{box-shadow:0 0 0 12px rgba(239,90,40,0)}100%{box-shadow:0 0 0 0 rgba(239,90,40,0)}}
+
+/* ════════ 02 STATUS STRIP (light default; transparent hairlines on desktop) ════════ */
+.ins-page .status{position:relative;z-index:1;background:#fff;border-bottom:1px solid var(--line);padding:26px 0}
+.ins-page .status .wrap{display:flex;align-items:flex-start;gap:18px}
+.ins-page .status__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ease)}
+.ins-page .status:hover .status__ic{background:var(--orange);color:#fff}
+.ins-page .status__ic svg{width:25px;height:25px}
+.ins-page .status__label{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.ins-page .status__label .pulse{width:8px;height:8px}
+.ins-page .status__text{font-size:.95rem;color:var(--muted);line-height:1.7}
+.ins-page .status__text strong{color:var(--ink);font-weight:700}
+/* icon glyph draws itself in as the strip lands */
+.ins-page .status.ins-on .status__ic{animation:insIcPop .62s var(--ease) .05s 1}
+@keyframes insIcPop{0%{transform:scale(1)}42%{transform:scale(1.14)}100%{transform:scale(1)}}
+
+/* ════════ 03 INTRO SPLIT (copy + strike board mockup; end of the scrub span) ════════ */
+.ins-page .intro{position:relative;z-index:1;background:#fff}
+.ins-page .intro .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.ins-page .intro__copy h2{margin:16px 0 16px}
+.ins-page .intro__copy p{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.ins-page .intro__copy p strong{color:var(--ink);font-weight:700}
+.ins-page .check{list-style:none;display:grid;gap:11px;margin:24px 0 30px}
+.ins-page .check li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--text);line-height:1.7}
+.ins-page .check li svg{width:19px;height:19px;color:var(--orange);flex-shrink:0;margin-top:3px}
+/* checklist deals in one line after another once the copy has landed */
+.ins-page.js .intro__copy .check li{opacity:0;transform:translateX(-10px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.ins-page.js .intro__copy.in .check li{opacity:1;transform:none}
+.ins-page.js .intro__copy.in .check li:nth-child(1){transition-delay:.36s}
+.ins-page.js .intro__copy.in .check li:nth-child(2){transition-delay:.48s}
+.ins-page.js .intro__copy.in .check li:nth-child(3){transition-delay:.60s}
+
+/* Strike board mockup — 3D-tilted card; cursor-follow drives .mock itself */
+.ins-page .intro__mock{perspective:1400px}
+.ins-page .intro__mock-in{transform-style:preserve-3d;transform:rotateY(-15deg) rotateX(4deg);transition:transform .8s var(--ease)}
+.ins-page .intro__mock:hover .intro__mock-in{transform:rotateY(-8deg) rotateX(2deg)}
+.ins-page .mock{position:relative;overflow:hidden;border-radius:16px;background:var(--bg-alt);border:1px solid var(--line);box-shadow:var(--shadow);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .mock::before{content:"";position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(circle at 100% 0%,rgba(239,90,40,.10) 0%,transparent 60%);pointer-events:none;z-index:1}
+.ins-page .mock__scan{position:absolute;top:0;bottom:0;left:-45%;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-12deg);pointer-events:none;z-index:1;opacity:0}
+.ins-page .mock__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.ins-page .mock__title{font-size:.84rem;font-weight:800;color:var(--navy)}
+.ins-page .mock__badge{display:inline-flex;align-items:center;gap:7px;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);padding:4px 10px;border:1px solid rgba(239,90,40,.3);border-radius:50px;white-space:nowrap}
+.ins-page .mock__rows{padding:12px}
+.ins-page .mrow{display:flex;align-items:center;gap:12px;padding:12px;border-radius:11px;transition:background .3s var(--ease)}
+.ins-page .mrow:hover{background:rgba(239,90,40,.06)}
+.ins-page .mrow__av{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--orange-soft);color:var(--orange)}
+.ins-page .mrow__av svg{width:16px;height:16px}
+.ins-page .mrow__av--n{background:rgba(44,68,116,.12);color:var(--navy)}
+.ins-page .mrow__main{flex:1;min-width:0}
+.ins-page .mrow__name{font-size:.82rem;font-weight:700;color:var(--ink)}
+.ins-page .mrow__lines{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.ins-page .mrow__lines i{display:block;height:5px;border-radius:3px;background:var(--line)}
+.ins-page .mrow__lines i:first-child{width:62%}
+.ins-page .mrow__lines i:last-child{width:38%}
+.ins-page .mrow__check{width:22px;height:22px;border-radius:7px;flex:0 0 22px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center}
+.ins-page .mrow__check svg{width:12px;height:12px}
+/* live loop — board being worked: scan sweeps, rows highlight in sequence,
+   check tiles pop. Gated on .go via IntersectionObserver; idle off-screen. */
+.ins-page.js .intro__mock.go .mock__scan{opacity:1;animation:insScan 4.6s var(--ease) infinite}
+.ins-page.js .intro__mock.go .mrow{animation:insRowCycle 6.4s var(--ease) infinite}
+.ins-page.js .intro__mock.go .mrow:nth-child(2){animation-delay:1.6s}
+.ins-page.js .intro__mock.go .mrow:nth-child(3){animation-delay:3.2s}
+.ins-page.js .intro__mock.go .mrow:nth-child(4){animation-delay:4.8s}
+.ins-page.js .intro__mock.go .mrow__check{animation:insCheckPop 6.4s var(--ease) infinite}
+.ins-page.js .intro__mock.go .mrow:nth-child(2) .mrow__check{animation-delay:1.6s}
+.ins-page.js .intro__mock.go .mrow:nth-child(3) .mrow__check{animation-delay:3.2s}
+.ins-page.js .intro__mock.go .mrow:nth-child(4) .mrow__check{animation-delay:4.8s}
+@keyframes insScan{0%{left:-45%}55%,100%{left:112%}}
+@keyframes insRowCycle{0%,18%{background:rgba(239,90,40,.10)}26%,100%{background:transparent}}
+@keyframes insCheckPop{0%,4%{transform:scale(1)}9%{transform:scale(1.28)}16%,100%{transform:scale(1)}}
+
+/* ════════ 04 RECENT STRIKE EXAMPLE (pay tiles on ambient orbs, plain white) ════════ */
+.ins-page .example{background:#fff;isolation:isolate;overflow:clip}
+.ins-page .example__amb{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:clip}
+.ins-page .ins-orb{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(8px);opacity:.85;will-change:transform}   /* orb — allowed round */
+.ins-page .ins-orb--a{left:-160px;top:-140px;background:radial-gradient(circle,rgba(239,90,40,.10),rgba(239,90,40,0) 66%);animation:insOrbA 26s ease-in-out infinite alternate}
+.ins-page .ins-orb--b{right:-180px;bottom:-200px;background:radial-gradient(circle,rgba(44,68,116,.13),rgba(44,68,116,0) 66%);animation:insOrbB 32s ease-in-out infinite alternate}
+@keyframes insOrbA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(70px,54px,0) scale(1.12)}}
+@keyframes insOrbB{0%{transform:translate3d(0,0,0) scale(1.08)}100%{transform:translate3d(-64px,-46px,0) scale(1)}}
+.ins-page .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:30px}
+.ins-page .pay{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 24px;text-align:center;position:relative;overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .pay::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .pay:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .pay:hover::before{transform:scaleY(1)}
+.ins-page .pay__n{display:block;font-size:clamp(1.7rem,2.6vw,2.1rem);font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:10px}
+.ins-page .pay__n .accent{color:var(--orange)}
+.ins-page .pay__l{display:block;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.45}
+.ins-page .example__note{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:30px}
+.ins-page .example__note strong{color:var(--ink);font-weight:700}
+
+/* ════════ 05 FAQ ACCORDION (item cards, plain white) ════════ */
+.ins-page .faq{background:#fff}
+.ins-page .faq-list{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.ins-page .faq-item{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .faq-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .faq-item:hover,.ins-page .faq-item.open{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .faq-item:hover::before,.ins-page .faq-item.open::before{transform:scaleY(1)}
+.ins-page .faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:22px 28px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--f);transition:background .25s var(--ease)}
+.ins-page .faq-q:hover{background:var(--bg-alt)}
+.ins-page .faq-q.open{background:var(--orange-soft)}
+.ins-page .faq-q__t{font-size:.98rem;font-weight:700;color:var(--ink);line-height:1.7;transition:color .25s var(--ease)}
+.ins-page .faq-q.open .faq-q__t{color:var(--orange)}
+.ins-page .faq-tg{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ease)}
+.ins-page .faq-tg svg{width:14px;height:14px;color:var(--muted);transition:color .3s var(--ease)}
+.ins-page .faq-q.open .faq-tg{background:var(--orange);border-color:var(--orange);transform:rotate(45deg)}
+.ins-page .faq-q.open .faq-tg svg{color:#fff}
+.ins-page .faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.ins-page .faq-a__in{padding:0 28px 22px;font-size:.95rem;color:var(--muted);line-height:1.7}
+.ins-page .faq-a__in a{color:var(--orange);font-weight:700}
+.ins-page .faq-a__in a:hover{text-decoration:underline}
+
+/* ════════ 06 CTA BAND (navy-deep) ════════ */
+.ins-page .cta{background:radial-gradient(900px 460px at 50% 120%,rgba(239,90,40,.14),transparent 60%),var(--navy-deep);text-align:center}
+.ins-page .cta .eyebrow{color:var(--orange-light)}
+.ins-page .cta h2{color:#fff;margin:16px auto 16px;max-width:680px}
+.ins-page .cta p{font-size:1.06rem;color:rgba(255,255,255,.74);max-width:600px;margin:0 auto 36px;line-height:1.7}
+.ins-page .cta__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ════════ CURSOR-FOLLOW (spring tilt + orange spotlight) — every bound family
+   in every list: .mock, .pay, .faq-item ════════ */
+.ins-page .mock,.ins-page .pay,.ins-page .faq-item{position:relative;transform-style:preserve-3d}
+.ins-page .mock::after,.ins-page .pay::after,.ins-page .faq-item::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .45s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page .mock.is-glow::after,.ins-page .pay.is-glow::after,.ins-page .faq-item.is-glow::after{opacity:1}
+.ins-page .mock.is-follow,.ins-page .pay.is-follow,.ins-page .faq-item.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page .mock.is-glow,.ins-page .pay.is-glow,.ins-page .faq-item.is-glow{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .ins-page .mock::after,.ins-page .pay::after,.ins-page .faq-item::after{display:none}
+}
+
+/* ════════ DESKTOP MOTION MODE — the hero span rides the footage ════════
+   Fine pointer, ≥1025, motion allowed: Hero → Current Status → Strike
+   Support go transparent over the scrubbed clip, text goes white, the
+   mockup takes the frosted-glass recipe. From Example Tiles down the page
+   is plain white in every context. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .status,.ins-page .intro{background:transparent !important}
+  .ins-page.ins-novid .status,.ins-page.ins-novid .intro{background:var(--navy-deep) !important}   /* floor when no clip */
+  .ins-page .status{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .ins-page .status__ic{background:rgba(239,90,40,.15);color:var(--orange-light)}
+  .ins-page .status:hover .status__ic{background:var(--orange);color:#fff}
+  .ins-page .status__label{color:var(--orange-light)}
+  .ins-page .status__text{color:var(--w78)}
+  .ins-page .status__text strong{color:#fff}
+  .ins-page .intro .eyebrow{color:var(--orange-light)}
+  .ins-page .intro__copy h2{color:#fff}
+  .ins-page .intro__copy p{color:var(--w60)}
+  .ins-page .intro__copy p strong{color:#fff}
+  .ins-page .check li{color:var(--w78)}
+  .ins-page .check li svg{color:var(--orange-light)}
+  /* frosted glass — the mockup only */
+  .ins-page .mock{background:var(--glass);border-color:var(--glass-line);-webkit-backdrop-filter:blur(8px) saturate(1.08);backdrop-filter:blur(8px) saturate(1.08);box-shadow:0 40px 80px -20px rgba(0,0,0,.9),0 20px 40px -8px rgba(239,90,40,.15)}
+  .ins-page .mock.is-glow{background:var(--glass-hi);border-color:rgba(239,90,40,.4)}
+  .ins-page .mock__scan{background:linear-gradient(100deg,transparent,rgba(255,255,255,.08),transparent)}
+  .ins-page .mock__bar{border-bottom-color:var(--hair)}
+  .ins-page .mock__title{color:#fff}
+  .ins-page .mock__badge{color:var(--orange-light)}
+  .ins-page .mrow:hover{background:rgba(255,255,255,.04)}
+  .ins-page .mrow__av{background:rgba(239,90,40,.16);color:var(--orange-light)}
+  .ins-page .mrow__av--n{background:rgba(255,255,255,.08);color:#fff}
+  .ins-page .mrow__name{color:#fff}
+  .ins-page .mrow__lines i{background:var(--hair)}
+}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:1024px){
+  /* centred copy on the looping clip: one even veil instead of the left fade */
+  .ins-page .ins-scrub__grad{background:linear-gradient(180deg,rgba(0,0,0,.80) 0%,rgba(0,0,0,.68) 50%,rgba(0,0,0,.82) 100%)}
+  .ins-page .hero{padding:72px 0 88px;min-height:0;display:block}
+  .ins-page .hero h1 br.h1br{display:none}
+  .ins-page .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .ins-page .hero__copy{text-align:center}
+  .ins-page .hero__sub{margin-left:auto;margin-right:auto}
+  .ins-page .hero__ctas,.ins-page .hero__tags{justify-content:center}
+  .ins-page .hero__cards{height:360px;max-width:460px;margin:0 auto;perspective:none}
+  .ins-page .hero__cards-in{transform:none !important}
+  .ins-page .fcard{background:rgba(22,34,63,.86);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .ins-page .intro .wrap{grid-template-columns:1fr;gap:48px}
+  .ins-page .intro__mock{max-width:560px;margin:0 auto;width:100%}
+  .ins-page .intro__mock-in{transform:none}
+  .ins-page .pay-grid{grid-template-columns:1fr 1fr}
+  .ins-page .pay:last-child{grid-column:1/-1}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:72px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .hero{padding:56px 0 72px}
+  .ins-page .hero__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .hero__ctas .btn{width:100%;justify-content:center}
+  .ins-page .hero__cards{height:auto;max-width:340px}
+  .ins-page .hero__cards-in{height:auto;display:flex;flex-direction:column;gap:14px}
+  .ins-page .fcard{position:static;width:100% !important;animation:none}
+  .ins-page .fcard--2{display:none}
+  .ins-page .cta__btns{flex-direction:column;align-items:stretch}
+  .ins-page .cta__btns .btn{width:100%;justify-content:center}
+  .ins-page .pay-grid{grid-template-columns:1fr}
+  .ins-page .pay:last-child{grid-column:auto}
+  .ins-page .faq-q{padding:18px 20px}
+  .ins-page .faq-a__in{padding:0 20px 18px}
+  .ins-page .status .wrap{flex-direction:column;gap:14px}
+}
+
+/* ════════ GATES (declared last so no shorthand above can override them) ════════ */
+@media (prefers-reduced-motion:reduce){
+  .ins-page.js .reveal{opacity:1;transform:none;transition:none}
+  .ins-page.js .kw{clip-path:none;transition:none}
+  .ins-page .btn,.ins-page .pay,.ins-page .faq-tg,.ins-page .faq-item,.ins-page .mock{transition:none}
+  .ins-page .fcard,.ins-page .pulse,.ins-page .ins-orb,.ins-page .status.ins-on .status__ic{animation:none}
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page.js .intro__mock.go .mock__scan,.ins-page.js .intro__mock.go .mrow,.ins-page.js .intro__mock.go .mrow__check{animation:none}
+  .ins-page .intro__mock-in,.ins-page .hero__copy-in,.ins-page .hero__cards-in{transform:none !important}
+  .ins-page.js .intro__copy .check li{opacity:1 !important;transform:none !important;transition:none !important}
+}
+@media (pointer:coarse){
+  .ins-page .ins-sq-ember{animation:none;display:none}
+}
+</style>
+
+<div class="ins-page" id="insPage">
+<script>
+/* PRE-PAINT: flag the wrapper as JS-driven before anything renders, so the
+   reveal rules can start hidden without a paint-then-snap-blank flash. */
+(function(){var w=document.getElementById('insPage');if(w)w.classList.add('js');})();
+</script>
+
+  <!-- LAYER 1 — SCROLL-SCRUBBED BACKGROUND VIDEO (Hero → Current Status → Strike Support) -->
+  <div class="ins-scrub" id="apScrub" aria-hidden="true">
+    <div class="ins-scrub__par" id="apScrubPar">
+      <video class="ins-scrub__vid" id="apScrubVid" muted playsinline preload="auto"></video>
+    </div>
+    <div class="ins-scrub__grad" id="apScrubGrad"></div>
+    <div class="ins-scrub__shade" id="apScrubShade"></div>
+  </div>
+
+  <!-- ════════ 01 HERO ════════ -->
+  <header class="hero" id="apHeroWrap">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__copy reveal">
+        <div class="hero__copy-in">
+          <span class="eyebrow">Temporary Work Opportunities</span>
+          <h1 class="kw">Strike Work<br class="h1br"> <span class="accent">&amp; Updates</span></h1>
+          <p class="hero__sub">InSync Strike Support is experienced in providing Strike Replacement Workers to companies preparing for labor contract negotiations. We execute effective crisis labor solutions across numerous industries.</p>
+          <div class="hero__ctas">
+            <a href="https://nexus-leap.laboredge.com/insync/quicksignup" target="_blank" rel="noopener" class="btn btn-primary">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#faq" class="btn btn-ghost-w">Read the FAQ</a>
+          </div>
+          <div class="hero__tags">
+            <span class="htag">Northern California</span>
+            <span class="htag">Spokane</span>
+            <span class="htag">Seattle</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__cards reveal d2" aria-hidden="true">
+        <div class="hero__cards-in">
+          <div class="fcard fcard--1">
+            <div class="fcard__top">
+              <div class="fcard__ic fcard__ic--o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><div class="fcard__role">Northern California</div><div class="fcard__meta">Strike Support</div></div>
+            </div>
+            <div class="fcard__row"><span>Per Shift</span><strong class="fcard__val"><span class="accent">$</span>350–<span class="accent">$</span>500</strong></div>
+          </div>
+          <div class="fcard fcard--2">
+            <div class="fcard__top">
+              <div class="fcard__ic fcard__ic--n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <div><div class="fcard__role">Spokane</div><div class="fcard__meta">Per Week</div></div>
+            </div>
+            <div class="fcard__row"><span class="fcard__status"><span class="pulse"></span>Current Status</span><strong class="fcard__val">5 Shifts</strong></div>
+          </div>
+          <div class="fcard fcard--3">
+            <div class="fcard__top">
+              <div class="fcard__ic fcard__ic--o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18v10H3z"/><path d="M12 11V3M8 7l4-4 4 4"/></svg></div>
+              <div><div class="fcard__role">Seattle</div><div class="fcard__meta">Strike Support</div></div>
+            </div>
+            <div class="fcard__row"><span>Transportation, Lodging &amp; Meals</span><strong class="fcard__val">Included</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════ 02 STATUS STRIP ════════ -->
+  <div class="status" id="apStatus">
+    <div class="wrap reveal">
+      <div class="status__ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </div>
+      <div>
+        <span class="status__label"><span class="pulse"></span>Current Status</span>
+        <p class="status__text">The <strong>California &amp; Washington strike has concluded</strong> and was a success. Stay tuned for the next strike and apply now to stay up to date.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 03 INTRO (end of the scrub span) ════════ -->
+  <section class="section intro" id="apIntro">
+    <div class="wrap">
+      <div class="intro__copy reveal">
+        <span class="eyebrow">Strike Support</span>
+        <h2 class="kw">Experienced Strike <em>Replacement</em> Support</h2>
+        <p>InSync Strike Support is experienced in providing <strong>Strike Replacement Workers</strong> to companies preparing for labor contract negotiations. We execute effective crisis labor solutions across numerous industries and in many situations.</p>
+        <p>We are preparing for an upcoming strike (collective bargaining agreement expiration) and need to identify key replacement workers during the work stoppages that are upcoming in the <strong>Northern California, Spokane, and Seattle areas</strong>.</p>
+        <ul class="check">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            We will have over 700 positions to fill in the near future!
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            The pay is excellent! You don't want to miss out on this opportunity.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            You will be notified of the next strike.
+          </li>
+        </ul>
+        <a href="https://nexus-leap.laboredge.com/insync/quicksignup" target="_blank" rel="noopener" class="btn btn-primary">Apply Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="intro__mock reveal d2" id="apMock" aria-hidden="true">
+        <div class="intro__mock-in">
+          <div class="mock">
+            <span class="mock__scan"></span>
+            <div class="mock__bar">
+              <span class="mock__title">Strike Support</span>
+              <span class="mock__badge"><span class="pulse"></span>Current Status</span>
+            </div>
+            <div class="mock__rows">
+              <div class="mrow">
+                <span class="mrow__av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <span class="mrow__main"><span class="mrow__name">Northern California</span><span class="mrow__lines"><i></i><i></i></span></span>
+                <span class="mrow__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              </div>
+              <div class="mrow">
+                <span class="mrow__av mrow__av--n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <span class="mrow__main"><span class="mrow__name">Spokane</span><span class="mrow__lines"><i></i><i></i></span></span>
+                <span class="mrow__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              </div>
+              <div class="mrow">
+                <span class="mrow__av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <span class="mrow__main"><span class="mrow__name">Seattle</span><span class="mrow__lines"><i></i><i></i></span></span>
+                <span class="mrow__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              </div>
+              <div class="mrow">
+                <span class="mrow__av mrow__av--n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <span class="mrow__main"><span class="mrow__name">Per Shift</span><span class="mrow__lines"><i></i><i></i></span></span>
+                <span class="mrow__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 04 RECENT STRIKE EXAMPLE ════════ -->
+  <section class="section example" id="apExample">
+    <div class="example__amb" aria-hidden="true">
+      <span class="ins-orb ins-orb--a"></span><span class="ins-orb ins-orb--b"></span>
+    </div>
+    <div class="wrap">
+      <div class="head head--wide reveal">
+        <span class="eyebrow">Example of a Recent Strike Fulfilled by InSync</span>
+        <h2 class="kw">Temporary Strike Replacement Worker <em>Positions</em></h2>
+        <p class="lead">A look at what candidates earned and received on a recent InSync-fulfilled work stoppage.</p>
+      </div>
+      <div class="pay-grid">
+        <div class="pay reveal">
+          <span class="pay__n"><span class="accent">$</span><span data-count="350" data-suffix="–">350–</span><span class="accent">$</span><span data-count="500">500</span></span>
+          <span class="pay__l">Per Shift</span>
+        </div>
+        <div class="pay reveal">
+          <span class="pay__n" data-count="5" data-suffix=" Shifts">5 Shifts</span>
+          <span class="pay__l">Per Week</span>
+        </div>
+        <div class="pay reveal">
+          <span class="pay__n">Included</span>
+          <span class="pay__l">Transportation, Lodging &amp; Meals</span>
+        </div>
+      </div>
+      <p class="example__note reveal">Transportation, lodging &amp; meals will be provided at <strong>no cost to you</strong>.</p>
+      <a href="https://nexus-leap.laboredge.com/insync/quicksignup" target="_blank" rel="noopener" class="btn btn-primary reveal">Apply Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════ 05 FAQ ════════ -->
+  <section class="section faq" id="faq">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">Frequently Asked Questions</span>
+        <h2 class="kw">Strike Work <em>FAQ</em></h2>
+        <p class="lead">Everything you need to know before signing on for a strike assignment with InSync.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">What is a strike?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">This is a work stoppage put on by the unions at the facility. These are set up in advance for various reasons with various lengths. This particular work stoppage is still uncertain, but we are asking candidates be available for up to 5 days in order to provide adequate coverage.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">When is the strike taking place?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">The expected date is still unknown. We do know that there have been negotiations going on but until the 10-Day strike notice is filed — we do not know the exact dates. We will communicate more info as we get it and we will update this page as well.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">Can I drive myself to the work site?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">InSync will be providing all lodging and transportation during the work stoppage. This will ensure that there are no out of pocket costs for the candidates, as well as all shifts are attended on time. We will be having an induction in the city of the strike location. Most likely in a hotel area where candidates will be checked in and taken by bus/shuttle to the hotels and then work sites.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">What will happen at the induction?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">At the induction, you will be checked in by an InSync staff member and given any pertinent additional information required. We will also be completing an onsite drug test, as well as a blood draw for immunizations. After all is completed, all the workers will be taken to the strike location for a one day orientation before the work is to begin.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">Where is the strike being held?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">The next upcoming strikes are in negotiations at a location in Spokane &amp; Seattle, WA, and Northern CA.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">Will I be able to pick my shift?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">InSync will be scheduling all shifts according to the needs of the facilities. Candidates are required to be flexible and be able to work the shift assigned to them. Shift times are varied depending on the position you are covering. Some can start as early as 4am.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">What happens if the strike is called off?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">If the strike is called off prior to the induction date, all candidates will be notified of the situation and should the strike be called back on, we will reach out again. Once candidates have arrived to the hotel/work site, should the work stoppage get cancelled, InSync will notify all workers and provide transportation back to the original induction site.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">Do I have to commit to all the days needed?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">Yes. All candidates will be required to be available for the full amount of time required for the work stoppage.</div></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-q__t">How do I get a copy of my health/immunization records in the state of Washington?</span>
+            <span class="faq-tg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a__in">This site will only work for Washington residents only. Follow the detailed instructions by clicking <a href="https://www.doh.wa.gov/YouandYourFamily/IllnessandDisease/Immunization/PatientResources/ImmunizationRecords" target="_blank" rel="noopener">here</a>.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 06 CTA BAND ════════ -->
+  <section class="section cta">
+    <div class="wrap reveal">
+      <span class="eyebrow">Don't Miss the Next One</span>
+      <h2 class="kw">Stay Ready for the Next <em>Strike</em></h2>
+      <p>Apply now and you will be notified of the next strike. Excellent pay, transportation, lodging, and meals — all provided by InSync.</p>
+      <div class="cta__btns">
+        <a href="https://nexus-leap.laboredge.com/insync/quicksignup" target="_blank" rel="noopener" class="btn btn-primary">Apply Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="/contact-us/" class="btn btn-ghost-w">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.ins-page -->
+
+<script>
+/* Main behavior: v2 reveal contract (threshold 0 + bottom rootMargin, JS
+   sibling stagger, above-fold release, on-screen-only safety net, scroll
+   sweep), hero mouse parallax, drifting brand squares, status icon draw,
+   mockup live loop, count-ups, FAQ accordion. All null-guarded. */
+(function(){
+  'use strict';
+  var page=document.getElementById('insPage');
+  if(!page)return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ── Scroll-entrance reveals ── */
+  var revs=[].slice.call(page.querySelectorAll('.reveal'));
+  if(!reduce){
+    var DELAYED=/(^|\s)d[1-5](\s|$)/,groups=[];
+    revs.forEach(function(el){var p=el.parentElement;if(p&&groups.indexOf(p)<0)groups.push(p);});
+    groups.forEach(function(p){
+      var kids=[],i;
+      for(i=0;i<p.children.length;i++){
+        var c=p.children[i];
+        if(c.classList.contains('reveal')&&!DELAYED.test(c.className))kids.push(c);
+      }
+      if(kids.length<2)return;
+      for(i=0;i<kids.length;i++){kids[i].style.transitionDelay=Math.min(i*0.07,0.35).toFixed(2)+'s';}
+    });
+  }
+  var pending=revs.slice(),io=null;
+  function markIn(el){
+    el.classList.add('in');
+    if(io)io.unobserve(el);
+    var i=pending.indexOf(el);if(i>-1)pending.splice(i,1);
+  }
+  if('IntersectionObserver' in window&&!reduce){
+    io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting)markIn(e.target);});
+    },{threshold:0,rootMargin:'0px 0px -12% 0px'});
+    revs.forEach(function(el){io.observe(el);});
+  }else{revs.forEach(function(el){markIn(el);});}
+  var swraf=0;
+  function sweep(){
+    swraf=0;
+    if(!pending.length)return;
+    var line=window.innerHeight*0.92;
+    for(var i=pending.length-1;i>=0;i--){
+      if(pending[i].getBoundingClientRect().top<line)markIn(pending[i]);
+    }
+  }
+  window.addEventListener('scroll',function(){if(!swraf)swraf=requestAnimationFrame(sweep);},{passive:true});
+  requestAnimationFrame(function(){
+    revs.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight*0.94)markIn(el);});
+  });
+  setTimeout(function(){
+    revs.forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight&&r.bottom>0)markIn(el);
+    });
+  },2500);
+
+  /* ── Hero mouse-parallax (desktop + fine pointer only; rides inner wrappers
+        so it never fights the .reveal transforms; scrub layer drifts opposite) ── */
+  var hero=document.getElementById('apHeroWrap'),
+      pxCopy=page.querySelector('.hero__copy-in'),
+      pxCards=page.querySelector('.hero__cards-in'),
+      pxVid=document.getElementById('apScrubPar');
+  if(hero&&pxCopy&&pxCards&&fine&&!reduce&&window.innerWidth>1024){
+    var tx=0,ty=0,cx=0,cy=0,raf=null,over=false;
+    var tick=function(){
+      cx+=(tx-cx)*.09;cy+=(ty-cy)*.09;
+      pxCopy.style.transform='translate3d('+(cx*8).toFixed(2)+'px,'+(cy*6).toFixed(2)+'px,0)';
+      pxCards.style.transform='translate3d('+(cx*22).toFixed(2)+'px,'+(cy*16).toFixed(2)+'px,0) rotateX('+(cy*-4).toFixed(2)+'deg) rotateY('+(cx*4).toFixed(2)+'deg)';
+      if(pxVid)pxVid.style.transform='translate3d('+(-cx*14).toFixed(2)+'px,'+(-cy*10).toFixed(2)+'px,0)';
+      if(over||Math.abs(tx-cx)>.002||Math.abs(ty-cy)>.002){raf=requestAnimationFrame(tick);}else{raf=null;}
+    };
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      tx=((e.clientX-r.left)/r.width-.5)*2;
+      ty=((e.clientY-r.top)/r.height-.5)*2;
+      over=true;if(!raf)raf=requestAnimationFrame(tick);
+    });
+    hero.addEventListener('pointerleave',function(){tx=0;ty=0;over=false;if(!raf)raf=requestAnimationFrame(tick);});
+  }
+
+  /* ── Drifting brand squares (orange + navy-2 only; skipped under reduced motion / coarse) ── */
+  var embers=document.getElementById('apEmbers');
+  if(embers&&!reduce&&!window.matchMedia('(pointer:coarse)').matches){
+    var colors=['#ef5a28','#ef5a28','#2c4474','#ef5a28','#2c4474','#ef5a28','#2c4474','#ef5a28'];
+    for(var k=0;k<8;k++){
+      var e=document.createElement('span');
+      e.className='ins-sq-ember';
+      e.style.setProperty('--x',(6+Math.random()*88).toFixed(1)+'%');
+      e.style.setProperty('--sz',(5+Math.random()*7).toFixed(0)+'px');
+      e.style.setProperty('--t',(12+Math.random()*10).toFixed(1)+'s');
+      e.style.setProperty('--dl',(-Math.random()*16).toFixed(1)+'s');
+      e.style.setProperty('--op',(.14+Math.random()*.14).toFixed(2));
+      e.style.setProperty('--swx',((Math.random()-.5)*80).toFixed(0)+'px');
+      e.style.setProperty('--rot',(90+Math.random()*180).toFixed(0)+'deg');
+      e.style.setProperty('--sq-c',colors[k]);
+      embers.appendChild(e);
+    }
+  }
+
+  /* ── Status icon + checklist checks draw themselves in (stroke-dash),
+        lengths MEASURED so a swapped glyph can't silently break the effect ── */
+  var drawSets=[
+    {root:document.getElementById('apStatus'),watch:'.wrap',cls:'ins-on',sel:'.status__ic svg > *'},
+    {root:document.getElementById('apIntro'),watch:'.intro__copy',cls:null,sel:'.check li svg > *'}
+  ];
+  drawSets.forEach(function(d){
+    if(!d.root)return;
+    var watch=d.root.querySelector(d.watch);if(!watch)return;
+    var shapes=[].slice.call(d.root.querySelectorAll(d.sel));
+    if(!reduce){
+      shapes.forEach(function(sh){
+        var len=0;try{len=sh.getTotalLength?sh.getTotalLength():0;}catch(x){len=0;}
+        if(!len)return;
+        sh.style.strokeDasharray=len;sh.style.strokeDashoffset=len;
+      });
+    }
+    var played=false;
+    function play(){
+      if(played)return;played=true;
+      if(d.cls)d.root.classList.add(d.cls);
+      if(reduce)return;
+      shapes.forEach(function(sh,i){
+        if(!sh.style.strokeDasharray)return;
+        sh.style.transition='stroke-dashoffset .95s cubic-bezier(.4,0,.2,1) '+(200+i*110)+'ms';
+        sh.style.strokeDashoffset='0';
+      });
+    }
+    if('IntersectionObserver' in window&&!reduce){
+      var dio=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){play();dio.disconnect();}});},{threshold:0,rootMargin:'0px 0px -12% 0px'});
+      dio.observe(watch);
+      setTimeout(function(){var r=watch.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)play();},2500);
+    }else{play();}
+  });
+
+  /* ── Mockup live loop: toggled by IntersectionObserver, idle off-screen ── */
+  var mock=document.getElementById('apMock');
+  if(mock&&'IntersectionObserver' in window&&!reduce){
+    var mio=new IntersectionObserver(function(es){es.forEach(function(e){mock.classList.toggle('go',e.isIntersecting);});},{threshold:.25});
+    mio.observe(mock);
+  }
+
+  /* ── Count-up (text node keeps its authored suffix, e.g. "350–", "5 Shifts") ── */
+  var counters=page.querySelectorAll('[data-count]');
+  function countUp(el){
+    var end=parseInt(el.getAttribute('data-count'),10)||0,suf=el.getAttribute('data-suffix')||'',dur=1400,st=null;
+    if(reduce){el.textContent=end+suf;return;}
+    function fr(ts){if(st===null)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(fr);else el.textContent=end+suf;}
+    requestAnimationFrame(fr);
+  }
+  if(counters.length&&'IntersectionObserver' in window){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}});},{threshold:.5});
+    counters.forEach(function(c){cio.observe(c);});
+  }
+
+  /* ── FAQ accordion (.35s, one open at a time, keyboard via native button) ── */
+  var qs=page.querySelectorAll('.faq-q');
+  function close(btn){
+    btn.classList.remove('open');
+    btn.parentElement.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    btn.nextElementSibling.style.maxHeight='0';
+  }
+  qs.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var wasOpen=btn.classList.contains('open');
+      qs.forEach(close);
+      if(!wasOpen){
+        btn.classList.add('open');
+        btn.parentElement.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        var a=btn.nextElementSibling;
+        a.style.maxHeight=a.scrollHeight+'px';
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+/* LAYER 1 driver — scroll-scrubbed background video with the compensated
+   gradient→shade cross-fade. Desktop: playhead driven by scroll (frame 1 at
+   page top, last frame at the bottom of Strike Support), eased each rAF.
+   Mobile / touch: muted autoplay loop behind the HERO only. Reduced motion:
+   freeze frame 1. Media URL is a JS runtime constant (immune to GHL
+   attribute corruption). */
+(function(){
+  'use strict';
+  var wrap=document.getElementById('apScrub');
+  var vid=document.getElementById('apScrubVid');
+  if(!wrap||!vid)return;
+
+  /* Strike hero scrub asset = extra-bg-1, re-encoded as strike-hero-scrub.mp4
+     (H.264, 1920x1080, keyframe every 12 frames, faststart), hosted in the GHL
+     media library. If the value is ever not an http(s) URL the layer stays off
+     and the hero sits on its navy-deep floor. */
+  var STRIKE_SCRUB_VIDEO_URL='https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6abfcadf85f560d1665d7250.mp4';
+
+  /* position:fixed is unreliable if an ancestor establishes a containing
+     block (GHL wrappers sometimes carry transforms). If broken, leave the
+     layer off — sections sit on their own floors. */
+  function fixedBroken(){
+    for(var n=wrap.parentElement;n&&n!==document.documentElement;n=n.parentElement){
+      var s=window.getComputedStyle(n);
+      if(s.transform!=='none'||s.perspective!=='none'||(s.filter&&s.filter!=='none')||
+         /transform|perspective/.test(s.willChange||'')||/paint|layout|strict|content/.test(s.contain||''))return true;
+    }
+    return false;
+  }
+  var page=document.getElementById('insPage');
+  /* no clip (placeholder URL, decode error, broken fixed) -> the hero paints
+     its own navy-deep floor instead of sitting transparent on the page */
+  function noVid(){dead=true;wrap.classList.remove('is-on');if(page)page.classList.add('ins-novid');}
+  if(fixedBroken()){noVid();return;}
+
+  var dead=false;
+  vid.addEventListener('error',noVid);
+  if(STRIKE_SCRUB_VIDEO_URL.indexOf('http')!==0){noVid();}
+  else{vid.src=STRIKE_SCRUB_VIDEO_URL;}
+
+  var shade=document.getElementById('apScrubShade');
+  var grad=document.getElementById('apScrubGrad');
+
+  /* Second section (Current Status) top — the shade is at full strength here. */
+  function sectionTop(){
+    var s=document.getElementById('apStatus');
+    if(s){var r=s.getBoundingClientRect();if(r.height>0)return r.top+window.scrollY;}
+    return window.innerHeight;
+  }
+  /* The scrub spans scrollY 0 → the BOTTOM of the Strike Support split. */
+  function scrubEnd(){
+    var sec=document.getElementById('apIntro');
+    if(sec){var r=sec.getBoundingClientRect();if(r.height>0)return r.top+window.scrollY+r.height;}
+    return window.innerHeight;
+  }
+
+  /* Hero shows the video with the left-fade gradient only; across the hero's
+     last 72vh (smoothstep) the directional gradient goes out while the flat
+     .80 shade comes in. The two layers do NOT sum linearly, so the gradient
+     opacity is solved each frame to hold the copy-side composite steady:
+     1-(1-GA*g)(1-SA*e) = T, T easing from .84 to .80. No dip, no bump. */
+  function updateShade(){
+    if(!shade)return;
+    var vh=window.innerHeight,y=window.scrollY;
+    var endY=sectionTop(),startY=endY-vh*0.72;
+    var t=(y-startY)/(endY-startY);
+    if(t<0)t=0;if(t>1)t=1;
+    var e=t*t*(3-2*t);
+    shade.style.opacity=String(e);
+    if(grad){
+      var GA=0.84,SA=0.80;
+      var T=GA+(SA-GA)*e;
+      var den=1-SA*e;
+      var g=den>0.0001?(1-(1-T)/den)/GA:0;
+      if(g<0)g=0;if(g>1)g=1;
+      grad.style.opacity=String(g);
+    }
+  }
+  window.addEventListener('scroll',updateShade,{passive:true});
+  window.addEventListener('resize',updateShade);
+  updateShade();
+
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia&&window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+  var canScrub=fine&&!touch&&!reduced;
+
+  /* ---- NON-SCRUB fallbacks ---- */
+  if(!canScrub){
+    if(!dead)wrap.classList.add('is-on');
+    if(reduced){
+      vid.removeAttribute('autoplay');vid.pause();
+      var freeze=function(){try{vid.currentTime=0;}catch(e){}vid.pause();};
+      vid.addEventListener('loadeddata',freeze);
+    }else{
+      vid.loop=true;vid.autoplay=true;vid.muted=true;vid.setAttribute('autoplay','');
+      var pl=function(){var p=vid.play();if(p&&p.catch)p.catch(function(){});};
+      vid.addEventListener('loadeddata',pl);pl();
+      /* the clip backs the HERO only off-desktop; visibility and playback
+         are decoupled so the decoder is released before anything else
+         might need it, while the layer stays on its frozen last frame */
+      var mraf=0;
+      var mspan=function(){
+        mraf=0;
+        if(dead){wrap.classList.remove('is-on');return;}
+        var vh=window.innerHeight;
+        var hw=document.getElementById('apHeroWrap');
+        var end=hw?(hw.getBoundingClientRect().top+window.scrollY+hw.offsetHeight):vh;
+        var hidden=window.scrollY>end+4;
+        var release=window.scrollY>end-vh*0.75;
+        wrap.classList.toggle('is-on',!hidden);
+        if(release){if(!vid.paused)vid.pause();}
+        else if(vid.paused){pl();}
+      };
+      window.addEventListener('scroll',function(){if(!mraf)mraf=requestAnimationFrame(mspan);},{passive:true});
+      window.addEventListener('resize',mspan);
+      mspan();
+    }
+    return;
+  }
+
+  /* ---- DESKTOP: scrub currentTime from scroll ---- */
+  vid.loop=false;vid.autoplay=false;vid.pause();
+  var dur=0,ready=false,target=0,raf=0;
+  var lastSeekStart=0,slowSeeks=false;
+
+  function onMeta(){dur=vid.duration||0;ready=dur>0;if(!dead)wrap.classList.add('is-on');tick();}
+  vid.addEventListener('loadedmetadata',onMeta);
+  vid.addEventListener('loadeddata',function(){if(!ready)onMeta();});
+  /* seek-cost tracking: past ~80ms the clip is sparse-keyframed or buffering,
+     so switch to direct-to-target writes instead of the eased approach */
+  vid.addEventListener('seeked',function(){slowSeeks=(performance.now()-lastSeekStart)>80;schedule();});
+
+  function computeTarget(){
+    var end=scrubEnd(),y=window.scrollY;
+    var p=end>0?(y/end):0;
+    if(p<0)p=0;if(p>1)p=1;
+    if(dead||y>end+4)wrap.classList.remove('is-on');else wrap.classList.add('is-on');
+    return p*dur;
+  }
+  function tick(){
+    raf=0;
+    if(ready){
+      target=computeTarget();
+      var cur=vid.currentTime||0,diff=target-cur;
+      if(Math.abs(diff)<0.008){/* settled */}
+      else if(!vid.seeking){
+        var next=slowSeeks?target:(cur+diff*0.28);
+        lastSeekStart=performance.now();
+        try{vid.currentTime=next;}catch(e){}
+      }
+      if(Math.abs(target-(vid.currentTime||0))>0.008)schedule();
+    }
+  }
+  function schedule(){if(!raf)raf=requestAnimationFrame(tick);}
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the strike board mockup, the pay tiles and the FAQ
+     cards: the card tilts toward the pointer and a spotlight tracks it.
+     Spring-damped so the motion feels weighted; on leave it eases back to
+     rest and returns control to the page's own transitions. Delegated from
+     the document with WeakMap state so a node GHL re-renders keeps working.
+     Fine pointers only. */
+  var mq=window.matchMedia;
+  if(mq&&(mq('(prefers-reduced-motion: reduce)').matches||mq('(hover: none)').matches||mq('(pointer: coarse)').matches))return;
+  var SEL='.ins-page .mock, .ins-page .pay, .ins-page .faq-item';
+  var STIFF=70,DAMP=13,MAX_RX=6,MAX_RY=8;
+
+  var states=(typeof WeakMap==='function')?new WeakMap():null;
+  var stateList=[];
+  function stateFor(el){
+    var st=states?states.get(el):null;
+    if(!st&&!states){for(var i=0;i<stateList.length;i++){if(stateList[i].el===el){st=stateList[i];break;}}}
+    if(st)return st;
+    st=mkState(el);
+    if(states)states.set(el,st);else stateList.push(st);
+    return st;
+  }
+  function mkState(el){
+    var st={el:el,tx:0,ty:0,x:0,y:0,vx:0,vy:0,hover:false,raf:0,last:0};
+    function frame(now){
+      st.raf=0;
+      var dt=Math.min(0.05,(now-(st.last||now))/1000);st.last=now;
+      var ax=STIFF*(st.tx-st.x)-DAMP*st.vx;
+      var ay=STIFF*(st.ty-st.y)-DAMP*st.vy;
+      st.vx+=ax*dt;st.vy+=ay*dt;
+      st.x+=st.vx*dt;st.y+=st.vy*dt;
+      var rx=-st.y*MAX_RX,ry=st.x*MAX_RY;
+      var sc=st.hover?1.012:1;
+      var lift=st.hover?' translateY(-4px)':'';
+      el.style.transform='perspective(1000px) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg)'+lift+' scale('+sc.toFixed(3)+')';
+      var moving=Math.abs(st.tx-st.x)>0.002||Math.abs(st.ty-st.y)>0.002||Math.abs(st.vx)>0.002||Math.abs(st.vy)>0.002;
+      if(st.hover||moving){st.raf=requestAnimationFrame(frame);}
+      else{el.style.transform='';el.classList.remove('is-follow');st.last=0;}
+    }
+    st.schedule=function(){if(!st.raf)st.raf=requestAnimationFrame(frame);};
+    return st;
+  }
+  function enter(el){var st=stateFor(el);st.hover=true;el.classList.add('is-follow');el.classList.add('is-glow');st.schedule();}
+  function leave(el){var st=stateFor(el);st.hover=false;st.tx=0;st.ty=0;el.classList.remove('is-glow');st.schedule();}
+  function track(el,e){
+    var st=stateFor(el);
+    var r=el.getBoundingClientRect();
+    if(!r.width||!r.height)return;
+    var px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    st.tx=(px-0.5)*2;st.ty=(py-0.5)*2;
+    el.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+    el.style.setProperty('--my',(py*100).toFixed(1)+'%');
+    st.schedule();
+  }
+  var current=null;
+  function onMove(e){
+    var t=e.target;
+    var el=(t&&t.closest)?t.closest(SEL):null;
+    if(!el&&t){
+      var n=t.parentNode;
+      while(n&&n.nodeType===1&&!el){if(n.matches&&n.matches(SEL))el=n;n=n.parentNode;}
+    }
+    if(el!==current){if(current)leave(current);current=el;if(el)enter(el);}
+    if(el)track(el,e);
+  }
+  document.addEventListener('mousemove',onMove,{passive:true});
+  document.addEventListener('mouseleave',function(){if(current){leave(current);current=null;}});
+  window.addEventListener('scroll',function(){
+    if(current){var r=current.getBoundingClientRect();if(r.bottom<0||r.top>window.innerHeight){leave(current);current=null;}}
+  },{passive:true});
+})();
+</script>
+<!-- ============== END INSYNC STRIKE WORK & UPDATES BODY ============== -->
+

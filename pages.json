@@ -33,5 +33,61 @@
     "status": "ready",
     "title": "Commercial Staffing & Support \u2014 InSync Consulting Services",
     "description": "Administrative, light industrial, customer service and skilled trades staffing from InSync Consulting Services."
+  },
+  "about": {
+    "file": "about.html",
+    "nav_label": "About InSync",
+    "status": "ready",
+    "title": "About InSync \u2014 Your Strategic Staffing Partner",
+    "description": "InSync Consulting Services is a strategic staffing partner for healthcare, educational, commercial and EOR/payroll needs."
+  },
+  "meet-your-insync-team": {
+    "file": "meet-your-insync-team.html",
+    "nav_label": "Meet the Team",
+    "status": "ready",
+    "title": "Meet Your InSync Team \u2014 InSync Consulting Services",
+    "description": "Meet the recruiters, account managers and leadership behind InSync Consulting Services."
+  },
+  "joint-commission": {
+    "file": "joint-commission.html",
+    "nav_label": "Joint Commission",
+    "status": "ready",
+    "title": "Joint Commission Certification \u2014 InSync Consulting Services",
+    "description": "InSync Consulting Services holds Joint Commission Health Care Staffing Services Certification."
+  },
+  "joint-commission-policy-statement": {
+    "file": "joint-commission-policy-statement.html",
+    "nav_label": "JC Policy Statement",
+    "status": "ready",
+    "title": "Joint Commission Policy Statement \u2014 InSync Consulting Services",
+    "description": "InSync Consulting Services Joint Commission policy statement, standards and complaint reporting information."
+  },
+  "strike-work-updates": {
+    "file": "strike-work-updates.html",
+    "nav_label": "Strike Work & Updates",
+    "status": "ready",
+    "title": "Strike Work & Updates \u2014 InSync Consulting Services",
+    "description": "Current strike work assignments, pay details and shift updates from InSync Consulting Services."
+  },
+  "apply-now": {
+    "file": "apply-now.html",
+    "nav_label": "Apply Now",
+    "status": "ready",
+    "title": "Apply Now \u2014 Find Your Next Role with InSync",
+    "description": "Apply to InSync Consulting Services and find your next healthcare, educational or commercial role."
+  },
+  "employee-hub-login": {
+    "file": "employee-hub-login.html",
+    "nav_label": "Employee Hub Login",
+    "status": "ready",
+    "title": "Employee Hub Login \u2014 InSync Consulting Services",
+    "description": "Log in to the InSync Consulting Services Employee Hub for documents, benefits and payroll."
+  },
+  "contact-us": {
+    "file": "contact-us.html",
+    "nav_label": "Contact Us",
+    "status": "ready",
+    "title": "Contact Us \u2014 InSync Consulting Services",
+    "description": "Work with a staffing partner that answers. Call, email or send InSync Consulting Services a message."
   }
 }

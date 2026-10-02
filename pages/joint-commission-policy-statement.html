@@ -1,0 +1,1169 @@
+<!-- ================================================================
+     INSYNC — JOINT COMMISSION POLICY STATEMENT (page body)
+     GoHighLevel custom code block · InSync Motion Standards v1.0
+     (Website Standards v1.0 skin + the homepage motion layer)
+     Paste between the global navigation block and global footer block,
+     in a full-width section with section/row/column padding = 0.
+     Media URLs are JS runtime constants — never attributes.
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;--white:#fff;
+  --bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);--shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);--f:'Plus Jakarta Sans',system-ui,sans-serif;
+  font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  position:relative;overflow:clip;isolation:isolate
+}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page ::selection{background:var(--orange-soft2);color:var(--ink)}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px;line-height:1.7}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head.center .lead{margin-left:auto;margin-right:auto}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ══════════ LAYER 1 — SCROLL-SCRUBBED HERO SPAN VIDEO ══════════
+   One fixed video whose currentTime is driven by scroll. The span runs from
+   the top of the page to the BOTTOM of the Commitment section: the hero
+   shows the footage under the constant left-fade gradient, the last 72vh of
+   the hero cross-fade the gradient out and a flat .80 shade in (composite
+   held steady by the engine), and the Commitment statement sits under the
+   flat shade. Everything from Policy Standards down is light content that
+   paints above the layer (.ins-below). Engine numbers from the homepage —
+   change them by measurement, not by eye. */
+.ins-page .ins-scrub{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--navy-deep);opacity:0;transition:opacity .5s ease}
+.ins-page .ins-scrub.is-on{opacity:1}
+.ins-page .ins-scrub__par{position:absolute;inset:0;will-change:transform}
+.ins-page .ins-scrub__vid{position:absolute;left:50%;top:50%;width:114%;height:114%;transform:translate(-50%,-50%);object-fit:cover;will-change:transform;filter:contrast(1.06) saturate(1.08) brightness(.93)}
+.ins-page .ins-scrub__grad{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,   rgba(0,0,0,.84) 27%,   rgba(0,0,0,.83) 30%,   rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%, rgba(0,0,0,.77) 39.3%, rgba(0,0,0,.74) 42.4%, rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%, rgba(0,0,0,.61) 51.7%, rgba(0,0,0,.55) 54.8%, rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,   rgba(0,0,0,.40) 64.1%, rgba(0,0,0,.35) 67.2%, rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%, rgba(0,0,0,.18) 76%,   rgba(0,0,0,.09) 78.5%, rgba(0,0,0,0) 80%)}
+.ins-page .ins-scrub__shade{position:absolute;inset:0;opacity:0;background:rgba(0,0,0,.80)}
+/* the two spanned sections show the video through */
+.ins-page .jc-hero,.ins-page .jc-commit{position:relative;z-index:1;background:transparent}
+/* decode guard fallback: if the clip refuses to load the hero gets the
+   standard photo backdrop (WebP proxy) under the standard 80% veil */
+.ins-page .jc-hero::before{content:"";position:absolute;inset:0;display:none;z-index:0;background:url('https://images.leadconnectorhq.com/image/f_webp/q_80/r_1920/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a2c598496783b1af58e52e9.jpg') center/cover no-repeat}
+.ins-page .jc-hero::after{content:"";position:absolute;inset:0;display:none;z-index:0;background:rgba(0,0,0,.8)}
+.ins-page.ins-novid .jc-hero{background:var(--navy-deep)}
+.ins-page.ins-novid .jc-hero::before,.ins-page.ins-novid .jc-hero::after{display:block}
+.ins-page.ins-novid .jc-commit{background:var(--navy-deep)}
+/* everything after the scrub span paints above the fixed layer */
+.ins-page .ins-below{position:relative;z-index:10;background:#fff}
+
+/* ══ HERO ══ */
+.ins-page .jc-hero{color:#fff;padding:130px 0 120px;overflow:hidden}
+.ins-page .jc-hero .wrap{position:relative;z-index:2}
+.ins-page .jc-hero__glow{position:absolute;top:-10%;left:50%;width:900px;height:600px;margin-left:-450px;background:radial-gradient(circle,rgba(239,90,40,.14) 0%,rgba(239,90,40,0) 60%);pointer-events:none;z-index:1;will-change:transform}
+.ins-page .jc-hero__grid{display:grid;grid-template-columns:1.5fr minmax(300px,.7fr);gap:56px;align-items:center}
+.ins-page .jc-hero__copy{will-change:transform;max-width:700px}
+.ins-page .jc-hero .eyebrow{color:var(--orange-light)}
+.ins-page .jc-hero h1{color:#fff;font-size:clamp(2.6rem,5.6vw,4.4rem);margin:16px 0 18px}
+.ins-page .jc-hero h1 .jc-hero__l1{white-space:nowrap}
+.ins-page .jc-hero h1 .accent{color:var(--orange);display:block}
+.ins-page .jc-hero__sub{font-size:1.12rem;color:rgba(255,255,255,.78);line-height:1.7;max-width:560px;margin:0 0 32px}
+.ins-page .jc-hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+/* drifting brand squares (homepage ember drift: orange + navy-2 squares) */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+
+/* 3D policy book — the page's document, frosted over the footage */
+.ins-page .jc-book-stage{perspective:1600px;display:flex;justify-content:center;will-change:transform}
+.ins-page .jc-book-inner{transform-style:preserve-3d;will-change:transform}
+.ins-page .jc-book{position:relative;width:290px;height:390px;transform-style:preserve-3d;transform:rotateY(-24deg) rotateX(6deg);transition:transform 1s var(--ease)}
+.ins-page .jc-book-stage:hover .jc-book{transform:rotateY(-14deg) rotateX(3deg)}
+.ins-page .jc-book__cover{position:absolute;inset:0;border-radius:4px 12px 12px 4px;background:linear-gradient(160deg,rgba(22,34,63,.38) 0%,rgba(22,34,63,.62) 100%),rgba(255,255,255,.06);-webkit-backdrop-filter:blur(8px) saturate(1.08);backdrop-filter:blur(8px) saturate(1.08);border:1px solid rgba(255,255,255,.16);box-shadow:0 50px 90px -24px rgba(0,0,0,.85),0 24px 46px -10px rgba(239,90,40,.22);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:34px 30px 30px}
+.ins-page .jc-book__cover::before{content:"";position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(circle at 100% 0%,rgba(239,90,40,.16) 0%,rgba(239,90,40,0) 62%);pointer-events:none}
+/* motif: the audit scan sweeping down the cover */
+.ins-page .jc-book__cover::after{content:"";position:absolute;left:0;right:0;top:-24%;height:24%;background:linear-gradient(180deg,rgba(239,90,40,0),rgba(239,90,40,.16) 48%,rgba(239,90,40,.42) 72%,rgba(239,90,40,0));pointer-events:none;z-index:3}
+.ins-page.js .jc-book__cover::after{animation:insJcCoverScan 5.2s var(--ease) infinite}
+@keyframes insJcCoverScan{0%{top:-24%;opacity:0}12%{opacity:1}78%{opacity:1}100%{top:100%;opacity:0}}
+.ins-page .jc-book__spine{position:absolute;left:0;top:0;bottom:0;width:20px;transform:translateX(-19px) rotateY(90deg);transform-origin:right center;background:linear-gradient(var(--orange),var(--orange-light));border-radius:3px 0 0 3px}
+.ins-page .jc-book__seal{width:44px;height:44px;border-radius:11px;background:var(--orange);display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.ins-page .jc-book__seal svg{width:24px;height:24px;color:#fff}
+.ins-page .jc-book__seal::after{content:"";position:absolute;inset:-3px;border-radius:14px;border:1px solid var(--orange);opacity:0}
+.ins-page.js .jc-book__seal::after{animation:insJcSealRing 5.2s var(--ease) infinite}
+@keyframes insJcSealRing{0%,58%{transform:scale(1);opacity:0}66%{opacity:.7}100%{transform:scale(1.7);opacity:0}}
+.ins-page .jc-book__meta{position:relative;z-index:2}
+.ins-page .jc-book__kicker{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-light);margin-bottom:12px}
+.ins-page .jc-book__title{font-size:1.7rem;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.08}
+.ins-page .jc-book__org{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);font-size:.74rem;color:rgba(255,255,255,.6)}
+
+/* ══ Signature motif — the audit scan line ══ */
+.ins-page .ins-scan{position:relative;z-index:1;height:1px;background:rgba(255,255,255,.14);overflow:hidden;max-width:1240px;margin:0 auto}
+.ins-page .ins-scan::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:linear-gradient(90deg,rgba(239,90,40,0),var(--orange),rgba(239,90,40,0));opacity:.85}
+.ins-page.js .ins-scan.on::after{animation:insJcScanRun 4.6s linear infinite}
+@keyframes insJcScanRun{0%{left:-30%}100%{left:100%}}
+
+/* ══ COMMITMENT — end of the scrub span, white copy over the flat shade ══ */
+.ins-page .jc-commit{color:#fff}
+.ins-page .jc-statement{max-width:900px;margin:0 auto;text-align:center}
+.ins-page .jc-statement .eyebrow{color:var(--orange-light)}
+.ins-page .jc-statement h2{color:#fff;margin:16px 0 22px}
+.ins-page .jc-statement h2 em{color:var(--orange-light)}
+.ins-page .jc-statement .lead{color:rgba(255,255,255,.78);font-size:1.12rem;max-width:760px;margin:0 auto}
+/* verification seal: tick draws, rings radiate */
+.ins-page .jc-verify{position:relative;width:86px;height:86px;margin:0 auto 30px}
+.ins-page .jc-verify__core{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:14px;background:var(--orange-soft2);border:1px solid rgba(239,90,40,.5);display:flex;align-items:center;justify-content:center}
+.ins-page .jc-verify__core svg{width:26px;height:26px;color:var(--orange-light)}
+.ins-page .jc-verify__core svg path{stroke-dasharray:34;stroke-dashoffset:34}
+.ins-page.js .jc-verify.on .jc-verify__core svg path{animation:insJcTick 3.6s var(--ease) infinite}
+@keyframes insJcTick{0%{stroke-dashoffset:34}22%,74%{stroke-dashoffset:0}100%{stroke-dashoffset:34}}
+.ins-page .jc-verify i{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:16px;border:1px solid var(--orange);opacity:0}
+.ins-page.js .jc-verify.on i{animation:insJcVring 3.6s var(--ease) infinite}
+.ins-page.js .jc-verify.on i:nth-child(2){animation-delay:1.2s}
+.ins-page.js .jc-verify.on i:nth-child(3){animation-delay:2.4s}
+@keyframes insJcVring{0%{width:52px;height:52px;opacity:.65}100%{width:86px;height:86px;opacity:0}}
+
+/* ══ Policy accordion ══ */
+.ins-page .pol-wrap{position:relative;max-width:920px;margin:0 auto}
+.ins-page .pol-spine{position:absolute;left:-30px;top:6px;bottom:6px;width:2px;background:var(--line);overflow:hidden;border-radius:2px}
+.ins-page .pol-spine__fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(180deg,var(--orange),var(--orange-light))}
+.ins-page .pol-list{display:flex;flex-direction:column;gap:12px}
+.ins-page .pol{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;box-shadow:var(--shadow-sm);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .pol::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .pol:hover{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .pol.is-open{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .pol.is-open::before,.ins-page .pol:hover::before{transform:scaleY(1)}
+/* ghost numeral: the index, printed faintly behind the row */
+.ins-page .pol__ghost{position:absolute;top:2px;right:22px;font-size:5rem;font-weight:800;line-height:1;color:rgba(32,51,90,.05);letter-spacing:-.05em;pointer-events:none;transition:color .4s var(--ease);z-index:1}
+.ins-page .pol.is-open .pol__ghost{color:rgba(239,90,40,.10)}
+.ins-page .pol__head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 26px;background:none;border:none;cursor:pointer;font-family:var(--f);text-align:left;position:relative;z-index:2}
+/* motif: an audit scan crosses the row the moment it opens */
+.ins-page .pol__head::after{content:"";position:absolute;top:0;bottom:0;left:-28%;width:28%;background:linear-gradient(90deg,rgba(239,90,40,0),rgba(239,90,40,.14),rgba(239,90,40,0));opacity:0;pointer-events:none}
+.ins-page.js .pol.is-open .pol__head::after{animation:insJcRowScan 1s var(--ease) 1}
+@keyframes insJcRowScan{0%{left:-28%;opacity:1}100%{left:100%;opacity:0}}
+.ins-page .pol__tg{display:flex;align-items:center;gap:16px}
+.ins-page .pol__n{display:flex;align-items:center;justify-content:center;width:46px;height:46px;min-width:46px;border-radius:12px;background:var(--orange-soft);color:var(--orange);font-size:1.05rem;font-weight:800;line-height:1;transition:all .3s var(--ease)}
+.ins-page .pol:hover .pol__n,.ins-page .pol.is-open .pol__n{background:var(--orange);color:#fff}
+.ins-page .pol__t{font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.15;transition:color .25s var(--ease)}
+.ins-page .pol.is-open .pol__t{color:var(--orange)}
+.ins-page .pol__chev{flex-shrink:0;color:var(--muted);transition:transform .35s var(--ease),color .25s var(--ease)}
+.ins-page .pol__chev svg{width:20px;height:20px;display:block}
+.ins-page .pol.is-open .pol__chev{transform:rotate(180deg);color:var(--orange)}
+.ins-page .pol__body{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);position:relative;z-index:2}
+.ins-page .pol__inner{padding:2px 26px 26px 88px}
+.ins-page .pol__inner p{font-size:.95rem;color:var(--muted);line-height:1.7}
+.ins-page .pol__inner p+p{margin-top:14px}
+
+/* ══ Info panels (office / emergency / complaints) ══ */
+.ins-page .dual{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.ins-page .dual .head{margin-bottom:30px}
+.ins-page .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease)}
+.ins-page .panel+.panel{margin-top:22px}
+.ins-page .panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .panel:hover::before{transform:scaleY(1)}
+.ins-page .panel:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-6px)}
+.ins-page .panel__row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.ins-page .panel__ic{width:52px;height:52px;min-width:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;position:relative;transition:background .3s var(--ease),color .3s var(--ease)}
+.ins-page .panel:hover .panel__ic{background:var(--orange);color:#fff}
+.ins-page .panel__ic svg{width:25px;height:25px}
+.ins-page .panel h3{margin:0;flex:1}
+.ins-page .panel p{font-size:.95rem;color:var(--muted);line-height:1.7}
+.ins-page .panel p+p{margin-top:14px}
+.ins-page .panel a{color:var(--navy);font-weight:700;transition:color .25s var(--ease)}
+.ins-page .panel a:hover{color:var(--orange)}
+/* icon glyph draws itself in on entry; tile pops once as the card lands */
+.ins-page .panel.ic-on .panel__ic{animation:insJcIcPop .62s var(--ease) .05s 1}
+@keyframes insJcIcPop{0%{transform:scale(1)}42%{transform:scale(1.14)}100%{transform:scale(1)}}
+
+/* ── Panel micro-visuals (content-matched, gated on scroll-in) ── */
+.ins-page .jc-mv{width:44px;height:44px;min-width:44px;position:relative;flex:none}
+/* office hours: a sweeping clock hand */
+.ins-page .jc-mv--clock svg{width:44px;height:44px;color:var(--line);overflow:visible}
+.ins-page .jc-mv--clock .hand{transform-origin:22px 22px;color:var(--orange)}
+.ins-page.js .panel.on .jc-mv--clock .hand{animation:insJcSpin 6s linear infinite}
+@keyframes insJcSpin{to{transform:rotate(360deg)}}
+.ins-page .jc-mv--clock .arc{color:var(--orange);stroke-dasharray:96;stroke-dashoffset:96;opacity:.55}
+.ins-page.js .panel.on .jc-mv--clock .arc{animation:insJcArc 6s linear infinite}
+@keyframes insJcArc{0%{stroke-dashoffset:96}70%,100%{stroke-dashoffset:34}}
+/* continuity: a signal that keeps broadcasting (status dot + rings) */
+.ins-page .jc-mv--signal::before{content:"";position:absolute;inset:0;margin:auto;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px rgba(239,90,40,.8)}
+.ins-page .jc-mv--signal i{position:absolute;inset:0;margin:auto;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--orange);opacity:0}
+.ins-page.js .panel.on .jc-mv--signal i{animation:insJcRings 3s var(--ease) infinite}
+.ins-page.js .panel.on .jc-mv--signal i:nth-child(2){animation-delay:1s}
+.ins-page.js .panel.on .jc-mv--signal i:nth-child(3){animation-delay:2s}
+@keyframes insJcRings{0%{width:12px;height:12px;opacity:.75}100%{width:44px;height:44px;opacity:0}}
+/* complaint resolution: an escalation path stepping up (status dots) */
+.ins-page .jc-mv--path{display:flex;align-items:center;justify-content:center;gap:6px}
+.ins-page .jc-mv--path b{display:block;width:8px;height:8px;border-radius:50%;background:var(--line)}
+.ins-page.js .panel.on .jc-mv--path b{animation:insJcStep 2.7s var(--ease) infinite}
+.ins-page.js .panel.on .jc-mv--path b:nth-child(2){animation-delay:.35s}
+.ins-page.js .panel.on .jc-mv--path b:nth-child(3){animation-delay:.7s}
+@keyframes insJcStep{0%,72%,100%{background:var(--line);transform:scale(1)}18%,44%{background:var(--orange);transform:scale(1.35)}}
+
+/* ══ CTA band (navy) — ambient orbs, breathing glow, looping band video ══ */
+.ins-page .cta{background:var(--navy);color:#fff;text-align:center;position:relative;isolation:isolate;overflow:clip}
+.ins-page .cta__amb{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:clip}
+.ins-page .cta__orb{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(8px);opacity:.85;will-change:transform}   /* orb — allowed round */
+.ins-page .cta__orb--a{left:-160px;top:-140px;background:radial-gradient(circle,rgba(239,90,40,.16),rgba(239,90,40,0) 66%);animation:insJcDriftA 26s ease-in-out infinite alternate}
+.ins-page .cta__orb--b{right:-180px;bottom:-200px;background:radial-gradient(circle,rgba(255,122,77,.12),rgba(255,122,77,0) 66%);animation:insJcDriftB 32s ease-in-out infinite alternate}
+@keyframes insJcDriftA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(70px,54px,0) scale(1.12)}}
+@keyframes insJcDriftB{0%{transform:translate3d(0,0,0) scale(1.08)}100%{transform:translate3d(-64px,-46px,0) scale(1)}}
+.ins-page .cta__breath{position:absolute;top:50%;left:50%;width:800px;height:500px;margin:-250px 0 0 -400px;background:radial-gradient(circle,rgba(239,90,40,.14) 0%,rgba(239,90,40,0) 60%);pointer-events:none;z-index:-1}
+.ins-page.js .cta.on .cta__breath{animation:insJcBreathe 7s var(--ease) infinite}
+@keyframes insJcBreathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+/* LAYER 2 — looping band video behind the navy band (desktop / fine-pointer
+   only; built in JS from a URL constant). The navy holds at .86 so the
+   footage reads as texture, not a scene, and the brand surface stays navy. */
+.ins-page .cta__vid{position:absolute;inset:0;z-index:-2;overflow:hidden;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.ins-page .cta__vid.on{opacity:1}
+.ins-page .cta__vid video{position:absolute;left:50%;top:50%;width:100%;height:100%;transform:translate(-50%,-50%);object-fit:cover;filter:saturate(.9)}
+.ins-page .cta__vid::after{content:"";position:absolute;inset:0;background:rgba(32,51,90,.86)}
+.ins-page .cta .wrap{position:relative;z-index:1}
+.ins-page .cta h2{color:#fff;margin:16px 0 16px}
+.ins-page .cta h2 em{color:var(--orange-light)}
+.ins-page .cta p{color:rgba(255,255,255,.78);font-size:1.06rem;line-height:1.7;max-width:600px;margin:0 auto}
+.ins-page .cta .eyebrow{color:var(--orange-light)}
+.ins-page .cta__btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+
+/* ══ Scroll reveal (v2 contract) + kinetic clip-wipe headings ══ */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+.ins-page.js h1.reveal,.ins-page.js h2.reveal,.ins-page.js .reveal h1,.ins-page.js .reveal h2{clip-path:inset(0 105% -.2em 0);transition:clip-path 1.05s var(--ease),opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js h1.reveal.in,.ins-page.js h2.reveal.in,.ins-page.js .reveal.in h1,.ins-page.js .reveal.in h2{clip-path:inset(0 0 -.2em 0)}
+
+/* ══ Cursor-follow tilt + spotlight (policy rows and info panels) ══
+   Every family bound in the follow engine's SEL must appear in EVERY list
+   below, or the card lags / never moves (cascade rule 2). */
+.ins-page .pol,
+.ins-page .panel{position:relative;transform-style:preserve-3d}
+.ins-page .pol::after,
+.ins-page .panel::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .45s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page .pol.is-glow::after,
+.ins-page .panel.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition */
+.ins-page .pol.is-follow,
+.ins-page .panel.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page .pol.is-glow,
+.ins-page .panel.is-glow{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .ins-page .pol::after,
+  .ins-page .panel::after{display:none}
+}
+
+/* ══ Responsive (mobile rules AFTER base rules, always) ══ */
+@media(max-width:1200px){.ins-page .pol-spine{display:none}}
+@media(max-width:1024px){
+  .ins-page .dual{grid-template-columns:1fr}
+  .ins-page .jc-hero__grid{grid-template-columns:1fr;gap:48px}
+  .ins-page .jc-book-stage{order:-1}
+  .ins-page .jc-hero__copy{max-width:none}
+}
+/* mobile / coarse: the clip backs the HERO only (layer gates off past it), so
+   the Commitment statement gets a solid navy floor; band video is desktop-only */
+@media(max-width:1024px),(pointer:coarse){
+  .ins-page .jc-commit{background:var(--navy-deep)}
+  /* copy spans the full width here, so an even veil sits under it (the
+     left-fade gradient alone leaves the right fifth of the footage clean) */
+  .ins-page .jc-hero::after{display:block;background:rgba(0,0,0,.5)}
+  .ins-page .cta__vid{display:none}
+  .ins-page .jc-book__cover{background:rgba(22,34,63,.78);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:72px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .jc-hero{padding:104px 0 96px}
+  .ins-page .jc-hero h1 .jc-hero__l1{white-space:normal}
+  .ins-page .jc-hero__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .jc-hero__ctas .btn{width:100%;justify-content:center}
+  .ins-page .jc-hero__glow{width:600px;margin-left:-300px}
+  .ins-page .jc-book{width:230px;height:310px}
+  .ins-page .jc-book__title{font-size:1.4rem}
+  .ins-page .cta__btns{flex-direction:column;align-items:stretch}
+  .ins-page .cta__btns .btn{width:100%;justify-content:center}
+  .ins-page .cta__breath{width:520px;height:400px;margin:-200px 0 0 -260px}
+  .ins-page .panel{padding:34px 24px}
+  .ins-page .panel__row{flex-wrap:wrap}
+  .ins-page .pol__head{padding:18px 20px}
+  .ins-page .pol__inner{padding:2px 20px 22px 20px}
+  .ins-page .pol__tg{gap:13px}
+  .ins-page .pol__n{width:40px;height:40px;min-width:40px;font-size:.95rem}
+  .ins-page .pol__t{font-size:.98rem}
+  .ins-page .pol__ghost{font-size:3.6rem;right:16px}
+}
+@media(max-width:400px){
+  .ins-page .jc-mv{display:none}
+}
+
+/* ══ Motion off — freeze to the RESTING state, never the empty one ══ */
+@media(prefers-reduced-motion:reduce){
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page .cta__orb{animation:none}
+  .ins-page.js .reveal{opacity:1;transform:none;transition:none}
+  .ins-page.js h1.reveal,.ins-page.js h2.reveal,.ins-page.js .reveal h1,.ins-page.js .reveal h2{clip-path:none !important}
+  .ins-page.js .jc-book__cover::after,.ins-page.js .jc-book__seal::after,.ins-page.js .ins-scan.on::after,
+  .ins-page.js .jc-verify.on i,.ins-page.js .panel.on .jc-mv--signal i,.ins-page.js .panel.on .jc-mv--path b,
+  .ins-page.js .panel.on .jc-mv--clock .hand,.ins-page.js .panel.on .jc-mv--clock .arc,
+  .ins-page.js .jc-verify.on .jc-verify__core svg path,.ins-page.js .cta.on .cta__breath,
+  .ins-page.js .pol.is-open .pol__head::after,.ins-page .panel.ic-on .panel__ic{animation:none}
+  .ins-page .jc-verify__core svg path{stroke-dashoffset:0}
+  .ins-page .jc-mv--clock .arc{stroke-dashoffset:34}
+  .ins-page .pol-spine__fill{height:100%}
+  .ins-page .jc-book{transform:rotateY(-14deg) rotateX(3deg)}
+}
+</style>
+
+<div class="ins-page" id="insJcPage">
+<script>/* .js flag set PRE-PAINT so reveals start hidden without a no-JS flash */
+(function(){var w=document.getElementById('insJcPage');if(w)w.classList.add('js');})();</script>
+
+<!-- ══ LAYER 1 — SCROLL-SCRUBBED HERO SPAN VIDEO (src set in JS) ══ -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- ══ HERO ══ -->
+<div id="apHeroWrap">
+<section class="jc-hero" id="jc-policy">
+  <div class="jc-hero__glow" aria-hidden="true"></div>
+  <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="jc-hero__grid">
+      <div class="jc-hero__copy">
+        <span class="eyebrow reveal">Joint Commission Certified</span>
+        <h1 class="reveal d1"><span class="jc-hero__l1">Joint Commission</span> <span class="accent">Policy Statement</span></h1>
+        <p class="jc-hero__sub reveal d2">InSync Consulting Services is committed to providing a higher standard of service and to the delivery of safe, quality patient care. InSync Consulting Services complies with the Joint Commission's Standards for Healthcare Staffing Services.</p>
+        <div class="jc-hero__ctas reveal d3">
+          <a href="/healthcare-staffing/" class="btn btn-primary">View Healthcare Staffing
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/contact-us/" class="btn btn-ghost-w">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="jc-book-stage reveal d2" aria-hidden="true">
+        <div class="jc-book-inner">
+          <div class="jc-book">
+            <div class="jc-book__spine"></div>
+            <div class="jc-book__cover">
+              <div class="jc-book__seal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <div class="jc-book__meta">
+                <div class="jc-book__kicker">Certified Standards</div>
+                <div class="jc-book__title">Joint Commission Policy Statement</div>
+                <div class="jc-book__org">InSync Consulting Services</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="wrap"><div class="ins-scan reveal" aria-hidden="true"></div></div>
+
+<!-- ══ COMMITMENT INTRO — end of the scrub span ══ -->
+<section class="section jc-commit" id="jcCommit">
+  <div class="wrap">
+    <div class="jc-statement reveal">
+      <div class="jc-verify" aria-hidden="true">
+        <i></i><i></i><i></i>
+        <div class="jc-verify__core">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>
+        </div>
+      </div>
+      <span class="eyebrow">Our Commitment</span>
+      <h2>A Written Standard of <em>Accountability</em></h2>
+      <p class="lead">As our customer, you can have confidence that the processes within InSync Consulting Services support that the supplemental staff working in your organization have met the requirements established by the Joint Commission. To assure compliance with the Joint Commission Standards for Healthcare Staffing Services, InSync Consulting Services provides the customer a written description of the following service features.</p>
+    </div>
+  </div>
+</section>
+
+<!-- everything below paints above the fixed scrub layer -->
+<div class="ins-below">
+
+<!-- ══ 10 POLICY STANDARDS ══ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Policy Standards</span>
+      <h2>Service <em>Features</em> Overview</h2>
+      <p class="lead">Ten service features that define how InSync Consulting Services delivers compliant, accountable healthcare staffing.</p>
+    </div>
+
+    <div class="pol-wrap" id="jcPolWrap">
+      <div class="pol-spine" aria-hidden="true"><div class="pol-spine__fill" id="jcSpineFill"></div></div>
+      <div class="pol-list">
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">01</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">1</span><span class="pol__t">Subcontractors</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>InSync Consulting Services will not engage subcontractors to provide Assigned Providers unless agreed to in advance by the customer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">02</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">2</span><span class="pol__t">Floating</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>Assigned Providers may only be placed in assignments that match the job description for which InSync Consulting Services assigns them; if an Assigned Provider is asked to float to another department with the customer, the department must be a like department or unit and the float provider must have demonstrated previous competency and have the appropriate certifications, credentials for that department/unit. Assigned Providers should only be floated to areas of comparable clinical diagnoses and acuities.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">03</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">3</span><span class="pol__t">Competency Review</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>It is the responsibility of InSync Consulting Services to conduct and finalize the pre-employment assessment of the Assigned Provider's competence based on the techniques, procedures, technology and skills needed to provide care, treatment and services to the populations served by the customer upon completion of InSync Consulting Services' orientation.</p>
+            <p>It shall be the responsibility of the customer to cooperate in a review or evaluation of each Assigned Provider, relative to the provider's ability to perform specific job functions upon completion of provider's assignment or shift. InSync Consulting Services relies on the customer's feedback in order to accurately assess and re-assess the competence of the Assigned Provider on an ongoing basis based on the customer's report of clinical performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">04</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">4</span><span class="pol__t">Orientation of Providers</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>InSync Consulting Services will provide all new providers with an orientation to the company's policies and procedures. It shall be the responsibility of customer to orient assigned providers to the facility and its rules and regulations and to acquaint them with the facility policies and procedures, including dress code, physical layout and equipment and to validate competency and ability of Assigned Provider to properly use equipment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">05</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">5</span><span class="pol__t">Providers and Independent Contractors</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>As the provider of staffing services, InSync Consulting Services will be the employer of Assigned Providers and shall not by reason of their temporary assignment with the customer through InSync Consulting Services become providers of the customer. At its sole discretion InSync Consulting Services reserves the right to utilize Independent Contractors in addition to its providers, to assist in the provision of all agreed upon Healthcare Supplemental Staffing services.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">06</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">6</span><span class="pol__t">Incident, Error, Tracking System</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>Upon notification of Incidents and or Errors, InSync Consulting Services shall document and track all unexpected incidents, including errors, sentinel events and other events, such as injuries and safety hazards related to the care and services provided, utilizing its data gathering tools. Information gathered tracked and analyzed is to shared and reported appropriately to customers, regulatory bodies and the Joint Commission as required.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">07</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">7</span><span class="pol__t">Communicating Occupational Safety Hazards/Events</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>It shall be the responsibility of the customer to notify InSync Consulting Services within 24 hours of the event; any competency issues, incidents, and/or complaints related to the Assigned Provider and/or InSync Consulting Services Customer agrees to initiate communication with InSync Consulting Services whenever an incident/injury report related to the Assigned Provider is completed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">08</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">8</span><span class="pol__t">Requirements for Staff Specified</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>The requirements of staff sent to the customer by InSync Consulting Services are to be determined by the customer as part of the written agreement between the two parties. It is InSync Consulting Services' obligation to comply with the requirements of the customer by supplying staff that have the documented competencies, credentials, health screening and experience to satisfy the requirements specified by the customer in order to deliver safe care to the population being served.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">09</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">9</span><span class="pol__t">Conflicts of Interest</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>InSync Consulting Services to the best of its ability identifies conflicts of interest. InSync Consulting Services discloses all conflicts of interest to its clients. InSync Consulting Services annually reviews its relationships and its healthcare providers' relationships with vendors, clients, competitors and regulatory entities to determine conflicts of interest.</p>
+            <p>When conflicts of interest arise InSync Consulting Services discloses this conflict of interest when appropriate to whichever client may be involved or affected. InSync Consulting Services enforces that internal employees of InSync Consulting Services are not permitted to maintain additional employment, accept gifts (other than those of nominal value) or to allow payment on their behalf of any travel, living or entertainment expense by any person or organization currently doing business with or seeking to conduct business with InSync Consulting Services, unless approved by the client involved or potentially involved.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pol reveal">
+        <div class="pol__ghost" aria-hidden="true">10</div>
+        <button type="button" class="pol__head" aria-expanded="false">
+          <span class="pol__tg"><span class="pol__n">10</span><span class="pol__t">Staff Matching Requirements</span></span>
+          <span class="pol__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pol__body">
+          <div class="pol__inner">
+            <p>InSync Consulting Services shall verify the Assigned Provider's licensure, certification, education and work experience to assure they are competent and possess the skills and experience that match requirements for the assignment. Matching the Assigned Provider's licensure, certification, education and work experience to assure they are competent and possess the skills and experience matching the specified requirements of the assignment may include the use of new grad practitioners upon the request or approval of the customer.</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OFFICE, EMERGENCY & COMPLAINTS ══ -->
+<section class="section">
+  <div class="wrap">
+    <div class="dual">
+
+      <div>
+        <div class="head reveal">
+          <span class="eyebrow">Office Information</span>
+          <h2>Office Hours &amp; <em>Emergency Contact</em></h2>
+        </div>
+
+        <div class="panel reveal d1">
+          <div class="panel__row">
+            <div class="panel__ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Roseville, CA Office</h3>
+            <div class="jc-mv jc-mv--clock" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <circle cx="22" cy="22" r="17"/>
+                <circle class="arc" cx="22" cy="22" r="17" stroke="currentColor" stroke-dasharray="96" transform="rotate(-90 22 22)"/>
+                <path class="hand" d="M22 22V11" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <p>The InSync Consulting Services office, located in the Roseville, CA is open Monday through Friday from the hours of 8:00 a.m. – 5:00 p.m. Our local telephone number is <a href="tel:9162442085">(916) 244-2085</a>. Outside of normal business hours, in the event of an emergency please contact us at <a href="tel:9162442085">(916) 244-2085</a>.</p>
+        </div>
+
+        <div class="panel reveal d2">
+          <div class="panel__row">
+            <div class="panel__ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>Emergency &amp; Disaster Continuity</h3>
+            <div class="jc-mv jc-mv--signal" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <p>In the event of an emergency, natural disaster or other uncontrollable event, InSync Consulting Services will continue to provide service to you through our corporate network form a location where phones and computers are functional. InSync Consulting Services will do everything possible to support you in meeting your needs during crisis situation(s). A copy of our Emergency Management Plan is available upon request.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="head reveal d1">
+          <span class="eyebrow">Complaint Resolution</span>
+          <h2>Service Standards &amp; <em>Reporting</em></h2>
+        </div>
+
+        <div class="panel reveal d2">
+          <div class="panel__row">
+            <div class="panel__ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <h3>How to Resolve a Concern</h3>
+            <div class="jc-mv jc-mv--path" aria-hidden="true"><b></b><b></b><b></b></div>
+          </div>
+          <p>Our goal is to always provide you with a consistent level of service. If for any reason you are dissatisfied with our service or the service provided by one of our healthcare professionals, we encourage you to contact the local manager to discuss the issue. InSync Consulting Services has processes in place to resolve customer complaints in an effective and efficient manner.</p>
+          <p>If the resolution does not meet your expectation, we encourage you to call the InSync Consulting Services corporate office at <a href="tel:9162442085">(916) 244-2085</a>. A corporate representative will work with you to resolve your concern.</p>
+          <p>Any individual or organization that has a concern about the quality and safety of patient care delivered by InSync Consulting Services healthcare professionals, which has not been addressed by InSync Consulting Services management, is encouraged to contact the Joint Commission at <a href="https://www.jointcommission.org" target="_blank" rel="noopener">www.jointcommission.org</a> or by calling the Office of Quality Monitoring at <a href="tel:6307925636">(630) 792-5636</a>.</p>
+          <p>InSync Consulting Services demonstrates this commitment by taking no retaliatory or disciplinary action against providers when they do report safety or quality of care concerns to the Joint Commission.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BAND ══ -->
+<section class="section cta" id="jcCta">
+  <div class="cta__vid" id="jcBandVid" aria-hidden="true"></div>
+  <div class="cta__amb" aria-hidden="true"><span class="cta__orb cta__orb--a"></span><span class="cta__orb cta__orb--b"></span></div>
+  <div class="cta__breath" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Work With Us</span>
+    <h2 class="reveal d1">Ready to Work With a Joint Commission <em>Certified</em> Staffing Agency?</h2>
+    <p class="reveal d2">Contact our team today — we're here to support your facility with fully compliant, credentialed healthcare professionals.</p>
+    <div class="cta__btns reveal d3">
+      <a href="/contact-us/" class="btn btn-white">Contact Our Team
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/healthcare-staffing/" class="btn btn-ghost-w">View Healthcare Staffing</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.ins-below -->
+</div><!-- /.ins-page -->
+
+<script>
+(function(){
+  'use strict';
+  var root=document.getElementById('insJcPage');
+  if(!root)return;
+  root.classList.add('js');
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── v2 reveal contract: threshold:0 + bottom rootMargin (ratio thresholds
+        starve on tall blocks), JS sibling stagger (70ms, capped .35s, authored
+        d1-d5 left alone), above-fold release, ON-SCREEN-ONLY safety net, and a
+        scroll sweep for fast flicks. ── */
+  var els=[].slice.call(root.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)||reduced){
+    els.forEach(function(e){e.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+    },{threshold:0,rootMargin:'0px 0px -12% 0px'});
+    els.forEach(function(e){io.observe(e);});
+
+    var DELAYED=/(^|\s)d[1-5](\s|$)/, seen=[];
+    els.forEach(function(el){
+      var p=el.parentElement;
+      if(!p||seen.indexOf(p)!==-1)return;
+      seen.push(p);
+      var kids=[].slice.call(p.children).filter(function(c){
+        return c.classList&&c.classList.contains('reveal')&&!DELAYED.test(c.className);
+      });
+      if(kids.length<2)return;
+      kids.forEach(function(c,i){ c.style.transitionDelay=Math.min(i*0.07,0.35).toFixed(2)+'s'; });
+    });
+
+    requestAnimationFrame(function(){
+      els.forEach(function(el){ if(el.getBoundingClientRect().top<window.innerHeight*0.92)el.classList.add('in'); });
+    });
+    setTimeout(function(){
+      els.forEach(function(el){
+        var r=el.getBoundingClientRect();
+        if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('in');
+      });
+    },2500);
+
+    var sweepRaf=0;
+    function sweep(){
+      sweepRaf=0;
+      var left=root.querySelectorAll('.reveal:not(.in)');
+      for(var i=0;i<left.length;i++){
+        if(left[i].getBoundingClientRect().top<window.innerHeight*0.92)left[i].classList.add('in');
+      }
+      if(!root.querySelectorAll('.reveal:not(.in)').length)window.removeEventListener('scroll',onSweep);
+    }
+    function onSweep(){ if(!sweepRaf)sweepRaf=requestAnimationFrame(sweep); }
+    window.addEventListener('scroll',onSweep,{passive:true});
+  }
+
+  /* ── Looping visuals: gate on scroll-in, idle off-screen ── */
+  var loops=root.querySelectorAll('.panel,.jc-verify,.ins-scan,.cta');
+  if('IntersectionObserver' in window){
+    var lio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.target.classList.toggle('on',e.isIntersecting); });
+    },{threshold:.08});
+    [].forEach.call(loops,function(el){lio.observe(el);});
+  }else{
+    [].forEach.call(loops,function(el){el.classList.add('on');});
+  }
+
+  /* ── Panel icons draw themselves in on entry (lengths MEASURED, never
+        hardcoded); tile pops once as the card lands ── */
+  var panels=[].slice.call(root.querySelectorAll('.panel'));
+  if(!reduced){
+    panels.forEach(function(card){
+      [].forEach.call(card.querySelectorAll('.panel__ic svg > *'),function(sh){
+        var len=0; try{ len=sh.getTotalLength?sh.getTotalLength():0; }catch(e){ len=0; }
+        if(!len)return;
+        sh.style.strokeDasharray=len; sh.style.strokeDashoffset=len;
+      });
+    });
+  }
+  function drawIc(card){
+    if(card.getAttribute('data-ic-on'))return;
+    card.setAttribute('data-ic-on','1');
+    card.classList.add('ic-on');
+    if(reduced)return;
+    [].forEach.call(card.querySelectorAll('.panel__ic svg > *'),function(sh,i){
+      if(!sh.style.strokeDasharray)return;
+      sh.style.transition='stroke-dashoffset .95s cubic-bezier(.4,0,.2,1) '+(i*110)+'ms';
+      sh.style.strokeDashoffset='0';
+    });
+  }
+  if('IntersectionObserver' in window&&!reduced){
+    var pio=new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(!e.isIntersecting)return; drawIc(e.target); pio.unobserve(e.target); });
+    },{threshold:0,rootMargin:'0px 0px -12% 0px'});
+    panels.forEach(function(c){pio.observe(c);});
+    setTimeout(function(){
+      panels.forEach(function(c){ var r=c.getBoundingClientRect(); if(r.top<window.innerHeight&&r.bottom>0)drawIc(c); });
+    },2500);
+  }else{ panels.forEach(drawIc); }
+
+  /* ── Policy accordion: one open at a time ── */
+  var pols=[].slice.call(root.querySelectorAll('.pol'));
+  pols.forEach(function(pol){
+    var head=pol.querySelector('.pol__head'),body=pol.querySelector('.pol__body');
+    if(!head||!body)return;
+    head.addEventListener('click',function(){
+      var wasOpen=pol.classList.contains('is-open');
+      pols.forEach(function(p){
+        p.classList.remove('is-open');
+        var b=p.querySelector('.pol__body'),h=p.querySelector('.pol__head');
+        if(b)b.style.maxHeight='';
+        if(h)h.setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){
+        pol.classList.add('is-open');
+        body.style.maxHeight=body.scrollHeight+'px';
+        head.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  window.addEventListener('resize',function(){
+    var open=root.querySelector('.pol.is-open .pol__body');
+    if(open)open.style.maxHeight=open.scrollHeight+'px';
+  },{passive:true});
+
+  /* ── Policy index spine fills with reading progress ── */
+  var wrap=document.getElementById('jcPolWrap'),fill=document.getElementById('jcSpineFill');
+  if(wrap&&fill&&!reduced){
+    var spineOn=false,ticking=false;
+    var draw=function(){
+      var r=wrap.getBoundingClientRect(),vh=window.innerHeight;
+      var p=(vh*0.72-r.top)/Math.max(r.height,1);
+      p=p<0?0:(p>1?1:p);
+      fill.style.height=(p*100).toFixed(2)+'%';
+      ticking=false;
+    };
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ spineOn=es[0].isIntersecting; if(spineOn)draw(); },{threshold:0}).observe(wrap);
+    }else{spineOn=true;}
+    window.addEventListener('scroll',function(){
+      if(spineOn&&!ticking){ticking=true;requestAnimationFrame(draw);}
+    },{passive:true});
+    draw();
+  }else if(fill){ fill.style.height='100%'; }
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* HERO: drifting brand squares + spring-damped mouse parallax (homepage
+     engine). Scene moves AGAINST the cursor; depth order, most-to-least travel:
+     squares > copy > book > background video. Fine pointers, motion-safe. */
+  var hero=document.getElementById('jc-policy');
+  if(!hero)return;
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse=window.matchMedia('(pointer: coarse)').matches;
+
+  if(!reduced){
+    var ew=document.getElementById('apEmbers');
+    if(ew){
+      for(var i=0;i<8;i++){
+        var e=document.createElement('span');
+        e.className='ins-sq-ember';
+        e.style.setProperty('--x',(4+Math.random()*92)+'%');
+        e.style.setProperty('--sz',(5+Math.random()*6).toFixed(1)+'px');
+        e.style.setProperty('--t',(11+Math.random()*9).toFixed(1)+'s');
+        e.style.setProperty('--dl',(-Math.random()*18).toFixed(1)+'s');
+        e.style.setProperty('--swx',((Math.random()*120)-60).toFixed(0)+'px');
+        e.style.setProperty('--rot',(90+Math.random()*220).toFixed(0)+'deg');
+        e.style.setProperty('--op',(0.12+Math.random()*0.14).toFixed(2));
+        e.style.setProperty('--sq-c',(i%2?'var(--navy-2)':'var(--orange)'));
+        ew.appendChild(e);
+      }
+    }
+  }
+
+  if(!coarse&&!reduced&&window.innerWidth>1024){
+    var pCopy=hero.querySelector('.jc-hero__copy');
+    var pBook=hero.querySelector('.jc-book-inner');
+    var pGlow=hero.querySelector('.jc-hero__glow');
+    var pEmbers=document.getElementById('apEmbers');
+    var scrubPar=document.getElementById('apScrubPar');
+
+    var tx=0,ty=0,x=0,y=0,vx=0,vy=0;
+    var live=true,still=0;
+    var lastT=performance.now();
+    var mag=1,scrollDamp=1;
+
+    function calcMag(){ mag=Math.max(.55,Math.min(1.15,window.innerWidth/1600)); }
+    calcMag();
+    window.addEventListener('resize',calcMag);
+
+    function calcScroll(){ scrollDamp=Math.max(0,1-(window.scrollY/(window.innerHeight*.7))); }
+    calcScroll();
+    window.addEventListener('scroll',function(){ calcScroll(); live=true; still=0; },{passive:true});
+
+    hero.addEventListener('mousemove',function(ev){
+      var r=hero.getBoundingClientRect();
+      var nx=(ev.clientX-r.left)/r.width-.5;
+      var ny=(ev.clientY-r.top)/Math.min(r.height,window.innerHeight)-.5;
+      tx=Math.sign(nx)*Math.pow(Math.min(1,Math.abs(nx)*2),1.2)*.72;
+      ty=Math.sign(ny)*Math.pow(Math.min(1,Math.abs(ny)*2),1.2)*.72;
+      live=true; still=0;
+    });
+    hero.addEventListener('mouseleave',function(){ tx=0; ty=0; live=true; still=0; });
+
+    var STIFF=46,DAMP=12.5;
+    function frame(now){
+      var dt=Math.min(.05,(now-lastT)/1000)||.016; lastT=now;
+      var gx=tx*scrollDamp,gy=ty*scrollDamp;
+      vx+=(gx-x)*STIFF*dt; vx*=Math.exp(-DAMP*dt);
+      vy+=(gy-y)*STIFF*dt; vy*=Math.exp(-DAMP*dt);
+      x+=vx*dt; y+=vy*dt;
+      if(live){
+        if(pEmbers)pEmbers.style.transform='translate3d('+(-x*60*mag)+'px,'+(-y*40*mag)+'px,0)';
+        if(pCopy)  pCopy.style.transform  ='translate3d('+(-x*44*mag)+'px,'+(-y*30*mag)+'px,0)';
+        if(pBook)  pBook.style.transform  ='translate3d('+(-x*26*mag)+'px,'+(-y*18*mag)+'px,0) rotateY('+(-x*6).toFixed(2)+'deg) rotateX('+(y*6).toFixed(2)+'deg)';
+        if(pGlow)  pGlow.style.transform  ='translate3d('+(x*30*mag)+'px,'+(y*20*mag)+'px,0)';
+        if(scrubPar)scrubPar.style.transform='translate3d('+(-x*30*mag)+'px,'+(-y*20*mag)+'px,0)';
+        if(Math.abs(gx-x)<.0005&&Math.abs(gy-y)<.0005&&Math.abs(vx)<.001&&Math.abs(vy)<.001){
+          if(++still>30)live=false;
+        }else{ still=0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+/* LAYER 1 — scroll-SCRUBBED hero span video (homepage engine). Desktop: the
+   playhead is driven by scroll, frame 1 at the top of the page and the last
+   frame at the bottom of the Commitment statement, eased each rAF. Mobile /
+   touch: muted autoplay loop behind the HERO only. Reduced motion: frame 1.
+   Media URL is a JS runtime constant (immune to GHL attribute corruption). */
+(function(){
+  'use strict';
+  var wrap=document.getElementById('apScrub');
+  var vid =document.getElementById('apScrubVid');
+  var root=document.getElementById('insJcPage');
+  if(!wrap||!vid)return;
+
+  var AP_SCRUB_VIDEO_URL='https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6abfbc520edabbe5a499a1ad.mp4';
+  vid.src=AP_SCRUB_VIDEO_URL;
+
+  var shade=wrap.querySelector('.ins-scrub__shade');
+  var grad =wrap.querySelector('.ins-scrub__grad');
+
+  /* decode guard: if the clip refuses to load, drop the layer permanently and
+     give the hero its standard photo backdrop instead of a gradient over nothing */
+  var dead=false;
+  vid.addEventListener('error',function(){
+    dead=true; wrap.classList.remove('is-on'); wrap.style.display='none';
+    if(root)root.classList.add('ins-novid');
+  });
+
+  /* the span runs scrollY 0 -> the BOTTOM of the Commitment statement */
+  function scrubEnd(){
+    var sec=document.getElementById('jcCommit');
+    if(sec){ var r=sec.getBoundingClientRect(); if(r.height>0)return r.top+window.scrollY+r.height; }
+    return window.innerHeight;
+  }
+  /* absolute top of the second spanned section = bottom of the hero */
+  function sectionTop(){
+    var h=document.getElementById('apHeroWrap');
+    if(h){ var r=h.getBoundingClientRect(); if(r.height>0)return r.top+window.scrollY+r.height; }
+    return window.innerHeight;
+  }
+  /* Hero shows the video under the left-fade gradient only; across the hero's
+     last 72vh (smoothstep) the gradient goes out and the flat .80 shade comes
+     in. The two layers do NOT sum linearly, so the gradient opacity is solved
+     each frame to hold the copy-side composite steady from .84 to .80:
+     1-(1-GA*g)(1-SA*e) = T. No mid-transition lightening dip. */
+  function updateShade(){
+    if(!shade)return;
+    var vh=window.innerHeight,y=window.scrollY;
+    var endY=sectionTop(),startY=endY-vh*0.72;
+    var t=(y-startY)/(endY-startY);
+    if(t<0)t=0; if(t>1)t=1;
+    var e=t*t*(3-2*t);
+    shade.style.opacity=String(e);
+    if(grad){
+      var GA=0.84,SA=0.80;
+      var T=GA+(SA-GA)*e;
+      var den=1-SA*e;
+      var g=den>0.0001?(1-(1-T)/den)/GA:0;
+      if(g<0)g=0; if(g>1)g=1;
+      grad.style.opacity=String(g);
+    }
+  }
+  window.addEventListener('scroll',updateShade,{passive:true});
+  window.addEventListener('resize',updateShade);
+  updateShade();
+
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   =window.matchMedia&&window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch  =('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+  var canScrub=fine&&!touch&&!reduced;
+
+  /* ---- NON-SCRUB fallbacks ---- */
+  if(!canScrub){
+    if(!dead)wrap.classList.add('is-on');
+    if(reduced){
+      vid.removeAttribute('autoplay'); vid.pause();
+      vid.addEventListener('loadeddata',function(){ try{vid.currentTime=0;}catch(e){} vid.pause(); });
+    }else{
+      vid.loop=true; vid.autoplay=true; vid.muted=true; vid.setAttribute('autoplay','');
+      var pl=function(){ var q=vid.play(); if(q&&q.catch)q.catch(function(){}); };
+      vid.addEventListener('loadeddata',pl); pl();
+      /* mobile: the clip backs the HERO only; release the decoder early so a
+         later video (iOS single-stream limit) is never refused */
+      var mraf=0;
+      var mspan=function(){
+        mraf=0;
+        if(dead)return;
+        var vh=window.innerHeight,end=sectionTop();
+        var hidden=window.scrollY>end+4;
+        var release=window.scrollY>end-vh*0.75;
+        wrap.classList.toggle('is-on',!hidden);
+        if(release){ if(!vid.paused)vid.pause(); }
+        else if(vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll',function(){ if(!mraf)mraf=requestAnimationFrame(mspan); },{passive:true});
+      window.addEventListener('resize',mspan);
+      mspan();
+    }
+    return;
+  }
+
+  /* ---- DESKTOP: scrub currentTime from scroll ---- */
+  vid.loop=false; vid.autoplay=false; vid.pause();
+  var dur=0,ready=false,target=0,raf=0;
+  var lastSeekStart=0,slowSeeks=false;
+
+  function onMeta(){ dur=vid.duration||0; ready=dur>0; if(!dead)wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata',onMeta);
+  vid.addEventListener('loadeddata',function(){ if(!ready)onMeta(); });
+  vid.addEventListener('seeked',function(){ slowSeeks=(performance.now()-lastSeekStart)>80; schedule(); });
+
+  function computeTarget(){
+    var end=scrubEnd(),y=window.scrollY;
+    var p=end>0?(y/end):0;
+    if(p<0)p=0; if(p>1)p=1;
+    if(!dead){ if(y>end+4)wrap.classList.remove('is-on'); else wrap.classList.add('is-on'); }
+    return p*dur;
+  }
+  function tick(){
+    raf=0;
+    if(ready){
+      target=computeTarget();
+      var cur=vid.currentTime||0,diff=target-cur;
+      if(Math.abs(diff)<0.008){ /* settled */ }
+      else if(!vid.seeking){
+        var next=slowSeeks?target:(cur+diff*0.28);
+        lastSeekStart=performance.now();
+        try{ vid.currentTime=next; }catch(e){}
+      }
+      if(Math.abs(target-(vid.currentTime||0))>0.008)schedule();
+    }
+  }
+  function schedule(){ if(!raf)raf=requestAnimationFrame(tick); }
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  schedule();
+})();
+</script>
+
+<script>
+/* LAYER 2 — looping band video behind the navy CTA band. Plain looping
+   playback, toggled by a viewport-centre probe against the band's own bounds.
+   The <video> is built from a URL constant so GHL can't corrupt a src
+   attribute. Decode guard keeps the band solid navy on failure.
+   Desktop / fine-pointer only. */
+(function(){
+  'use strict';
+  var wrap=document.getElementById('jcBandVid');
+  var band=document.getElementById('jcCta');
+  if(!wrap||!band)return;
+
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   =window.matchMedia&&window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch  =('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+  if(!fine||touch||reduced)return;
+
+  var AP_BAND_VIDEO_URL='https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a7e4c5fa6a03cda06e91528.mp4';
+
+  var vid=document.createElement('video');
+  vid.muted=true; vid.loop=true; vid.playsInline=true; vid.preload='auto';
+  vid.setAttribute('muted',''); vid.setAttribute('playsinline','');
+  vid.src=AP_BAND_VIDEO_URL;
+  wrap.appendChild(vid);
+
+  var dead=false;
+  vid.addEventListener('error',function(){ dead=true; wrap.classList.remove('on'); wrap.style.display='none'; });
+
+  function play(){ var q=vid.play(); if(q&&q.catch)q.catch(function(){}); }
+  vid.addEventListener('loadeddata',play);
+
+  var raf=0;
+  function probe(){
+    raf=0;
+    if(dead)return;
+    var r=band.getBoundingClientRect();
+    var inside=r.bottom>0&&r.top<window.innerHeight;
+    if(inside){ wrap.classList.add('on'); if(vid.paused)play(); }
+    else{ wrap.classList.remove('on'); if(!vid.paused)vid.pause(); }
+  }
+  function schedule(){ if(!raf)raf=requestAnimationFrame(probe); }
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  schedule();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the policy rows and the info panels (homepage engine):
+     the card tilts toward the pointer and an orange spotlight tracks it.
+     Spring-damped; delegated from the document with WeakMap state so a node
+     GHL re-renders after load still responds. Fine pointers only. */
+  var mq=window.matchMedia;
+  if(mq&&(mq('(prefers-reduced-motion: reduce)').matches||mq('(hover: none)').matches||mq('(pointer: coarse)').matches))return;
+  var SEL='.ins-page .pol, .ins-page .panel';
+  var STIFF=70,DAMP=13,MAX_RX=6,MAX_RY=8;
+
+  var states=(typeof WeakMap==='function')?new WeakMap():null;
+  var stateList=[];
+
+  function stateFor(el){
+    var st=states?states.get(el):null;
+    if(!st&&!states){
+      for(var i=0;i<stateList.length;i++){ if(stateList[i].el===el){ st=stateList[i]; break; } }
+    }
+    if(st)return st;
+    st=mkState(el);
+    if(states)states.set(el,st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st={el:el,tx:0,ty:0,x:0,y:0,vx:0,vy:0,hover:false,raf:0,last:0};
+    function frame(now){
+      st.raf=0;
+      var dt=Math.min(0.05,(now-(st.last||now))/1000); st.last=now;
+      var ax=STIFF*(st.tx-st.x)-DAMP*st.vx;
+      var ay=STIFF*(st.ty-st.y)-DAMP*st.vy;
+      st.vx+=ax*dt; st.vy+=ay*dt;
+      st.x+=st.vx*dt; st.y+=st.vy*dt;
+      var rx=-st.y*MAX_RX,ry=st.x*MAX_RY;
+      var sc=st.hover?1.012:1;
+      var lift=st.hover?' translateY(-4px)':'';
+      el.style.transform='perspective(1000px) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg)'+lift+' scale('+sc.toFixed(3)+')';
+      var moving=Math.abs(st.tx-st.x)>0.002||Math.abs(st.ty-st.y)>0.002||Math.abs(st.vx)>0.002||Math.abs(st.vy)>0.002;
+      if(st.hover||moving){ st.raf=requestAnimationFrame(frame); }
+      else{
+        el.style.transform='';
+        el.classList.remove('is-follow');
+        st.last=0;
+      }
+    }
+    st.schedule=function(){ if(!st.raf)st.raf=requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){ var st=stateFor(el); st.hover=true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule(); }
+  function leave(el){ var st=stateFor(el); st.hover=false; st.tx=0; st.ty=0; el.classList.remove('is-glow'); st.schedule(); }
+  function track(el,e){
+    var st=stateFor(el);
+    var r=el.getBoundingClientRect();
+    if(!r.width||!r.height)return;
+    var px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    st.tx=(px-0.5)*2; st.ty=(py-0.5)*2;
+    el.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+    el.style.setProperty('--my',(py*100).toFixed(1)+'%');
+    st.schedule();
+  }
+
+  var current=null;
+  function onMove(e){
+    var t=e.target;
+    var el=(t&&t.closest)?t.closest(SEL):null;
+    if(!el&&t){
+      var n=t.parentNode;
+      while(n&&n.nodeType===1&&!el){
+        if(n.matches&&n.matches(SEL))el=n;
+        n=n.parentNode;
+      }
+    }
+    if(el!==current){
+      if(current)leave(current);
+      current=el;
+      if(el)enter(el);
+    }
+    if(el)track(el,e);
+  }
+
+  document.addEventListener('mousemove',onMove,{passive:true});
+  document.addEventListener('mouseleave',function(){ if(current){ leave(current); current=null; } });
+  window.addEventListener('scroll',function(){
+    if(current){
+      var r=current.getBoundingClientRect();
+      if(r.bottom<0||r.top>window.innerHeight){ leave(current); current=null; }
+    }
+  },{passive:true});
+})();
+</script>
+<!-- ============== END JOINT COMMISSION POLICY STATEMENT BODY ============== -->

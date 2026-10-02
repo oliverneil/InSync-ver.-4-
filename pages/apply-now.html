@@ -1,0 +1,1701 @@
+<!-- ================================================================
+     INSYNC — APPLY NOW PAGE BODY (GoHighLevel custom code block)
+     InSync Website Standards v1.0 skin + Motion Standards v1.0 engines.
+     Copy carried verbatim from the approved Apply Now page.
+     Paste between the InSync navigation block and footer block,
+     in a full-width section with section/row/column padding = 0.
+     MOTION (desktop, fine pointer, motion-safe):
+       • Fixed scroll-scrubbed hero video (Layer 1) spanning the hero
+         through the bottom of the sector section, centred-copy veil,
+         compensated gradient→flat-shade cross-fade (GA .84 / SA .80).
+       • Wonder hero: pre-paint zoom entrance, spring-damped cursor
+         parallax (squares, then copy, then video), scroll morph across 82vh.
+       • v2 reveal contract + kinetic clip-wipe headings.
+       • Sector cards: accent bar / shadow lift / cursor-follow tilt +
+         spotlight, icon stroke-draw, attract cycle until a pick is made.
+       • Apply body: GHL-safe manual sidebar pin (no sticky), 24hrs
+         count-up, checklist deal-in + glow loop, form panel slide-in.
+     Off-desktop / coarse / reduced-motion: hero returns to flow, clip
+     loops muted behind the hero only (frozen frame 1 under reduced
+     motion), every engine freezes to its RESTING state.
+     GHL-safe: no sticky, no root tokens, overflow:clip, media URLs in
+     JS constants, images via the WebP proxy, .js flag set PRE-PAINT.
+     ⚠ Forms post to GHL webhook PLACEHOLDER URLs — replace before
+       go-live (see GHL WEBHOOK PLACEHOLDER comment in the script).
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+.ins-page{
+--orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+--orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+--navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+--ink:#1b2746;--text:#3c4350;--muted:#6b7280;
+--white:#fff;--bg-alt:#f5f7fa;--line:#e7eaef;
+--f:'Plus Jakarta Sans',system-ui,sans-serif;
+--shadow-sm:0 2px 14px rgba(22,34,63,.06);
+--shadow:0 18px 48px rgba(22,34,63,.12);
+--shadow-orange:0 16px 40px rgba(239,90,40,.28);
+--ease:cubic-bezier(.22,1,.36,1);
+font-family:var(--f);color:var(--text);background:var(--white);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page button{font-family:var(--f)}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px;line-height:1.7}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── Hero (photo background + overlay, centered — JC page style) ── */
+.ins-page .hero{position:relative;background:var(--navy-deep);color:#fff;padding:130px 0 120px;overflow:hidden;text-align:center}
+.ins-page .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.8);z-index:1}
+.ins-page .hero .wrap{position:relative;z-index:2}
+.ins-page .hero__inner{max-width:760px;margin:0 auto}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero h1{color:#fff;margin:16px 0 18px}
+.ins-page .hero h1 .accent{color:var(--orange)}
+.ins-page .hero__sub{font-size:1.12rem;color:rgba(255,255,255,.78);max-width:560px;margin:0 auto 32px}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+/* ── Sector selector ── */
+.ins-page .sector{background:var(--bg-alt);padding-bottom:36px}
+.ins-page .sector .head{margin-bottom:44px;max-width:900px}
+.ins-page .sector .head .lead{max-width:none}
+.ins-page .sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ins-page .sec-card{position:relative;overflow:hidden;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px;cursor:pointer;transition:all .3s var(--ease);display:flex;flex-direction:column;gap:16px}
+.ins-page .sec-card:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent}
+.ins-page .sec-card__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ease)}
+.ins-page .sec-card:hover .sec-card__ic{background:var(--orange);color:#fff}
+.ins-page .sec-card__ic svg{width:25px;height:25px}
+.ins-page .sec-card h3{font-size:1.05rem;margin-bottom:0;transition:color .3s var(--ease)}
+.ins-page .sec-card__sub{font-size:.82rem;color:var(--muted);line-height:1.7;margin-top:5px;transition:color .3s var(--ease)}
+.ins-page .sec-card__pill{display:none;align-items:center;gap:6px;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;padding:4px 14px;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-light);width:fit-content}
+.ins-page .sec-card__pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.ins-page .sec-card.is-active{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow);transform:translateY(-4px)}
+.ins-page .sec-card.is-active .sec-card__ic{background:var(--orange);color:#fff}
+.ins-page .sec-card.is-active h3{color:#fff}
+.ins-page .sec-card.is-active .sec-card__sub{color:rgba(255,255,255,.6)}
+.ins-page .sec-card.is-active .sec-card__pill{display:flex}
+
+/* ── Apply body ── */
+.ins-page .apply{background:var(--bg-alt);padding-top:36px}
+.ins-page .apply .wrap{display:grid;grid-template-columns:360px 1fr;gap:26px;align-items:start}
+.ins-page .apply__photo{position:relative;border-radius:18px;overflow:hidden;height:300px;margin-bottom:26px;box-shadow:var(--shadow)}
+.ins-page .apply__photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.ins-page .apply__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(22,34,63,.85) 0%,rgba(22,34,63,.25) 50%,transparent 100%)}
+.ins-page .apply__badge{position:absolute;bottom:20px;left:20px;z-index:2;background:var(--orange);border-radius:12px;padding:12px 18px;box-shadow:var(--shadow-orange)}
+.ins-page .apply__badge strong{font-size:1.6rem;font-weight:800;color:#fff;display:block;line-height:1;letter-spacing:-.03em}
+.ins-page .apply__badge span{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:4px}
+.ins-page .apply__why{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow-sm)}
+.ins-page .apply__why h3{margin-bottom:10px}
+.ins-page .apply__why ul{list-style:none;display:grid;gap:10px;margin-top:18px}
+.ins-page .apply__why li{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--text);line-height:1.7}
+.ins-page .apply__why li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:9px}
+.ins-page .apply__trust{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:flex-start;gap:9px}
+.ins-page .apply__trust svg{width:17px;height:17px;color:var(--orange);flex-shrink:0;margin-top:2px}
+.ins-page .apply__trust span{font-size:.78rem;color:var(--muted);line-height:1.7}
+
+/* Prompt (empty state) */
+.ins-page .apply__prompt{background:#fff;border:2px dashed var(--line);border-radius:20px;padding:64px 40px;text-align:center;box-shadow:var(--shadow-sm);scroll-margin-top:88px}
+.ins-page .apply__prompt-ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.ins-page .apply__prompt-ic svg{width:25px;height:25px}
+.ins-page .apply__prompt h3{margin-bottom:10px}
+.ins-page .apply__prompt p{font-size:.92rem;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto}
+
+/* Form panel */
+.ins-page .fpanel{background:#fff;border-radius:20px;padding:40px;border:1px solid var(--line);box-shadow:var(--shadow);scroll-margin-top:88px}
+.ins-page .fhead{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.ins-page .fhead__tag{display:inline-block;background:var(--orange-soft);border:1px solid var(--orange-soft2);border-radius:50px;padding:4px 14px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.ins-page .fhead h3{font-size:1.5rem;margin-bottom:10px}
+.ins-page .fhead p{font-size:.9rem;color:var(--muted);line-height:1.7}
+.ins-page .fg{margin-bottom:14px}
+.ins-page .fg label{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ins-page .fg label .req{color:var(--orange);margin-left:2px}
+.ins-page .fg input[type=text],.ins-page .fg input[type=email],.ins-page .fg input[type=tel],.ins-page .fg select,.ins-page .fg textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-family:var(--f);font-size:1rem;color:var(--text);outline:none;transition:border-color .25s var(--ease),box-shadow .25s var(--ease);appearance:none;-webkit-appearance:none}
+.ins-page .fg textarea{min-height:104px;line-height:1.6;resize:vertical}
+.ins-page .fg input:focus,.ins-page .fg select:focus,.ins-page .fg textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.ins-page .fg input::placeholder,.ins-page .fg textarea::placeholder{color:var(--muted)}
+.ins-page .fg .opt{font-weight:500;color:var(--muted);font-size:.72rem;margin-left:4px}
+.ins-page .fg-select{position:relative}
+.ins-page .fg-select::after{content:"";position:absolute;right:15px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--muted);pointer-events:none}
+.ins-page .f2col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+/* Upload */
+.ins-page .fupload{border:2px dashed var(--line);border-radius:10px;padding:20px 16px;text-align:center;cursor:pointer;position:relative;transition:border-color .25s var(--ease),background .25s var(--ease)}
+.ins-page .fupload:hover,.ins-page .fupload.has-file{border-color:var(--orange);background:var(--orange-soft)}
+.ins-page .fupload input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.ins-page .fupload__ic{display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.ins-page .fupload__ic svg{width:24px;height:24px;color:var(--orange)}
+.ins-page .fupload__txt{font-size:.82rem;color:var(--muted);line-height:1.7}
+.ins-page .fupload__txt strong{color:var(--ink);font-weight:700}
+.ins-page .fupload__hint{font-size:.7rem;color:var(--muted);margin-top:3px;line-height:1.7}
+.ins-page .fupload__name{font-size:.8rem;color:var(--orange);font-weight:600;margin-top:6px;display:none}
+/* Checkbox */
+.ins-page .fcheck{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:10px;background:var(--bg-alt);border:1px solid var(--line);margin-bottom:18px}
+.ins-page .fcheck input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:3px;accent-color:var(--orange);cursor:pointer}
+.ins-page .fcheck label{font-size:.8rem;color:var(--muted);line-height:1.7;cursor:pointer}
+.ins-page .fcheck label a{color:var(--navy);font-weight:600;text-decoration:underline}
+.ins-page .fcheck label a:hover{color:var(--orange)}
+/* Radio */
+.ins-page .fradio{display:flex;gap:16px;margin-top:4px}
+.ins-page .fradio label{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:400;color:var(--text);margin-bottom:0}
+.ins-page .fradio input[type=radio]{accent-color:var(--orange);width:16px;height:16px;cursor:pointer}
+/* Submit */
+.ins-page .fsubmit-wrap{margin-top:24px}
+.ins-page .fsubmit{width:100%;justify-content:center}
+.ins-page .fsubmit:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
+.ins-page .fnote{font-size:.7rem;color:var(--muted);line-height:1.7;margin-top:14px;text-align:center}
+.ins-page .ferr{color:var(--orange-dark);font-size:.85rem;text-align:center;margin-top:12px}
+/* Success */
+.ins-page .fsuccess{display:none;text-align:center;padding:48px 24px}
+.ins-page .fsuccess__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.ins-page .fsuccess__ic svg{width:25px;height:25px}
+.ins-page .fsuccess h3{margin-bottom:10px}
+.ins-page .fsuccess p{font-size:.92rem;color:var(--muted);line-height:1.7;max-width:380px;margin:0 auto}
+@keyframes insSpin{to{transform:rotate(360deg)}}
+
+/* ── Scroll reveal ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+.ins-page .hero{padding:104px 0 96px}
+.ins-page .sector-grid{grid-template-columns:1fr 1fr}
+.ins-page .apply .wrap{grid-template-columns:1fr}
+.ins-page .apply__photo{height:220px}
+}
+@media(max-width:760px){
+.ins-page .section{padding:72px 0}
+/* keep the picker + form reading as one continuous block on mobile */
+.ins-page .sector{padding-top:60px;padding-bottom:28px}
+.ins-page .apply{padding-top:28px;padding-bottom:64px}
+.ins-page .wrap{padding:0 20px}
+.ins-page .hero{padding:82px 0 68px}
+.ins-page .hero__sub{font-size:1.04rem}
+.ins-page .hero__ctas{flex-direction:column;align-items:stretch}
+.ins-page .hero__ctas .btn{width:100%;justify-content:center}
+.ins-page .sector-grid{grid-template-columns:1fr;gap:14px}
+.ins-page .sec-card{padding:22px 20px;gap:13px}
+.ins-page .head{margin-bottom:36px}
+.ins-page .sector .head{margin-bottom:34px}
+.ins-page .fpanel{padding:28px 20px}
+.ins-page .fhead h3{font-size:1.3rem}
+.ins-page .f2col{grid-template-columns:1fr;gap:0}
+.ins-page .apply__prompt{padding:44px 22px}
+.ins-page .apply__photo{height:200px}
+.ins-page .fradio input[type=radio]{width:18px;height:18px}
+.ins-page .fcheck{padding:14px 14px}
+}
+@media(max-width:420px){
+.ins-page .hero{padding:66px 0 56px}
+.ins-page .hero h1{font-size:clamp(2rem,10vw,2.4rem)}
+.ins-page .btn{padding:14px 20px;font-size:.9rem}
+.ins-page .fpanel{padding:24px 16px}
+.ins-page .sec-card__ic{width:46px;height:46px}
+.ins-page .apply__badge{padding:10px 14px}
+.ins-page .apply__badge strong{font-size:1.4rem}
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MOTION LAYER (insync-motion-standards v1.0) — everything below is
+   the shipped homepage's motion machinery riding on the light skin
+   above. Engines are byte-for-byte the reference's; only ids, the
+   card families and the section anchors differ.
+   ════════════════════════════════════════════════════════════════ */
+
+/* page root: clip (never overflow-x hidden) + isolated stacking context */
+.ins-page{position:relative;overflow:clip;isolation:isolate}
+
+/* ── Kinetic clip-wipe headings (left→right); padding-bottom = descender room ── */
+.ins-page h1.cw,.ins-page h2.cw{padding-bottom:.09em}
+.ins-page.js .cw{clip-path:inset(0 105% 0 0);transition:clip-path 1.05s cubic-bezier(.16,1,.3,1),opacity .9s var(--ease),transform .9s var(--ease)}
+.ins-page.js .cw.in{clip-path:inset(0 0 0 0)}
+
+/* ══ LAYER 1 — fixed scroll-scrubbed video (hero → bottom of the sector
+   section). Hero shows the clip under the constant veil; a flat black shade
+   ramps in across the last 72vh before the sector section and holds. The
+   layer always paints navy-deep so the hero never sits on white while the
+   clip loads; .is-on gates the <video> itself. ══ */
+.ins-page .ins-scrub{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--navy-deep)}
+.ins-page .ins-scrub__par{position:absolute;inset:0;will-change:transform}
+.ins-page .ins-scrub__vid{position:absolute;left:50%;top:50%;width:114%;height:114%;transform:translate(-50%,-50%);object-fit:cover;will-change:transform;opacity:0;transition:opacity .5s ease;filter:contrast(1.06) saturate(1.08) brightness(.93)}   /* extra size = parallax room; grade richens high-key footage */
+.ins-page .ins-scrub.is-on .ins-scrub__vid{opacity:1}
+/* CENTRED-COPY veil: the reference's left-weighted band is re-shaped for this
+   page's centred hero — full strength (.84 = GA) across the middle 40%, one
+   continuous ease out to the edges, plus the top fade for high-key footage.
+   Peak alpha .84 is load-bearing: the cross-fade engine's GA constant equals it. */
+.ins-page .ins-scrub__grad{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.32) 0%,rgba(0,0,0,.14) 22%,rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.30) 0%,rgba(0,0,0,.42) 8%,rgba(0,0,0,.56) 15%,rgba(0,0,0,.68) 21%,rgba(0,0,0,.77) 26%,rgba(0,0,0,.82) 29%,rgba(0,0,0,.84) 31%,
+    rgba(0,0,0,.84) 69%,rgba(0,0,0,.82) 71%,rgba(0,0,0,.77) 74%,rgba(0,0,0,.68) 79%,rgba(0,0,0,.56) 85%,rgba(0,0,0,.42) 92%,rgba(0,0,0,.30) 100%)}
+.ins-page .ins-scrub__shade{position:absolute;inset:0;opacity:0;background:rgba(0,0,0,.80)}
+
+/* ══ Wonder hero — the light hero as a fixed full-viewport morph scene.
+   Base = fixed; the same media that turns the morph script off returns it
+   to normal flow (phones / coarse pointers / reduced motion). ══ */
+.ins-page .hero--wonder{position:fixed;inset:0;height:100svh;z-index:40;will-change:opacity,transform;display:flex;align-items:center;padding:0;background:transparent}
+.ins-page .hero--wonder::before,.ins-page .hero--wonder::after{display:none}   /* photo + veil slots are the scrub layer */
+.ins-page .hero--wonder .wrap{position:relative;z-index:2}
+@media (min-width:1025px) and (pointer:fine){
+  .ins-page .hero--wonder .wrap{padding-top:132px}       /* clear the fixed 120px nav */
+}
+.ins-page .hero--wonder .hero__copy{max-width:760px;margin:0 auto;will-change:transform}
+.ins-page .hero__scene{width:100%}
+.ins-page .ins-fadespacer{height:100svh}                  /* runway the fixed hero fades across */
+/* clip refused (.ins-novid set by the scrub engine): no background image on
+   this hero by direction, so the fallback floor is solid navy-deep */
+.ins-page.ins-novid .hero--wonder{background:var(--navy-deep)}
+@media (max-width:1024px),(prefers-reduced-motion:reduce),(pointer:coarse){
+  .ins-page .hero--wonder{position:relative;inset:auto;height:auto;z-index:auto;display:block;padding:104px 0 96px}
+  .ins-page .ins-fadespacer{display:none}
+}
+
+/* everything after the hero paints above the fixed scrub layer */
+.ins-page .sector{position:relative;z-index:10}
+.ins-page .ins-below{position:relative;z-index:10;background:var(--bg-alt)}
+/* Desktop (fine pointer, motion allowed): the sector section is TRANSPARENT
+   over the scrubbed backdrop under the black shade — head goes white, the
+   light cards read on the dimmed footage. Mobile / reduced motion: its own
+   light-alt band as authored. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .sector{background:transparent}
+  .ins-page .sector .head h2{color:#fff}
+  .ins-page .sector .head .lead{color:rgba(255,255,255,.62)}
+  .ins-page .sector .eyebrow{color:var(--orange-light)}
+}
+
+/* ── page-load entrance (donor mechanics: snap into a zoomed state pre-paint,
+   transition out on load; hero copy holds, then releases) ── */
+.ins-page .hero--wonder.ap-enter #apHeroS1{transform:scale(1.12) !important;opacity:.5 !important;transition:none !important}
+.ins-page .hero--wonder.ap-entering #apHeroS1{transition:transform 1.7s cubic-bezier(.16,.84,.28,1),opacity 1.2s ease !important}
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{opacity:0 !important;transform:translateY(24px) !important}
+.ins-page .hero--wonder.ap-reveal-hero .reveal{opacity:1 !important;transform:none !important}
+
+/* ── drifting brand squares (orange + navy-2 squares only; rule 2 allows no
+   decorative circles) ── */
+.ins-page .hero__sqembers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.ins-page .ins-sq-ember{position:absolute;bottom:-3%;width:var(--sz,7px);height:var(--sz,7px);border-radius:22%;left:var(--x,50%);background:var(--sq-c,var(--orange));opacity:0;animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite}
+@keyframes insSqDrift{
+  0%{transform:translate3d(0,2vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op,.2)}
+  85%{opacity:var(--op,.2)}
+  100%{transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg));opacity:0}
+}
+
+/* ══ Sector cards — the three hover languages ══ */
+/* 1 — orange accent bar wipes down */
+.ins-page .sec-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .sec-card:hover::before,.ins-page .sec-card.is-active::before,.ins-page .sec-card.is-hot::before{transform:scaleY(1)}
+/* 2 — shadow lift (authored in the skin above); attract-cycle state shares it */
+.ins-page .sec-card.is-hot{box-shadow:var(--shadow);border-color:transparent}
+.ins-page .sec-card.is-hot .sec-card__ic{background:var(--orange);color:#fff}
+.ins-page .sec-card.is-active .sec-card__ic{animation:insIcoPop .5s var(--ease)}
+@keyframes insIcoPop{0%{transform:scale(1)}45%{transform:scale(1.14) rotate(-4deg)}100%{transform:scale(1)}}
+/* icon stroke-draw on entry (lengths measured at runtime by the icon engine) */
+.ins-page .sec-card__ic svg [stroke-dasharray]{stroke-dashoffset:var(--dash,0)}
+.ins-page .sec-card.draw .sec-card__ic svg [stroke-dasharray]{animation:insIcoDraw .68s cubic-bezier(.65,0,.35,1) forwards}
+.ins-page .sec-card.draw .sec-card__ic svg [stroke-dasharray]:nth-child(2){animation-delay:.1s}
+.ins-page .sec-card.draw .sec-card__ic svg [stroke-dasharray]:nth-child(3){animation-delay:.2s}
+.ins-page .sec-card.draw .sec-card__ic svg [stroke-dasharray]:nth-child(4){animation-delay:.3s}
+@keyframes insIcoDraw{from{stroke-dashoffset:var(--dash,0)}to{stroke-dashoffset:0}}
+
+/* ══ Apply body ══ */
+/* GHL-safe sidebar pin: sticky positioning silently breaks under GHL's overflow
+   ancestors. The aside stretches to the row height; JS pins .apply__pin inside
+   it (absolute top → fixed while scrolling → absolute bottom). No spacer. */
+.ins-page .apply__side{position:relative;align-self:stretch}
+.ins-page .apply__pin{display:block}
+/* stat count-up sits on tabular figures so the digits don't jitter */
+.ins-page .apply__badge strong{font-variant-numeric:tabular-nums}
+/* "Why apply" checklist: dots deal in one-by-one, then a soft sequential
+   glow loops while the card is in view (resting state = every dot present) */
+.ins-page .apply__why li::before{transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .3s var(--ease),box-shadow .3s var(--ease)}
+.ins-page.js .apply__why li::before{transform:scale(0)}
+.ins-page.js .apply__why li.tk::before{transform:scale(1)}
+.ins-page.js .apply__why li.hl::before{transform:scale(1.5);background:var(--orange-light);box-shadow:0 0 0 4px var(--orange-soft2)}
+/* form panel slides in when a sector loads it */
+.ins-page .fpanel.is-show{animation:insPanelIn .55s var(--ease) both}
+@keyframes insPanelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* panel anchors clear the fixed 120px nav */
+.ins-page .fpanel,.ins-page .apply__prompt{scroll-margin-top:140px}
+
+/* ══ cursor-follow tilt + spotlight (spring-driven per frame by the follow
+   engine). EVERY family bound in JS appears in EVERY list below. ══ */
+.ins-page #choose-sector .sec-card,
+.ins-page .apply__why{position:relative;transform-style:preserve-3d}
+.ins-page #choose-sector .sec-card::after,
+.ins-page .apply__why::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .45s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(239,90,40,.16),rgba(239,90,40,0) 62%)}
+.ins-page #choose-sector .sec-card.is-glow::after,
+.ins-page .apply__why.is-glow::after{opacity:1}
+/* while the spring drives transform, only box-shadow may transition — the
+   reveal's own transform transition would otherwise lag the follow */
+.ins-page #choose-sector .sec-card.is-follow,
+.ins-page .apply__why.is-follow{transition:box-shadow .45s ease !important;transition-delay:0s !important}
+.ins-page #choose-sector .sec-card.is-glow,
+.ins-page .apply__why.is-glow{box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .ins-page #choose-sector .sec-card::after,
+  .ins-page .apply__why::after{display:none}
+}
+
+/* ══ Mobile overrides (after every base rule above) ══ */
+@media(max-width:1024px){
+  .ins-page .apply__side{align-self:auto}
+  .ins-page .apply__pin{position:static !important;width:auto !important;left:auto !important;top:auto !important;bottom:auto !important}
+}
+@media(max-width:760px){
+  .ins-page .hero--wonder{padding:82px 0 68px}
+}
+@media(max-width:420px){
+  .ins-page .hero--wonder{padding:66px 0 56px}
+}
+
+/* ══ GATES — declared LAST. animation: shorthands above reset
+   animation-play-state, so the pause/freeze rules must win by source order.
+   Reduced motion freezes to the RESTING state, never the empty one. ══ */
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{transform:none !important;opacity:1 !important}
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{opacity:1 !important;transform:none !important}
+  .ins-page .ins-sq-ember{animation:none;display:none}
+  .ins-page.js .reveal,.ins-page.js .cw{transition:none;opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+  .ins-page .sec-card__ic svg [stroke-dasharray]{stroke-dashoffset:0 !important;animation:none !important}
+  .ins-page .sec-card.is-active .sec-card__ic{animation:none !important}
+  .ins-page .fpanel.is-show{animation:none}
+  .ins-page.js .apply__why li::before,.ins-page.js .apply__why li.hl::before{transform:scale(1);background:var(--orange);box-shadow:none;transition:none}
+  .ins-page .sec-card,.ins-page .sec-card__ic,.ins-page .btn{transition:none}
+}
+</style>
+
+<div class="ins-page" id="apPage">
+<script>(function(){var w=document.getElementById('apPage'); if(w) w.classList.add('js');})();</script>
+
+<!-- LAYER 1 — fixed scroll-scrubbed background video (hero → bottom of the
+     sector section). Source is set from a JS runtime constant. -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<!-- ═══════════ HERO — fixed full-viewport Wonder morph scene; copy is the
+     light page's verbatim, riding the entrance / parallax / morph ═══════════ -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__copy">
+        <span class="eyebrow reveal">Join Our Talent Network</span>
+        <h1 class="reveal cw d1">Find Your <span class="accent">Next Role</span></h1>
+        <p class="hero__sub reveal d2">Select your sector below and complete a short application. Our recruiters will follow up within 24 hours to match you with the right opportunity.</p>
+        <div class="hero__ctas reveal d3">
+          <a href="#choose-sector" class="btn btn-primary">Start Your Application
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://nexus-leap.laboredge.com/insync/jobs" target="_blank" rel="noopener" class="btn btn-ghost-w">Browse Jobs
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- ═══════════ SECTOR SELECTOR ═══════════ -->
+<section class="section sector" id="choose-sector">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Step 1 — Choose Your Sector</span>
+      <h2 class="reveal cw">Which <em>sector</em> fits your&nbsp;background?</h2>
+      <p class="lead">Choose one of the four sectors below to load the right application form for your background.</p>
+    </div>
+    <div class="sector-grid reveal">
+
+      <button type="button" class="sec-card" data-sector="education" onclick="insSelectSector('education')">
+        <div class="sec-card__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.2 2.7 3 6 3s6-1.8 6-3v-5"/><line x1="22" y1="10" x2="22" y2="15"/></svg>
+        </div>
+        <div>
+          <h3>Educational Quick Application</h3>
+          <div class="sec-card__sub">Special Ed Teachers, SLP, Therapists, Para-professionals, etc.</div>
+        </div>
+        <div class="sec-card__pill">Selected</div>
+      </button>
+
+      <button type="button" class="sec-card" data-sector="healthcare" onclick="insSelectSector('healthcare')">
+        <div class="sec-card__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h3>Healthcare Quick Application</h3>
+          <div class="sec-card__sub">Nursing, Allied Health, Therapy, and Locums</div>
+        </div>
+        <div class="sec-card__pill">Selected</div>
+      </button>
+
+      <button type="button" class="sec-card" data-sector="commercial" onclick="insSelectSector('commercial')">
+        <div class="sec-card__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <div>
+          <h3>Commercial Quick Application</h3>
+          <div class="sec-card__sub">Administrative, Call Center, Warehouse, Fork Lift, Finance, etc.</div>
+        </div>
+        <div class="sec-card__pill">Selected</div>
+      </button>
+
+      <button type="button" class="sec-card" data-sector="eor" onclick="insSelectSector('eor')">
+        <div class="sec-card__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg>
+        </div>
+        <div>
+          <h3>EOR/Payroll Quick Application</h3>
+          <div class="sec-card__sub">Employer of Record, Payroll Services</div>
+        </div>
+        <div class="sec-card__pill">Selected</div>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<div class="ins-below">
+<!-- ═══════════ APPLY BODY ═══════════ -->
+<section class="section apply alt">
+  <div class="wrap">
+
+    <!-- Sidebar (GHL-safe manual pin — see .apply__side notes) -->
+    <aside class="apply__side" id="apSide">
+      <div class="apply__pin" id="apSidePin">
+      <div class="apply__photo reveal">
+        <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_800/u_https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6479b70d5cc8ce6f69d0af62.jpeg" alt="InSync team helping candidates find their next role" loading="lazy">
+        <div class="apply__badge">
+          <strong>24hrs</strong>
+          <span>Recruiter follow-up</span>
+        </div>
+      </div>
+      <div class="apply__why reveal">
+        <h3>Why Apply with InSync?</h3>
+        <ul>
+          <li>Joint Commission Certified — the highest standard in healthcare staffing</li>
+          <li>Dedicated recruiter assigned to your application</li>
+          <li>Access to positions across 50+ states</li>
+          <li>Competitive pay, benefits &amp; housing allowances</li>
+          <li>SDVOSB &amp; DVBE certified — veteran-owned and operated</li>
+          <li>Specialized in travel, permanent, and contract placements</li>
+        </ul>
+        <div class="apply__trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Your information is confidential and never shared without your consent.</span>
+        </div>
+      </div>
+      </div><!-- /apply__pin -->
+    </aside>
+
+    <!-- Form panels -->
+    <div class="apply__forms reveal d1">
+
+      <!-- Prompt (default empty state) -->
+      <div id="applyPrompt" class="apply__prompt">
+        <div class="apply__prompt-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Select Your Sector</h3>
+        <p>Choose one of the four sectors above to load the right application form for your background.</p>
+      </div>
+
+      <!-- ══ EDUCATIONAL FORM ══ -->
+      <div id="form-education" class="fpanel" style="display:none;">
+        <div class="fhead">
+          <div class="fhead__tag">Educational Staffing</div>
+          <h3>Educational Quick Application</h3>
+          <p>Special Ed Teachers, SLP, Therapists, Para-professionals, etc.</p>
+        </div>
+
+        <div id="success-education" class="fsuccess">
+          <div class="fsuccess__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Application Received!</h3>
+          <p>A dedicated education recruiter will contact you within 24 hours to discuss opportunities matching your background.</p>
+        </div>
+
+        <form id="educationForm" novalidate>
+          <div class="f2col">
+            <div class="fg">
+              <label for="ed_first">First Name <span class="req">*</span></label>
+              <input type="text" id="ed_first" name="first_name" placeholder="First name" required>
+            </div>
+            <div class="fg">
+              <label for="ed_last">Last Name <span class="req">*</span></label>
+              <input type="text" id="ed_last" name="last_name" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="ed_email">Email Address <span class="opt">(optional)</span></label>
+            <input type="email" id="ed_email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="fg">
+
+            <label for="ed_phone">Phone Number <span class="opt">(optional)</span></label>
+            <input type="tel" id="ed_phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="fg">
+            <label for="ed_role">Position / Role <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="ed_role" name="specialty">
+                <option value="" disabled selected>Select your position or role</option>
+                <option>Special Education Teacher</option>
+                <option>Speech-Language Pathologist (SLP)</option>
+                <option>Therapist</option>
+                <option>Para-professional</option>
+                <option>School Psychologist</option>
+                <option>Counselor</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="ed_exp">Years of Experience <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="ed_exp" name="years_experience">
+                <option value="" disabled selected>Select years of experience</option>
+                <option>New Graduate</option>
+                <option>1&ndash;3 years</option>
+                <option>4&ndash;6 years</option>
+                <option>7&ndash;10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Upload Resume <span class="opt">(optional)</span></label>
+            <div class="fupload" id="ed-upload-wrap">
+              <input type="file" id="ed_resume" name="resume" accept=".pdf,.doc,.docx" onchange="insHandleFile('ed_resume','ed-upload-wrap','ed-file-name')">
+              <div class="fupload__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+              <div class="fupload__txt"><strong>Click to upload</strong> or drag &amp; drop</div>
+              <div class="fupload__hint">.PDF, .DOC, .DOCX — Max 10MB</div>
+              <div class="fupload__name" id="ed-file-name"></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="ed_about">Feel free to tell us about yourself <span class="opt">(optional)</span></label>
+            <textarea id="ed_about" name="about" placeholder="Share anything you'd like us to know &mdash; availability, goals, or a bit about your experience."></textarea>
+          </div>
+          <div class="fcheck">
+            <input type="checkbox" id="ed_terms" name="terms" required>
+            <label for="ed_terms">I agree to the <a href="/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a> and consent to InSync Consulting Services contacting me regarding job opportunities.</label>
+          </div>
+          <div class="fsubmit-wrap">
+            <button type="submit" class="btn btn-primary fsubmit" id="ed-submit-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              Submit Educational Application
+            </button>
+            <p class="fnote">Your information is encrypted and kept strictly confidential. We never sell your data.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- ══ HEALTHCARE FORM ══ -->
+      <div id="form-healthcare" class="fpanel" style="display:none;">
+        <div class="fhead">
+          <div class="fhead__tag">Healthcare Staffing</div>
+          <h3>Healthcare Quick Application</h3>
+          <p>Nursing, Allied Health, Therapy, and Locums</p>
+        </div>
+
+        <div id="success-healthcare" class="fsuccess">
+          <div class="fsuccess__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Application Received!</h3>
+          <p>A dedicated healthcare recruiter will contact you within 24 hours to discuss opportunities matching your specialty.</p>
+        </div>
+
+        <form id="healthcareForm" novalidate>
+          <div class="f2col">
+            <div class="fg">
+              <label for="hc_first">First Name <span class="req">*</span></label>
+              <input type="text" id="hc_first" name="first_name" placeholder="First name" required>
+            </div>
+            <div class="fg">
+              <label for="hc_last">Last Name <span class="req">*</span></label>
+              <input type="text" id="hc_last" name="last_name" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="hc_email">Email Address <span class="opt">(optional)</span></label>
+            <input type="email" id="hc_email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="fg">
+            <label for="hc_phone">Phone Number <span class="opt">(optional)</span></label>
+            <input type="tel" id="hc_phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="fg">
+            <label for="hc_specialty">Specialty <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="hc_specialty" name="specialty">
+                <option value="" disabled selected>Select your specialty</option>
+                <option>Nursing</option>
+                <option>Allied Health</option>
+                <option>Therapy</option>
+                <option>Locums</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Are you a US Citizen?</label>
+            <div class="fradio">
+              <label><input type="radio" name="us_citizen" value="Yes"> Yes</label>
+              <label><input type="radio" name="us_citizen" value="No"> No</label>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="hc_exp">Years of Experience <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="hc_exp" name="years_experience">
+                <option value="" disabled selected>Select years of experience</option>
+                <option>New Graduate</option>
+                <option>1&ndash;3 years</option>
+                <option>4&ndash;6 years</option>
+                <option>7&ndash;10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Upload Resume <span class="opt">(optional)</span></label>
+            <div class="fupload" id="hc-upload-wrap">
+              <input type="file" id="hc_resume" name="resume" accept=".pdf,.doc,.docx" onchange="insHandleFile('hc_resume','hc-upload-wrap','hc-file-name')">
+              <div class="fupload__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+              <div class="fupload__txt"><strong>Click to upload</strong> or drag &amp; drop</div>
+              <div class="fupload__hint">.PDF, .DOC, .DOCX — Max 10MB</div>
+              <div class="fupload__name" id="hc-file-name"></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="hc_about">Feel free to tell us about yourself <span class="opt">(optional)</span></label>
+            <textarea id="hc_about" name="about" placeholder="Share anything you'd like us to know &mdash; availability, goals, or a bit about your experience."></textarea>
+          </div>
+          <div class="fcheck">
+            <input type="checkbox" id="hc_terms" name="terms" required>
+            <label for="hc_terms">I agree to the <a href="/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a> and consent to InSync Consulting Services contacting me regarding job opportunities.</label>
+          </div>
+          <div class="fsubmit-wrap">
+            <button type="submit" class="btn btn-primary fsubmit" id="hc-submit-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              Submit Healthcare Application
+            </button>
+            <p class="fnote">Your information is encrypted and kept strictly confidential. We never sell your data.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- ══ COMMERCIAL FORM ══ -->
+      <div id="form-commercial" class="fpanel" style="display:none;">
+        <div class="fhead">
+          <div class="fhead__tag">Commercial Staffing</div>
+          <h3>Commercial Quick Application</h3>
+          <p>Administrative, Call Center, Warehouse, Fork Lift, Finance, etc.</p>
+        </div>
+
+        <div id="success-commercial" class="fsuccess">
+          <div class="fsuccess__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Application Received!</h3>
+          <p>A recruiter will reach out within 24 hours to discuss available commercial staffing opportunities.</p>
+        </div>
+
+        <form id="commercialForm" novalidate>
+          <div class="f2col">
+            <div class="fg">
+              <label for="cm_first">First Name <span class="req">*</span></label>
+              <input type="text" id="cm_first" name="first_name" placeholder="First name" required>
+            </div>
+            <div class="fg">
+              <label for="cm_last">Last Name <span class="req">*</span></label>
+              <input type="text" id="cm_last" name="last_name" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="cm_email">Email Address <span class="opt">(optional)</span></label>
+            <input type="email" id="cm_email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="fg">
+            <label for="cm_phone">Phone Number <span class="opt">(optional)</span></label>
+            <input type="tel" id="cm_phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="fg">
+            <label for="cm_skill">Primary Skill / Area <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="cm_skill" name="specialty">
+                <option value="" disabled selected>Select your primary skill or area</option>
+                <option>Administrative</option>
+                <option>Call Center</option>
+                <option>Warehouse</option>
+                <option>Fork Lift</option>
+                <option>Finance</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="cm_exp">Years of Experience <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="cm_exp" name="years_experience">
+                <option value="" disabled selected>Select years of experience</option>
+                <option>New Graduate</option>
+                <option>1&ndash;3 years</option>
+                <option>4&ndash;6 years</option>
+                <option>7&ndash;10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Upload Resume <span class="opt">(optional)</span></label>
+            <div class="fupload" id="cm-upload-wrap">
+              <input type="file" id="cm_resume" name="resume" accept=".pdf,.doc,.docx" onchange="insHandleFile('cm_resume','cm-upload-wrap','cm-file-name')">
+              <div class="fupload__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+              <div class="fupload__txt"><strong>Click to upload</strong> or drag &amp; drop</div>
+              <div class="fupload__hint">.PDF, .DOC, .DOCX — Max 10MB</div>
+              <div class="fupload__name" id="cm-file-name"></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="cm_about">Feel free to tell us about yourself <span class="opt">(optional)</span></label>
+            <textarea id="cm_about" name="about" placeholder="Share anything you'd like us to know &mdash; availability, goals, or a bit about your experience."></textarea>
+          </div>
+          <div class="fcheck">
+            <input type="checkbox" id="cm_terms" name="terms" required>
+            <label for="cm_terms">I agree to the <a href="/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a> and consent to InSync Consulting Services contacting me regarding job opportunities.</label>
+          </div>
+          <div class="fsubmit-wrap">
+            <button type="submit" class="btn btn-primary fsubmit" id="cm-submit-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              Submit Commercial Application
+            </button>
+            <p class="fnote">Your information is encrypted and kept strictly confidential. We never sell your data.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- ══ EOR / PAYROLL FORM ══ -->
+      <div id="form-eor" class="fpanel" style="display:none;">
+        <div class="fhead">
+          <div class="fhead__tag">EOR / Payroll</div>
+          <h3>EOR/Payroll Quick Application</h3>
+          <p>For workers seeking Employer of Record services, payroll management</p>
+        </div>
+
+        <div id="success-eor" class="fsuccess">
+          <div class="fsuccess__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Application Received!</h3>
+          <p>Our EOR team will contact you within 24 hours to discuss your employer of record and payroll needs.</p>
+        </div>
+
+        <form id="eorForm" novalidate>
+          <div class="f2col">
+            <div class="fg">
+              <label for="eor_first">First Name <span class="req">*</span></label>
+              <input type="text" id="eor_first" name="first_name" placeholder="First name" required>
+            </div>
+            <div class="fg">
+              <label for="eor_last">Last Name <span class="req">*</span></label>
+              <input type="text" id="eor_last" name="last_name" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="eor_email">Email Address <span class="opt">(optional)</span></label>
+            <input type="email" id="eor_email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="fg">
+            <label for="eor_phone">Phone Number <span class="opt">(optional)</span></label>
+            <input type="tel" id="eor_phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="fg">
+            <label for="eor_exp">Years of Experience <span class="opt">(optional)</span></label>
+            <div class="fg-select">
+              <select id="eor_exp" name="years_experience">
+                <option value="" disabled selected>Select years of experience</option>
+                <option>New Graduate</option>
+                <option>1&ndash;3 years</option>
+                <option>4&ndash;6 years</option>
+                <option>7&ndash;10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Upload Resume / Documents <span class="opt">(optional)</span></label>
+            <div class="fupload" id="eor-upload-wrap">
+              <input type="file" id="eor_resume" name="resume" accept=".pdf,.doc,.docx" onchange="insHandleFile('eor_resume','eor-upload-wrap','eor-file-name')">
+              <div class="fupload__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+              <div class="fupload__txt"><strong>Click to upload</strong> or drag &amp; drop</div>
+              <div class="fupload__hint">.PDF, .DOC, .DOCX — Max 10MB</div>
+              <div class="fupload__name" id="eor-file-name"></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="eor_about">Feel free to tell us about yourself <span class="opt">(optional)</span></label>
+            <textarea id="eor_about" name="about" placeholder="Share anything you'd like us to know &mdash; availability, goals, or a bit about your experience."></textarea>
+          </div>
+          <div class="fcheck">
+            <input type="checkbox" id="eor_terms" name="terms" required>
+            <label for="eor_terms">I agree to the <a href="/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a> and consent to InSync Consulting Services contacting me regarding EOR and payroll services.</label>
+          </div>
+          <div class="fsubmit-wrap">
+            <button type="submit" class="btn btn-primary fsubmit" id="eor-submit-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              Submit EOR / Payroll Application
+            </button>
+            <p class="fnote">Your information is encrypted and kept strictly confidential. We never sell your data.</p>
+          </div>
+        </form>
+      </div>
+
+    </div><!-- /apply__forms -->
+  </div><!-- /wrap -->
+</section>
+</div><!-- /.ins-below -->
+
+</div><!-- /ins-page -->
+
+
+<script>
+/* ── Page: forms, reveal contract, sector attract, icon draw, count-up, checklist, sidebar pin ── */
+(function(){
+  'use strict';
+  var page = document.getElementById('apPage');
+  if(!page) return;
+  page.classList.add('js');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ─────────────────────────────────────────────────
+     GHL WEBHOOK PLACEHOLDER URLs
+     TODO: Replace these with real GHL form webhook URLs when Tim provides GHL access.
+     In GHL: Funnels/Websites → Forms → Integrations → Webhook URL
+     ───────────────────────────────────────────────── */
+  var GHL_WEBHOOK_EDUCATION  = 'https://services.leadconnectorhq.com/hooks/REPLACE_WITH_EDUCATION_WEBHOOK_ID/webhook-trigger/REPLACE_ME';
+  var GHL_WEBHOOK_HEALTHCARE = 'https://services.leadconnectorhq.com/hooks/REPLACE_WITH_HEALTHCARE_WEBHOOK_ID/webhook-trigger/REPLACE_ME';
+  var GHL_WEBHOOK_COMMERCIAL = 'https://services.leadconnectorhq.com/hooks/REPLACE_WITH_COMMERCIAL_WEBHOOK_ID/webhook-trigger/REPLACE_ME';
+  var GHL_WEBHOOK_EOR        = 'https://services.leadconnectorhq.com/hooks/REPLACE_WITH_EOR_WEBHOOK_ID/webhook-trigger/REPLACE_ME';
+
+  var pinSync = null;   /* set by the sidebar pin engine below */
+
+  /* ── Sector tiles: gentle attract cycle until a sector is chosen ── */
+  var attract = (function(){
+    var sec = document.getElementById('choose-sector');
+    var tiles = sec ? sec.querySelectorAll('.sec-card') : [];
+    var timer=null, i=-1, chosen=false, inView=false;
+    function clear(){ tiles.forEach(function(t){ t.classList.remove('is-hot'); }); }
+    function step(){ clear(); i=(i+1)%tiles.length; tiles[i].classList.add('is-hot'); }
+    function start(){ if(chosen||reduce||timer||!inView||!tiles.length) return; step(); timer=setInterval(step,1600); }
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } clear(); }
+    if(sec && tiles.length && !reduce && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ inView=e.isIntersecting; if(inView){ start(); } else { stop(); } });
+      },{threshold:.25}).observe(sec);
+    }
+    return { choose:function(){ chosen=true; stop(); } };
+  })();
+
+  /* ── Sector selection ── */
+  var sectorCards = document.querySelectorAll('.ins-page .sec-card');
+  var formPanels = document.querySelectorAll('.ins-page .fpanel');
+  var promptEl = document.getElementById('applyPrompt');
+
+  window.insSelectSector = function(sector){
+    attract.choose();
+    sectorCards.forEach(function(card){
+      card.classList.toggle('is-active', card.getAttribute('data-sector') === sector);
+    });
+    if(promptEl) promptEl.style.display = 'none';
+    formPanels.forEach(function(panel){ panel.style.display = 'none'; panel.classList.remove('is-show'); });
+    var target = document.getElementById('form-' + sector);
+    if(target){
+      target.style.display = 'block';
+      void target.offsetWidth;            /* restart the slide-in each time */
+      target.classList.add('is-show');
+      setTimeout(function(){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        if(pinSync) pinSync();
+      }, 100);
+    }
+    if(pinSync) pinSync();
+  };
+
+  /* ── File upload display ── */
+  window.insHandleFile = function(inputId, wrapId, nameId){
+    var input = document.getElementById(inputId);
+    var wrap = document.getElementById(wrapId);
+    var nameEl = document.getElementById(nameId);
+    if(input && input.files && input.files.length > 0){
+      wrap.classList.add('has-file');
+      nameEl.style.display = 'block';
+      nameEl.textContent = input.files[0].name;
+    }
+  };
+
+  /* ── Form submission (GHL webhook placeholder) ── */
+  function setupForm(formId, sector, webhookUrl, submitBtnId, successId){
+    var form = document.getElementById(formId);
+    var btn = document.getElementById(submitBtnId);
+    var successEl = document.getElementById(successId);
+    if(!form) return;
+    var btnHTML = btn.innerHTML;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var required = form.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function(field){
+        if(field.type === 'checkbox' && !field.checked){
+          field.style.outline = '2px solid var(--orange)';
+          valid = false;
+          field.addEventListener('change', function(){ field.style.outline = ''; }, {once:true});
+        } else if(field.type !== 'checkbox' && !field.value.trim()){
+          field.style.borderColor = 'var(--orange)';
+          field.style.boxShadow = '0 0 0 3px var(--orange-soft)';
+          valid = false;
+          field.addEventListener('input', function(){
+            field.style.borderColor = '';
+            field.style.boxShadow = '';
+          }, {once:true});
+        }
+      });
+      if(!valid) return;
+
+      btn.disabled = true;
+      btn.innerHTML = '<svg style="animation:insSpin .8s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Submitting...';
+
+      var data = {};
+      var fields = form.querySelectorAll('input:not([type=file]):not([type=checkbox]):not([type=radio]), select, textarea');
+      fields.forEach(function(f){ if(f.name) data[f.name] = f.value; });
+      data.sector = sector;
+      var radios = form.querySelectorAll('input[type=radio]:checked');
+      radios.forEach(function(r){ data[r.name] = r.value; });
+
+      /* NOTE: File upload requires multipart form — GHL handles this separately via form builder.
+         TODO: When GHL form IDs are available, replace this fetch with the actual GHL form submission. */
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(function(){ showSuccess(); })
+      .catch(function(){
+        btn.disabled = false;
+        btn.innerHTML = btnHTML;
+        var errId = 'err-' + formId;
+        if(!document.getElementById(errId)){
+          var errEl = document.createElement('p');
+          errEl.id = errId;
+          errEl.className = 'ferr';
+          errEl.textContent = 'Something went wrong. Please try again or email us at info@insynconline.net.';
+          form.appendChild(errEl);
+        }
+      });
+
+      function showSuccess(){
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        window.scrollTo({top: successEl.getBoundingClientRect().top + window.scrollY - 160, behavior:'smooth'});
+        if(pinSync) pinSync();
+      }
+    });
+  }
+
+  setupForm('educationForm', 'Educational', GHL_WEBHOOK_EDUCATION, 'ed-submit-btn', 'success-education');
+  setupForm('healthcareForm', 'Healthcare', GHL_WEBHOOK_HEALTHCARE, 'hc-submit-btn', 'success-healthcare');
+  setupForm('commercialForm', 'Commercial', GHL_WEBHOOK_COMMERCIAL, 'cm-submit-btn', 'success-commercial');
+  setupForm('eorForm', 'EOR/Payroll', GHL_WEBHOOK_EOR, 'eor-submit-btn', 'success-eor');
+
+  /* v2 reveal contract (donor): threshold:0 + bottom rootMargin (ratio thresholds
+     starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+     safety net, and a scroll sweep for fast flicks. */
+  (function(){
+    var els = document.querySelectorAll('.ins-page .reveal');
+    if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){
+        if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+      });
+    }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+
+    // Stagger sibling reveals in JS so card grids cascade instead of popping as
+    // a slab. Authored d1-d5 delays are left alone.
+    var DELAYED = /(^|\s)d[1-5](\s|$)/;
+    var seen = [];
+    els.forEach(function(el){
+      var p = el.parentElement;
+      if (!p || seen.indexOf(p) !== -1) return;
+      seen.push(p);
+      if (p.classList && p.classList.contains('tl')) return;   /* timeline cards: spine-driven, no sibling delay */
+      var kids = [].slice.call(p.children).filter(function(c){
+        return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+      });
+      if (kids.length < 2) return;
+      kids.forEach(function(c, i){
+        c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+      });
+    });
+
+    // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+    // reveal-everything net would kill every scroll entrance below the fold.
+    requestAnimationFrame(function(){
+      els.forEach(function(el){
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+      });
+    });
+    setTimeout(function(){
+      els.forEach(function(el){
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+      });
+    }, 2500);
+
+    // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+    // short block clean over its trigger line. Catch anything at the observer's
+    // own trigger point (-12% viewport) and nothing below it.
+    var sweepRaf = 0;
+    function sweep(){
+      sweepRaf = 0;
+      var left = document.querySelectorAll('.reveal:not(.in)');
+      for (var i = 0; i < left.length; i++){
+        if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+      }
+      if (!document.querySelectorAll('.reveal:not(.in)').length){
+        window.removeEventListener('scroll', onSweep);
+      }
+    }
+    function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+    window.addEventListener('scroll', onSweep, { passive:true });
+  })();
+
+  /* ── Sector-card icons draw themselves on when the card first reaches the
+        viewport. Path lengths are MEASURED (getTotalLength), never hardcoded. ── */
+  (function(){
+    var cards = [].slice.call(document.querySelectorAll('#choose-sector .sec-card'));
+    if (!cards.length) return;
+    cards.forEach(function(card){
+      var shapes = card.querySelectorAll('.sec-card__ic svg path, .sec-card__ic svg circle, .sec-card__ic svg rect, .sec-card__ic svg line, .sec-card__ic svg polyline');
+      [].forEach.call(shapes, function(s){
+        var len = 0;
+        try { len = s.getTotalLength ? s.getTotalLength() : 0; } catch(e){ len = 0; }
+        if (!len) return;
+        len = Math.ceil(len) + 1;
+        s.setAttribute('stroke-dasharray', len);
+        s.style.setProperty('--dash', len);
+        if (reduce) s.style.strokeDashoffset = '0';
+      });
+    });
+    if (reduce){ cards.forEach(function(c){ c.classList.add('draw'); }); return; }
+    function draw(card){ card.classList.add('draw'); }
+    if (!('IntersectionObserver' in window)){ cards.forEach(draw); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting){ draw(x.target); io.unobserve(x.target); } });
+    }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+    cards.forEach(function(c){ io.observe(c); });
+  })();
+
+  /* ── Sidebar stat: count-up on scroll-in (end state = verbatim text) ── */
+  (function(){
+    var num = page.querySelector('.apply__badge strong');
+    if(!num || reduce || !('IntersectionObserver' in window)) return;
+    var m = /^(\d+)([\s\S]*)$/.exec(num.textContent.trim());
+    if(!m) return;
+    var end = parseInt(m[1],10), suf = m[2], done=false;
+    new IntersectionObserver(function(es,obs){
+      es.forEach(function(e){
+        if(!e.isIntersecting || done) return;
+        done=true; obs.disconnect();
+        var t0=null;
+        function tick(ts){
+          if(!t0) t0=ts;
+          var p=Math.min(1,(ts-t0)/900); p=1-Math.pow(1-p,3);
+          num.textContent = Math.round(end*p) + suf;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    },{threshold:.4}).observe(num);
+  })();
+
+  /* ── "Why Apply" checklist: dots deal in one-by-one, then a soft
+        sequential glow loops while the card is in view ── */
+  (function(){
+    var why = page.querySelector('.apply__why');
+    if(!why) return;
+    var lis = why.querySelectorAll('li');
+    if(reduce || !('IntersectionObserver' in window)){ lis.forEach(function(l){ l.classList.add('tk'); }); return; }
+    var ticked=false, glowTimer=null, g=-1;
+    function glowStep(){ lis.forEach(function(l){ l.classList.remove('hl'); }); g=(g+1)%lis.length; lis[g].classList.add('hl'); }
+    function glowStart(){ if(glowTimer||!ticked) return; glowTimer=setInterval(glowStep,1400); }
+    function glowStop(){ if(glowTimer){ clearInterval(glowTimer); glowTimer=null; } lis.forEach(function(l){ l.classList.remove('hl'); }); }
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          if(!ticked){
+            lis.forEach(function(li,i){ setTimeout(function(){ li.classList.add('tk'); if(i===lis.length-1){ ticked=true; glowStart(); } }, 120+i*140); });
+          } else { glowStart(); }
+        } else { glowStop(); }
+      });
+    },{threshold:.25}).observe(why);
+  })();
+
+  /* ── Sidebar pin: GHL-safe manual absolute→fixed→absolute.
+        sticky positioning silently breaks under GHL's overflow:hidden ancestors;
+        this survives them. No spacer inflation → zero gap risk. Falls back to
+        static flow if a transformed/filtered ancestor breaks position:fixed. ── */
+  (function(){
+    var side = document.getElementById('apSide');
+    var pin  = document.getElementById('apSidePin');
+    if(!side || !pin) return;
+    var mqDesk = window.matchMedia('(min-width:1025px) and (pointer:fine)');
+    var OFFSET = 140, enabled=false, state='';   /* clears the 120px fixed nav */
+
+    function fixedBroken(){
+      for(var n=side.parentElement; n && n!==document.documentElement; n=n.parentElement){
+        var s=window.getComputedStyle(n);
+        if(s.transform!=='none' || s.perspective!=='none' || (s.filter && s.filter!=='none') ||
+           /transform|perspective/.test(s.willChange||'') || /paint|layout|strict|content/.test(s.contain||'')) return true;
+      }
+      return false;
+    }
+    function clearPos(){ pin.style.position=''; pin.style.top=''; pin.style.bottom=''; pin.style.left=''; pin.style.width=''; }
+    function setState(s, r){
+      if(s===state) return;
+      state=s;
+      if(s==='fixed'){
+        pin.style.position='fixed'; pin.style.top=OFFSET+'px'; pin.style.bottom='auto';
+        pin.style.left=r.left+'px'; pin.style.width=r.width+'px';
+      } else if(s==='bottom'){
+        pin.style.position='absolute'; pin.style.top='auto'; pin.style.bottom='0';
+        pin.style.left='0'; pin.style.width='100%';
+      } else if(s==='top'){
+        pin.style.position='absolute'; pin.style.top='0'; pin.style.bottom='auto';
+        pin.style.left='0'; pin.style.width='100%';
+      } else { clearPos(); }  /* 'static' — column shorter than the sidebar */
+    }
+    function onScroll(){
+      if(!enabled) return;
+      var r=side.getBoundingClientRect(), h=pin.offsetHeight;
+      if(r.height<=h+4){ setState('static',r); }
+      else if(r.top>=OFFSET){ setState('top',r); }
+      else if(r.bottom-OFFSET<=h){ setState('bottom',r); }
+      else { setState('fixed',r); }
+    }
+    function setup(){
+      clearPos(); state='';
+      enabled = mqDesk.matches && !reduce && !fixedBroken();
+      if(enabled) onScroll();
+    }
+    pinSync = function(){ requestAnimationFrame(onScroll); };
+    setup();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    var t; window.addEventListener('resize', function(){ clearTimeout(t); t=setTimeout(setup,150); });
+    if(mqDesk.addEventListener) mqDesk.addEventListener('change', setup);
+    window.addEventListener('load', setup);
+  })();
+})();
+</script>
+<script>
+/* ── Hero: drifting brand squares + spring-damped cursor parallax ── */
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var s1 = document.getElementById('apHeroS1');
+
+  /* ---------- drifting brand squares (donor ember drift, re-branded) ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* Hero backdrop is the shared SCROLL-SCRUBBED video (#apScrubVid), fixed
+     behind the hero in the standards §6.11 photo slot. Source URL lives in
+     the scrub script as a runtime constant. */
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ---------- */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        /* Scene moves AGAINST the cursor (negative parallax); near layers travel
+           more than far ones. Depth order, most-to-least travel:
+           squares, copy, BACKGROUND VIDEO (deepest, subtle). */
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        /* the background video moves OPPOSITE the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+})();
+</script>
+<script>
+/* ── Hero: scroll morph (fixed scene fades/scales across 82vh) ── */
+(function(){
+  var hero = document.querySelector('.hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll);
+    document.body.classList.remove('ap-hero-gone'); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+<script>
+/* ── Hero: page-load zoom-out entrance ── */
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // At this point .ap-enter is on (scale 1.12, no transition) and has painted.
+    // Turn ON the transition, force a reflow so the browser registers the zoomed
+    // start value WITH a transition, then remove .ap-enter to animate OUT to scale(1).
+    h.classList.add('ap-entering');
+    void h.offsetWidth;                          // commit "zoomed + transition-armed" state
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy releases in the SAME frame
+    });
+    // Clean up the override once done so the scroll-morph uses its own transition.
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  // Ensure the zoomed-up (.ap-enter) state has painted before we animate out of it.
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+<script>
+/* ── LAYER 1: scroll-scrubbed video + compensated cross-fade ── */
+(function(){
+  'use strict';
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  if (!wrap || !vid) return;
+
+  // Media source as a runtime constant (immune to GHL attribute corruption).
+  var AP_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6abfcc33150d6ea53db14aa4.mp4';   // 12-apply-now-bg (H.264, -g 12)
+  vid.src = AP_SCRUB_VIDEO_URL;
+
+  // decode guard — container/codec refused: drop the layer and flag .ins-novid so the
+  // hero paints its solid navy-deep floor
+  var page = document.getElementById('apPage');
+  vid.addEventListener('error', function(){
+    wrap.classList.remove('is-on'); wrap.style.display = 'none';
+    if (page) page.classList.add('ins-novid');
+  });
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+  // Hero shows the video with the left-fade gradient only; as you leave the hero
+  // the two CROSS-FADE — the directional gradient goes out while a single flat,
+  // even shade comes in, so the Services section sits under a uniform overlay
+  // (no left-to-right falloff) with the cards/text still legible.
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
+    // v2 spec: the hero shows the video CLEAN apart from the constant left-fade
+    // grad; the plain black shade ramps 0->1 across the hero's LAST 45vh so it
+    // is at full strength the moment the SECOND section (Choose Your Sector)
+    // starts, and holds there through the band.
+    var sp = document.getElementById('choose-sector');
+    var svcTop = sp ? (sp.getBoundingClientRect().top + y) : vh;   // absolute top of the sector section
+    // Longer runway + smoothstep easing: the handoff reads as one continuous
+    // darkening rather than a linear ramp with hard endpoints.
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    // The two layers do NOT sum linearly. Fading the gradient out at the same
+    // rate the shade comes in makes the copy side get LIGHTER mid-transition
+    // (0.84 -> ~0.65 -> 0.80) before darkening again. So instead of a fixed
+    // curve, solve for the gradient opacity that holds the COMPOSITE on the
+    // copy side steady as it eases from the gradient's 0.84 to the shade's
+    // 0.80: 1-(1-GA*g)(1-SA*e) = T. The right-hand side of the frame simply
+    // darkens 0 -> 0.80. Result: no dip, no bump, and g reaches 0 continuously
+    // exactly as the shade lands at full.
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers
+      var T = GA + (SA - GA) * e;               // target composite on the copy side
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  // shade runs independently of video readiness, in every mode
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // The scrub spans scrollY 0 (top of hero) -> the bottom of the SECOND
+  // section (Choose Your Sector): frame 1 at the top of the hero, the final frame
+  // as the pinned track's runway ends — the donor page's own hero+Services
+  // span, restored.
+  function scrubEnd(){
+    var sp = document.getElementById('choose-sector');
+    if (!sp) return window.innerHeight;
+    var r = sp.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;   // absolute bottom of the sector section
+  }
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      // static: hold on the first frame
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+    } else {
+      // mobile/touch: simple muted autoplay loop as a moving background
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+
+      // Gate the layer to its span. Visibility and PLAYBACK are decoupled on
+      // purpose: iOS (and older Android) will only decode one video stream at a
+      // time, so if this clip is still playing when the band layer tries to
+      // start, the band's play() is refused and the band stays black. We
+      // therefore release the decoder BEFORE the band probe turns on, while
+      // leaving the layer visible on its frozen last frame — by that point the
+      // shade has ramped to full black over it, so nothing looks different.
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        // v2: on mobile the clip backs the HERO only — the layer's visual
+        // span and its playback both end at the hero, so the loop costs
+        // nothing further down the page.
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;   // seek-cost tracking (sparse/buffering clips)
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  // Resume the loop the moment each seek lands, and measure how long the seek
+  // took: past ~80ms the clip is sparse-keyframed or still buffering, and the
+  // eased approach (many small seeks) would multiply that cost — so slow clips
+  // switch to direct-to-target writes (one seek per update) while spec -g 12
+  // encodes keep the buttery ease.
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    // toggle the whole layer off once we're well past the certs (band video takes over)
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  // rAF loop: ease currentTime toward the scroll-derived target for smoothness.
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      // snap when very close, otherwise ease (kills micro-stutter while staying responsive)
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        // Never issue a new seek while one is in flight. On sparse-keyframe
+        // or still-buffering clips every write aborts and restarts the
+        // pending seek, so no frame ever finishes presenting and the video
+        // looks FROZEN — worst deep into the span (section two), where seeks
+        // are furthest from a keyframe. On spec `-g 12` encodes each seek
+        // completes within a frame, so this gate never engages.
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      // keep animating while not settled
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  // prime
+  schedule();
+})();
+</script>
+<script>
+/* ── Cursor-follow tilt + spotlight (delegated, WeakMap state) ── */
+(function(){
+  'use strict';
+  /* Cursor follow for the sector cards and the Why Apply card: the card
+     tilts toward the pointer and a spotlight tracks it. Spring-damped so the
+     motion feels weighted (same STIFF/DAMP family as the hero parallax); on
+     leave it eases back to rest and returns control to the page's own
+     transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '#choose-sector .sec-card, .apply__why';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element itself and created on first contact, and the
+     pointer is tracked by DELEGATION on the document rather than by listeners
+     bound to a fixed list at load. GHL can replace or re-render a node after
+     this script runs; with per-element binding that card's listeners would be
+     attached to a detached node and it would silently stop responding while
+     every other card kept working. Delegation resolves the card from whatever
+     is under the pointer right now, so a swapped node still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];   /* fallback for environments without WeakMap */
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;          /* tilt toward the pointer */
+      /* service cards carry a base scale from the pin (.96 inactive / 1 active)
+         that must ride along, or the follow would flatten the track's depth */
+      var base = el.classList.contains('pcx__card') ? (el.classList.contains('is-active') ? 1 : 0.96) : 1;
+      var sc = st.hover ? base * 1.012 : base;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        /* fully at rest: hand the element back to its stylesheet transforms */
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');            /* glow fades from the moment you leave */
+    st.schedule();                             /* the tilt springs back on its own */
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;       /* -1..1 */
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    /* SVG children in some engines lack closest(); walk up manually */
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  /* pointer left the window entirely */
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  /* a scroll can move a card out from under a stationary pointer */
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- ============== END INSYNC APPLY NOW PAGE BODY ============== -->
