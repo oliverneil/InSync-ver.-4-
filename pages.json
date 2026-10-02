@@ -104,8 +104,8 @@
     "title": "Employee Hub \u2014 InSync Consulting Services",
     "description": "The InSync Employee Hub \u2014 documents, benefits, payroll and resources for InSync employees."
   },
-  "employee-portal": {
-    "file": "employee-portal.html",
+  "employee-info": {
+    "file": "employee-info.html",
     "nav_label": "Employee Info",
     "status": "ready",
     "title": "Employee Info \u2014 Benefits & Resources Hub | InSync Consulting Services",

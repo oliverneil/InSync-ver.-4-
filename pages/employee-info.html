@@ -1,0 +1,1392 @@
+<!-- ================================================================
+     INSYNC — EMPLOYEE INFO PAGE (GoHighLevel custom-code body block)
+     InSync Website Standards v1.0 skin (Plus Jakarta Sans, orange + navy,
+     semi-square corners) fused with the Apex motion layer per the
+     insync-motion-standards skill: scroll-scrubbed hero video with the
+     compensated gradient→shade cross-fade, Wonder morph hero + page-load
+     entrance, spring parallax with a tilting hero stage, drifting brand
+     squares, 3D enrollment guide with cover scan, looping band video behind
+     the closing CTA (clip-windowed to that section), v2 reveal contract,
+     kinetic clip-wipe headings, cursor-follow tilt + spotlight on every card
+     family, icon settle-in, checklist tick-pop, ambient pointer glow.
+     Paste between the InSync navigation block and footer block, in a
+     full-width section with section/row/column padding = 0.
+     GHL-PASTE-START
+     ================================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.ins-page *,.ins-page *::before,.ins-page *::after{box-sizing:border-box;margin:0;padding:0}
+
+.ins-page{
+  --orange:#ef5a28;--orange-dark:#d54a1c;--orange-light:#ff7a4d;
+  --orange-soft:rgba(239,90,40,.10);--orange-soft2:rgba(239,90,40,.20);
+  --navy:#20335a;--navy-deep:#16223f;--navy-2:#2c4474;
+  --ink:#1b2746;--text:#3c4350;--muted:#6b7280;--white:#fff;
+  --bg-alt:#f5f7fa;--line:#e7eaef;
+  --shadow-sm:0 2px 14px rgba(22,34,63,.06);
+  --shadow:0 18px 48px rgba(22,34,63,.12);
+  --shadow-orange:0 16px 40px rgba(239,90,40,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;
+  position:relative;font-family:var(--f);color:var(--text);background:var(--white);
+  line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;
+  overflow:clip;isolation:isolate;
+}
+
+/* ── Base ── */
+.ins-page h1,.ins-page h2,.ins-page h3,.ins-page h4{font-family:var(--f);color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.ins-page h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
+.ins-page h2{font-size:clamp(2rem,3.8vw,3rem)}
+.ins-page h2 em{font-style:normal;color:var(--orange)}
+.ins-page h3{font-size:1.2rem;font-weight:700}
+.ins-page img{max-width:100%;display:block}
+.ins-page a{text-decoration:none;color:inherit}
+.ins-page .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ins-page .section{padding:100px 0}
+.ins-page .alt{background:var(--bg-alt)}
+
+/* ── Section headers ── */
+.ins-page .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ins-page .lead{font-size:1.06rem;color:var(--muted);max-width:600px}
+.ins-page .head{max-width:680px;margin-bottom:54px}
+.ins-page .head.center{margin-left:auto;margin-right:auto;text-align:center}
+.ins-page .head h2{margin:16px 0 16px}
+
+/* ── Buttons ── */
+.ins-page .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:all .25s var(--ease)}
+.ins-page .btn svg{width:17px;height:17px;transition:transform .25s var(--ease)}
+.ins-page .btn:hover svg{transform:translateX(4px)}
+.ins-page .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ins-page .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-3px);box-shadow:var(--shadow-orange)}
+.ins-page .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.ins-page .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+.ins-page .btn-white{background:#fff;color:var(--orange);border-color:#fff}
+.ins-page .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ins-page .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.ins-page .btn-ghost-w:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── HERO (light standards hero; the motion layer below turns it into the
+   fixed Wonder scene over the scroll-scrubbed video) ── */
+.ins-page .hero{position:relative;background:var(--navy-deep);color:#fff;padding:130px 0 120px;overflow:hidden}
+/* no background image: the scrub video is the only backdrop; the layer's
+   navy-deep floor shows until the clip decodes (or if it is refused) */
+.ins-page.js .hero{background:transparent}
+.ins-page .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.ins-page .hero__copy{max-width:640px}
+.ins-page .hero .eyebrow{color:var(--orange-light)}
+.ins-page .hero__h1{color:#fff;margin:16px 0 14px}
+.ins-page .hero__h1 .hl{color:var(--orange);font-style:normal}
+.ins-page .hero__sub{font-size:1.12rem;color:rgba(255,255,255,.78);max-width:560px;margin:0 0 32px}
+.ins-page .hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
+.ins-page .hero__notice{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:11px 18px;background:rgba(239,90,40,.15);border:1px solid rgba(239,90,40,.3);border-radius:50px;font-size:.8rem;font-weight:600;color:var(--orange-light);line-height:1.45}
+.ins-page .hero__notice svg{width:16px;height:16px;flex-shrink:0;color:var(--orange-light)}
+
+/* Hero stage: four floating resource cards (light card language) that bob
+   and ride the spring parallax with a tilt. The stage is the reveal target;
+   the parallax rides the INNER wrapper so it never fights the reveal. */
+.ins-page .hero__stage{position:relative;height:420px}
+.ins-page .hero__stage-inner{position:relative;width:100%;height:100%;will-change:transform;transform-style:preserve-3d}
+.ins-page .float{position:absolute;display:flex;align-items:center;gap:12px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);white-space:nowrap;animation:insBob 6s ease-in-out infinite}
+.ins-page .float__ic{width:34px;height:34px;border-radius:10px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ins-page .float__ic svg{width:18px;height:18px}
+.ins-page .float__t{font-size:.9rem;font-weight:800;color:var(--ink);line-height:1.2}
+.ins-page .float__s{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px;line-height:1.2}
+.ins-page .float--1{top:2%;left:6%;animation-delay:0s}
+.ins-page .float--2{top:30%;right:0;animation-delay:1.4s}
+.ins-page .float--3{bottom:20%;left:0;animation-delay:.7s}
+.ins-page .float--4{bottom:0;right:10%;animation-delay:2.1s}
+@keyframes insBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ── ENROLLMENT GUIDE (section two of the scrub span) ──
+   Base surface is the standards navy-deep band (so the ghost-white CTA and
+   white copy read everywhere); on desktop with motion it goes transparent
+   over the dimmed footage under the flat shade. */
+.ins-page .enroll{position:relative;z-index:1;background:var(--navy-deep);color:#fff}
+.ins-page .enroll__grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
+.ins-page .enroll .eyebrow{color:var(--orange-light)}
+.ins-page .enroll__copy h2{color:#fff;margin:16px 0 18px}
+.ins-page .enroll__copy p{color:rgba(255,255,255,.78);font-size:1.02rem;max-width:520px}
+.ins-page .enroll__copy p strong{color:#fff}
+.ins-page .enroll__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.ins-page .enroll__stage{perspective:1500px;display:flex;justify-content:center}
+/* the guide itself: a light book with the orange spine, tilted in 3D, that
+   straightens toward the visitor on hover */
+.ins-page .guide__book{position:relative;width:300px;height:400px;transform-style:preserve-3d;transform:rotateY(-24deg) rotateX(6deg);transition:transform .8s var(--ease)}
+.ins-page .enroll__stage:hover .guide__book{transform:rotateY(-12deg) rotateX(3deg)}
+.ins-page .guide__cover{position:absolute;inset:0;border-radius:6px 14px 14px 6px;background:#fff;border:1px solid var(--line);box-shadow:0 44px 80px -22px rgba(22,34,63,.6),0 20px 44px -12px rgba(239,90,40,.22);overflow:hidden;padding:40px 34px}
+.ins-page .guide__cover::before{content:"";position:absolute;top:0;left:0;bottom:0;width:16px;background:linear-gradient(180deg,var(--orange) 0%,var(--orange-light) 100%)}
+.ins-page .guide__cover::after{content:"";position:absolute;top:0;right:0;width:55%;height:55%;background:radial-gradient(circle at 100% 0%,var(--orange-soft) 0%,rgba(239,90,40,0) 60%);pointer-events:none}
+.ins-page .guide__pages{position:absolute;top:6px;bottom:6px;right:-10px;width:12px;background:repeating-linear-gradient(90deg,#fff 0,#fff 1px,var(--line) 1px,var(--line) 2px);border-radius:0 4px 4px 0;transform:translateZ(-6px)}
+.ins-page .guide__eyebrow{position:relative;display:block;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-left:14px}
+.ins-page .guide__bt{position:relative;margin-top:16px;margin-left:14px;font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+.ins-page .guide__bmeta{position:absolute;left:34px;bottom:36px;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ins-page .guide__seal{position:absolute;right:26px;bottom:30px;width:52px;height:52px;border-radius:12px;border:1px solid var(--orange-soft2);background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center}
+.ins-page .guide__seal svg{width:26px;height:26px}
+/* cover scan: content-matched (a document being read), gated on .on */
+.ins-page .guide__scan{position:absolute;left:0;right:0;top:0;height:38%;pointer-events:none;opacity:0;z-index:1;background:linear-gradient(180deg,rgba(239,90,40,0) 0%,rgba(239,90,40,.06) 45%,rgba(239,90,40,.16) 62%,rgba(239,90,40,0) 100%)}
+@keyframes insBookScan{0%{transform:translateY(-40%);opacity:0}12%{opacity:1}70%{opacity:1}100%{transform:translateY(260%);opacity:0}}
+.ins-page .guide__book.on .guide__scan{animation:insBookScan 4.4s var(--ease) infinite}
+
+/* ── Dark feature panel — HSA ── */
+.ins-page .panel{border-radius:20px;padding:46px;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .panel--navy{background:var(--navy);color:#fff}
+.ins-page .panel__ic{width:56px;height:56px;border-radius:14px;background:rgba(239,90,40,.14);color:var(--orange-light);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.ins-page .panel__ic svg{width:26px;height:26px}
+.ins-page .panel h3{color:#fff;font-size:1.4rem;margin-bottom:12px}
+.ins-page .panel p{color:rgba(255,255,255,.78);font-size:.95rem;max-width:560px}
+.ins-page .panel p strong{color:#fff}
+.ins-page .panel__note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 24px;margin-top:24px}
+.ins-page .panel__note-h{font-weight:800;font-size:.95rem;color:#fff;margin-bottom:6px}
+.ins-page .panel__note-d{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7}
+.ins-page .panel__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+/* ── Cards (spec) — accent bar, shadow lift, icon recipe ── */
+.ins-page .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ins-page .spec{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;transition:all .3s var(--ease);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.ins-page .spec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease);z-index:3}
+.ins-page .spec:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:transparent}
+.ins-page .spec:hover::before{transform:scaleY(1)}
+.ins-page .spec__ic{width:52px;height:52px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .3s var(--ease)}
+.ins-page .spec:hover .spec__ic{background:var(--orange);color:#fff}
+.ins-page .spec__ic svg{width:25px;height:25px}
+.ins-page .spec__tag{display:block;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.ins-page .spec h3{margin-bottom:10px}
+.ins-page .spec p{font-size:.9rem;color:var(--muted);margin-bottom:16px;flex:1}
+.ins-page .spec p strong{color:var(--text)}
+.ins-page .spec__meta{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--muted);padding-top:14px;border-top:1px solid var(--line);margin-bottom:16px}
+.ins-page .spec__meta svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
+.ins-page .spec__link{font-weight:700;font-size:.85rem;color:var(--orange);display:inline-flex;align-items:center;gap:7px;margin-top:auto}
+.ins-page .spec__link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.ins-page .spec:hover .spec__link svg{transform:translateX(4px)}
+/* icon tile settles in once its card has revealed */
+@keyframes insIcIn{0%{transform:scale(.86);opacity:.4}100%{transform:scale(1);opacity:1}}
+.ins-page.js .spec.in .spec__ic{animation:insIcIn .55s cubic-bezier(.34,1.56,.64,1) both}
+
+/* Code chips (allowed pill shape) */
+.ins-page .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.ins-page .chip{display:inline-flex;align-items:center;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--orange);background:var(--orange-soft);border:1px solid var(--orange-soft2);border-radius:50px;padding:5px 14px}
+
+/* ── Dual layout (financial) ── */
+.ins-page .dual{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}
+.ins-page .panel--white{background:#fff;border:1px solid var(--line);border-radius:20px;padding:46px;box-shadow:var(--shadow-sm);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.ins-page .panel--white h3{color:var(--ink);font-size:1.4rem;margin:16px 0 12px}
+.ins-page .panel--white .ret-intro{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.ins-page .panel--white .hl{color:var(--orange);font-style:normal}
+
+/* Checklist — orange tick tiles that pop one after another while on screen */
+.ins-page .chk{list-style:none;display:grid;gap:16px;margin:24px 0}
+.ins-page .chk li{display:flex;gap:13px;align-items:flex-start}
+.ins-page .chk__ic{width:26px;height:26px;border-radius:8px;background:var(--orange-soft);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.ins-page .chk__ic svg{width:15px;height:15px}
+.ins-page .chk__name{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:3px}
+.ins-page .chk__note{font-size:.86rem;color:var(--muted);line-height:1.7}
+.ins-page .panel__ctas--light{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+@keyframes insTickPop{0%,100%{background:var(--orange-soft);color:var(--orange);transform:scale(1)}10%{background:var(--orange);color:#fff;transform:scale(1.14)}26%{background:var(--orange-soft2);color:var(--orange);transform:scale(1)}}
+.ins-page .chk.on .chk__ic{animation:insTickPop 6s var(--ease) infinite}
+.ins-page .chk.on li:nth-child(2) .chk__ic{animation-delay:.55s}
+.ins-page .chk.on li:nth-child(3) .chk__ic{animation-delay:1.1s}
+.ins-page .chk.on li:nth-child(4) .chk__ic{animation-delay:1.65s}
+
+/* ── Perk grid (2-col) ── */
+.ins-page .perk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+/* ── CTA band (navy, centered) ── */
+.ins-page .cta{position:relative;background:var(--navy-deep);color:#fff;text-align:center}
+.ins-page .cta .wrap{max-width:720px;position:relative;z-index:1}
+.ins-page .cta .eyebrow{color:var(--orange-light)}
+.ins-page .cta h2{color:#fff;margin:16px 0 16px}
+.ins-page .cta p{color:rgba(255,255,255,.74);font-size:1.06rem;max-width:560px;margin:0 auto 32px}
+.ins-page .cta__ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── Scroll reveal (v2 contract: .js is flagged pre-paint) ── */
+.ins-page.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.ins-page.js .reveal.in{opacity:1;transform:none}
+.ins-page .d1{transition-delay:.08s}.ins-page .d2{transition-delay:.16s}.ins-page .d3{transition-delay:.24s}.ins-page .d4{transition-delay:.32s}.ins-page .d5{transition-delay:.4s}
+
+/* ================================================================
+   MOTION LAYER (insync-motion-standards) — appended; overrides above.
+   ================================================================ */
+
+/* the global nav spacer is not needed while the hero is a fixed full-viewport
+   scene (it carries its own nav clearance); it must return the moment the
+   hero is in normal flow (phones / coarse pointers / reduced motion). */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  body .ins-spacer{ height:0 !important; }
+}
+
+/* ---------- scroll-scrubbed backdrop (Layer 1): ONE continuous clip behind
+   the hero AND the Enrollment Guide. Frame 1 at the top of the hero, final
+   frame at the end of the guide, playhead driven by scroll. The hero shows
+   the video clean apart from the constant left-fade gradient; the flat shade
+   cross-fades in as the guide arrives (compensated composite, see JS). */
+.ins-page .ins-scrub{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:var(--navy-deep); opacity:0; transition:opacity .5s ease; }
+.ins-page .ins-scrub.is-on{ opacity:1; }
+.ins-page .ins-scrub__par{ position:absolute; inset:0; will-change:transform; }
+.ins-page .ins-scrub__vid{ position:absolute; left:50%; top:50%; width:114%; height:114%;
+  transform:translate(-50%,-50%); object-fit:cover; will-change:transform;
+  filter:contrast(1.06) saturate(1.08) brightness(.93); }   /* extra size = parallax room; grade richens high-key footage */
+/* dark band: full strength across the left third, then ONE continuous ease-in-out
+   curve out towards the right edge. No plateau-to-fade corner, no seam. */
+.ins-page .ins-scrub__grad{ position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 22%, rgba(0,0,0,0) 40%),
+    linear-gradient(90deg,
+    rgba(0,0,0,.84) 0%,   rgba(0,0,0,.84) 27%,   rgba(0,0,0,.83) 30%,   rgba(0,0,0,.82) 33.1%,
+    rgba(0,0,0,.80) 36.2%, rgba(0,0,0,.77) 39.3%, rgba(0,0,0,.74) 42.4%, rgba(0,0,0,.70) 45.5%,
+    rgba(0,0,0,.65) 48.6%, rgba(0,0,0,.61) 51.7%, rgba(0,0,0,.55) 54.8%, rgba(0,0,0,.50) 57.9%,
+    rgba(0,0,0,.45) 61%,   rgba(0,0,0,.40) 64.1%, rgba(0,0,0,.35) 67.2%, rgba(0,0,0,.32) 70.3%,
+    rgba(0,0,0,.26) 73.2%, rgba(0,0,0,.18) 76%,   rgba(0,0,0,.09) 78.5%, rgba(0,0,0,0) 80%); }
+.ins-page .ins-scrub__shade{ position:absolute; inset:0; opacity:0; background:rgba(0,0,0,.80); }
+
+/* ---------- Wonder hero: the light hero as a fixed full-viewport scene.
+   Base = fixed; the same media that turns the morph script off returns it
+   to normal flow (phones / coarse pointers / reduced motion). */
+.ins-page .hero--wonder{ position:fixed; inset:0; height:100svh; z-index:40;
+  will-change:opacity,transform; display:flex; align-items:center; padding:0; }
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .hero--wonder .wrap{ padding-top:132px; }       /* clear the fixed nav */
+}
+.ins-page .hero__scene{ position:relative; width:100%; }
+.ins-page .ins-fadespacer{ height:100svh; }                  /* runway the fixed hero fades across */
+
+/* section two (Enrollment Guide) is TRANSPARENT over the fixed backdrop under
+   the flat shade on desktop with motion; everywhere else it keeps its own
+   navy-deep band. */
+@media (min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ins-page .enroll{ background:transparent; }
+}
+
+/* everything after the span paints above the fixed layers. The wrapper is
+   transparent and each section carries its own surface, so the closing CTA
+   can open a window onto the band video. */
+.ins-page .ins-below{ position:relative; z-index:10; background:transparent; }
+.ins-page .ins-below > .section{ background:var(--white); }
+.ins-page .ins-below > .section.alt{ background:var(--bg-alt); }
+.ins-page .ins-below > .section.cta{ background:var(--navy-deep); }
+
+/* ---------- page-load entrance (snap into a zoomed state pre-paint,
+   transition out on load; hero copy holds, then releases in the SAME frame) */
+.ins-page .hero--wonder.ap-enter #apHeroS1{
+  transform:scale(1.12) !important; opacity:.5 !important; transition:none !important; }
+.ins-page .hero--wonder.ap-entering #apHeroS1{
+  transition:transform 1.7s cubic-bezier(.16,.84,.28,1), opacity 1.2s ease !important; }
+.ins-page .hero--wonder.ap-enter .reveal,
+.ins-page .hero--wonder.ap-entering .reveal{
+  opacity:0 !important; transform:translateY(24px) !important; }
+.ins-page .hero--wonder.ap-reveal-hero .reveal{
+  opacity:1 !important; transform:none !important; }
+
+/* ---------- drifting brand squares (orange + navy-2 squares in the hero) */
+.ins-page .hero__sqembers{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
+.ins-page .ins-sq-ember{
+  position:absolute; bottom:-3%;
+  width:var(--sz,7px); height:var(--sz,7px); border-radius:22%;
+  left:var(--x,50%); background:var(--sq-c,var(--orange));
+  opacity:0;
+  animation:insSqDrift var(--t,14s) linear var(--dl,0s) infinite; }
+@keyframes insSqDrift{
+  0%{ transform:translate3d(0,2vh,0) rotate(0deg); opacity:0; }
+  10%{ opacity:var(--op,.2); }
+  85%{ opacity:var(--op,.2); }
+  100%{ transform:translate3d(var(--swx,20px),-108vh,0) rotate(var(--rot,160deg)); opacity:0; }
+}
+
+/* ---------- kinetic clip-wipe headings + descender room ----------
+   Held while the hero is entering; released in the same frame as the copy. */
+.ins-page .wipe{ padding-bottom:.09em; }
+.ins-page .hero__h1.wipe{ padding-bottom:.14em; }
+.ins-page.js .wipe{ clip-path:inset(0 105% 0 0); transition:clip-path 1.05s var(--ease) .12s; }
+.ins-page.js .reveal.in .wipe,
+.ins-page.js .reveal.in.wipe{ clip-path:inset(0 0 0 0); }
+.ins-page.js .hero--wonder.ap-enter .wipe,
+.ins-page.js .hero--wonder.ap-entering .wipe{ clip-path:inset(0 105% 0 0) !important; }
+.ins-page.js .hero--wonder.ap-reveal-hero .wipe{ clip-path:inset(0 0 0 0) !important; }
+
+/* ---------- Layer 2: looping band video behind the closing CTA ----------
+   A second fixed layer, windowed to the CTA's on-screen rect with a per-frame
+   clip-path so it can never paint over neighbouring sections or the footer,
+   whatever their stacking. Desktop / fine-pointer / motion only. */
+.ins-page .ins-bandvid{ position:fixed; inset:0; z-index:0; pointer-events:none; display:none;
+  background:var(--navy-deep); clip-path:inset(100% 0 0 0); }
+.ins-page.band-ok .ins-bandvid{ display:block; }
+.ins-page.band-ok .ins-below > .section.cta{ background:transparent; }
+.ins-page .ins-bandvid__media{ position:absolute; inset:0; overflow:hidden; }
+.ins-page .ins-bandvid__media video{ position:absolute; left:50%; top:50%; width:108%; height:108%;
+  transform:translate(-50%,-50%); object-fit:cover; opacity:0; transition:opacity .6s ease;
+  filter:contrast(1.06) saturate(1.08) brightness(.9); }
+.ins-page .ins-bandvid.on .ins-bandvid__media video{ opacity:1; }
+/* navy veil: the standards navy-deep at the credentials-band density, with a
+   heavier floor top and bottom so the centered copy stays the focus */
+.ins-page .ins-bandvid__shade{ position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(22,34,63,.92) 0%, rgba(22,34,63,.8) 35%, rgba(22,34,63,.8) 65%, rgba(22,34,63,.92) 100%); }
+
+/* ---------- ambient pointer glow (desktop only) ---------- */
+.ins-page .ins-cursor-glow{ position:fixed; top:0; left:0; pointer-events:none; z-index:60; opacity:0;
+  width:400px; height:400px; transform:translate3d(-50%,-50%,0);
+  background:radial-gradient(circle, rgba(239,90,40,.12) 0%, rgba(239,90,40,0) 60%); transition:opacity .4s; }
+.ins-page.cursor-on .ins-cursor-glow{ opacity:1; }
+
+/* ---------- cursor-follow on every card family ----------
+   The card tilts toward the pointer (spring-damped, written per frame by the
+   follow engine) and carries a soft orange spotlight that tracks the cursor.
+   Every family bound in JS appears in every list here. */
+.ins-page .spec, .ins-page .panel--navy, .ins-page .panel--white{ position:relative; transform-style:preserve-3d; }
+.ins-page .spec::after, .ins-page .panel--navy::after, .ins-page .panel--white::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2;
+  opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(239,90,40,.16), rgba(239,90,40,0) 62%); }
+.ins-page .spec.is-glow::after, .ins-page .panel--navy.is-glow::after, .ins-page .panel--white.is-glow::after{ opacity:1; }
+/* while the spring drives transform, only box-shadow may transition */
+.ins-page .spec.is-follow, .ins-page .panel--navy.is-follow, .ins-page .panel--white.is-follow{
+  transition:box-shadow .45s ease !important; transition-delay:0s !important; }
+.ins-page .spec.is-glow, .ins-page .panel--navy.is-glow, .ins-page .panel--white.is-glow{ box-shadow:var(--shadow); }
+.ins-page .panel--navy{ overflow:hidden; }
+.ins-page .panel--white{ position:relative; overflow:hidden; }
+
+/* ---------- cursor restore (scoped + !important, beats a global hide) --- */
+.ins-page, .ins-page *{ cursor:auto !important; }
+.ins-page a[href], .ins-page button, .ins-page .btn, .ins-page label[for], .ins-page [role="button"],
+.ins-page .enroll__stage{ cursor:pointer !important; }
+.ins-page input, .ins-page textarea, .ins-page select{ cursor:text !important; }
+.ins-page input[type="checkbox"], .ins-page input[type="radio"]{ cursor:pointer !important; }
+
+/* ---------- gating: coarse pointers / hover:none / reduced motion --------- */
+@media (hover:none), (pointer:coarse), (max-width:900px){
+  .ins-page .ins-cursor-glow{ display:none; }
+}
+@media (prefers-reduced-motion:reduce), (hover:none), (pointer:coarse){
+  .ins-page .spec::after, .ins-page .panel--navy::after, .ins-page .panel--white::after{ display:none; }
+}
+@media (max-width:1024px), (prefers-reduced-motion:reduce), (pointer:coarse){
+  .ins-page .hero--wonder{ position:relative; inset:auto; height:auto; z-index:auto;
+    display:block; padding:130px 0 120px; }
+  .ins-page .ins-fadespacer{ display:none; }
+  .ins-page .ins-bandvid{ display:none !important; }
+  .ins-page.band-ok .ins-below > .section.cta{ background:var(--navy-deep); }
+}
+@media (prefers-reduced-motion:reduce){
+  .ins-page .hero--wonder.ap-enter #apHeroS1,
+  .ins-page .hero--wonder.ap-entering #apHeroS1{ transform:none !important; opacity:1 !important; }
+  .ins-page .hero--wonder.ap-enter .reveal,
+  .ins-page .hero--wonder.ap-entering .reveal{ opacity:1 !important; transform:none !important; }
+  .ins-page.js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .ins-page.js .wipe{ clip-path:none !important; transition:none !important; }
+  .ins-page .ins-sq-ember{ animation:none; display:none; }
+  .ins-page .float{ animation:none; }
+  .ins-page .hero__stage-inner, .ins-page .ins-scrub__par{ transform:none !important; }
+  .ins-page .guide__scan{ display:none; }
+  .ins-page .guide__book{ transition:none; }
+  .ins-page.js .spec.in .spec__ic{ animation:none; }
+  .ins-page .chk.on .chk__ic{ animation:none !important; background:var(--orange-soft2); color:var(--orange); }
+}
+
+/* ── Responsive (mobile rules stay LAST in source order) ── */
+@media(max-width:1024px){
+  /* in-flow hero over the looping clip: centred copy needs an even veil, not
+     just the left-third plateau (the JS still fades this out into the shade) */
+  .ins-page .ins-scrub__grad{background:linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.6) 40%,rgba(0,0,0,.62) 100%)}
+  .ins-page .hero .wrap{grid-template-columns:1fr;gap:48px;text-align:center}
+  .ins-page .hero__copy{margin:0 auto}
+  .ins-page .hero__sub{margin-left:auto;margin-right:auto}
+  .ins-page .hero__ctas{justify-content:center}
+  .ins-page .hero__stage{height:320px;width:100%;max-width:460px;margin:0 auto;text-align:left}
+  .ins-page .enroll__grid{grid-template-columns:1fr;gap:56px}
+  .ins-page .enroll__copy{order:2}.ins-page .enroll__stage{order:1}
+  .ins-page .spec-grid{grid-template-columns:1fr 1fr}
+  .ins-page .perk-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .ins-page .section{padding:72px 0}
+  .ins-page .wrap{padding:0 20px}
+  .ins-page .hero{padding:104px 0 96px}
+  .ins-page .hero--wonder{padding:104px 0 96px}
+  .ins-page .hero__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .hero__ctas .btn{width:100%;justify-content:center}
+  .ins-page .panel,.ins-page .panel--white{padding:34px}
+  .ins-page .enroll__copy{text-align:center}
+  .ins-page .enroll__copy p{margin-left:auto;margin-right:auto}
+  .ins-page .guide__book{width:240px;height:320px}
+  .ins-page .guide__cover{padding:32px 26px}
+  .ins-page .guide__bt{font-size:1.25rem}
+  .ins-page .enroll__ctas,.ins-page .panel__ctas,.ins-page .panel__ctas--light,.ins-page .cta__ctas{flex-direction:column;align-items:stretch}
+  .ins-page .enroll__ctas .btn,.ins-page .panel__ctas .btn,.ins-page .panel__ctas--light .btn,.ins-page .cta__ctas .btn{width:100%;justify-content:center}
+  .ins-page .spec-grid,.ins-page .dual,.ins-page .perk-grid{grid-template-columns:1fr}
+  .ins-page .btn{min-height:48px}
+}
+@media(max-width:640px){
+  .ins-page .hero__stage{display:none}
+}
+</style>
+
+<div class="ins-page" id="insPage">
+<script>(function(){var p=document.getElementById('insPage');if(p)p.classList.add('js');})();</script>
+
+<!-- LAYER 2 — looping band video behind the closing CTA (declared before the
+     scrub layer so paint order keeps the scrub on top during any overlap) -->
+<div class="ins-bandvid" id="insBandVid" aria-hidden="true">
+  <div class="ins-bandvid__media" id="insBandVidMedia"></div>
+  <div class="ins-bandvid__shade"></div>
+</div>
+
+<!-- LAYER 1 — scroll-scrubbed backdrop: hero + Enrollment Guide. Source is a
+     JS runtime constant (GHL corrupts src attributes). -->
+<div class="ins-scrub" id="apScrub" aria-hidden="true">
+  <div class="ins-scrub__par" id="apScrubPar">
+    <video id="apScrubVid" class="ins-scrub__vid" muted playsinline preload="auto"></video>
+  </div>
+  <div class="ins-scrub__grad"></div>
+  <div class="ins-scrub__shade"></div>
+</div>
+
+<div class="ins-cursor-glow" aria-hidden="true"></div>
+
+<!-- ═══════════ HERO — fixed full-viewport morph scene ═══════════ -->
+<div id="apHeroWrap">
+<header class="hero hero--wonder" id="apHero">
+  <div class="hero__scene" id="apHeroS1">
+    <div class="hero__sqembers" id="apEmbers" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__copy">
+        <span class="eyebrow reveal">Employee Resources</span>
+        <h1 class="hero__h1 reveal d1 wipe">Your <span class="hl">Benefits</span> &amp; Resources Hub</h1>
+        <p class="hero__sub reveal d2">Everything you need as a current InSync employee — from medical enrollment and retirement planning to perks, discounts, and your employee handbook.</p>
+        <div class="hero__ctas reveal d3">
+          <a href="/employee-info/" class="btn btn-primary">Employee Portal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/employee-documents/" class="btn btn-ghost-w">Employee Documents</a>
+        </div>
+        <div class="hero__notice reveal d4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          Most benefits require enrollment by the 1st of the month following your date of hire
+        </div>
+      </div>
+      <div class="hero__stage reveal d2" aria-hidden="true">
+        <div class="hero__stage-inner" id="apStageInner">
+          <div class="float float--1">
+            <div class="float__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+            <div><div class="float__t">Employee Portal</div><div class="float__s">LaborEdge</div></div>
+          </div>
+          <div class="float float--2">
+            <div class="float__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div><div class="float__t">Benefits Overview</div><div class="float__s">Coverage</div></div>
+          </div>
+          <div class="float float--3">
+            <div class="float__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <div><div class="float__t">Retirement</div><div class="float__s">Shield Financial</div></div>
+          </div>
+          <div class="float float--4">
+            <div class="float__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div><div class="float__t">Employee Handbook</div><div class="float__s">Policies</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="ins-fadespacer" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;              /* no entrance for reduced-motion */
+  h.classList.add('ap-enter');       /* set zoomed-up + copy-hidden state before paint */
+})();
+</script>
+
+<!-- ═══════════ ENROLLMENT GUIDE (section two of the scrub span) ═══════════ -->
+<section class="section enroll" id="enroll">
+  <div class="wrap enroll__grid">
+    <div class="enroll__copy reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2 class="wipe">Start Your Benefits <em>Enrollment</em></h2>
+      <p>As an InSync employee you are eligible for medical benefits from the 1st of the month following your start of employment. Download the enrollment guide and form to get started — or call <strong>855-432-3105</strong> between 9am–9pm Eastern Time.</p>
+      <div class="enroll__ctas">
+        <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/InSync-Consulting-Services%20-%20PA050854-2023-Enrollment%20Guide.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Enrollment Info Flyer
+        </a>
+        <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/InSync_Benefit_Guide_w_App_2022.pdf" class="btn btn-ghost-w" target="_blank" rel="noopener">Enrollment Form</a>
+      </div>
+    </div>
+    <div class="enroll__stage reveal d2">
+      <div class="guide__book" id="apBook">
+        <div class="guide__pages"></div>
+        <div class="guide__cover">
+          <span class="guide__scan" aria-hidden="true"></span>
+          <span class="guide__eyebrow">InSync Consulting Services</span>
+          <div class="guide__bt">Benefits Enrollment Guide</div>
+          <span class="guide__bmeta">Medical · Dental · Vision</span>
+          <div class="guide__seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ins-below">
+
+  <!-- ═══════════ QUICK ACCESS ═══════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Quick Access</span>
+        <h2 class="wipe">Your <em>Employee</em> Resources</h2>
+        <p class="lead">Jump directly to what you need — from your portal and documents to benefits guides and the job board.</p>
+      </div>
+
+      <div class="spec-grid">
+        <a href="https://leap.laboredge.com/signin/insync" class="spec reveal" target="_blank" rel="noopener">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+          <h3>Employee Portal</h3>
+          <p>Access your LaborEdge portal for timesheets, assignments, pay stubs, and more.</p>
+          <span class="spec__link">Log In <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/employee-documents/" class="spec reveal d1">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <h3>Employee Documents</h3>
+          <p>Access all important forms, compliance documents, and onboarding materials.</p>
+          <span class="spec__link">View Documents <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/employee-benefits/" class="spec reveal d2">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Benefits Overview</h3>
+          <p>Explore the full InSync employee benefits package in detail.</p>
+          <span class="spec__link">Explore Benefits <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="https://leap.laboredge.com/quicksignup/insync" class="spec reveal d3" target="_blank" rel="noopener">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+          <h3>Refer a Colleague</h3>
+          <p>Know someone who'd be a great fit? Submit a quick application on their behalf.</p>
+          <span class="spec__link">Quick Apply <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="https://leap.laboredge.com/agencyjobboard/insync" class="spec reveal d4" target="_blank" rel="noopener">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3>Job Board</h3>
+          <p>Browse open assignments and new placement opportunities available across the country.</p>
+          <span class="spec__link">Browse Jobs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="tel:8886413444" class="spec reveal d5">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.31h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg></div>
+          <h3>Contact Your Recruiter</h3>
+          <p>Have a question? Reach out to your recruiter or call our main line at (888) 641-3444.</p>
+          <span class="spec__link">Call Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ EMPLOYEE BENEFITS ═══════════ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Employee Benefits</span>
+        <h2 class="wipe">Comprehensive <em>Coverage</em> for You</h2>
+        <p class="lead">InSync offers a robust benefits package designed to support your health, financial well-being, and quality of life — starting the 1st of the month following your hire date.</p>
+      </div>
+
+      <div class="spec-grid">
+        <!-- Medical -->
+        <div class="spec reveal">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <span class="spec__tag">Health</span>
+          <h3>Medical Plans</h3>
+          <p>Choose from three major medical plans — MEC Plan, MEC Heavy Plan, or MVP Plan. Enroll by calling <strong>855-432-3105</strong> between 9am–9pm ET.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/InSync-Consulting-Services%20-%20PA050854-2023-Enrollment%20Guide.pdf" class="spec__link" target="_blank" rel="noopener">View Plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Telemedicine -->
+        <div class="spec reveal d1">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <span class="spec__tag">Telehealth</span>
+          <h3>Telemedicine Plan</h3>
+          <p>MEC and MEC Heavy plan members get <strong>unlimited</strong> access to RealTimeTelemed at <strong>$0 copay</strong>. See a doctor 24/7 from anywhere.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/InSync-Consulting-Services%20-%20PA050854-2023-Enrollment%20Guide.pdf" class="spec__link" target="_blank" rel="noopener">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Dental -->
+        <div class="spec reveal d2">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h.06c.3 1.17 1.35 2 2.58 2h.72c1.23 0 2.28-.83 2.58-2H15c.55 0 1-.45 1-1v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z"/></svg></div>
+          <span class="spec__tag">Dental</span>
+          <h3>Dental Plan</h3>
+          <p>Key Group dental coverage: 100% preventive, 80% basic, 50% major services. Combined annual deductible of only $50 per person.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Dental%2BInsurance%2BInSync%2BBenefit_2019.pdf" class="spec__link" target="_blank" rel="noopener">View Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Vision -->
+        <div class="spec reveal d3">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <span class="spec__tag">Vision</span>
+          <h3>Vision Plan</h3>
+          <p>Vision coverage through Key Benefit Administrators (KBA), one of the largest TPA organizations in the country. Refer to the enrollment application to enroll.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Eye%20Care.pdf" class="spec__link" target="_blank" rel="noopener">View Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Life -->
+        <div class="spec reveal d4">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="spec__tag">Protection</span>
+          <h3>Life Insurance</h3>
+          <p>InSync provides Life Insurance as part of the employee benefits package. Refer to the enrollment application above to enroll in this benefit.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Life%2BInsurance%2BInSync%2B%2BBenefit_2019.pdf" class="spec__link" target="_blank" rel="noopener">View Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Critical Illness -->
+        <div class="spec reveal d5">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <span class="spec__tag">Protection</span>
+          <h3>Critical Illness Insurance</h3>
+          <p>InSync offers Critical Illness Insurance to help protect you from unexpected medical expenses. Refer to the enrollment application above to enroll.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1st of the month following hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Critical%2BIllness%2BInsurance%2BInSync%2B%2BBenefit_2019.pdf" class="spec__link" target="_blank" rel="noopener">View Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FINANCIAL BENEFITS ═══════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Financial Benefits</span>
+        <h2 class="wipe">Save for <em>Today</em> &amp; Tomorrow</h2>
+        <p class="lead">InSync helps you build financial security with a Health Savings Account and a competitive retirement program through Shield Financial Solutions.</p>
+      </div>
+
+      <div class="dual">
+        <!-- HSA (navy panel) -->
+        <div class="panel panel--navy reveal">
+          <div class="panel__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <h3>Health Savings Account (HSA)</h3>
+          <p>InSync is pleased to offer a Health Savings Account — a tax-advantaged way to save and pay for qualified medical expenses. Pair it with your high-deductible health plan for maximum benefit.</p>
+          <div class="panel__note">
+            <div class="panel__note-h">Eligibility</div>
+            <div class="panel__note-d">Available from the 1st of the month following your date of hire. For enrollment details, refer to your enrollment application or contact your recruiter.</div>
+          </div>
+          <div class="panel__ctas">
+            <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/HSA%2BAccount%2BInfo.pdf" class="btn btn-ghost-w" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              HSA Account Info
+            </a>
+          </div>
+        </div>
+
+        <!-- Retirement (white panel) -->
+        <div class="panel--white reveal d2">
+          <span class="eyebrow">Retirement</span>
+          <h3>Retirement Planning With <span class="hl">Shield Financial</span></h3>
+          <p class="ret-intro">InSync has partnered exclusively with Shield Financial Solutions for retirement planning. With 20+ years of experience and a “White Glove” approach, David Hartman's team helps you grow your retirement nest egg through a pre-tax Simple IRA program with competitive employer matching.</p>
+          <ul class="chk">
+            <li>
+              <span class="chk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div>
+                <div class="chk__name">Simple IRA Program</div>
+                <div class="chk__note">Put pre-taxed dollars into a retirement plan of your choice with competitive employer matching.</div>
+              </div>
+            </li>
+            <li>
+              <span class="chk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div>
+                <div class="chk__name">Employer Matching Program</div>
+                <div class="chk__note">InSync contributes to your retirement to help accelerate your savings goals.</div>
+              </div>
+            </li>
+            <li>
+              <span class="chk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div>
+                <div class="chk__name">David Hartman — Shield Financial</div>
+                <div class="chk__note">(916) 912-4463 · (888) 684-4700 · Fax: (916) 985-3376<br>shieldfinancialsolutions.com</div>
+              </div>
+            </li>
+          </ul>
+          <div class="panel__ctas--light">
+            <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Simple-IRA-Brochure.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              IRA Brochure
+            </a>
+            <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Simple-IRA-Employee-Guide.pdf" class="btn btn-outline" target="_blank" rel="noopener">Employee Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PERKS & EXTRAS ═══════════ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Perks &amp; Extras</span>
+        <h2 class="wipe">More Ways We <em>Take Care</em> of You</h2>
+        <p class="lead">Beyond your core benefits, InSync offers education discounts, lifestyle perks, and identity protection — all included as part of your employment.</p>
+      </div>
+
+      <div class="perk-grid">
+        <!-- MyFreeCE -->
+        <div class="spec reveal">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>Continuing Education — MyFreeCE</h3>
+          <p>InSync has partnered with MyFreeCE to offer a discounted annual membership for your continuing education requirements. Join the group, then use the coupon code at checkout on myfreece.com.</p>
+          <div class="chips">
+            <span class="chip">Group Code: ICS17</span>
+            <span class="chip">Coupon: 23DFB58B-30E8</span>
+          </div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Steps%2Bto%2BJoin%2BInSync%2BConsulting%2BServices%2BGroup%2Bon%2BMyFreeCE.pdf" class="spec__link" target="_blank" rel="noopener">How to Join the Group Plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Working Advantage -->
+        <div class="spec reveal d1">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Working Advantage — Employee Perks</h3>
+          <p>Discounts on amusement parks, movie tickets, hotels, museums, zoos, aquariums, Broadway shows, sporting events, and more. Available 24/7 online. Customer support reachable at <strong>800-565-3712</strong>.</p>
+          <div class="chips">
+            <span class="chip">Company Code: insyncperks</span>
+          </div>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Available from date of hire · No cost to employee</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/CS-1241_WA_Client_Serv_Welcome_Flyer_InSync%2BConsulting%2BServices.pdf" class="spec__link" target="_blank" rel="noopener">View Welcome Flyer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- CORE ID -->
+        <div class="spec reveal d2">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>CORE ID — Identity Theft Protection</h3>
+          <p>InSync offers CORE ID Services with ARX-ID Identity Protection and Recovery plans — making affordable identity protection accessible for every employee. Protect what matters most.</p>
+          <div class="spec__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Available from date of hire</div>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/Identity%2BTheft%2BInSync%2BBenefit_2019.pdf" class="spec__link" target="_blank" rel="noopener">View Benefit Options <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <!-- Employee Handbook -->
+        <div class="spec reveal d3">
+          <div class="spec__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h3>Employee Handbook</h3>
+          <p>Everything you need to know about your rights, responsibilities, company policies, and workplace conduct as an InSync employee — including the drug policy.</p>
+          <a href="https://filedn.com/lj3PPzr6Tf1uiBGgKhCJEzh/InSync/PDFs/InSync-Staffing_Employee_Handbook_with_Drug_Policy_8-30-17.pdf" class="spec__link" target="_blank" rel="noopener">Read the Handbook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BAND — window onto the looping band video ═══════════ -->
+  <section class="section cta" id="insCta">
+    <div class="wrap">
+      <div class="head center reveal" style="margin-bottom:0">
+        <span class="eyebrow">Ready to Get Started?</span>
+        <h2 class="wipe">Questions About Your <em>Benefits</em>?</h2>
+        <p>Your recruiter is here to help. Reach out anytime — we're committed to making sure every InSync employee gets the most from their benefits package.</p>
+        <div class="cta__ctas">
+          <a href="/contact-us/" class="btn btn-white">Contact Your Recruiter
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://leap.laboredge.com/signin/insync" class="btn btn-ghost-w" target="_blank" rel="noopener">Access Employee Portal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.ins-below -->
+</div><!-- /.ins-page -->
+
+<script>
+'use strict';
+/* v2 reveal contract: threshold:0 + bottom rootMargin (ratio thresholds
+   starve on tall blocks), JS sibling stagger, above-fold release, on-screen-only
+   safety net, and a scroll sweep for fast flicks. */
+(function(){
+  var els = document.querySelectorAll('.ins-page .reveal');
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }
+    });
+  }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+
+  // Stagger sibling reveals in JS so card grids cascade instead of popping as
+  // a slab. Authored d1-d5 delays are left alone.
+  var DELAYED = /(^|\s)d[1-5](\s|$)/;
+  var seen = [];
+  els.forEach(function(el){
+    var p = el.parentElement;
+    if (!p || seen.indexOf(p) !== -1) return;
+    seen.push(p);
+    var kids = [].slice.call(p.children).filter(function(c){
+      return c.classList && c.classList.contains('reveal') && !DELAYED.test(c.className);
+    });
+    if (kids.length < 2) return;
+    kids.forEach(function(c, i){
+      c.style.transitionDelay = Math.min(i * 0.07, 0.35).toFixed(2) + 's';
+    });
+  });
+
+  // Above-the-fold release, then an ON-SCREEN-ONLY safety net. A blanket
+  // reveal-everything net would kill every scroll entrance below the fold.
+  requestAnimationFrame(function(){
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  });
+  setTimeout(function(){
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('in');
+    });
+  }, 2500);
+
+  // Scroll sweep: IO samples at frame boundaries, so a fast flick can jump a
+  // short block clean over its trigger line.
+  var sweepRaf = 0;
+  function sweep(){
+    sweepRaf = 0;
+    var left = document.querySelectorAll('.ins-page .reveal:not(.in)');
+    for (var i = 0; i < left.length; i++){
+      if (left[i].getBoundingClientRect().top < window.innerHeight * 0.92) left[i].classList.add('in');
+    }
+    if (!document.querySelectorAll('.ins-page .reveal:not(.in)').length){
+      window.removeEventListener('scroll', onSweep);
+    }
+  }
+  function onSweep(){ if (!sweepRaf) sweepRaf = requestAnimationFrame(sweep); }
+  window.addEventListener('scroll', onSweep, { passive:true });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var hero = document.getElementById('apHero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- drifting brand squares ---------- */
+  if (!reduced) {
+    var ew = document.getElementById('apEmbers');
+    for (var i = 0; i < 8; i++) {
+      var e = document.createElement('span');
+      e.className = 'ins-sq-ember';
+      e.style.setProperty('--x', (4 + Math.random()*92) + '%');
+      e.style.setProperty('--sz', (5 + Math.random()*6).toFixed(1) + 'px');
+      e.style.setProperty('--t', (11 + Math.random()*9).toFixed(1) + 's');
+      e.style.setProperty('--dl', (-Math.random()*18).toFixed(1) + 's');
+      e.style.setProperty('--swx', ((Math.random()*120) - 60).toFixed(0) + 'px');
+      e.style.setProperty('--rot', (90 + Math.random()*220).toFixed(0) + 'deg');
+      e.style.setProperty('--op', (0.12 + Math.random()*0.14).toFixed(2));
+      e.style.setProperty('--sq-c', (i % 2 ? 'var(--navy-2)' : 'var(--orange)'));
+      ew.appendChild(e);
+    }
+  }
+
+  /* ---------- parallax: adaptive spring-damped depth (video hero) ----------
+     Layers move AGAINST the cursor, near ones travelling more than far ones:
+     squares > copy > floating stage (which also tilts) > background video.
+     Rides the stage's INNER wrapper so it never fights the reveal. */
+  if (!coarse && !reduced) {
+    var pCopy = hero.querySelector('.hero__copy');
+    var pStage = document.getElementById('apStageInner');
+    var pEmbers = document.getElementById('apEmbers');
+
+    var tx = 0, ty = 0, x = 0, y = 0, vx = 0, vy = 0;
+    var live = true, still = 0;
+    var lastT = performance.now();
+    var mag = 1, scrollDamp = 1;
+
+    function calcMag(){ mag = Math.max(.55, Math.min(1.15, window.innerWidth / 1600)); }
+    calcMag();
+    window.addEventListener('resize', calcMag);
+
+    function calcScroll(){ scrollDamp = Math.max(0, 1 - (window.scrollY / (window.innerHeight * .7))); }
+    calcScroll();
+    window.addEventListener('scroll', function(){ calcScroll(); live = true; still = 0; }, { passive: true });
+
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var nx = (ev.clientX - r.left) / r.width - .5;
+      var ny = (ev.clientY - r.top) / Math.min(r.height, window.innerHeight) - .5;
+      tx = Math.sign(nx) * Math.pow(Math.min(1, Math.abs(nx) * 2), 1.2) * .72;
+      ty = Math.sign(ny) * Math.pow(Math.min(1, Math.abs(ny) * 2), 1.2) * .72;
+      live = true; still = 0;
+    });
+    hero.addEventListener('mouseleave', function(){ tx = 0; ty = 0; live = true; still = 0; });
+
+    var scrubPar = document.getElementById('apScrubPar');
+    var STIFF = 46, DAMP = 12.5;
+    function frame(now){
+      var dt = Math.min(.05, (now - lastT) / 1000) || .016; lastT = now;
+      var gx = tx * scrollDamp, gy = ty * scrollDamp;
+      vx += (gx - x) * STIFF * dt; vx *= Math.exp(-DAMP * dt);
+      vy += (gy - y) * STIFF * dt; vy *= Math.exp(-DAMP * dt);
+      x += vx * dt; y += vy * dt;
+      if (live) {
+        if (pEmbers) pEmbers.style.transform = 'translate3d(' + (-x * 60 * mag) + 'px,' + (-y * 40 * mag) + 'px,0)';
+        if (pCopy)   pCopy.style.transform   = 'translate3d(' + (-x * 44 * mag) + 'px,' + (-y * 30 * mag) + 'px,0)';
+        if (pStage)  pStage.style.transform  = 'translate3d(' + (-x * 26 * mag) + 'px,' + (-y * 18 * mag) + 'px,0) ' +
+                                               'rotateY(' + (-x * 5.5).toFixed(2) + 'deg) rotateX(' + (y * 4.6).toFixed(2) + 'deg)';
+        /* the background video moves opposite the cursor too (deepest layer -> smallest travel) */
+        if (scrubPar) scrubPar.style.transform = 'translate3d(' + (-x * 30 * mag) + 'px,' + (-y * 20 * mag) + 'px,0)';
+        if (Math.abs(gx - x) < .0005 && Math.abs(gy - y) < .0005 && Math.abs(vx) < .001 && Math.abs(vy) < .001) {
+          if (++still > 30) live = false;
+        } else { still = 0; }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.querySelector('.ins-page .hero--wonder');
+  if (!hero) return;
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  var armed=false, raf=0;
+  function paint(){
+    raf=0;
+    var dist = window.innerHeight * 0.82;
+    var t = Math.max(0, Math.min(1, window.scrollY / dist));
+    var e = t*t*(3-2*t);
+    if (t<=0.001) e=0; if (t>=0.999) e=1;
+    hero.style.opacity = String(1-e);
+    hero.style.transform = 'scale(' + (1 + e*1.4).toFixed(4) + ')';
+    hero.style.transformOrigin = '50% 42%';
+    hero.style.filter = e>0.01 ? 'blur(' + (e*10).toFixed(1) + 'px)' : 'none';
+    hero.style.pointerEvents = e>=0.9 ? 'none':'';
+    // fully out: keep it non-interactive & fully transparent (no display toggle => no race)
+    hero.style.visibility = e>=1 ? 'hidden' : 'visible';
+  }
+  function onScroll(){ if(armed && !raf) raf=requestAnimationFrame(paint); }
+  function arm(){ if(mqOff.matches){disarm();return;} if(armed)return;
+    armed=true; window.addEventListener('scroll', onScroll, {passive:true}); paint(); }
+  function disarm(){ armed=false; window.removeEventListener('scroll', onScroll); hero.style.cssText=''; }
+  arm();
+  if (mqOff.addEventListener) mqOff.addEventListener('change', arm);
+  window.addEventListener('resize', function(){ mqOff.matches?disarm():arm(); });
+})();
+</script>
+
+<script>
+(function(){
+  var h = document.getElementById('apHero');
+  if (!h || !h.classList.contains('ap-enter')) return;  // reduced-motion or missing -> skip
+
+  function runEntrance(){
+    // .ap-enter is on (scale 1.12, no transition) and has painted. Arm the
+    // transition, force a reflow, then remove .ap-enter to animate OUT.
+    h.classList.add('ap-entering');
+    void h.offsetWidth;
+    requestAnimationFrame(function(){
+      h.classList.remove('ap-enter');            // 1.12 -> 1 over 1.7s, opacity .5 -> 1
+      h.classList.add('ap-reveal-hero');         // copy + clip-wipe release in the SAME frame
+    });
+    setTimeout(function(){ h.classList.remove('ap-entering'); }, 2400);
+  }
+
+  // Idempotent blank-hero guard, in case the driver above never runs.
+  setTimeout(function(){
+    h.classList.remove('ap-enter');
+    h.classList.remove('ap-entering');
+    h.classList.add('ap-reveal-hero');
+  }, 3000);
+
+  requestAnimationFrame(function(){ requestAnimationFrame(runEntrance); });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* LAYER 1 — scroll-scrubbed backdrop (hero + Enrollment Guide). currentTime
+     is driven by scroll across the span; no loop handoff inside it. Past the
+     span the whole layer drops .is-on. Media URLs are JS constants. */
+  var wrap = document.getElementById('apScrub');
+  var vid  = document.getElementById('apScrubVid');
+  var page = document.getElementById('insPage');
+  if (!wrap || !vid || !page) return;
+
+  /* Automate media: Hive's 15-employee-info-bg clip, re-encoded H.264
+     yuv420p, keyframe every 12 frames, faststart. No background image on
+     this hero; the video is the only backdrop. */
+  var EI_SCRUB_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6abfd110f30b488137b43e44.mp4';
+  vid.src = EI_SCRUB_VIDEO_URL;
+
+  var shade = wrap.querySelector('.ins-scrub__shade');
+  var grad  = wrap.querySelector('.ins-scrub__grad');
+
+  function enrollTop(){
+    var s = document.getElementById('enroll');
+    return s ? (s.getBoundingClientRect().top + window.scrollY) : window.innerHeight;
+  }
+  /* the span runs scrollY 0 -> the BOTTOM of the section after the hero */
+  function scrubEnd(){
+    var s = document.getElementById('enroll');
+    if (!s) return window.innerHeight;
+    var r = s.getBoundingClientRect();
+    return r.top + window.scrollY + r.height;
+  }
+
+  /* Hero shows the video with the left-fade gradient only; as the Enrollment
+     Guide arrives the two CROSS-FADE — the directional gradient goes out while
+     a single flat, even shade comes in. The two layers do NOT sum linearly, so
+     the gradient opacity is solved each frame to hold the copy-side composite
+     steady as it eases from the gradient's .84 to the shade's .80. */
+  function updateShade(){
+    if (!shade) return;
+    var vh = window.innerHeight, y = window.scrollY;
+    var svcTop = enrollTop();
+    var startY = svcTop - vh * 0.72, endY = svcTop;
+    var t = (y - startY) / (endY - startY);
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);          // smoothstep
+    shade.style.opacity = String(e);
+    if (grad){
+      var GA = 0.84, SA = 0.80;                 // peak alphas of the two layers (match CSS)
+      var T = GA + (SA - GA) * e;
+      var den = 1 - SA * e;
+      var g = den > 0.0001 ? (1 - (1 - T) / den) / GA : 0;
+      if (g < 0) g = 0; if (g > 1) g = 1;
+      grad.style.opacity = String(g);
+    }
+  }
+  window.addEventListener('scroll', updateShade, { passive:true });
+  window.addEventListener('resize', updateShade);
+  updateShade();
+
+  /* drop the layer past the end of the span (every non-scrubbing path) */
+  var gated = false;
+  function gateToSpan(){
+    if (gated) return;
+    gated = true;
+    var gate = function(){
+      if (window.scrollY > scrubEnd() + 4) wrap.classList.remove('is-on');
+      else wrap.classList.add('is-on');
+    };
+    window.addEventListener('scroll', gate, { passive:true });
+    window.addEventListener('resize', gate);
+    gate();
+  }
+
+  /* if the clip is refused the layer sits on its navy-deep floor; it still
+     has to be gated to the span */
+  vid.addEventListener('error', function(){
+    vid.style.display = 'none';
+    gateToSpan();
+  });
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine    = window.matchMedia && window.matchMedia('(min-width:1025px) and (pointer:fine)').matches;
+  var touch   = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var canScrub = fine && !touch && !reduced;
+
+  // ---- NON-SCRUB fallbacks ----
+  if (!canScrub){
+    wrap.classList.add('is-on');
+    if (reduced){
+      vid.removeAttribute('autoplay'); vid.pause();
+      var freeze = function(){ try{ vid.currentTime = 0; }catch(e){} vid.pause(); };
+      vid.addEventListener('loadeddata', freeze);
+      gateToSpan();
+    } else {
+      // mobile/touch: muted autoplay loop behind the HERO only
+      vid.loop = true; vid.autoplay = true; vid.muted = true; vid.setAttribute('autoplay','');
+      var pl = function(){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); };
+      vid.addEventListener('loadeddata', pl); pl();
+      var mraf = 0;
+      var mspan = function(){
+        mraf = 0;
+        var vh = window.innerHeight;
+        var hw = document.getElementById('apHeroWrap');
+        var end = hw ? (hw.getBoundingClientRect().top + window.scrollY + hw.offsetHeight) : vh;
+        var hidden = window.scrollY > end + 4;          // visual span
+        var release = window.scrollY > end - vh * 0.75; // decoder release, earlier (iOS single-stream)
+        wrap.classList.toggle('is-on', !hidden);
+        if (release){ if (!vid.paused) vid.pause(); }
+        else if (vid.paused){ pl(); }
+      };
+      window.addEventListener('scroll', function(){
+        if (!mraf) mraf = requestAnimationFrame(mspan);
+      }, { passive:true });
+      window.addEventListener('resize', mspan);
+      mspan();
+    }
+    return;
+  }
+
+  // ---- DESKTOP: scrub currentTime from scroll ----
+  vid.loop = false; vid.autoplay = false; vid.pause();
+
+  var dur = 0, ready = false, target = 0, raf = 0;
+  var lastSeekStart = 0, slowSeeks = false;
+
+  function onMeta(){ dur = vid.duration || 0; ready = dur > 0; wrap.classList.add('is-on'); tick(); }
+  vid.addEventListener('loadedmetadata', onMeta);
+  vid.addEventListener('loadeddata', function(){ if(!ready) onMeta(); });
+  vid.addEventListener('seeked', function(){
+    slowSeeks = (performance.now() - lastSeekStart) > 80;
+    schedule();
+  });
+
+  function computeTarget(){
+    var end = scrubEnd();
+    var y = window.scrollY;
+    var p = end > 0 ? (y / end) : 0;
+    if (p < 0) p = 0; if (p > 1) p = 1;
+    if (y > end + 4) wrap.classList.remove('is-on'); else wrap.classList.add('is-on');
+    return p * dur;
+  }
+
+  function tick(){
+    raf = 0;
+    if (ready){
+      target = computeTarget();
+      var cur = vid.currentTime || 0;
+      var diff = target - cur;
+      if (Math.abs(diff) < 0.008) { /* settled */ }
+      else if (!vid.seeking) {
+        /* never issue a new seek while one is in flight (sparse clips freeze) */
+        var next = slowSeeks ? target : (cur + diff * 0.28);
+        lastSeekStart = performance.now();
+        try { vid.currentTime = next; } catch(e){}
+      }
+      if (Math.abs(target - (vid.currentTime||0)) > 0.008) schedule();
+    }
+  }
+  function schedule(){ if(!raf) raf = requestAnimationFrame(tick); }
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+  schedule();
+
+  /* safety: if metadata never arrives the scrub loop can't gate the layer */
+  setTimeout(function(){ if (!ready) gateToSpan(); }, 4000);
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* LAYER 2 — looping band video behind the closing CTA. A second, independent
+     fixed layer, windowed to the CTA's on-screen rect with a per-frame
+     clip-path (so it can never paint over neighbouring sections or the
+     footer). Built in JS from a URL constant with a decode guard. Desktop /
+     fine-pointer / motion only. */
+  var wrap  = document.getElementById('insBandVid');
+  var media = document.getElementById('insBandVidMedia');
+  var cta   = document.getElementById('insCta');
+  var page  = document.getElementById('insPage');
+  if (!wrap || !media || !cta || !page) return;
+
+  var mqOff = window.matchMedia('(max-width:1024px), (prefers-reduced-motion: reduce), (pointer: coarse)');
+  if (mqOff.matches) return;
+
+  /* position:fixed is also broken by an ancestor carrying a transform,
+     filter, perspective, will-change:transform or contain. Bail rather than
+     shipping a mispositioned layer. */
+  function fixedBroken(el){
+    for (var n = el.parentElement; n && n !== document.body; n = n.parentElement){
+      var cs = getComputedStyle(n);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          /transform/.test(cs.willChange || '') ||
+          /paint|layout|strict|content/.test(cs.contain || '')) return true;
+    }
+    return false;
+  }
+  if (fixedBroken(wrap)) return;
+
+  /* GHL-SWAP: .mp4 H.264 only (Chrome refuses the .mov container). */
+  var EI_BAND_VIDEO_URL = 'https://assets.cdn.filesafe.space/lAvsV54bgyIkgTbpk5QX/media/6a7f57ec8a3ea2b5abee755b.mp4';
+  if (!EI_BAND_VIDEO_URL) return;
+
+  var v = document.createElement('video');
+  v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+  v.setAttribute('playsinline',''); v.preload = 'auto'; v.src = EI_BAND_VIDEO_URL;
+  /* decode guard: a refused clip leaves the CTA on its own navy-deep band */
+  v.addEventListener('error', function(){ page.classList.remove('band-ok'); wrap.classList.remove('on'); });
+  media.appendChild(v);
+  page.classList.add('band-ok');
+
+  var raf = 0, visible = false;
+  function update(){
+    raf = 0;
+    var r = cta.getBoundingClientRect(), vh = window.innerHeight;
+    var on = r.bottom > 0 && r.top < vh;
+    /* window the fixed layer to the CTA's on-screen rect */
+    if (on){
+      var top = Math.max(0, r.top), bot = Math.max(0, vh - r.bottom);
+      wrap.style.clipPath = 'inset(' + top.toFixed(1) + 'px 0 ' + bot.toFixed(1) + 'px 0)';
+    } else {
+      wrap.style.clipPath = 'inset(100% 0 0 0)';
+    }
+    if (on !== visible){
+      visible = on;
+      wrap.classList.toggle('on', on);
+      /* only decode while the window is open */
+      if (on){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+      else if (!v.paused) v.pause();
+    }
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(update); }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* SECTION LOOPS + POINTER GLOW. Every looping visual is gated on an
+     IntersectionObserver so it sits idle off-screen, on a separate .on class
+     (never the reveal class .in). Reduced motion: resolved end-state via CSS. */
+  var page = document.getElementById('insPage');
+  if (!page) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  if (!reduce && 'IntersectionObserver' in window){
+    var loops = page.querySelectorAll('.chk, #apBook');
+    if (loops.length){
+      var lio = new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.target.classList.toggle('on', e.isIntersecting); });
+      }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+      Array.prototype.forEach.call(loops, function(el){ lio.observe(el); });
+    }
+  } else {
+    Array.prototype.forEach.call(page.querySelectorAll('.chk'), function(el){ el.classList.add('on'); });
+  }
+
+  /* ambient pointer glow: desktop / fine-pointer only, off under reduced motion */
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches && window.innerWidth > 1024;
+  if (!fine || reduce) return;
+  var glow = page.querySelector('.ins-cursor-glow');
+  if (!glow) return;
+  var gx = 0, gy = 0, tgx = 0, tgy = 0, idle = 0, raf = 0;
+  function loop(){
+    raf = 0;
+    gx += (tgx - gx) * 0.12; gy += (tgy - gy) * 0.12;
+    glow.style.transform = 'translate3d(' + (gx - 200).toFixed(1) + 'px,' + (gy - 200).toFixed(1) + 'px,0)';
+    var moving = Math.abs(tgx - gx) > 0.4 || Math.abs(tgy - gy) > 0.4;
+    if (moving){ idle = 0; start(); }
+    else if (++idle < 30) start();
+  }
+  function start(){ if (!raf) raf = requestAnimationFrame(loop); }
+  window.addEventListener('mousemove', function(e){
+    tgx = e.clientX; tgy = e.clientY;
+    page.classList.add('cursor-on'); idle = 0; start();
+  }, { passive:true });
+  window.addEventListener('mouseout', function(){ page.classList.remove('cursor-on'); });
+})();
+</script>
+
+<script>
+(function(){
+  'use strict';
+  /* Cursor follow for the resource / benefit / perk cards and the two
+     financial panels: the card tilts toward the pointer and a spotlight
+     tracks it. Spring-damped (same STIFF/DAMP family as the hero parallax);
+     on leave it eases back to rest and returns control to the page's own
+     transitions. Fine pointers only. */
+  var mq = window.matchMedia;
+  if (mq && (mq('(prefers-reduced-motion: reduce)').matches || mq('(hover: none)').matches || mq('(pointer: coarse)').matches)) return;
+  var SEL = '.ins-page .spec, .ins-page .panel--navy, .ins-page .panel--white';
+  var STIFF = 70, DAMP = 13, MAX_RX = 6, MAX_RY = 8;
+
+  /* State is keyed off the element and created on first contact; the pointer
+     is tracked by DELEGATION on the document, so a node GHL re-renders after
+     load still behaves. */
+  var states = (typeof WeakMap === 'function') ? new WeakMap() : null;
+  var stateList = [];
+
+  function stateFor(el){
+    var st = states ? states.get(el) : null;
+    if (!st && !states){
+      for (var i = 0; i < stateList.length; i++){ if (stateList[i].el === el){ st = stateList[i]; break; } }
+    }
+    if (st) return st;
+    st = mkState(el);
+    if (states) states.set(el, st); else stateList.push(st);
+    return st;
+  }
+
+  function mkState(el){
+    var st = { el:el, tx:0, ty:0, x:0, y:0, vx:0, vy:0, hover:false, raf:0, last:0 };
+    function frame(now){
+      st.raf = 0;
+      var dt = Math.min(0.05, (now - (st.last || now)) / 1000); st.last = now;
+      var ax = STIFF * (st.tx - st.x) - DAMP * st.vx;
+      var ay = STIFF * (st.ty - st.y) - DAMP * st.vy;
+      st.vx += ax * dt; st.vy += ay * dt;
+      st.x += st.vx * dt; st.y += st.vy * dt;
+      var rx = -st.y * MAX_RX, ry = st.x * MAX_RY;
+      var sc = st.hover ? 1.012 : 1;
+      var lift = st.hover ? ' translateY(-4px)' : '';
+      el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)' + lift + ' scale(' + sc.toFixed(3) + ')';
+      var moving = Math.abs(st.tx - st.x) > 0.002 || Math.abs(st.ty - st.y) > 0.002 ||
+                   Math.abs(st.vx) > 0.002 || Math.abs(st.vy) > 0.002;
+      if (st.hover || moving){ st.raf = requestAnimationFrame(frame); }
+      else {
+        el.style.transform = '';
+        el.classList.remove('is-follow');
+        st.last = 0;
+      }
+    }
+    st.schedule = function(){ if (!st.raf) st.raf = requestAnimationFrame(frame); };
+    return st;
+  }
+
+  function enter(el){
+    var st = stateFor(el);
+    st.hover = true; el.classList.add('is-follow'); el.classList.add('is-glow'); st.schedule();
+  }
+  function leave(el){
+    var st = stateFor(el);
+    st.hover = false; st.tx = 0; st.ty = 0;
+    el.classList.remove('is-glow');
+    st.schedule();
+  }
+  function track(el, e){
+    var st = stateFor(el);
+    var r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    st.tx = (px - 0.5) * 2; st.ty = (py - 0.5) * 2;
+    el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    st.schedule();
+  }
+
+  var current = null;
+  function onMove(e){
+    var t = e.target;
+    var el = (t && t.closest) ? t.closest(SEL) : null;
+    if (!el && t){
+      var n = t.parentNode;
+      while (n && n.nodeType === 1 && !el){
+        if (n.matches && n.matches(SEL)) el = n;
+        n = n.parentNode;
+      }
+    }
+    if (el !== current){
+      if (current) leave(current);
+      current = el;
+      if (el) enter(el);
+    }
+    if (el) track(el, e);
+  }
+
+  document.addEventListener('mousemove', onMove, { passive:true });
+  document.addEventListener('mouseleave', function(){ if (current){ leave(current); current = null; } });
+  window.addEventListener('scroll', function(){
+    if (current){
+      var r = current.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight){ leave(current); current = null; }
+    }
+  }, { passive:true });
+})();
+</script>
+<!-- GHL-PASTE-END -->
+<!-- ============== END INSYNC EMPLOYEE INFO PAGE ============== -->
